@@ -1,88 +1,361 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dupont Plomberie : dépannage, réparation et installation de plomberie.">
-    <title>Dupont Plomberie | Artisan plombier</title>
+
+    <meta
+        name="description"
+        content="Création de sites web modernes, responsive et professionnels pour les indépendants, artisans et petites entreprises."
+    >
+
+    <meta name="theme-color" content="#0b1f35">
+
+    <title>Studio Web | Création de sites web professionnels</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <!-- En-tête et navigation -->
     <header>
         <div class="container">
-            <a class="logo" href="#">Dupont Plomberie</a>
+            <a class="logo" href="#accueil" aria-label="Studio Web, accueil">
+                Studio<span>Web.</span>
+            </a>
 
-            <nav>
+            <nav aria-label="Navigation principale">
                 <a href="#services">Services</a>
                 <a href="#apropos">À propos</a>
+                <a href="#methode">Méthode</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <p class="eyebrow">Votre artisan plombier</p>
-                <h1>Une fuite ? Un projet ? Nous sommes là pour vous.</h1>
-                <p>Des solutions de plomberie fiables, avec un service de proximité et un travail soigné.</p>
-                <a class="button" href="#contact">Demander un devis</a>
+
+        <!-- Section d'accueil -->
+        <section class="hero" id="accueil">
+            <div class="container hero-layout">
+
+                <div class="hero-content">
+                    <p class="eyebrow">
+                        Création web · Accompagnement personnalisé
+                    </p>
+
+                    <h1>
+                        Votre activité mérite un site qui fait la différence.
+                    </h1>
+
+                    <p class="hero-description">
+                        Une présence en ligne professionnelle, pensée pour
+                        valoriser votre savoir-faire, présenter vos services
+                        et permettre à vos futurs clients de vous contacter.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button" href="#contact">
+                            Parlons de votre projet
+                        </a>
+
+                        <a class="text-link" href="#services">
+                            Découvrir les services →
+                        </a>
+                    </div>
+
+                    <div class="hero-note">
+                        <span class="status-dot"></span>
+                        Un interlocuteur dédié, du début à la mise en ligne
+                    </div>
+                </div>
+
+                <!-- Illustration graphique de démonstration -->
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="visual-card">
+
+                        <div class="visual-top">
+                            <span class="visual-dot"></span>
+                            <span class="visual-dot"></span>
+                            <span class="visual-dot"></span>
+                            <span class="visual-label">VOTRE PROJET</span>
+                        </div>
+
+                        <div class="visual-content">
+                            <p class="visual-kicker">
+                                UNE PRÉSENCE QUI COMPTE
+                            </p>
+
+                            <div class="visual-line visual-line-long"></div>
+                            <div class="visual-line visual-line-short"></div>
+
+                            <div class="visual-feature">
+                                <span class="feature-icon">↗</span>
+
+                                <div>
+                                    <strong>Une image professionnelle</strong>
+                                    <p>Un site cohérent avec votre activité.</p>
+                                </div>
+                            </div>
+
+                            <div class="visual-feature">
+                                <span class="feature-icon">✳</span>
+
+                                <div>
+                                    <strong>Une navigation intuitive</strong>
+                                    <p>Des informations faciles à trouver.</p>
+                                </div>
+                            </div>
+
+                            <div class="visual-cta">
+                                Faisons avancer votre projet
+                                <span>→</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-tag">
+                        <span class="floating-tag-icon">✦</span>
+
+                        <div>
+                            <strong>Une approche sur mesure</strong>
+                            <p>Adaptée à vos besoins</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section id="services" class="section">
+        <!-- Présentation des services -->
+        <section id="services" class="section services">
             <div class="container">
-                <h2>Nos services</h2>
-                <div class="services">
-                    <article class="service">
-                        <h3>Dépannage</h3>
-                        <p>Recherche de fuite et réparation de vos installations.</p>
+
+                <div class="section-heading">
+                    <p class="section-eyebrow">Nos services</p>
+
+                    <h2>Des solutions web adaptées à votre activité</h2>
+
+                    <p>
+                        Que vous lanciez votre entreprise ou souhaitiez
+                        améliorer votre présence en ligne, construisons
+                        une solution adaptée à vos objectifs.
+                    </p>
+                </div>
+
+                <div class="service-grid">
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">⌘</div>
+
+                        <h3>Site vitrine</h3>
+
+                        <p>
+                            Présentez votre entreprise, vos prestations
+                            et vos coordonnées avec un site clair,
+                            moderne et adapté aux mobiles.
+                        </p>
+
+                        <a href="#contact" class="service-link">
+                            Présenter mon activité →
+                        </a>
                     </article>
 
-                    <article class="service">
-                        <h3>Installation</h3>
-                        <p>Installation et remplacement de vos équipements sanitaires.</p>
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">✳</div>
+
+                        <h3>Refonte de site</h3>
+
+                        <p>
+                            Donnez un nouveau souffle à votre site existant
+                            grâce à une présentation plus actuelle,
+                            une meilleure lisibilité et une navigation
+                            simplifiée.
+                        </p>
+
+                        <a href="#contact" class="service-link">
+                            Améliorer mon site →
+                        </a>
                     </article>
 
-                    <article class="service">
-                        <h3>Rénovation</h3>
-                        <p>Accompagnement pour vos projets de rénovation de plomberie.</p>
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">↗</div>
+
+                        <h3>Site responsive</h3>
+
+                        <p>
+                            Offrez à vos visiteurs une expérience agréable
+                            sur ordinateur, tablette et smartphone grâce
+                            à une interface qui s'adapte à leur écran.
+                        </p>
+
+                        <a href="#contact" class="service-link">
+                            Adapter mon site →
+                        </a>
                     </article>
+
                 </div>
             </div>
         </section>
 
-        
+        <!-- Présentation -->
         <section id="apropos" class="section about">
-            <div class="container">
-                <h2>Un artisan à votre écoute</h2>
-                <p>Nous privilégions le conseil, la transparence et le soin apporté à chaque intervention.</p>
+            <div class="container about-layout">
 
-                <div class="zone">
-                    <h3>Notre zone d’intervention</h3>
-                    <p>Nous intervenons dans votre secteur et ses alentours.</p>
-                    <p>Vous avez un projet ou une urgence ? Contactez-nous pour vérifier nos disponibilités.</p>
+                <div class="about-heading">
+                    <p class="section-eyebrow">À propos</p>
+
+                    <h2>Un partenaire web à l'écoute de votre projet</h2>
+                </div>
+
+                <div class="about-content">
+                    <p>
+                        Un site internet doit être plus qu'une simple
+                        présence en ligne : il doit présenter votre activité
+                        clairement et donner envie à vos visiteurs
+                        d'en savoir plus.
+                    </p>
+
+                    <p>
+                        Mon approche repose sur l'écoute, la simplicité
+                        et la création de sites adaptés aux besoins réels
+                        des professionnels.
+                    </p>
+
+                    <ul class="about-list">
+                        <li>Une présentation claire de votre activité</li>
+                        <li>Un affichage adapté aux différents écrans</li>
+                        <li>Une navigation simple et intuitive</li>
+                        <li>Un accompagnement personnalisé à chaque étape</li>
+                    </ul>
+
+                    <a class="button" href="#contact">
+                        Échangeons sur votre projet
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Méthode de travail -->
+        <section id="methode" class="section method">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-eyebrow">Comment ça marche ?</p>
+
+                    <h2>Un projet web, étape par étape</h2>
+
+                    <p>
+                        Un processus simple pour avancer avec une vision
+                        claire du projet, des délais et du résultat attendu.
+                    </p>
+                </div>
+
+                <div class="method-grid">
+
+                    <article class="method-card">
+                        <span class="method-number">01</span>
+
+                        <h3>Échange</h3>
+
+                        <p>
+                            Nous discutons de votre activité, de vos besoins
+                            et des objectifs de votre futur site.
+                        </p>
+                    </article>
+
+                    <article class="method-card">
+                        <span class="method-number">02</span>
+
+                        <h3>Conception</h3>
+
+                        <p>
+                            Je prépare une proposition adaptée au périmètre
+                            convenu et vous la présente pour validation.
+                        </p>
+                    </article>
+
+                    <article class="method-card">
+                        <span class="method-number">03</span>
+
+                        <h3>Réalisation</h3>
+
+                        <p>
+                            Le site est développé, puis ajusté en fonction
+                            de vos retours et des éléments validés.
+                        </p>
+                    </article>
+
+                    <article class="method-card">
+                        <span class="method-number">04</span>
+
+                        <h3>Mise en ligne</h3>
+
+                        <p>
+                            Après validation, nous préparons la publication
+                            du site selon les modalités définies ensemble.
+                        </p>
+                    </article>
+
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <!-- Contact -->
+        <section id="contact" class="section contact">
             <div class="container">
-                <h2>Parlons de votre projet</h2>
-                <p>Contactez-nous pour décrire votre besoin et demander un devis.</p>
-                <a class="button" href="mailto:contact@exemple.fr">Nous contacter par e-mail</a>
-                <p class="note">Adresse fictive pour cette maquette : à remplacer avant toute publication.</p>
+
+                <div class="contact-panel">
+                    <div class="contact-content">
+                        <p class="section-eyebrow">
+                            Parlons de votre projet
+                        </p>
+
+                        <h2>Prêt à donner vie à votre projet web ?</h2>
+
+                        <p>
+                            Expliquez-moi votre besoin, votre activité
+                            et vos objectifs. Nous pourrons échanger
+                            sur une solution adaptée à votre projet.
+                        </p>
+
+                        <!-- Remplacer cette adresse avant une utilisation réelle -->
+                        <a
+                            class="button"
+                            href="mailto:VOTRE-EMAIL@exemple.fr?subject=Mon%20projet%20de%20site%20web"
+                        >
+                            Me contacter par e-mail →
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </section>
+
     </main>
 
+    <!-- Pied de page -->
     <footer>
-        <div class="container">
-            <p>&copy; <span id="year"></span> Dupont Plomberie — Site de démonstration.</p>
+        <div class="container footer-content">
+            <a class="logo footer-logo" href="#accueil">
+                Studio<span>Web.</span>
+            </a>
+
+            <p>
+                Création de sites web pour les professionnels.
+            </p>
+
+            <p class="copyright">
+                © <span id="year"></span> Studio Web.
+                Site de démonstration.
+            </p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
+
