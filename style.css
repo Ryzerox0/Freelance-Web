@@ -1,0 +1,23 @@
+
+/* Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+    line-height: 1.6;
+    background: #ffffff;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+}
