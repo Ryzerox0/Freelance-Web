@@ -4,155 +4,331 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b1020">
-  <meta name="description" content="Studio Web conçoit des sites internet modernes, rapides et adaptés au mobile pour les indépendants et petites entreprises.">
-  <title>Studio Web — Des sites qui inspirent confiance</title>
+  <meta name="description" content="Studio Web accompagne les artisans et petites entreprises dans la création de sites vitrines modernes, adaptés au mobile et conçus pour faciliter les demandes de contact.">
+  <meta name="robots" content="index, follow">
+
+  <title>Studio Web — Création de sites vitrines pour artisans et indépendants</title>
+
+  <link rel="canonical" href="https://freelance-web-932.pages.dev">
+
+  <!-- Aperçu lors du partage sur les réseaux sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Studio Web — Des sites utiles pour ton activité">
+  <meta property="og:description" content="Un site clair, professionnel et adapté au mobile pour présenter ton activité et faciliter les prises de contact.">
+  <meta property="og:url" content="https://freelance-web-932.pages.dev">
+  <meta property="og:image" href="images\logo.png">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-<body>
+
+<body id="top">
+
   <div class="site-shell">
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Studio Web, accueil">
-        <span class="brand-mark">S</span>
-        <span class="brand-name">studio<span>web</span></span>
-      </a>
+      <img
+        class="brand-logo"
+        src="images/Banniere.png"
+        alt=""
+      >
+    </a>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navigation"
+        aria-label="Ouvrir le menu"
+      >
         <span></span><span></span>
         <span class="sr-only">Ouvrir le menu</span>
       </button>
 
       <nav class="navigation" id="navigation" aria-label="Navigation principale">
         <a href="#services">Services</a>
+        <a href="#offre">Tarifs</a>
         <a href="#realisations">Réalisations</a>
-        <a href="#methode">Méthode</a>
+        <a href="#apropos">À propos</a>
         <a href="#faq">FAQ</a>
         <a class="nav-cta" href="#contact">Parlons de ton projet <span>↗</span></a>
       </nav>
     </header>
 
-    <main>
+    <main id="contenu">
+
+      <!-- HERO -->
       <section class="hero section-wrap">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="status-dot"></span> Sites web pour indépendants & petites entreprises</div>
-          <h1>Ton activité mérite une présence <span class="text-gradient">à la hauteur.</span></h1>
-          <p class="hero-lead">Un site moderne, clair et professionnel pour présenter ton savoir-faire, rassurer tes futurs clients et leur donner envie de te contacter.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Construisons ton site <span>↗</span></a>
-            <a class="button button-quiet" href="#realisations"><span class="play-icon">↘</span> Voir les projets</a>
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            Création de sites vitrines pour artisans et petites entreprises
           </div>
+
+          <h1>
+            Transforme ta présence en ligne en <span class="text-gradient">premier contact.</span>
+          </h1>
+
+          <p class="hero-lead">
+            Je conçois des sites clairs, professionnels et adaptés au mobile
+            pour aider tes futurs clients à comprendre tes services, te faire
+            confiance et te contacter plus facilement.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">
+              Parlons de ton projet <span>↗</span>
+            </a>
+            <a class="button button-quiet" href="#realisations">
+              <span class="play-icon">↘</span> Voir les démonstrations
+            </a>
+          </div>
+
           <div class="hero-proof">
             <div class="proof-icon">✳</div>
-            <p><strong>Un interlocuteur unique</strong><br><span>Un échange simple, du premier brief à la mise en ligne.</span></p>
+            <p>
+              <strong>Un interlocuteur unique</strong><br>
+              <span>Un échange direct, des étapes claires et un devis avant de commencer.</span>
+            </p>
           </div>
+
+          <p class="hero-note">
+            Sites vitrines · Design responsive · Contact simplifié
+          </p>
         </div>
 
-        <div class="hero-visual" aria-label="Aperçu illustratif d'un site web sur ordinateur">
+        <div class="hero-visual" role="img" aria-label="Illustration d'un site internet sur ordinateur">
           <div class="visual-glow"></div>
-          <div class="floating-tag tag-top"><span class="tag-dot"></span> Design sur mesure</div>
+          <div class="floating-tag tag-top">
+            <span class="tag-dot"></span> Design adapté à ton activité
+          </div>
+
           <div class="browser-window">
             <div class="browser-bar">
               <div class="browser-dots"><i></i><i></i><i></i></div>
-              <div class="browser-address">votre-activite.fr</div>
+              <div class="browser-address">exemple-site.fr</div>
               <span class="browser-menu">•••</span>
             </div>
+
             <div class="mock-site">
-              <div class="mock-nav"><span class="mock-logo">VOTRE<span>MARQUE.</span></span><span class="mock-nav-links">À propos　 Services　 Contact</span><span class="mock-mini-button">Parlons-en ↗</span></div>
-              <div class="mock-content">
-                <div class="mock-kicker"><span></span> LE SAVOIR-FAIRE AVANT TOUT</div>
-                <div class="mock-title">Faites bonne<br>impression<span>.</span></div>
-                <div class="mock-description">Un service de qualité, une approche humaine, des résultats concrets.</div>
-                <div class="mock-button">Découvrir nos services ↗</div>
-                <div class="mock-stats"><div><strong>01.</strong><small>Expertise</small></div><div><strong>02.</strong><small>Proximité</small></div><div><strong>03.</strong><small>Confiance</small></div></div>
+              <div class="mock-nav">
+                <span class="mock-logo">SITE<span>VITRINE.</span></span>
+                <span class="mock-nav-links">Services　 À propos　 Contact</span>
+                <span class="mock-mini-button">Me contacter ↗</span>
               </div>
+
+              <div class="mock-content">
+                <div class="mock-kicker"><span></span> UN SERVICE DE PROXIMITÉ</div>
+                <div class="mock-title">Un travail<br>bien fait<span>.</span></div>
+                <div class="mock-description">
+                  Une activité bien présentée, des informations claires
+                  et un contact facile.
+                </div>
+                <div class="mock-button">Découvrir les services ↗</div>
+                <div class="mock-stats">
+                  <div><strong>01.</strong><small>Clarté</small></div>
+                  <div><strong>02.</strong><small>Proximité</small></div>
+                  <div><strong>03.</strong><small>Confiance</small></div>
+                </div>
+              </div>
+
               <div class="mock-shape shape-one"></div>
               <div class="mock-shape shape-two"></div>
             </div>
           </div>
-          <div class="floating-tag tag-bottom"><span class="sparkle">✦</span> Pensé pour le mobile</div>
-          <div class="visual-caption"><span class="caption-line"></span> Une présence en ligne qui vous ressemble</div>
+
+          <div class="floating-tag tag-bottom">
+            <span class="sparkle">✦</span> Pensé pour le mobile
+          </div>
+
+          <div class="visual-caption">
+            <span class="caption-line"></span>
+            Une présence en ligne qui te ressemble
+          </div>
         </div>
       </section>
 
-      <section class="trust-strip" aria-label="Engagements">
+      <!-- ENGAGEMENTS -->
+      <section class="trust-strip" aria-label="Les engagements de Studio Web">
         <div class="trust-inner">
-          <span>DES SITES PENSÉS POUR ÊTRE</span>
-          <div><span class="trust-symbol">✳</span> Clairs</div>
-          <div><span class="trust-symbol">↗</span> Adaptés au mobile</div>
-          <div><span class="trust-symbol">◎</span> Faciles à parcourir</div>
-          <div><span class="trust-symbol">⌘</span> Pensés pour vos clients</div>
+          <span>UNE APPROCHE AXÉE SUR</span>
+          <div><span class="trust-symbol">✳</span> La clarté</div>
+          <div><span class="trust-symbol">↗</span> Le mobile</div>
+          <div><span class="trust-symbol">◎</span> La simplicité</div>
+          <div><span class="trust-symbol">⌘</span> Tes clients</div>
         </div>
       </section>
 
+      <!-- SERVICES -->
       <section class="section-wrap section-space" id="services">
         <div class="section-heading">
-          <div><p class="eyebrow">CE QUE JE PEUX FAIRE POUR TOI</p><h2>Le bon site, <span class="text-gradient">sans complexité.</span></h2></div>
-          <p>Pas besoin d'un site compliqué pour faire bonne impression. On part de tes besoins et on construit une solution claire, utile et évolutive.</p>
+          <div>
+            <p class="eyebrow">CE QUE JE PEUX FAIRE POUR TOI</p>
+            <h2>Un site utile, <span class="text-gradient">sans complexité.</span></h2>
+          </div>
+          <p>
+            L'objectif n'est pas d'ajouter des fonctionnalités inutiles.
+            C'est de présenter ton activité clairement et de permettre
+            à tes visiteurs de passer facilement à l'action.
+          </p>
         </div>
+
         <div class="services-grid">
           <article class="service-card">
             <div class="service-icon icon-purple">↗</div>
             <span class="card-index">01 / CRÉATION</span>
             <h3>Site vitrine</h3>
-            <p>Présente ton activité, tes prestations et tes coordonnées dans un site professionnel qui inspire confiance.</p>
+            <p>
+              Présente tes services, tes points forts et tes coordonnées
+              dans un site professionnel conçu pour tes futurs clients.
+            </p>
             <a class="text-link" href="#offre">Découvrir l'offre <span>→</span></a>
           </article>
+
           <article class="service-card">
             <div class="service-icon icon-blue">◈</div>
             <span class="card-index">02 / REFONTE</span>
             <h3>Refonte de site</h3>
-            <p>Ton site paraît daté ou n'est pas agréable sur mobile ? On clarifie le parcours et on modernise son apparence.</p>
+            <p>
+              Ton site est daté ou difficile à utiliser sur téléphone ?
+              Je peux revoir sa présentation, sa structure et ses parcours.
+            </p>
             <a class="text-link" href="#contact">Parler d'une refonte <span>→</span></a>
           </article>
+
           <article class="service-card">
             <div class="service-icon icon-green">⌁</div>
             <span class="card-index">03 / AMÉLIORATION</span>
             <h3>Optimisations</h3>
-            <p>Améliore la lisibilité, la navigation, l'affichage mobile et les bases du référencement de ton site existant.</p>
+            <p>
+              Améliore la lisibilité, les liens de contact, l'affichage
+              mobile et les éléments essentiels du référencement naturel.
+            </p>
             <a class="text-link" href="#contact">Décrire mon besoin <span>→</span></a>
           </article>
         </div>
       </section>
 
+      <!-- OFFRE ET TARIF -->
       <section class="offer-section" id="offre">
         <div class="section-wrap offer-layout">
           <div class="offer-copy">
-            <p class="eyebrow"><span class="status-dot"></span> UNE OFFRE DE DÉPART SIMPLE</p>
-            <h2>Un site professionnel.<br><span class="text-gradient">Un budget lisible.</span></h2>
-            <p>Une base solide pour lancer ou professionnaliser ta présence en ligne, avec un périmètre défini dès le départ.</p>
-            <div class="offer-price"><span>À partir de</span><strong>600 €</strong><small>TTC si applicable, selon ton statut et le devis validé</small></div>
-            <a class="button button-primary" href="#contact">Demander un devis <span>↗</span></a>
+            <p class="eyebrow">
+              <span class="status-dot"></span>
+              UNE OFFRE DE DÉPART CLAIRE
+            </p>
+
+            <h2>Un site professionnel.<br><span class="text-gradient">Un budget défini.</span></h2>
+
+            <p>
+              Une solution pour présenter ton activité en ligne avec un
+              périmètre convenu ensemble avant le début du projet.
+            </p>
+
+            <div class="offer-price">
+              <span>À partir de</span>
+              <strong>600 €</strong>
+              <small>
+                Prix indicatif. Le montant et le traitement de la TVA
+                seront précisés sur le devis selon ton statut.
+              </small>
+            </div>
+
+            <a class="button button-primary" href="#contact">
+              Demander un devis <span>↗</span>
+            </a>
+
+            <p class="offer-small-print">
+              Aucun démarrage sans accord sur le périmètre, le prix et les délais.
+            </p>
           </div>
+
           <div class="offer-card">
-            <div class="offer-card-top"><div><span class="offer-label">SITE VITRINE</span><h3>La présence essentielle</h3></div><span class="offer-check">✓</span></div>
-            <p class="offer-intro">Pour les indépendants et petites entreprises qui veulent être visibles et faciles à contacter.</p>
+            <div class="offer-card-top">
+              <div>
+                <span class="offer-label">SITE VITRINE</span>
+                <h3>La présence essentielle</h3>
+              </div>
+              <span class="offer-check">✓</span>
+            </div>
+
+            <p class="offer-intro">
+              Pour les indépendants, artisans et petites entreprises qui
+              veulent présenter leur activité et faciliter les prises de contact.
+            </p>
+
             <div class="offer-divider"></div>
+
             <ul class="check-list">
-              <li><span>✓</span> 1 à 3 pages selon le besoin</li>
-              <li><span>✓</span> Design adapté au mobile</li>
+              <li><span>✓</span> De 1 à 3 pages, selon le devis</li>
+              <li><span>✓</span> Design adapté aux mobiles et ordinateurs</li>
               <li><span>✓</span> Présentation de l'activité et des services</li>
               <li><span>✓</span> Liens de contact e-mail et téléphone</li>
               <li><span>✓</span> Bases du référencement naturel</li>
-              <li><span>✓</span> Mise en ligne sur l'hébergement du client</li>
-              <li><span>✓</span> 2 séries de retours regroupés</li>
+              <li><span>✓</span> Mise en ligne sur l'hébergement convenu</li>
+              <li><span>✓</span> Deux séries de retours regroupés</li>
             </ul>
-            <div class="offer-note"><span>ⓘ</span><p>Le tarif final dépend du périmètre. Domaine, hébergement, rédaction complète, photos, logo et fonctionnalités avancées sont chiffrés séparément si nécessaire.</p></div>
+
+            <div class="offer-note">
+              <span>ⓘ</span>
+              <p>
+                Le prix définitif dépend du projet. Domaine, hébergement,
+                rédaction complète, photos professionnelles, logo,
+                fonctionnalités avancées et maintenance ne sont pas inclus
+                sauf mention contraire au devis.
+              </p>
+            </div>
+
+            <div class="offer-divider"></div>
+
+            <h4>Comment se déroule le paiement ?</h4>
+            <p>
+              Le devis indiquera l'échéancier retenu, par exemple un acompte
+              au démarrage puis le solde selon les étapes convenues.
+              Le montant de l'acompte sera précisé avant tout engagement.
+            </p>
+
+            <h4>Après la mise en ligne</h4>
+            <p>
+              Les accès, les éléments livrés, les modalités de transfert
+              et les éventuelles prestations de maintenance seront précisés
+              dans le devis ou les conditions convenues.
+            </p>
           </div>
         </div>
       </section>
 
+      <!-- RÉALISATIONS -->
       <section class="section-wrap section-space" id="realisations">
         <div class="section-heading">
-          <div><p class="eyebrow">EXEMPLES DE CONCEPTION</p><h2>Du concret, <span class="text-gradient">pas des promesses.</span></h2></div>
-          <p>Ces deux projets sont des concepts fictifs créés pour illustrer mon approche. Ils ne représentent pas des clients réels.</p>
+          <div>
+            <p class="eyebrow">EXEMPLES DE CONCEPTION</p>
+            <h2>Des exemples concrets, <span class="text-gradient">en toute transparence.</span></h2>
+          </div>
+          <p>
+            Ces deux projets sont des concepts fictifs que j'ai créés pour
+            illustrer des pistes de conception. Ils ne sont pas présentés
+            comme des commandes de clients réels.
+          </p>
         </div>
+
         <div class="projects-grid">
           <article class="project-card">
-            <a class="project-preview preview-plumber" href="demo-plomberie.html" aria-label="Voir la démonstration fictive de plomberie">
-              <div class="preview-browser"><span></span><span></span><span></span><small>exemple-plomberie.fr</small></div>
+            <a
+              class="project-preview preview-plumber"
+              href="demo-plomberie.html"
+              aria-label="Voir la démonstration fictive Dupont Plomberie"
+            >
+              <div class="preview-browser">
+                <span></span><span></span><span></span>
+                <small>exemple-plomberie.fr</small>
+              </div>
+
               <div class="plumber-mock">
                 <div class="plumber-brand">DUPONT<span> PLOMBERIE</span></div>
                 <div class="plumber-kicker">ARTISAN LOCAL · CONCEPT FICTIF</div>
@@ -160,84 +336,401 @@
                 <div class="plumber-button">Découvrir les services ↗</div>
                 <div class="plumber-circle">DP</div>
               </div>
-              <span class="preview-open">Voir le projet ↗</span>
+
+              <span class="preview-open">Voir la démonstration ↗</span>
             </a>
-            <div class="project-meta"><div><span class="project-type">SITE VITRINE · CONCEPT FICTIF</span><h3>Dupont Plomberie</h3></div><a class="round-arrow" href="demo-plomberie.html" aria-label="Ouvrir le projet Dupont Plomberie">↗</a></div>
-            <p>Un concept pour artisan : services lisibles, contact direct et design rassurant.</p>
+
+            <div class="project-meta">
+              <div>
+                <span class="project-type">SITE VITRINE · CONCEPT FICTIF</span>
+                <h3>Dupont Plomberie</h3>
+              </div>
+              <a class="round-arrow" href="demo-plomberie.html" aria-label="Ouvrir la démonstration Dupont Plomberie">↗</a>
+            </div>
+
+            <p>
+              Un exemple de site pour artisan : services visibles,
+              coordonnées accessibles et parcours de contact simplifié.
+            </p>
           </article>
+
           <article class="project-card">
-            <a class="project-preview preview-restaurant" href="demo-restaurant.html" aria-label="Voir la démonstration fictive de restaurant">
-              <div class="preview-browser"><span></span><span></span><span></span><small>exemple-restaurant.fr</small></div>
+            <a
+              class="project-preview preview-restaurant"
+              href="demo-restaurant.html"
+              aria-label="Voir la démonstration fictive Maison Olive"
+            >
+              <div class="preview-browser">
+                <span></span><span></span><span></span>
+                <small>exemple-restaurant.fr</small>
+              </div>
+
               <div class="restaurant-mock">
-                <div class="restaurant-top">MAISON <span>OLIVE</span><small>CUISINE DE SAISON</small></div>
+                <div class="restaurant-top">
+                  MAISON <span>OLIVE</span>
+                  <small>CUISINE DE SAISON</small>
+                </div>
                 <div class="restaurant-heading">Le goût des<br>choses simples.</div>
                 <div class="restaurant-sub">Une table imaginaire, des produits de saison.</div>
                 <div class="restaurant-button">Découvrir la carte</div>
                 <div class="restaurant-orb"></div>
               </div>
-              <span class="preview-open">Voir le projet ↗</span>
+
+              <span class="preview-open">Voir la démonstration ↗</span>
             </a>
-            <div class="project-meta"><div><span class="project-type">SITE VITRINE · CONCEPT FICTIF</span><h3>Maison Olive</h3></div><a class="round-arrow" href="demo-restaurant.html" aria-label="Ouvrir le projet Maison Olive">↗</a></div>
-            <p>Un concept pour restaurant : univers chaleureux, informations essentielles et navigation simple.</p>
+
+            <div class="project-meta">
+              <div>
+                <span class="project-type">SITE VITRINE · CONCEPT FICTIF</span>
+                <h3>Maison Olive</h3>
+              </div>
+              <a class="round-arrow" href="demo-restaurant.html" aria-label="Ouvrir la démonstration Maison Olive">↗</a>
+            </div>
+
+            <p>
+              Un exemple pour restaurant : univers visuel chaleureux,
+              informations essentielles et navigation simple.
+            </p>
           </article>
         </div>
-        <p class="fiction-note"><span>ⓘ</span> Les noms et activités présentés ici sont fictifs. Ces pages sont des démonstrations de design, pas des prestations réalisées pour de vrais clients.</p>
+
+        <p class="fiction-note">
+          <span>ⓘ</span>
+          Les noms et activités présentés ici sont fictifs. Ces pages sont
+          des démonstrations de conception et non des prestations réalisées
+          pour des clients réels.
+        </p>
+
+        <div class="projects-cta">
+          <p>
+            Tu as un projet différent de ces exemples ? On peut discuter
+            de tes besoins et déterminer ensemble le périmètre adapté.
+          </p>
+          <a class="button button-primary" href="#contact">Parler de mon projet <span>↗</span></a>
+        </div>
       </section>
 
+      <!-- À PROPOS -->
+<section class="section-wrap section-space about-section" id="apropos">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">QUI SE CACHE DERRIÈRE STUDIO WEB ?</p>
+      <h2>Un échange direct, <span class="text-gradient">sans intermédiaire.</span></h2>
+    </div>
+  </div>
+
+  <div class="about-layout">
+
+    <!-- Photo -->
+    <div class="about-profile">
+      <div class="about-visual">
+        <img
+          src="images/portrait.png"
+          alt="Portrait de Baptiste, créateur de Studio Web"
+          class="about-photo"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="about-photo-caption">
+        <span class="about-status-dot"></span>
+        <div>
+          <strong>Baptiste Curie-Cadet</strong>
+          <span>Créateur de Studio Web</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Présentation -->
+    <div class="about-copy">
+      <span class="project-type">TON INTERLOCUTEUR</span>
+
+      <h3>
+        Enchanté, moi c'est
+        <span class="text-gradient">Baptiste Curie-Cadet.</span>
+      </h3>
+
+      <p>
+        J'accompagne les indépendants et les petites entreprises dans
+        la création de sites vitrines simples, soignés et adaptés
+        à leurs besoins.
+      </p>
+
+      <p>
+        Mon approche : comprendre ton activité, organiser les
+        informations importantes et concevoir un site qui aide tes
+        visiteurs à trouver ce qu'ils cherchent et à te contacter.
+      </p>
+
+      <p>
+        Tu échanges directement avec moi à chaque étape. Le périmètre,
+        les tarifs et les délais sont définis avant le début du travail.
+      </p>
+
+      <ul class="check-list">
+        <li><span>✓</span> Un contact direct</li>
+        <li><span>✓</span> Des étapes et un devis clairs</li>
+        <li><span>✓</span> Un site pensé pour les utilisateurs mobiles</li>
+      </ul>
+
+      <a class="button button-primary" href="#contact">
+        Faisons connaissance <span>↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+      <!-- MÉTHODE -->
       <section class="process-section" id="methode">
         <div class="section-wrap section-space">
           <div class="section-heading">
-            <div><p class="eyebrow">COMMENT ÇA SE PASSE ?</p><h2>Simple du début <span class="text-gradient">à la fin.</span></h2></div>
-            <p>Tu sais où on va, ce qui est inclus et quelle est la prochaine étape. Pas de surprise sur le périmètre du projet.</p>
+            <div>
+              <p class="eyebrow">COMMENT ÇA SE PASSE ?</p>
+              <h2>Simple du début <span class="text-gradient">à la fin.</span></h2>
+            </div>
+            <p>
+              Tu sais ce qui est prévu, ce qui est inclus et quelle est
+              la prochaine étape. Le projet avance selon un cadre défini ensemble.
+            </p>
           </div>
+
           <div class="process-grid">
-            <article class="process-step"><span class="step-number">01</span><div class="step-line"></div><h3>On échange</h3><p>Tu m'expliques ton activité, tes objectifs et ce dont tu as besoin.</p></article>
-            <article class="process-step"><span class="step-number">02</span><div class="step-line"></div><h3>On cadre le projet</h3><p>Tu reçois un devis clair avec le périmètre, le prix et le calendrier prévus.</p></article>
-            <article class="process-step"><span class="step-number">03</span><div class="step-line"></div><h3>Je construis</h3><p>Je prépare le site et nous regroupons les retours aux étapes convenues.</p></article>
-            <article class="process-step"><span class="step-number">04</span><div class="step-line"></div><h3>On met en ligne</h3><p>Après validation et règlement prévu au devis, le site est déployé sur l'hébergement convenu.</p></article>
+            <article class="process-step">
+              <span class="step-number">01</span>
+              <div class="step-line"></div>
+              <h3>On échange</h3>
+              <p>
+                Tu m'expliques ton activité, tes objectifs et les difficultés
+                que tu souhaites résoudre.
+              </p>
+            </article>
+
+            <article class="process-step">
+              <span class="step-number">02</span>
+              <div class="step-line"></div>
+              <h3>On cadre le projet</h3>
+              <p>
+                Tu reçois un devis qui précise les pages, les fonctionnalités,
+                le prix et le calendrier prévus.
+              </p>
+            </article>
+
+            <article class="process-step">
+              <span class="step-number">03</span>
+              <div class="step-line"></div>
+              <h3>Je conçois le site</h3>
+              <p>
+                Je prépare le site et nous faisons les retours prévus
+                au devis, de manière regroupée.
+              </p>
+            </article>
+
+            <article class="process-step">
+              <span class="step-number">04</span>
+              <div class="step-line"></div>
+              <h3>On met en ligne</h3>
+              <p>
+                Après validation, nous finalisons la livraison et la mise
+                en ligne selon les conditions convenues.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
+      <!-- FAQ -->
       <section class="section-wrap section-space faq-section" id="faq">
         <div class="section-heading">
-          <div><p class="eyebrow">LES QUESTIONS COURANTES</p><h2>Avant de <span class="text-gradient">se lancer.</span></h2></div>
+          <div>
+            <p class="eyebrow">LES QUESTIONS COURANTES</p>
+            <h2>Avant de <span class="text-gradient">se lancer.</span></h2>
+          </div>
           <p>Les réponses essentielles pour avancer sereinement.</p>
         </div>
+
         <div class="faq-list">
-          <details><summary>Combien coûte un site vitrine ? <span>+</span></summary><p>L'offre de départ est proposée à partir de 600 €. Le prix définitif dépend des pages, des contenus et des fonctionnalités. Tout est précisé dans un devis avant le début du travail.</p></details>
-          <details><summary>Combien de temps faut-il prévoir ? <span>+</span></summary><p>Pour un petit site vitrine, compte généralement 10 à 15 jours ouvrés après validation du devis et réception des contenus nécessaires. Le délai exact est confirmé au cas par cas.</p></details>
-          <details><summary>Le domaine et l'hébergement sont-ils inclus ? <span>+</span></summary><p>Non, ils sont généralement réglés séparément par le client auprès du fournisseur choisi. Je peux t'aider à comprendre les options et à préparer la mise en ligne.</p></details>
-          <details><summary>Est-ce que je pourrai modifier le site ensuite ? <span>+</span></summary><p>Oui, selon la solution retenue. Les modalités de modification et d'éventuel accompagnement seront expliquées avant le démarrage.</p></details>
-          <details><summary>Le site sera-t-il adapté au téléphone ? <span>+</span></summary><p>Oui. L'affichage mobile fait partie des points de conception et de vérification prévus pour l'offre de base.</p></details>
+          <details>
+            <summary>Combien coûte un site vitrine ? <span>+</span></summary>
+            <p>
+              L'offre de départ est proposée à partir de 600 €. Le prix final
+              dépend du nombre de pages, des contenus et des fonctionnalités.
+              Tu reçois un devis détaillé avant le début du travail.
+            </p>
+          </details>
+
+          <details>
+            <summary>Combien de temps faut-il prévoir ? <span>+</span></summary>
+            <p>
+              Le délai dépend de la taille du site et de la réception des
+              contenus nécessaires. Le calendrier prévisionnel est indiqué
+              dans le devis. Tout retard lié à des éléments manquants pourra
+              nécessiter une adaptation du planning.
+            </p>
+          </details>
+
+          <details>
+            <summary>Le domaine et l'hébergement sont-ils inclus ? <span>+</span></summary>
+            <p>
+              Sauf mention contraire dans le devis, le nom de domaine et
+              l'hébergement sont payés séparément par le client auprès du
+              fournisseur choisi. Je peux t'accompagner dans la préparation
+              de la mise en ligne.
+            </p>
+          </details>
+
+          <details>
+            <summary>Pourquoi passer par toi plutôt que créer mon site moi-même ? <span>+</span></summary>
+            <p>
+              Des outils comme Wix permettent de créer un site soi-même.
+              Si tu préfères déléguer la structure, la conception et la mise
+              en ligne, je peux prendre en charge le périmètre défini ensemble.
+              Le choix dépend de ton temps, de ton budget et de ton autonomie.
+            </p>
+          </details>
+
+          <details>
+            <summary>Le site sera-t-il visible sur Google ? <span>+</span></summary>
+            <p>
+              Je peux préparer les bases techniques du référencement naturel :
+              structure des titres, titres de page, descriptions et affichage
+              adapté aux mobiles. Le classement dans les résultats de recherche
+              n'est pas garanti et dépend de nombreux facteurs.
+            </p>
+          </details>
+
+          <details>
+            <summary>Peux-tu m'aider à améliorer ma visibilité locale ? <span>+</span></summary>
+            <p>
+              Nous pouvons examiner les informations à présenter sur ton site
+              et les bases de ta présence locale. La création ou l'optimisation
+              d'une fiche d'établissement Google devra être convenue séparément
+              si elle ne figure pas dans le devis.
+            </p>
+          </details>
+
+          <details>
+            <summary>Pourrai-je modifier le site après sa livraison ? <span>+</span></summary>
+            <p>
+              Cela dépend de la solution technique retenue. Avant de commencer,
+              nous clarifierons ce que tu pourras modifier toi-même, les accès
+              qui te seront remis et les éventuelles interventions supplémentaires.
+            </p>
+          </details>
+
+          <details>
+            <summary>À qui appartiendront le site et les accès ? <span>+</span></summary>
+            <p>
+              Les modalités de livraison, les accès, les éléments transférés
+              et les éventuels droits d'utilisation seront précisés par écrit
+              dans les documents convenus pour le projet. Le nom de domaine
+              devrait idéalement être enregistré au nom de ton entreprise.
+            </p>
+          </details>
+
+          <details>
+            <summary>Comment se passe le paiement ? <span>+</span></summary>
+            <p>
+              Le devis précise le prix, l'échéancier et les conditions de
+              paiement avant le démarrage. Aucun acompte ni solde n'est à
+              interpréter sans se référer aux conditions écrites acceptées.
+            </p>
+          </details>
+
+          <details>
+            <summary>Est-ce que tu proposes de la maintenance ? <span>+</span></summary>
+            <p>
+              Un accompagnement après la mise en ligne peut être étudié selon
+              les besoins. Son contenu, sa fréquence et son tarif feront l'objet
+              d'une proposition distincte si nécessaire.
+            </p>
+          </details>
         </div>
       </section>
 
+      <!-- CONTACT -->
       <section class="contact-section" id="contact">
         <div class="section-wrap contact-inner">
-          <div class="contact-orb orb-a"></div><div class="contact-orb orb-b"></div>
-          <p class="eyebrow"><span class="status-dot"></span> LE PREMIER PAS EST SIMPLE</p>
-          <h2>Et si on donnait<br>vie à ton <span class="text-gradient">projet ?</span></h2>
-          <p>Explique-moi ton activité en quelques lignes. On pourra voir ensemble ce qui serait le plus utile pour toi.</p>
+          <div class="contact-orb orb-a"></div>
+          <div class="contact-orb orb-b"></div>
+
+          <p class="eyebrow">
+            <span class="status-dot"></span>
+            UN PREMIER ÉCHANGE, SANS ENGAGEMENT
+          </p>
+
+          <h2>Parlons de ton <span class="text-gradient">projet.</span></h2>
+
+          <p>
+            Explique-moi brièvement ton activité et ce que tu aimerais
+            améliorer. Nous pourrons échanger pendant 15 minutes pour voir
+            si je peux t'aider et définir la prochaine étape.
+          </p>
+
           <div class="contact-actions">
-            <a class="button button-primary button-light" href="mailto:bcuriecadet@gmail.com?subject=Parlons%20de%20mon%20projet%20web">M'écrire un e-mail <span>↗</span></a>
-            <button class="button button-outline" type="button" data-copy-email="bcuriecadet@gmail.com">Copier l'adresse e-mail</button>
+            <a
+              class="button button-primary button-light"
+              href="mailto:bcuriecadet@gmail.com?subject=Premier%20%C3%A9change%20Studio%20Web&body=Bonjour%2C%0A%0AMon%20activit%C3%A9%20%3A%0A%0AMon%20besoin%20%3A%0A%0AMon%20site%20actuel%20(si%20j'en%20ai%20un)%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci%20!"
+            >
+              Demander un premier échange <span>↗</span>
+            </a>
+
+            <button
+              class="button button-outline"
+              type="button"
+              data-copy-email="bcuriecadet@gmail.com"
+            >
+              Copier l'adresse e-mail
+            </button>
           </div>
+
           <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
-          <a class="contact-email" href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>
+
+          <a class="contact-email" href="mailto:bcuriecadet@gmail.com">
+            bcuriecadet@gmail.com
+          </a>
+
+          <p class="contact-note">
+            Le premier échange sert à comprendre ton besoin. Si le projet
+            correspond à mes prestations, je pourrai ensuite te proposer un devis.
+          </p>
         </div>
       </section>
+
     </main>
 
+    <!-- PIED DE PAGE -->
     <footer class="site-footer">
       <div class="footer-main">
-        <a class="brand" href="index.html" aria-label="Studio Web, accueil"><span class="brand-mark">S</span><span class="brand-name">studio<span>web</span></span></a>
+        
+    <a class="brand" href="index.html" aria-label="Studio Web, accueil">
+      <img
+        class="brand-logo"
+        src="images/Banniere.png"
+        alt=""
+      >
+    </a>
+
+
+
         <p>Des sites clairs, modernes et pensés pour ton activité.</p>
-        <a class="back-top" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Retour en haut ↑</a>
+
+        <a class="back-top" href="#top">Retour en haut ↑</a>
       </div>
-      <div class="footer-bottom"><span>© <span id="year"></span> Studio Web · Portfolio indépendant</span><div><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div><span class="footer-location">Conçu avec soin en France ✳</span></div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Studio Web</span>
+
+        <div>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="confidentialite.html">Confidentialité</a>
+        </div>
+
+        <span class="footer-location">Conçu avec soin en France ✳</span>
+      </div>
     </footer>
   </div>
 </body>
 </html>
-
