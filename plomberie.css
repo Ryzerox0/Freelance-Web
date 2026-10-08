@@ -1651,3 +1651,45 @@
     transition-duration: 0.01ms !important;
   }
 }
+/* BOUTON RETOUR AU PORTFOLIO */
+
+.plumbing-site .back-portfolio {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+margin: 20px;
+padding: 12px 18px;
+border: 1px solid var(--pl-green);
+border-radius: 5px;
+background: var(--pl-green);
+color: var(--pl-white);
+font-family: var(--pl-font-body);
+font-size: 12px;
+font-weight: 700;
+text-decoration: none;
+transition:
+background 180ms ease,
+border-color 180ms ease,
+transform 180ms ease;
+}
+
+.plumbing-site .back-portfolio:hover {
+background: var(--pl-green-dark);
+border-color: var(--pl-green-dark);
+color: var(--pl-white);
+transform: translateY(-2px);
+}
+
+.plumbing-site .back-portfolio:focus-visible {
+outline: 3px solid var(--pl-orange);
+outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+.plumbing-site .back-portfolio {
+margin: 12px;
+padding: 10px 14px;
+font-size: 12px;
+}
+}
