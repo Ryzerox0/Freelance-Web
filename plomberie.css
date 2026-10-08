@@ -1,466 +1,1653 @@
-/* ========================================
-   DÉMO PLOMBERIE — STYLE ARTISAN
-   Palette : ivoire, vert forêt, cuivre
-======================================== */
+/* =========================================
+   DUPONT PLOMBERIE
+   Identité claire, artisanale et éditoriale
+   ========================================= */
 
-.plumbing-site {
-  --bg: #f7f5ef;
-  --bg-soft: #eeece3;
-  --panel: #ffffff;
-  --panel-light: #e8eee7;
-  --text: #20392e;
-  --muted: #68776d;
-  --muted-strong: #47594e;
-  --line: rgba(32, 57, 46, 0.14);
-  --line-strong: rgba(32, 57, 46, 0.25);
-  --purple: #b66e45;
-  --blue: #315d49;
-  --green: #dce8d9;
-  --radius: 14px;
-  --radius-small: 8px;
-  --shadow: 0 18px 45px rgba(32, 57, 46, 0.09);
+/* VARIABLES */
 
-  background: var(--bg);
-  color: var(--text);
-  font-family: "DM Sans", Arial, sans-serif;
+:root {
+  --pl-bg: #f8f7f2;
+  --pl-paper: #fffefa;
+  --pl-green: #344d40;
+  --pl-green-dark: #263b30;
+  --pl-green-soft: #e5ebe3;
+  --pl-text: #27332c;
+  --pl-muted: #737a70;
+  --pl-line: #dedfd6;
+  --pl-orange: #c77d5b;
+  --pl-orange-light: #f1e1d7;
+  --pl-white: #ffffff;
+
+  --pl-font-body: "DM Sans", sans-serif;
+  --pl-font-heading: "Manrope", sans-serif;
+
+  --pl-radius: 8px;
+  --pl-radius-large: 18px;
+  --pl-container: 1160px;
 }
 
+/* RESET */
+
 .plumbing-site,
-.plumbing-site *,
-.plumbing-site *::before,
-.plumbing-site *::after {
+.plumbing-site * {
   box-sizing: border-box;
 }
 
-body.plumbing-site {
-  width: 100%;
-  min-height: 100vh;
+.plumbing-site {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--pl-bg);
+  color: var(--pl-text);
+  font-family: var(--pl-font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.plumbing-site img,
+.plumbing-site svg {
+  display: block;
+  max-width: 100%;
 }
 
 .plumbing-site a {
   color: inherit;
-}
-
-/* ========================================
-   EN-TÊTE — HEADER
-======================================== */
-
-body.plumbing-site .site-header {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 18px max(24px, calc((100% - 1160px) / 2));
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-
-  background: #f7f5ef;
-  border-bottom: 1px solid rgba(32, 57, 46, 0.14);
-  box-shadow: none;
-  box-sizing: border-box;
-}
-
-.plumbing-site .site-header .brand {
-  display: inline-flex;
-  align-items: center;
-  flex: 0 0 auto;
-  margin: 0;
-}
-
-.plumbing-site .site-header .brand-name {
-  color: #20392e;
-}
-
-.plumbing-site .brand-mark {
-  background: #315d49;
-  color: #ffffff;
-  border-radius: 8px;
-}
-
-.plumbing-site .navigation {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 24px;
-  margin-left: auto;
-}
-
-.plumbing-site .navigation a {
-  color: #20392e;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
-.plumbing-site .navigation a:hover {
-  color: #b66e45;
+.plumbing-site button,
+.plumbing-site input,
+.plumbing-site textarea,
+.plumbing-site select {
+  font: inherit;
 }
 
-/* Bouton du menu */
-
-.plumbing-site .site-header .navigation .nav-cta {
-  background: #315d49;
-  color: #ffffff;
-  border: 1px solid #315d49;
-  border-radius: 6px;
-  box-shadow: none;
+.plumbing-site button,
+.plumbing-site a,
+.plumbing-site input,
+.plumbing-site textarea,
+.plumbing-site select {
+  -webkit-tap-highlight-color: transparent;
 }
 
-.plumbing-site .site-header .navigation .nav-cta:hover {
-  background: #244737;
-  border-color: #244737;
-  color: #ffffff;
+.plumbing-site button:focus-visible,
+.plumbing-site a:focus-visible,
+.plumbing-site input:focus-visible,
+.plumbing-site textarea:focus-visible,
+.plumbing-site select:focus-visible,
+.plumbing-site summary:focus-visible {
+  outline: 3px solid var(--pl-orange);
+  outline-offset: 4px;
 }
 
-/* ========================================
-   BOUTONS PRINCIPAUX
-======================================== */
-
-.plumbing-site .button-primary {
-  background: #315d49;
-  color: #ffffff;
-  border: 1px solid #315d49;
-  border-radius: 6px;
-  box-shadow: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+.plumbing-site ::selection {
+  background: var(--pl-green);
+  color: var(--pl-white);
 }
 
-.plumbing-site .button-primary:hover {
-  background: #244737;
-  border-color: #244737;
-  transform: translateY(-2px);
+.plumbing-site h1,
+.plumbing-site h2,
+.plumbing-site h3,
+.plumbing-site p {
+  margin-top: 0;
 }
 
-.plumbing-site .button-secondary {
-  color: var(--text);
-  background: transparent;
-  border: 1px solid var(--line-strong);
-  border-radius: 6px;
-  transition: background 0.2s ease, border-color 0.2s ease;
+.plumbing-site h1,
+.plumbing-site h2,
+.plumbing-site h3 {
+  font-family: var(--pl-font-heading);
+  font-weight: 700;
+  letter-spacing: -0.045em;
 }
 
-.plumbing-site .button-secondary:hover {
-  background: var(--panel-light);
-  border-color: var(--blue);
+.plumbing-site h1 {
+  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 5.5vw, 5.3rem);
+  line-height: 1.07;
 }
 
-/* ========================================
-   HERO — SECTION PRINCIPALE
-======================================== */
-
-.plumbing-site .hero,
-.plumbing-site .subpage-hero {
-  background:
-    radial-gradient(
-      ellipse at 85% 20%,
-      rgba(182, 110, 69, 0.10),
-      transparent 38%
-    ),
-    var(--bg);
+.plumbing-site h2 {
+  margin-bottom: 20px;
+  font-size: clamp(2rem, 3.5vw, 3.35rem);
+  line-height: 1.15;
 }
 
-.plumbing-site .eyebrow {
-  color: #9b5d39;
-  letter-spacing: 0.14em;
+.plumbing-site h3 {
+  font-size: 1.3rem;
+  line-height: 1.35;
+}
+
+.plumbing-site p {
+  color: var(--pl-muted);
+}
+
+.plumbing-site .container {
+  width: min(var(--pl-container), calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.plumbing-site .section {
+  padding-block: 112px;
+}
+
+/* DEMO BANNER */
+
+.plumbing-site .demo-banner {
+  padding: 7px 16px;
+  background: var(--pl-green-dark);
+  color: #e7ede6;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-align: center;
   text-transform: uppercase;
 }
 
-.plumbing-site .hero h1,
-.plumbing-site h2,
-.plumbing-site h3 {
-  color: var(--text);
-  letter-spacing: -0.035em;
+/* HEADER */
+
+.plumbing-site .site-header {
+  position: relative;
+  z-index: 20;
+  background: var(--pl-bg);
+  border-bottom: 1px solid rgba(52, 77, 64, 0.12);
 }
 
-.plumbing-site .hero p,
-.plumbing-site .subpage-hero > p:not(.eyebrow),
-.plumbing-site .section-heading p,
-.plumbing-site .service-card p,
-.plumbing-site .offer-card p,
-.plumbing-site .process-grid p,
-.plumbing-site .faq-list p {
-  color: var(--muted);
+.plumbing-site .header-inner {
+  display: flex;
+  min-height: 94px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-/* Texte mis en valeur */
-
-.plumbing-site .text-gradient {
-  color: #315d49;
+.plumbing-site .brand {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 11px;
 }
 
-/* ========================================
-   BANDEAU DE CONFIANCE
-======================================== */
-
-.plumbing-site .trust-strip {
-  background: #e8eee7;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+.plumbing-site .brand-icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  color: var(--pl-green);
 }
 
-.plumbing-site .trust-strip * {
-  color: var(--text);
+.plumbing-site .brand-icon svg {
+  width: 43px;
+  height: 43px;
 }
 
-/* ========================================
-   CARTES ET SECTIONS
-======================================== */
-
-.plumbing-site .service-card,
-.plumbing-site .offer-card,
-.plumbing-site .process-grid > *,
-.plumbing-site .faq-list details {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: none;
+.plumbing-site .brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
 }
 
-.plumbing-site .service-card,
-.plumbing-site .offer-card {
-  transition: transform 0.2s ease, border-color 0.2s ease;
+.plumbing-site .brand-text strong {
+  color: var(--pl-green-dark);
+  font-family: var(--pl-font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
 }
 
-.plumbing-site .service-card:hover,
-.plumbing-site .offer-card:hover {
-  border-color: rgba(49, 93, 73, 0.45);
-  transform: translateY(-4px);
+.plumbing-site .brand-text > span {
+  margin-top: 4px;
+  color: var(--pl-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
 }
 
-.plumbing-site .service-card h3,
-.plumbing-site .offer-card h3 {
-  color: var(--text);
+.plumbing-site .main-navigation {
+  display: flex;
+  align-items: center;
+  gap: 29px;
 }
 
-.plumbing-site .offer-section,
-.plumbing-site .process-section {
-  background: #e8eee7;
+.plumbing-site .main-navigation > a:not(.nav-cta) {
+  color: #525c53;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 180ms ease;
 }
 
-.plumbing-site .offer-card {
-  background: #ffffff;
+.plumbing-site .main-navigation > a:not(.nav-cta):hover {
+  color: var(--pl-orange);
 }
 
-.plumbing-site .offer-card strong,
-.plumbing-site .offer-card li::marker {
-  color: var(--blue);
+.plumbing-site .nav-cta {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 0 18px;
+  border-radius: 5px;
+  background: var(--pl-green);
+  color: var(--pl-white);
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
 }
 
-/* ========================================
-   FAQ
-======================================== */
-
-.plumbing-site .faq-list details {
-  padding: 20px;
+.plumbing-site .nav-cta:hover {
+  transform: translateY(-2px);
+  background: var(--pl-green-dark);
 }
 
-.plumbing-site .faq-list summary {
-  color: var(--text);
+.plumbing-site .nav-cta span {
+  color: #e5b29a;
+}
+
+.plumbing-site .menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--pl-line);
+  border-radius: 5px;
+  background: transparent;
   cursor: pointer;
+}
+
+.plumbing-site .menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--pl-green);
+  transition: transform 180ms ease;
+}
+
+/* HERO */
+
+.plumbing-site .hero {
+  position: relative;
+  padding-top: 78px;
+  overflow: hidden;
+}
+
+.plumbing-site .hero-grid {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.plumbing-site .hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 22px;
+}
+
+.plumbing-site .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 23px;
+  color: var(--pl-green);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.plumbing-site .eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pl-orange);
+}
+
+.plumbing-site .hero h1 {
+  color: var(--pl-green-dark);
+}
+
+.plumbing-site .accent-text {
+  color: var(--pl-orange);
+}
+
+.plumbing-site .hero-description {
+  max-width: 500px;
+  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.plumbing-site .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 25px;
+}
+
+.plumbing-site .button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 23px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.plumbing-site .button:hover {
+  transform: translateY(-2px);
+}
+
+.plumbing-site .button span {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.plumbing-site .button-primary {
+  background: var(--pl-green);
+  color: var(--pl-white);
+}
+
+.plumbing-site .button-primary:hover {
+  background: var(--pl-green-dark);
+}
+
+.plumbing-site .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--pl-green);
+  font-size: 12px;
   font-weight: 700;
 }
 
-/* ========================================
-   CONTACT
-======================================== */
-
-.plumbing-site .contact-section {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  box-sizing: border-box;
-
-  background: #244737;
-  color: #ffffff;
+.plumbing-site .text-link span {
+  color: var(--pl-orange);
+  font-size: 17px;
+  transition: transform 180ms ease;
 }
 
-.plumbing-site .contact-section h2,
-.plumbing-site .contact-section h3,
-.plumbing-site .contact-section p,
-.plumbing-site .contact-section a {
-  color: #ffffff;
+.plumbing-site .text-link:hover span {
+  transform: translate(3px, -2px);
 }
 
-.plumbing-site .contact-section .button-primary {
-  background: #c27b50;
-  border-color: #c27b50;
-  color: #ffffff;
+.plumbing-site .hero-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 38px;
+  color: var(--pl-muted);
+  font-size: 12px;
 }
 
-.plumbing-site .contact-section .button-primary:hover {
-  background: #a96540;
-  border-color: #a96540;
+.plumbing-site .note-check {
+  display: grid;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--pl-green-soft);
+  color: var(--pl-green);
+  font-size: 12px;
+  font-weight: 800;
 }
 
-/* ========================================
-   PIED DE PAGE — FOOTER
-   Fond vert forêt pleine largeur
-======================================== */
+/* HERO ILLUSTRATION */
 
-body.plumbing-site .site-footer {
-  display: block;
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0 24px;
-
-  background: #20392e;
-  color: #e9eee9;
-  border-top: 0;
-  box-sizing: border-box;
+.plumbing-site .hero-visual {
+  position: relative;
+  display: flex;
+  min-height: 470px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: var(--pl-radius-large);
+  background: #e6ebe1;
 }
 
-/* Première ligne : logo, description, retour en haut */
+.plumbing-site .visual-topline {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #68776a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
 
-.plumbing-site .footer-main {
+.plumbing-site .pipe-illustration {
+  position: absolute;
+  inset: 0;
+}
+
+.plumbing-site .pipe {
+  position: absolute;
+  z-index: 1;
+  border: 19px solid #66806c;
+  box-shadow:
+    inset 3px 3px 0 rgba(255, 255, 255, 0.3),
+    4px 8px 0 rgba(39, 51, 44, 0.08);
+}
+
+.plumbing-site .pipe-vertical {
+  top: 80px;
+  left: 35%;
+  width: 68px;
+  height: 265px;
+  border-radius: 35px;
+}
+
+.plumbing-site .pipe-horizontal {
+  top: 276px;
+  left: 35%;
+  width: 200px;
+  height: 68px;
+  border-radius: 35px;
+}
+
+.plumbing-site .pipe-curve {
+  top: 276px;
+  left: calc(35% + 132px);
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(45deg);
+}
+
+.plumbing-site .pipe-joint {
+  position: absolute;
+  z-index: 2;
+  width: 82px;
+  height: 13px;
+  border-radius: 10px;
+  background: #b2c0af;
+  box-shadow: 0 3px 4px rgba(39, 51, 44, 0.12);
+}
+
+.plumbing-site .joint-one {
+  top: 142px;
+  left: calc(35% - 7px);
+}
+
+.plumbing-site .joint-two {
+  top: 279px;
+  left: calc(35% + 75px);
+  transform: rotate(90deg);
+}
+
+.plumbing-site .joint-three {
+  top: 326px;
+  left: calc(35% + 175px);
+}
+
+.plumbing-site .water-drop {
+  position: absolute;
+  top: 37%;
+  right: 17%;
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  border: 1px solid rgba(199, 125, 91, 0.35);
+  border-radius: 50%;
+  background: #f8e7dd;
+  color: var(--pl-orange);
+  font-size: 35px;
+}
+
+.plumbing-site .visual-caption {
+  position: relative;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-
-  width: 100%;
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 30px 0;
-
-  box-sizing: border-box;
+  gap: 20px;
+  padding: 20px 22px;
+  border: 1px solid rgba(52, 77, 64, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 254, 250, 0.92);
+  backdrop-filter: blur(8px);
 }
 
-.plumbing-site .footer-main .brand {
+.plumbing-site .visual-caption > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.plumbing-site .caption-label {
+  color: var(--pl-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.plumbing-site .visual-caption strong {
+  color: var(--pl-green-dark);
+  font-family: var(--pl-font-heading);
+  font-size: 17px;
+}
+
+.plumbing-site .caption-arrow {
+  color: var(--pl-orange);
+  font-size: 25px;
+}
+
+.plumbing-site .visual-decoration {
+  position: absolute;
+  border: 1px solid rgba(52, 77, 64, 0.14);
+  border-radius: 50%;
+}
+
+.plumbing-site .decoration-one {
+  top: 95px;
+  right: -70px;
+  width: 200px;
+  height: 200px;
+}
+
+.plumbing-site .decoration-two {
+  right: -25px;
+  bottom: 120px;
+  width: 110px;
+  height: 110px;
+}
+
+/* HERO BOTTOM LINE */
+
+.plumbing-site .hero-bottom {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 60px;
+  padding-block: 22px;
+  border-top: 1px solid var(--pl-line);
+  color: #6c746a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.plumbing-site .hero-bottom-line {
+  width: 34px;
+  height: 1px;
+  background: #c7c9be;
+}
+
+/* SECTION HEADING */
+
+.plumbing-site .section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.plumbing-site .section-heading .eyebrow {
+  margin-bottom: 18px;
+}
+
+.plumbing-site .section-heading h2 {
+  margin-bottom: 0;
+  color: var(--pl-green-dark);
+}
+
+.plumbing-site .section-intro {
+  max-width: 390px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* SERVICES */
+
+.plumbing-site .services-section {
+  background: var(--pl-paper);
+}
+
+.plumbing-site .services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.plumbing-site .service-card {
+  position: relative;
+  display: flex;
+  min-height: 340px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  border: 1px solid var(--pl-line);
+  border-radius: var(--pl-radius);
+  background: var(--pl-paper);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.plumbing-site .service-card:hover {
+  transform: translateY(-5px);
+  border-color: #b8c5b6;
+  box-shadow: 0 16px 35px rgba(39, 51, 44, 0.06);
+}
+
+.plumbing-site .service-card-featured {
+  border-color: #d5dfd2;
+  background: #f0f3ed;
+}
+
+.plumbing-site .service-number {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  color: #a0a89d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.plumbing-site .service-icon {
+  display: grid;
+  width: 59px;
+  height: 59px;
+  margin-bottom: 27px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--pl-green-soft);
+  color: var(--pl-green);
+}
+
+.plumbing-site .service-icon svg {
+  width: 31px;
+  height: 31px;
+}
+
+.plumbing-site .service-card h3 {
+  margin-bottom: 13px;
+  color: var(--pl-green-dark);
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.plumbing-site .service-card p {
+  margin-bottom: 25px;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.plumbing-site .service-link {
   display: inline-flex;
   align-items: center;
-  flex: 0 0 auto;
-  margin: 0;
+  gap: 12px;
+  margin-top: auto;
+  color: var(--pl-green);
+  font-size: 11px;
+  font-weight: 800;
 }
 
-.plumbing-site .footer-main .brand-name {
-  color: #ffffff;
+.plumbing-site .service-link span {
+  color: var(--pl-orange);
+  font-size: 17px;
+  transition: transform 180ms ease;
 }
 
-.plumbing-site .footer-main .brand-mark {
-  background: #c27b50;
-  color: #ffffff;
+.plumbing-site .service-link:hover span {
+  transform: translate(3px, -2px);
 }
 
-.plumbing-site .footer-main p {
-  margin: 0;
-  color: #d2ddd3;
+/* ABOUT */
+
+.plumbing-site .about-section {
+  background: #eeeee7;
 }
 
-.plumbing-site .footer-main .back-top {
-  flex: 0 0 auto;
-  color: #d2ddd3;
-  text-decoration: none;
-  transition: color 0.2s ease;
+.plumbing-site .about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 100px;
 }
 
-.plumbing-site .footer-main .back-top:hover {
-  color: #e6b18d;
+.plumbing-site .about-art {
+  position: relative;
+  padding: 20px;
 }
 
-/* Deuxième ligne : copyright et lien vers le portfolio */
+.plumbing-site .about-art-inner {
+  display: flex;
+  min-height: 440px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  overflow: hidden;
+  border-radius: var(--pl-radius-large);
+  background: var(--pl-green);
+  color: #e9eee6;
+}
+
+.plumbing-site .about-small-label {
+  color: #cad4c9;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.plumbing-site .about-big-symbol {
+  display: grid;
+  flex: 1;
+  place-items: center;
+}
+
+.plumbing-site .about-big-symbol svg {
+  width: 180px;
+  height: 180px;
+  color: #d3dfd0;
+}
+
+.plumbing-site .about-art-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.plumbing-site .about-art-bottom span {
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 30px;
+  color: #edf0e9;
+  font-size: 11px;
+}
+
+.plumbing-site .about-stamp {
+  position: absolute;
+  right: -8px;
+  bottom: 48px;
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+  border: 6px solid #eeeee7;
+  border-radius: 50%;
+  background: var(--pl-orange);
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: center;
+  transform: rotate(10deg);
+}
+
+.plumbing-site .about-content .eyebrow {
+  margin-bottom: 18px;
+}
+
+.plumbing-site .about-content h2 {
+  color: var(--pl-green-dark);
+}
+
+.plumbing-site .about-lead {
+  margin-bottom: 16px;
+  color: var(--pl-text);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.plumbing-site .body-copy {
+  margin-bottom: 27px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.plumbing-site .values-list {
+  display: grid;
+  gap: 19px;
+  margin-bottom: 30px;
+}
+
+.plumbing-site .value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.plumbing-site .value-check {
+  display: grid;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: #dce5d9;
+  color: var(--pl-green);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.plumbing-site .value-item strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--pl-green-dark);
+  font-size: 13px;
+}
+
+.plumbing-site .value-item p {
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.plumbing-site .button-dark {
+  background: var(--pl-green-dark);
+  color: var(--pl-white);
+}
+
+.plumbing-site .button-dark:hover {
+  background: #1d2d24;
+}
+
+/* METHOD */
+
+.plumbing-site .method-section {
+  background: var(--pl-bg);
+}
+
+.plumbing-site .steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.plumbing-site .step {
+  position: relative;
+  padding-top: 10px;
+}
+
+.plumbing-site .step-number {
+  display: block;
+  margin-bottom: 23px;
+  color: var(--pl-orange);
+  font-family: var(--pl-font-heading);
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
+
+.plumbing-site .step-line {
+  position: relative;
+  height: 1px;
+  margin-bottom: 24px;
+  background: #d4d8cd;
+}
+
+.plumbing-site .step-line::before {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--pl-green);
+  content: "";
+}
+
+.plumbing-site .step h3 {
+  margin-bottom: 10px;
+  color: var(--pl-green-dark);
+  font-size: 16px;
+  letter-spacing: -0.025em;
+}
+
+.plumbing-site .step p {
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* SERVICE AREA */
+
+.plumbing-site .area-section {
+  padding-block: 48px;
+  background: var(--pl-green);
+  color: var(--pl-white);
+}
+
+.plumbing-site .area-inner {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.plumbing-site .area-symbol {
+  display: grid;
+  width: 65px;
+  height: 65px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  color: #e9b49b;
+  font-size: 35px;
+}
+
+.plumbing-site .area-copy {
+  flex: 1;
+}
+
+.plumbing-site .eyebrow-light {
+  color: #d2ded0;
+}
+
+.plumbing-site .area-copy .eyebrow {
+  margin-bottom: 7px;
+}
+
+.plumbing-site .area-copy h2 {
+  margin-bottom: 7px;
+  color: var(--pl-white);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.plumbing-site .area-copy p {
+  max-width: 580px;
+  margin-bottom: 0;
+  color: #d3ddd2;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.plumbing-site .button-outline {
+  flex-shrink: 0;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--pl-white);
+}
+
+.plumbing-site .button-outline:hover {
+  border-color: var(--pl-white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* FAQ */
+
+.plumbing-site .faq-section {
+  background: var(--pl-paper);
+}
+
+.plumbing-site .faq-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 95px;
+}
+
+.plumbing-site .faq-intro h2 {
+  color: var(--pl-green-dark);
+}
+
+.plumbing-site .faq-intro > p:not(.eyebrow) {
+  max-width: 330px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.plumbing-site .faq-list {
+  border-top: 1px solid var(--pl-line);
+}
+
+.plumbing-site .faq-item {
+  border-bottom: 1px solid var(--pl-line);
+}
+
+.plumbing-site .faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding-block: 23px;
+  color: var(--pl-green-dark);
+  font-family: var(--pl-font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+
+.plumbing-site .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.plumbing-site .faq-plus {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border: 1px solid #cfd4c9;
+  border-radius: 50%;
+}
+
+.plumbing-site .faq-plus::before,
+.plumbing-site .faq-plus::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 1px;
+  background: var(--pl-green);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.plumbing-site .faq-plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform 180ms ease;
+}
+
+.plumbing-site .faq-item[open] .faq-plus::after {
+  transform: translate(-50%, -50%);
+}
+
+.plumbing-site .faq-item > p {
+  max-width: 610px;
+  margin: -3px 35px 23px 0;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* CONTACT */
+
+.plumbing-site .contact-section {
+  padding-block: 100px;
+  background: #eeeee7;
+}
+
+.plumbing-site .contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  gap: 95px;
+}
+
+.plumbing-site .contact-content {
+  padding-top: 25px;
+}
+
+.plumbing-site .contact-content h2 {
+  margin-bottom: 22px;
+  color: var(--pl-green-dark);
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+}
+
+.plumbing-site .contact-content h2 span {
+  color: var(--pl-orange);
+}
+
+.plumbing-site .contact-content > p:not(.eyebrow):not(.contact-disclaimer) {
+  max-width: 410px;
+  margin-bottom: 35px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.plumbing-site .contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.plumbing-site .contact-detail-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: #dce5d9;
+  color: var(--pl-green);
+  font-size: 21px;
+}
+
+.plumbing-site .contact-detail > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.plumbing-site .contact-label {
+  color: var(--pl-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.plumbing-site .contact-detail a {
+  color: var(--pl-green-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.plumbing-site .contact-disclaimer {
+  margin-top: 16px;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* CONTACT FORM */
+
+.plumbing-site .contact-form {
+  padding: 36px;
+  border: 1px solid #e1e2d9;
+  border-radius: var(--pl-radius-large);
+  background: var(--pl-paper);
+  box-shadow: 0 16px 45px rgba(39, 51, 44, 0.04);
+}
+
+.plumbing-site .form-heading {
+  margin-bottom: 26px;
+}
+
+.plumbing-site .form-heading h3 {
+  margin-bottom: 6px;
+  color: var(--pl-green-dark);
+  font-size: 23px;
+}
+
+.plumbing-site .form-heading p {
+  margin-bottom: 0;
+  font-size: 11px;
+}
+
+.plumbing-site .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.plumbing-site .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 19px;
+}
+
+.plumbing-site .form-field label {
+  color: var(--pl-text);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.plumbing-site .form-field input,
+.plumbing-site .form-field select,
+.plumbing-site .form-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #dfe1d8;
+  border-radius: 5px;
+  background: #fffefa;
+  color: var(--pl-text);
+  font-size: 12px;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.plumbing-site .form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.plumbing-site .form-field input::placeholder,
+.plumbing-site .form-field textarea::placeholder {
+  color: #9a9e94;
+}
+
+.plumbing-site .form-field input:focus,
+.plumbing-site .form-field select:focus,
+.plumbing-site .form-field textarea:focus {
+  border-color: #7d9680;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 128, 108, 0.12);
+}
+
+.plumbing-site .form-submit {
+  width: 100%;
+  margin-top: 2px;
+}
+
+.plumbing-site .form-note {
+  margin: 13px 0 0;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* FOOTER */
+
+.plumbing-site .site-footer {
+  padding-top: 35px;
+  background: #f8f7f2;
+}
+
+.plumbing-site .footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding-bottom: 30px;
+}
+
+.plumbing-site .footer-top > p {
+  margin-bottom: 0;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.plumbing-site .back-to-top {
+  color: var(--pl-green);
+  font-size: 11px;
+  font-weight: 700;
+}
 
 .plumbing-site .footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-
-  width: 100%;
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 18px 0 24px;
-
-  color: #d2ddd3;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  box-sizing: border-box;
+  gap: 20px;
+  padding-block: 19px;
+  border-top: 1px solid var(--pl-line);
+  color: var(--pl-muted);
+  font-size: 10px;
 }
 
-.plumbing-site .footer-bottom a {
-  color: #d2ddd3;
-  text-decoration: none;
-  transition: color 0.2s ease;
+/* RESPONSIVE : TABLETTES */
+
+@media (max-width: 1000px) {
+  .plumbing-site .container {
+    width: min(var(--pl-container), calc(100% - 44px));
+  }
+
+  .plumbing-site .main-navigation {
+    gap: 17px;
+  }
+
+  .plumbing-site .main-navigation > a:not(.nav-cta) {
+    font-size: 12px;
+  }
+
+  .plumbing-site .nav-cta {
+    padding-inline: 13px;
+    font-size: 11px;
+  }
+
+  .plumbing-site .hero-grid {
+    gap: 35px;
+  }
+
+  .plumbing-site .hero-visual {
+    min-height: 420px;
+  }
+
+  .plumbing-site .about-grid {
+    gap: 55px;
+  }
+
+  .plumbing-site .faq-grid,
+  .plumbing-site .contact-grid {
+    gap: 55px;
+  }
+
+  .plumbing-site .service-card {
+    padding: 24px;
+  }
 }
 
-.plumbing-site .footer-bottom a:hover {
-  color: #e6b18d;
-}
-
-/* Liens du footer */
-
-.plumbing-site .site-footer a {
-  transition: color 0.2s ease;
-}
-
-/* ========================================
-   SÉLECTION DE TEXTE
-======================================== */
-
-.plumbing-site ::selection {
-  background: #315d49;
-  color: #ffffff;
-}
-
-/* ========================================
-   ADAPTATION AUX ÉCRANS MOBILES
-======================================== */
+/* RESPONSIVE : MOBILES ET PETITES TABLETTES */
 
 @media (max-width: 760px) {
-  /* En-tête */
-
-  body.plumbing-site .site-header {
-    padding: 16px 20px;
-    flex-wrap: wrap;
+  .plumbing-site .container {
+    width: calc(100% - 40px);
   }
 
-  .plumbing-site .navigation {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-
-    background: var(--bg);
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow);
+  .plumbing-site .section {
+    padding-block: 76px;
   }
 
-  .plumbing-site .navigation a {
-    color: var(--text);
+  .plumbing-site .header-inner {
+    min-height: 76px;
   }
 
-  .plumbing-site .site-header .navigation .nav-cta {
-    color: #ffffff;
+  .plumbing-site .brand-icon,
+  .plumbing-site .brand-icon svg {
+    width: 38px;
+    height: 38px;
   }
 
-  /* Sections principales */
-
-  .plumbing-site .hero,
-  .plumbing-site .subpage-hero {
-    padding-top: 48px;
-    padding-bottom: 48px;
+  .plumbing-site .brand-text strong {
+    font-size: 15px;
   }
 
-  /* Footer mobile */
-
-  body.plumbing-site .site-footer {
-    padding: 0 20px;
+  .plumbing-site .menu-toggle {
+    display: block;
   }
 
-  .plumbing-site .footer-main {
+  .plumbing-site .main-navigation {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 20px 20px;
+    border-bottom: 1px solid var(--pl-line);
+    background: var(--pl-bg);
+    box-shadow: 0 15px 25px rgba(39, 51, 44, 0.06);
+  }
+
+  .plumbing-site .main-navigation.is-open {
+    display: flex;
     flex-direction: column;
+  }
+
+  .plumbing-site .main-navigation > a:not(.nav-cta) {
+    padding: 13px 2px;
+    border-bottom: 1px solid var(--pl-line);
+    font-size: 14px;
+  }
+
+  .plumbing-site .main-navigation .nav-cta {
+    justify-content: space-between;
+    margin-top: 14px;
+    padding-inline: 16px;
+  }
+
+  .plumbing-site .hero {
+    padding-top: 57px;
+  }
+
+  .plumbing-site .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .plumbing-site h1 {
+    font-size: clamp(2.7rem, 11vw, 4.2rem);
+  }
+
+  .plumbing-site .hero-description {
+    font-size: 14px;
+  }
+
+  .plumbing-site .hero-visual {
+    min-height: 390px;
+  }
+
+  .plumbing-site .hero-bottom {
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 35px;
+    font-size: 8px;
+  }
+
+  .plumbing-site .hero-bottom-line {
+    width: 18px;
+  }
+
+  .plumbing-site .section-heading {
     align-items: flex-start;
-    gap: 14px;
-    padding: 26px 0;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 35px;
+  }
+
+  .plumbing-site .section-intro {
+    max-width: 500px;
+  }
+
+  .plumbing-site .services-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .plumbing-site .service-card {
+    min-height: auto;
+    padding: 27px;
+  }
+
+  .plumbing-site .service-card p {
+    margin-bottom: 22px;
+  }
+
+  .plumbing-site .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .plumbing-site .about-art {
+    max-width: 500px;
+    padding: 12px;
+  }
+
+  .plumbing-site .about-art-inner {
+    min-height: 350px;
+  }
+
+  .plumbing-site .about-big-symbol svg {
+    width: 145px;
+    height: 145px;
+  }
+
+  .plumbing-site .about-stamp {
+    right: -1px;
+    bottom: 30px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .plumbing-site .steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 22px;
+  }
+
+  .plumbing-site .step-number {
+    margin-bottom: 14px;
+    font-size: 30px;
+  }
+
+  .plumbing-site .step-line {
+    margin-bottom: 18px;
+  }
+
+  .plumbing-site .area-inner {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .plumbing-site .area-symbol {
+    width: 53px;
+    height: 53px;
+    font-size: 29px;
+  }
+
+  .plumbing-site .area-copy {
+    flex-basis: calc(100% - 75px);
+  }
+
+  .plumbing-site .area-inner > .button {
+    margin-left: 73px;
+  }
+
+  .plumbing-site .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .plumbing-site .faq-intro > p:not(.eyebrow) {
+    max-width: 500px;
+  }
+
+  .plumbing-site .contact-section {
+    padding-block: 75px;
+  }
+
+  .plumbing-site .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .plumbing-site .contact-content {
+    padding-top: 0;
+  }
+
+  .plumbing-site .contact-form {
+    padding: 27px;
+  }
+
+  .plumbing-site .footer-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
   }
 
   .plumbing-site .footer-bottom {
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+/* RESPONSIVE : PETITS MOBILES */
+
+@media (max-width: 420px) {
+  .plumbing-site .container {
+    width: calc(100% - 32px);
+  }
+
+  .plumbing-site .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 19px;
+  }
+
+  .plumbing-site .hero-visual {
+    min-height: 330px;
+    padding: 17px;
+  }
+
+  .plumbing-site .pipe-vertical {
+    left: 25%;
+  }
+
+  .plumbing-site .pipe-horizontal {
+    left: 25%;
+    width: 150px;
+  }
+
+  .plumbing-site .pipe-curve {
+    left: calc(25% + 95px);
+    width: 120px;
+    height: 120px;
+  }
+
+  .plumbing-site .joint-one {
+    left: calc(25% - 7px);
+  }
+
+  .plumbing-site .joint-two {
+    left: calc(25% + 55px);
+  }
+
+  .plumbing-site .joint-three {
+    left: calc(25% + 125px);
+  }
+
+  .plumbing-site .water-drop {
+    right: 8%;
+    width: 55px;
+    height: 55px;
+    font-size: 25px;
+  }
+
+  .plumbing-site .hero-bottom {
+    letter-spacing: 0.08em;
+  }
+
+  .plumbing-site .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 29px;
+  }
+
+  .plumbing-site .step {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    column-gap: 14px;
+  }
+
+  .plumbing-site .step-number {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .plumbing-site .step-line {
+    display: none;
+  }
+
+  .plumbing-site .step h3 {
+    margin-bottom: 5px;
+  }
+
+  .plumbing-site .step p {
+    grid-column: 2;
+  }
+
+  .plumbing-site .area-inner > .button {
+    margin-left: 0;
+  }
+
+  .plumbing-site .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .plumbing-site .contact-form {
+    padding: 21px;
+  }
+
+  .plumbing-site .button {
     gap: 12px;
-    padding: 18px 0 22px;
+    padding-inline: 17px;
+  }
+}
+
+/* ACCESSIBILITÉ : RÉDUIRE LES ANIMATIONS */
+
+@media (prefers-reduced-motion: reduce) {
+  .plumbing-site *,
+  .plumbing-site *::before,
+  .plumbing-site *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

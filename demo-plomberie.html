@@ -3,424 +3,602 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10251f">
-  <meta name="robots" content="noindex, follow">
 
-  <title>Dupont Plomberie | Dépannage, installation et rénovation</title>
+  <title>Dupont Plomberie | Plombier de proximité</title>
   <meta
     name="description"
-    content="Découvrez les services de plomberie de Dupont Plomberie : dépannage, recherche de fuite, installation sanitaire et rénovation de salle de bains. Projet de démonstration fictif."
+    content="Dupont Plomberie : dépannage, réparation, installation sanitaire et rénovation de salle de bain. Un service de proximité, clair et soigné."
   >
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Site de démonstration fictif -->
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="plomberie.css">
-  <script src="script.js" defer></script>
 </head>
 
 <body class="plumbing-site">
 
-  <!-- EN-TÊTE -->
-  <header class="site-header">
-    <a class="brand" href="#accueil" aria-label="Dupont Plomberie, accueil">
-      <span class="brand-mark">D</span>
-      <span class="brand-name">DUPONT<span> PLOMBERIE</span></span>
-    </a>
+  <div class="demo-banner">
+    Site de démonstration — entreprise fictive
+  </div>
 
-    <nav class="navigation" aria-label="Navigation principale">
-      <a href="#services">Prestations</a>
-      <a href="#entreprise">L'entreprise</a>
-      <a href="#zone">Intervention</a>
-      <a class="nav-cta" href="#contact">Demander un devis ↗</a>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="#accueil" class="brand" aria-label="Dupont Plomberie, accueil">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path
+              d="M15 8V19C15 24 19 28 24 28H31C36 28 40 32 40 37"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <path
+              d="M9 8H21M34 37H44"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <circle cx="40" cy="39" r="4" fill="#C77D5B"/>
+          </svg>
+        </span>
+
+        <span class="brand-text">
+          <strong>DUPONT</strong>
+          <span>PLOMBERIE</span>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-navigation" id="main-navigation" aria-label="Navigation principale">
+        <a href="#services">Prestations</a>
+        <a href="#apropos">À propos</a>
+        <a href="#methode">Notre méthode</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="nav-cta">Demander un devis <span>↗</span></a>
+      </nav>
+
+    </div>
   </header>
 
-  <main id="contenu">
+  <main>
 
-    <!-- ACCUEIL -->
-    <section class="section-wrap subpage-hero" id="accueil">
-      <p class="eyebrow">
-        <span class="status-dot"></span>
-        PLOMBERIE · INSTALLATION · RÉNOVATION
-      </p>
+    <!-- HERO -->
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
 
-      <h1>
-        Une plomberie fiable.
-        <br>
-        <span class="text-gradient">Un travail bien fait.</span>
-      </h1>
+        <div class="hero-content">
+          <p class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Votre artisan plombier
+          </p>
 
-      <p>
-        Une fuite, un équipement à remplacer ou une salle de bains à rénover ?
-        Découvrez une approche claire de la plomberie, avec des prestations
-        adaptées à vos besoins et un projet défini avant les travaux.
-      </p>
+          <h1>
+            La plomberie,<br>
+            en toute <span class="accent-text">sérénité.</span>
+          </h1>
 
-      <div class="subpage-actions">
-        <a class="button button-primary" href="#contact">
-          Présenter mon besoin ↗
-        </a>
-        <a class="button button-quiet" href="#services">
-          Découvrir les prestations ↓
-        </a>
-      </div>
+          <p class="hero-description">
+            Une fuite à réparer, une installation à créer ou une salle
+            de bain à rénover ? Un accompagnement simple, des conseils
+            clairs et un travail soigné.
+          </p>
 
-      <p class="hero-note">
-        Dépannage · Installation sanitaire · Rénovation
-      </p>
-    </section>
+          <div class="hero-actions">
+            <a href="#contact" class="button button-primary">
+              Parler de votre projet <span>↗</span>
+            </a>
 
-    <!-- BANDEAU DE SERVICES -->
-    <section class="trust-strip" aria-label="Principales prestations">
-      <div class="trust-inner">
-        <span>LES PRESTATIONS</span>
-        <div><span class="trust-symbol">⌁</span> Dépannage</div>
-        <div><span class="trust-symbol">◈</span> Installation</div>
-        <div><span class="trust-symbol">✳</span> Rénovation</div>
-        <div><span class="trust-symbol">✓</span> Conseils</div>
-      </div>
-    </section>
+            <a href="#services" class="text-link">
+              Découvrir les prestations <span>↓</span>
+            </a>
+          </div>
 
-    <!-- INTRODUCTION -->
-    <section class="section-wrap section-space" id="entreprise">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">VOTRE PROJET, EN TOUTE CLARTÉ</p>
-          <h2>Des solutions adaptées <span class="text-gradient">à votre logement.</span></h2>
+          <div class="hero-note">
+            <span class="note-check">✓</span>
+            <span>Des explications claires, du premier contact à la finition.</span>
+          </div>
         </div>
 
-        <p>
-          Chaque intervention commence par la compréhension du problème
-          ou du projet. L'objectif : identifier le besoin, expliquer les
-          possibilités et convenir des travaux à réaliser.
-        </p>
+        <div class="hero-visual" aria-label="Illustration décorative de plomberie">
+          <div class="visual-topline">
+            <span>LE BON GESTE, AU BON MOMENT</span>
+            <span>01 / 04</span>
+          </div>
+
+          <div class="pipe-illustration" aria-hidden="true">
+            <div class="pipe pipe-vertical"></div>
+            <div class="pipe pipe-horizontal"></div>
+            <div class="pipe pipe-curve"></div>
+            <div class="pipe-joint joint-one"></div>
+            <div class="pipe-joint joint-two"></div>
+            <div class="pipe-joint joint-three"></div>
+            <div class="water-drop">✳</div>
+          </div>
+
+          <div class="visual-caption">
+            <div>
+              <span class="caption-label">NOTRE ENGAGEMENT</span>
+              <strong>Du travail bien fait.</strong>
+            </div>
+            <span class="caption-arrow">↗</span>
+          </div>
+
+          <span class="visual-decoration decoration-one"></span>
+          <span class="visual-decoration decoration-two"></span>
+        </div>
+
       </div>
 
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-icon icon-purple">⌁</div>
-          <span class="card-index">01 / DÉPANNAGE</span>
-          <h3>Recherche de fuite</h3>
-          <p>
-            Une fuite visible, un raccord qui goutte ou une arrivée d'eau
-            à vérifier ? Une première évaluation permet de déterminer
-            les vérifications et réparations à envisager.
-          </p>
-          <a class="text-link" href="#contact">
-            Décrire le problème <span>→</span>
-          </a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon icon-blue">◈</div>
-          <span class="card-index">02 / INSTALLATION</span>
-          <h3>Équipements sanitaires</h3>
-          <p>
-            Installation ou remplacement d'un lavabo, d'un évier,
-            d'un robinet ou d'autres équipements sanitaires, selon
-            la configuration et le besoin.
-          </p>
-          <a class="text-link" href="#contact">
-            Présenter mon installation <span>→</span>
-          </a>
-        </article>
-
-        <article class="service-card">
-          <div class="service-icon icon-green">✳</div>
-          <span class="card-index">03 / RÉNOVATION</span>
-          <h3>Salle de bains</h3>
-          <p>
-            Réfléchir à une nouvelle implantation, remplacer des
-            équipements ou préparer un projet de rénovation en fonction
-            de l'espace disponible et du budget.
-          </p>
-          <a class="text-link" href="#contact">
-            Parler de mon projet <span>→</span>
-          </a>
-        </article>
+      <div class="container hero-bottom">
+        <span>PROXIMITÉ</span>
+        <span class="hero-bottom-line"></span>
+        <span>TRANSPARENCE</span>
+        <span class="hero-bottom-line"></span>
+        <span>TRAVAIL SOIGNÉ</span>
       </div>
     </section>
 
-    <!-- MÉTHODE DE TRAVAIL -->
-    <section class="process-section">
-      <div class="section-wrap section-space">
+    <!-- SERVICES -->
+    <section class="section services-section" id="services">
+      <div class="container">
+
         <div class="section-heading">
           <div>
-            <p class="eyebrow">COMMENT SE DÉROULE UN PROJET ?</p>
-            <h2>Un déroulement <span class="text-gradient">simple et lisible.</span></h2>
+            <p class="eyebrow">CE QUE NOUS FAISONS</p>
+            <h2>Des solutions concrètes,<br>pour votre quotidien.</h2>
           </div>
 
-          <p>
-            Des échanges clairs permettent de préciser le besoin,
-            les travaux envisagés et les conditions d'intervention
-            avant de commencer.
+          <p class="section-intro">
+            Chaque intervention commence par une écoute attentive
+            et se termine par des explications simples sur le travail réalisé.
           </p>
         </div>
 
-        <div class="process-grid">
-          <article class="process-step">
-            <span class="step-number">01</span>
-            <div class="step-line"></div>
-            <h3>Vous expliquez le besoin</h3>
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-number">01</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 5C24 5 12 20 12 29A12 12 0 0 0 36 29C36 20 24 5 24 5Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M18 30C18 34 21 37 25 37" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Dépannage & réparations</h3>
             <p>
-              Vous décrivez le problème rencontré ou les travaux
-              que vous souhaitez réaliser.
+              Fuite, robinet qui goutte, chasse d’eau défectueuse ou
+              canalisation à vérifier : nous recherchons une solution adaptée.
             </p>
+            <a href="#contact" class="service-link">Parler d'un dépannage <span>↗</span></a>
           </article>
 
-          <article class="process-step">
-            <span class="step-number">02</span>
-            <div class="step-line"></div>
-            <h3>Nous étudions la solution</h3>
+          <article class="service-card service-card-featured">
+            <div class="service-number">02</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M8 13H40V39H8V13Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M15 13V8H33V13M15 22H33M15 28H28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Installation sanitaire</h3>
             <p>
-              Les informations utiles sont recueillies pour évaluer
-              les possibilités et les contraintes du projet.
+              Pose ou remplacement de robinetterie, lavabo, évier,
+              équipements sanitaires et raccordements.
             </p>
+            <a href="#contact" class="service-link">Préparer une installation <span>↗</span></a>
           </article>
 
-          <article class="process-step">
-            <span class="step-number">03</span>
-            <div class="step-line"></div>
-            <h3>Le devis est précisé</h3>
+          <article class="service-card">
+            <div class="service-number">03</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M7 12H41V40H7V12Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M7 20H41M15 12V20M33 12V20M13 28H20M28 28H35M13 34H20M28 34H35" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M18 5H30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Rénovation de salle de bain</h3>
             <p>
-              Les travaux prévus, leur prix et les conditions
-              d'intervention sont définis avant l'accord.
+              Modernisation des équipements, remplacement des éléments
+              sanitaires et adaptation de votre espace.
             </p>
+            <a href="#contact" class="service-link">Imaginer votre projet <span>↗</span></a>
           </article>
 
-          <article class="process-step">
-            <span class="step-number">04</span>
-            <div class="step-line"></div>
-            <h3>Les travaux sont réalisés</h3>
-            <p>
-              L'intervention est organisée selon le périmètre
-              convenu et les contraintes du chantier.
-            </p>
-          </article>
         </div>
       </div>
     </section>
 
-    <!-- ENGAGEMENTS -->
-    <section class="section-wrap section-space">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">LES POINTS ESSENTIELS</p>
-          <h2>Bien comprendre avant <span class="text-gradient">de commencer.</span></h2>
+    <!-- ABOUT -->
+    <section class="section about-section" id="apropos">
+      <div class="container about-grid">
+
+        <div class="about-art" aria-hidden="true">
+          <div class="about-art-inner">
+            <span class="about-small-label">L'ESPRIT ARTISAN</span>
+
+            <div class="about-big-symbol">
+              <svg viewBox="0 0 160 160" fill="none">
+                <path d="M50 17V57C50 73 63 86 79 86H94C111 86 124 99 124 116V137" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+                <path d="M31 17H69M106 137H142" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+                <circle cx="124" cy="122" r="9" fill="#C77D5B"/>
+              </svg>
+            </div>
+
+            <div class="about-art-bottom">
+              <span>Simple.</span>
+              <span>Précis.</span>
+              <span>Durable.</span>
+            </div>
+          </div>
+
+          <span class="about-stamp">FAIT AVEC SOIN</span>
         </div>
 
-        <p>
-          Une prestation bien préparée repose sur des informations
-          compréhensibles et des conditions définies ensemble.
-        </p>
-      </div>
+        <div class="about-content">
+          <p class="eyebrow">UNE APPROCHE DE PROXIMITÉ</p>
+          <h2>Un artisan à l'écoute,<br>pas seulement un <span class="accent-text">dépanneur.</span></h2>
 
-      <div class="demo-grid">
-        <article class="demo-tile">
-          <h3>Des explications claires</h3>
-          <p>
-            Comprendre le problème, les solutions envisageables
-            et les limites éventuelles de l'intervention.
-          </p>
-        </article>
-
-        <article class="demo-tile">
-          <h3>Un périmètre défini</h3>
-          <p>
-            Identifier les travaux prévus et les éventuelles
-            prestations supplémentaires avant de s'engager.
-          </p>
-        </article>
-
-        <article class="demo-tile">
-          <h3>Un devis avant travaux</h3>
-          <p>
-            Disposer des informations nécessaires sur le prix
-            et les conditions avant de donner son accord.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ZONE D'INTERVENTION -->
-    <section class="offer-section" id="zone">
-      <div class="section-wrap offer-layout">
-        <div class="offer-copy">
-          <p class="eyebrow">
-            <span class="status-dot"></span>
-            ZONE D'INTERVENTION
+          <p class="about-lead">
+            Bien faire son métier, c'est aussi prendre le temps d'expliquer,
+            de conseiller et de respecter votre intérieur.
           </p>
 
-          <h2>Un projet près de chez vous ?</h2>
-
-          <p>
-            La zone d'intervention dépend du lieu, de la nature
-            des travaux et des disponibilités. Indiquez votre
-            commune pour vérifier si votre demande peut être étudiée.
+          <p class="body-copy">
+            Chez Dupont Plomberie, l'objectif est simple : vous aider à
+            trouver la bonne solution pour votre logement. Nous privilégions
+            les échanges directs, les explications compréhensibles et
+            une attention particulière aux finitions.
           </p>
 
-          <a class="button button-primary" href="#contact">
-            Indiquer ma commune ↗
+          <div class="values-list">
+            <div class="value-item">
+              <span class="value-check">✓</span>
+              <div>
+                <strong>Des explications transparentes</strong>
+                <p>Vous comprenez les travaux proposés et leur utilité.</p>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <span class="value-check">✓</span>
+              <div>
+                <strong>Le respect de votre intérieur</strong>
+                <p>Une intervention organisée et un espace laissé propre.</p>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <span class="value-check">✓</span>
+              <div>
+                <strong>Une attention aux détails</strong>
+                <p>Des finitions soignées et des conseils d'entretien utiles.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="button button-dark">
+            Échangeons sur vos besoins <span>↗</span>
           </a>
         </div>
 
-        <div class="offer-card">
-          <span class="offer-label">AVANT DE NOUS CONTACTER</span>
-          <h3>Préparez quelques informations</h3>
-
-          <ul class="check-list">
-            <li><span>✓</span> Votre commune</li>
-            <li><span>✓</span> Le type de problème ou de travaux</li>
-            <li><span>✓</span> Le type de logement</li>
-            <li><span>✓</span> Le délai souhaité</li>
-            <li><span>✓</span> Quelques photos si elles sont utiles</li>
-          </ul>
-
-          <div class="offer-note">
-            <span>ⓘ</span>
-            <p>
-              Ces informations aident à comprendre la demande.
-              Elles ne remplacent pas un diagnostic sur place
-              lorsque celui-ci est nécessaire.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- QUESTIONS FRÉQUENTES -->
-    <section class="section-wrap section-space faq-section" id="faq">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">QUESTIONS FRÉQUENTES</p>
-          <h2>Les réponses <span class="text-gradient">à vos questions.</span></h2>
+    <!-- METHOD -->
+    <section class="section method-section" id="methode">
+      <div class="container">
+
+        <div class="section-heading method-heading">
+          <div>
+            <p class="eyebrow">COMMENT ÇA SE PASSE ?</p>
+            <h2>Quatre étapes.<br>Aucune mauvaise surprise.</h2>
+          </div>
+
+          <p class="section-intro">
+            Un déroulement clair pour que vous sachiez à quoi vous attendre
+            à chaque étape.
+          </p>
         </div>
 
-        <p>
-          Quelques repères pour préparer votre demande
-          et mieux comprendre les prochaines étapes.
-        </p>
+        <div class="steps-grid">
+          <article class="step">
+            <span class="step-number">01</span>
+            <div class="step-line"></div>
+            <h3>Vous nous contactez</h3>
+            <p>Vous nous expliquez le problème ou l'idée que vous avez en tête.</p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">02</span>
+            <div class="step-line"></div>
+            <h3>Nous faisons le point</h3>
+            <p>Nous précisons votre besoin et les options envisageables.</p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">03</span>
+            <div class="step-line"></div>
+            <h3>Nous intervenons</h3>
+            <p>Le travail est réalisé selon les modalités convenues ensemble.</p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">04</span>
+            <div class="step-line"></div>
+            <h3>Nous vérifions</h3>
+            <p>Nous faisons le point sur le résultat et les conseils utiles.</p>
+          </article>
+        </div>
+
       </div>
+    </section>
 
-      <div class="faq-list">
-        <details>
-          <summary>Comment demander un devis ? <span>+</span></summary>
-          <p>
-            Décrivez votre besoin, indiquez votre commune et précisez
-            le délai souhaité. Des informations complémentaires ou
-            une visite peuvent être nécessaires pour établir un devis adapté.
-          </p>
-        </details>
+    <!-- SERVICE AREA -->
+    <section class="area-section">
+      <div class="container area-inner">
+        <div class="area-symbol" aria-hidden="true">⌖</div>
 
-        <details>
-          <summary>Combien coûte une intervention de plomberie ? <span>+</span></summary>
+        <div class="area-copy">
+          <p class="eyebrow">À VOTRE SERVICE</p>
+          <h2>Un besoin près de chez vous ?</h2>
           <p>
-            Le prix dépend notamment de la nature du problème,
-            du temps nécessaire, des fournitures et des conditions
-            d'accès. Les modalités et le montant doivent être précisés
-            avant tout engagement.
+            Contactez-nous pour discuter de votre intervention et vérifier
+            si votre adresse se trouve dans notre zone de déplacement.
           </p>
-        </details>
+        </div>
 
-        <details>
-          <summary>Intervenez-vous en urgence ? <span>+</span></summary>
-          <p>
-            Les possibilités de dépannage urgent dépendent des
-            disponibilités et de la zone couverte. Contactez le
-            professionnel pour vérifier s'il peut prendre en charge
-            votre situation et connaître les conditions applicables.
-          </p>
-        </details>
+        <a href="#contact" class="button button-outline">
+          Vérifier ma zone <span>↗</span>
+        </a>
+      </div>
+    </section>
 
-        <details>
-          <summary>Puis-je fournir mes propres équipements ? <span>+</span></summary>
-          <p>
-            Cela peut être étudié selon l'équipement, sa compatibilité,
-            les conditions de pose et les garanties applicables.
-            Ce point doit être clarifié avant de valider le devis.
-          </p>
-        </details>
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+      <div class="container faq-grid">
 
-        <details>
-          <summary>Quels renseignements donner pour une fuite ? <span>+</span></summary>
+        <div class="faq-intro">
+          <p class="eyebrow">VOS QUESTIONS</p>
+          <h2>Avant de<br>vous lancer.</h2>
           <p>
-            Précisez où se situe la fuite, quand elle a été constatée
-            et si elle semble toujours active. En cas de fuite importante,
-            si cela peut être fait sans danger, coupez l'arrivée d'eau
-            concernée. Si de l'eau menace une installation électrique,
-            évitez la zone et contactez les services compétents.
+            Vous avez un doute sur votre projet ? Voici quelques réponses
+            aux questions les plus fréquentes.
           </p>
-        </details>
+          <a href="#contact" class="text-link">Poser une autre question <span>↗</span></a>
+        </div>
 
-        <details>
-          <summary>Quand les travaux peuvent-ils commencer ? <span>+</span></summary>
-          <p>
-            Le délai dépend de la nature des travaux, des disponibilités,
-            des fournitures et des éventuelles contraintes du chantier.
-            Une date doit être confirmée avec le professionnel.
-          </p>
-        </details>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary>
+              Quels types de travaux réalisez-vous ?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              Les prestations présentées couvrent le dépannage, les petites
+              réparations, l'installation sanitaire et certains projets de
+              rénovation de salle de bain. Le besoin est étudié au cas par cas.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Comment obtenir un devis ?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              Décrivez votre besoin à l'aide du formulaire de contact.
+              Les informations recueillies permettront de préciser la demande
+              et les prochaines étapes.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Intervenez-vous en urgence ?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              La disponibilité dépend de la nature du problème, de l'adresse
+              et du planning. Contactez-nous pour préciser la situation.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              Puis-je demander conseil avant de faire des travaux ?
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              Oui. Décrire votre projet en amont permet de clarifier les
+              priorités et d'étudier les solutions adaptées à votre logement.
+            </p>
+          </details>
+
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="contact-section" id="contact">
-      <div class="section-wrap contact-inner">
-        <div class="contact-orb orb-a"></div>
-        <div class="contact-orb orb-b"></div>
+      <div class="container contact-grid">
 
-        <p class="eyebrow">
-          <span class="status-dot"></span>
-          PARLONS DE VOTRE BESOIN
-        </p>
+        <div class="contact-content">
+          <p class="eyebrow eyebrow-light">PARLONS DE VOTRE BESOIN</p>
+          <h2>Un projet en tête ?<br><span>Commençons ici.</span></h2>
 
-        <h2>Un problème ou un projet de <span class="text-gradient">plomberie ?</span></h2>
+          <p>
+            Décrivez-nous votre besoin. Quelques lignes suffisent pour
+            démarrer la conversation.
+          </p>
 
-        <p>
-          Présentez votre demande et les informations dont vous disposez.
-          Cela permettra de mieux comprendre votre situation et d'étudier
-          les prochaines étapes.
-        </p>
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">✉</span>
+            <div>
+              <span class="contact-label">E-MAIL</span>
+              <a href="mailto:contact@example.fr">contact@example.fr</a>
+            </div>
+          </div>
 
-        <div class="contact-actions">
-          <a
-            class="button button-primary button-light"
-            href="mailto:contact@example.fr?subject=Demande%20de%20renseignements%20-%20Plomberie&body=Bonjour%2C%0A%0AMa%20commune%20%3A%0A%0AMon%20besoin%20%3A%0A%0AType%20de%20logement%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci."
-          >
-            Préparer une demande par e-mail ↗
-          </a>
+          <p class="contact-disclaimer">
+            Adresse e-mail fictive utilisée pour cette démonstration.
+          </p>
         </div>
 
-        <p class="contact-note">
-          Projet fictif de démonstration réalisé par Studio Web.
-          Les coordonnées affichées ici sont des exemples et ne permettent
-          pas de contacter une entreprise réelle.
-        </p>
+        <form class="contact-form" action="mailto:contact@example.fr" method="post" enctype="text/plain">
+          <div class="form-heading">
+            <h3>Votre demande</h3>
+            <p>Les champs marqués d'un * sont obligatoires.</p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Votre nom *</label>
+              <input
+                id="name"
+                name="Nom"
+                type="text"
+                placeholder="Jean Dupont"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="email">Votre e-mail *</label>
+              <input
+                id="email"
+                name="Email"
+                type="email"
+                placeholder="jean@exemple.fr"
+                autocomplete="email"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="service">Votre besoin</label>
+            <select id="service" name="Prestation">
+              <option value="">Choisissez une prestation</option>
+              <option value="Dépannage et réparation">Dépannage et réparation</option>
+              <option value="Installation sanitaire">Installation sanitaire</option>
+              <option value="Rénovation de salle de bain">Rénovation de salle de bain</option>
+              <option value="Conseil ou autre demande">Conseil ou autre demande</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Votre message *</label>
+            <textarea
+              id="message"
+              name="Message"
+              rows="4"
+              placeholder="Expliquez-nous ce dont vous avez besoin..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="button button-primary form-submit">
+            Préparer mon message <span>↗</span>
+          </button>
+
+          <p class="form-note">
+            Démonstration : le formulaire utilise le logiciel de messagerie
+            de votre appareil et n'envoie pas les données à un serveur.
+          </p>
+        </form>
+
       </div>
     </section>
 
   </main>
 
-  <!-- PIED DE PAGE -->
   <footer class="site-footer">
-    <div class="footer-main">
-      <a class="brand" href="#accueil" aria-label="Dupont Plomberie, accueil">
-        <span class="brand-mark">D</span>
-        <span class="brand-name">DUPONT<span> PLOMBERIE</span></span>
+    <div class="container footer-top">
+
+      <a href="#accueil" class="brand footer-brand">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M15 8V19C15 24 19 28 24 28H31C36 28 40 32 40 37" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path d="M9 8H21M34 37H44" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="40" cy="39" r="4" fill="#C77D5B"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>DUPONT</strong>
+          <span>PLOMBERIE</span>
+        </span>
       </a>
 
-      <p>Un concept de site vitrine pour une activité de plomberie.</p>
+      <p>Le souci du détail, jusque dans les tuyaux.</p>
 
-      <a class="back-top" href="#accueil">Retour en haut ↑</a>
+      <a href="#accueil" class="back-to-top">Retour en haut ↑</a>
     </div>
 
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Dupont Plomberie — concept fictif</span>
-
-      <div>
-        <a href="index.html#realisations">Retour au portfolio</a>
-      </div>
+    <div class="container footer-bottom">
+      <span>© <span id="current-year">2026</span> Dupont Plomberie</span>
+      <span>Site de démonstration fictif — portfolio</span>
     </div>
   </footer>
+
+  <script>
+    // Menu mobile
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".main-navigation");
+
+    if (menuToggle && navigation) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Ouvrir le menu" : "Fermer le menu"
+        );
+
+        navigation.classList.toggle("is-open", !isOpen);
+        document.body.classList.toggle("menu-open", !isOpen);
+      });
+
+      navigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+          navigation.classList.remove("is-open");
+          document.body.classList.remove("menu-open");
+        });
+      });
+    }
+
+    // Année automatique dans le pied de page
+    const yearElement = document.getElementById("current-year");
+
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  </script>
 
 </body>
 </html>
