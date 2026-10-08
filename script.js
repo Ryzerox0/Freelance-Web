@@ -1,52 +1,60 @@
-// Mise à jour automatique de l'année du pied de page
-const yearElement = document.querySelector("#year");
+"use strict";
 
+// Année automatique dans les pieds de page.
+const yearElement = document.querySelector("#year");
 if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
+  yearElement.textContent = new Date().getFullYear();
 }
 
-// Menu mobile accessible
+// Menu mobile accessible au clavier.
 const menuToggle = document.querySelector(".menu-toggle");
 const navigation = document.querySelector("#navigation");
 
 function closeMenu() {
-    if (!menuToggle || !navigation) return;
-
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Ouvrir le menu");
-    navigation.classList.remove("is-open");
-    document.body.classList.remove("menu-open");
+  if (!menuToggle || !navigation) return;
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+  navigation.classList.remove("is-open");
 }
 
 if (menuToggle && navigation) {
-    menuToggle.addEventListener("click", () => {
-        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Ouvrir le menu" : "Fermer le menu"
+    );
+    navigation.classList.toggle("is-open", !isOpen);
+  });
 
-        menuToggle.setAttribute("aria-expanded", String(!isOpen));
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen ? "Ouvrir le menu" : "Fermer le menu"
-        );
+  navigation.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
 
-        navigation.classList.toggle("is-open", !isOpen);
-        document.body.classList.toggle("menu-open", !isOpen);
-    });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
 
-    navigation.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", closeMenu);
-    });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) closeMenu();
+  });
+}
 
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            closeMenu();
-            menuToggle.focus();
-        }
-    });
+// Copie de l'adresse e-mail avec un retour visible.
+const copyButton = document.querySelector("[data-copy-email]");
+const copyStatus = document.querySelector("#copy-status");
 
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 760) {
-            closeMenu();
-        }
-    });
+if (copyButton && copyStatus) {
+  copyButton.addEventListener("click", async () => {
+    const email = copyButton.dataset.copyEmail;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      copyStatus.textContent = "Adresse e-mail copiée.";
+    } catch {
+      copyStatus.textContent = `Copie automatique indisponible. Adresse : ${email}`;
+    }
+  });
 }
 
