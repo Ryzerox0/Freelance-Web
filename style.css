@@ -3,16 +3,18 @@
 ======================================== */
 
 :root {
-    --navy: #0b1f35;
-    --navy-light: #123b55;
-    --turquoise: #55d6cb;
-    --turquoise-dark: #087e8b;
-    --text: #26384a;
-    --muted: #687b8d;
-    --background: #f5f8fb;
+    --navy: #0b1020;
+    --navy-light: #151f35;
+    --turquoise: #6c8cff;
+    --turquoise-dark: #4169e1;
+    --text: #20283a;
+    --muted: #68738a;
+    --background: #f6f7fb;
     --white: #ffffff;
-    --border: #e3eaf0;
-    --shadow: 0 12px 35px rgba(11, 31, 53, 0.07);
+    --border: #e5e8f0;
+    --shadow: 0 12px 35px rgba(11, 16, 32, 0.06);
+    --shadow-hover: 0 22px 48px rgba(11, 16, 32, 0.12);
+    --radius-card: 16px;
 }
 
 * {
@@ -27,7 +29,7 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Inter, -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text);
     background: var(--white);
     line-height: 1.7;
@@ -44,7 +46,11 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
     outline: 3px solid var(--turquoise-dark);
     outline-offset: 4px;
 }
@@ -79,7 +85,7 @@ header .container {
     color: var(--navy);
     font-size: 1.45rem;
     font-weight: 800;
-    letter-spacing: -1px;
+    letter-spacing: -1.2px;
     white-space: nowrap;
 }
 
@@ -180,12 +186,13 @@ nav a:hover {
     min-height: 48px;
     padding: 13px 22px;
     border: 0;
-    border-radius: 7px;
+    border-radius: 10px;
     background: var(--turquoise);
     color: var(--navy);
     font-size: 0.92rem;
     font-weight: 800;
     text-align: center;
+    box-shadow: 0 8px 22px rgba(65, 105, 225, 0.18);
     transition:
         background 0.2s ease,
         transform 0.2s ease,
@@ -193,8 +200,8 @@ nav a:hover {
 }
 
 .button:hover {
-    background: #80eee2;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    background: #91a8ff;
+    box-shadow: 0 12px 28px rgba(65, 105, 225, 0.25);
     transform: translateY(-2px);
 }
 
@@ -439,7 +446,7 @@ nav a:hover {
     align-items: flex-start;
     padding: 32px 28px;
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: var(--radius-card);
     background: var(--white);
     box-shadow: var(--shadow);
     transition:
@@ -547,7 +554,7 @@ nav a:hover {
 .method-card {
     padding: 26px 22px;
     border-top: 3px solid var(--turquoise);
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 14px 14px;
     background: var(--white);
     box-shadow: var(--shadow);
 }
