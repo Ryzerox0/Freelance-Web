@@ -3,57 +3,451 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#263b2e">
   <meta name="robots" content="noindex, follow">
-  <title>Concept Maison Olive — Studio Web</title>
+
+  <title>Maison Olive | Cuisine méditerranéenne — Concept fictif</title>
+
+  <meta
+    name="description"
+    content="Découvrez Maison Olive, un concept fictif de restaurant méditerranéen : cuisine de saison, plats généreux et ambiance chaleureuse."
+  >
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="restaurant.css">
   <script src="script.js" defer></script>
 </head>
-<body>
+
+<body class="restaurant-site">
+
+  <!-- EN-TÊTE -->
   <header class="site-header">
-    <a class="brand" href="index.html"><span class="brand-mark">S<span>.</span></span><span class="brand-name">studio<span>web</span></span></a>
-    <a class="nav-cta" href="index.html#realisations">← Retour aux réalisations</a>
+    <a class="brand" href="#accueil" aria-label="Maison Olive, accueil">
+      <span class="brand-mark">M<span>.</span></span>
+      <span class="brand-name">MAISON <span>OLIVE</span></span>
+    </a>
+
+    <nav class="navigation" aria-label="Navigation principale">
+      <a href="#histoire">Notre esprit</a>
+      <a href="#carte">La carte</a>
+      <a href="#ambiance">Le restaurant</a>
+      <a href="#infos">Informations</a>
+      <a class="nav-cta" href="#contact">Nous contacter ↗</a>
+    </nav>
   </header>
 
-  <main class="subpage-main">
-    <section class="section-wrap subpage-hero">
-      <p class="eyebrow"><span class="status-dot"></span> ÉTUDE DE CAS · CONCEPT FICTIF</p>
-      <h1>Maison Olive — un univers chaleureux pour une table imaginaire.</h1>
-      <p>Un concept de site vitrine pour restaurant, imaginé autour d'une identité éditoriale chaleureuse, d'une carte facile à consulter et d'informations pratiques bien organisées.</p>
+  <main id="contenu">
+
+    <!-- HERO -->
+    <section class="section-wrap subpage-hero restaurant-hero" id="accueil">
+      <p class="eyebrow">
+        <span class="status-dot"></span>
+        CUISINE MÉDITERRANÉENNE · CONCEPT FICTIF
+      </p>
+
+      <h1>
+        Le goût des
+        <br>
+        <span class="text-gradient">choses simples.</span>
+      </h1>
+
+      <p>
+        Des produits de saison, des assiettes généreuses et le plaisir
+        de se retrouver autour d'une belle table. Bienvenue dans l'univers
+        de Maison Olive, un concept imaginé autour de la cuisine méditerranéenne.
+      </p>
+
       <div class="subpage-actions">
-        <a class="button button-primary" href="index.html#contact">Créer un site pour mon activité ↗</a>
-        <a class="button button-quiet" href="demo-plomberie.html">Voir l'autre concept →</a>
+        <a class="button button-primary" href="#carte">
+          Découvrir la carte ↓
+        </a>
+        <a class="button button-quiet" href="#histoire">
+          Notre philosophie
+        </a>
+      </div>
+
+      <p class="hero-note">
+        Cuisine de saison · Inspiration méditerranéenne · Convivialité
+      </p>
+    </section>
+
+    <!-- BANDEAU -->
+    <section class="trust-strip" aria-label="L'esprit de Maison Olive">
+      <div class="trust-inner">
+        <span>NOTRE PHILOSOPHIE</span>
+        <div><span class="trust-symbol">✳</span> La saisonnalité</div>
+        <div><span class="trust-symbol">◈</span> La simplicité</div>
+        <div><span class="trust-symbol">◎</span> Le partage</div>
+        <div><span class="trust-symbol">⌁</span> La convivialité</div>
       </div>
     </section>
 
-    <section class="section-wrap demo-panel">
-      <div class="demo-notice">Maison Olive est une marque fictive créée pour illustrer une direction artistique. Ce restaurant n'existe pas et aucune réservation n'est proposée.</div>
-      <h2>Un site qui met l'ambiance en valeur</h2>
-      <p>Le but de ce concept est de faire ressentir l'univers du lieu tout en gardant les informations utiles faciles à trouver : type de cuisine, carte, horaires et coordonnées.</p>
-      <div class="demo-grid">
-        <article class="demo-tile"><h3>01. L'identité</h3><p>Une palette naturelle, une typographie expressive et un ton éditorial cohérent.</p></article>
-        <article class="demo-tile"><h3>02. La carte</h3><p>Une structure lisible pour présenter les plats et les informations essentielles.</p></article>
-        <article class="demo-tile"><h3>03. Les infos pratiques</h3><p>Un accès rapide aux horaires et coordonnées, sans détour inutile.</p></article>
+    <!-- HISTOIRE -->
+    <section class="section-wrap section-space" id="histoire">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">L'ESPRIT MAISON OLIVE</p>
+          <h2>Une cuisine sincère, <span class="text-gradient">un moment à partager.</span></h2>
+        </div>
+
+        <p>
+          Maison Olive est un concept de restaurant inspiré des tables
+          méditerranéennes : une cuisine accessible, des associations
+          de saveurs simples et une atmosphère pensée pour prendre son temps.
+        </p>
       </div>
-      <h2>Les principes retenus</h2>
-      <ul>
-        <li>Un univers graphique distinctif, adapté à l'activité imaginée.</li>
-        <li>Des contenus hiérarchisés pour une lecture rapide.</li>
-        <li>Une navigation simple sur ordinateur comme sur téléphone.</li>
-        <li>Des actions claires et aucune fonctionnalité simulée comme si elle était réelle.</li>
-      </ul>
-      <p>Tu as une activité à mettre en valeur ? <a class="text-link" href="index.html#contact">Présente-moi ton projet ↗</a></p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon icon-green">✳</div>
+          <span class="card-index">01 / LES PRODUITS</span>
+          <h3>Au rythme des saisons</h3>
+          <p>
+            Une carte imaginée autour des légumes, des herbes aromatiques
+            et des produits qui inspirent la cuisine du moment.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon icon-purple">◈</div>
+          <span class="card-index">02 / LA CUISINE</span>
+          <h3>Des saveurs généreuses</h3>
+          <p>
+            Des recettes d'inspiration méditerranéenne, des assiettes
+            colorées et une approche qui privilégie le goût.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon icon-blue">◎</div>
+          <span class="card-index">03 / L'ACCUEIL</span>
+          <h3>Le plaisir d'être ensemble</h3>
+          <p>
+            Un univers chaleureux, imaginé pour un déjeuner entre amis,
+            un dîner en couple ou un repas en famille.
+          </p>
+        </article>
+      </div>
     </section>
+
+    <!-- CARTE -->
+    <section class="offer-section" id="carte">
+      <div class="section-wrap offer-layout">
+
+        <div class="offer-copy">
+          <p class="eyebrow">
+            <span class="status-dot"></span>
+            UNE CARTE IMAGINAIRE
+          </p>
+
+          <h2>Des produits simples.<br><span class="text-gradient">De belles assiettes.</span></h2>
+
+          <p>
+            Cette carte de démonstration présente quelques plats
+            imaginés pour l'univers de Maison Olive. Les recettes,
+            les prix et les disponibilités sont fictifs.
+          </p>
+
+          <a class="button button-primary" href="#contact">
+            Poser une question ↗
+          </a>
+        </div>
+
+        <div class="offer-card restaurant-menu-card">
+          <span class="offer-label">LA CARTE · CONCEPT FICTIF</span>
+          <h3>Pour commencer</h3>
+
+          <div class="restaurant-dish">
+            <div>
+              <h4>Houmous maison</h4>
+              <p>Crème de pois chiches, citron, huile d'olive et pain grillé.</p>
+            </div>
+            <strong>8 €</strong>
+          </div>
+
+          <div class="restaurant-dish">
+            <div>
+              <h4>Burrata et tomates</h4>
+              <p>Tomates de saison, basilic frais et vinaigrette parfumée.</p>
+            </div>
+            <strong>12 €</strong>
+          </div>
+
+          <div class="offer-divider"></div>
+
+          <h3>Les plats</h3>
+
+          <div class="restaurant-dish">
+            <div>
+              <h4>Gnocchis à la sauge</h4>
+              <p>Gnocchis fondants, beurre parfumé et copeaux de fromage.</p>
+            </div>
+            <strong>17 €</strong>
+          </div>
+
+          <div class="restaurant-dish">
+            <div>
+              <h4>Légumes rôtis du marché</h4>
+              <p>Légumes de saison, semoule aux herbes et sauce au yaourt citronné.</p>
+            </div>
+            <strong>16 €</strong>
+          </div>
+
+          <div class="restaurant-dish">
+            <div>
+              <h4>Poisson du jour</h4>
+              <p>Suggestion accompagnée de légumes et d'un filet d'huile d'olive.</p>
+            </div>
+            <strong>22 €</strong>
+          </div>
+
+          <div class="offer-divider"></div>
+
+          <h3>Pour terminer</h3>
+
+          <div class="restaurant-dish">
+            <div>
+              <h4>Panna cotta à la vanille</h4>
+              <p>Crème délicate et coulis de fruits de saison.</p>
+            </div>
+            <strong>7 €</strong>
+          </div>
+
+          <div class="restaurant-dish">
+            <div>
+              <h4>Gâteau au citron</h4>
+              <p>Un dessert moelleux aux notes fraîches et acidulées.</p>
+            </div>
+            <strong>7 €</strong>
+          </div>
+
+          <div class="offer-note">
+            <span>ⓘ</span>
+            <p>
+              Menu entièrement fictif : les plats, allergènes, prix et
+              disponibilités ne correspondent pas à une offre commerciale réelle.
+              Dans un vrai restaurant, ces informations doivent être vérifiées
+              avant publication.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AMBIANCE -->
+    <section class="section-wrap section-space" id="ambiance">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">UN LIEU IMAGINÉ POUR SE RETROUVER</p>
+          <h2>Une atmosphère <span class="text-gradient">naturelle et chaleureuse.</span></h2>
+        </div>
+
+        <p>
+          Des matières naturelles, des tons doux et une identité
+          visuelle inspirée du Sud : l'univers graphique de Maison Olive
+          met l'accent sur la simplicité et la convivialité.
+        </p>
+      </div>
+
+      <div class="demo-grid">
+        <article class="demo-tile">
+          <h3>Des tons naturels</h3>
+          <p>
+            Vert olive, crème et nuances terreuses pour une identité
+            visuelle douce et reconnaissable.
+          </p>
+        </article>
+
+        <article class="demo-tile">
+          <h3>Une carte lisible</h3>
+          <p>
+            Des plats organisés par catégorie, avec des descriptions
+            faciles à consulter sur téléphone.
+          </p>
+        </article>
+
+        <article class="demo-tile">
+          <h3>Les infos à portée de main</h3>
+          <p>
+            Une navigation conçue pour aider les visiteurs à trouver
+            rapidement les informations essentielles.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- INFORMATIONS PRATIQUES -->
+    <section class="process-section" id="infos">
+      <div class="section-wrap section-space">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">INFORMATIONS PRATIQUES</p>
+            <h2>Préparer votre <span class="text-gradient">visite.</span></h2>
+          </div>
+
+          <p>
+            Sur un véritable site de restaurant, cette rubrique permet
+            de retrouver en un coup d'œil les informations utiles avant
+            de se déplacer.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-step">
+            <span class="step-number">01</span>
+            <div class="step-line"></div>
+            <h3>Adresse</h3>
+            <p>
+              L'adresse exacte et les indications d'accès seront affichées
+              lorsque les informations du restaurant réel seront disponibles.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="step-number">02</span>
+            <div class="step-line"></div>
+            <h3>Horaires</h3>
+            <p>
+              Les jours d'ouverture et les horaires du service devront
+              être confirmés par l'établissement avant publication.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="step-number">03</span>
+            <div class="step-line"></div>
+            <h3>Réservation</h3>
+            <p>
+              Un véritable établissement pourrait proposer une réservation
+              par téléphone, par e-mail ou via un service dédié.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="step-number">04</span>
+            <div class="step-line"></div>
+            <h3>Accessibilité</h3>
+            <p>
+              Les informations sur l'accès, les équipements et les besoins
+              particuliers devront être vérifiées auprès du restaurant.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-wrap section-space faq-section" id="faq">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">QUESTIONS FRÉQUENTES</p>
+          <h2>Avant de passer <span class="text-gradient">à table.</span></h2>
+        </div>
+
+        <p>
+          Des exemples de questions qu'un restaurant peut anticiper
+          sur son site pour faciliter la préparation d'une visite.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>La carte change-t-elle selon les saisons ? <span>+</span></summary>
+          <p>
+            Dans le concept Maison Olive, la carte est imaginée autour
+            des produits de saison. Pour un établissement réel, les plats
+            proposés et leur disponibilité doivent être confirmés par l'équipe.
+          </p>
+        </details>
+
+        <details>
+          <summary>Comment réserver une table ? <span>+</span></summary>
+          <p>
+            Cette démonstration ne prend pas de réservations. Un véritable
+            site pourrait proposer un numéro de téléphone, une adresse
+            e-mail ou un outil de réservation en ligne.
+          </p>
+        </details>
+
+        <details>
+          <summary>Les plats conviennent-ils à tous les régimes ? <span>+</span></summary>
+          <p>
+            Les ingrédients et allergènes doivent être confirmés par
+            le restaurant. En cas d'allergie ou de régime particulier,
+            il est important de demander des informations précises
+            à l'établissement avant de commander.
+          </p>
+        </details>
+
+        <details>
+          <summary>Peut-on organiser un repas de groupe ? <span>+</span></summary>
+          <p>
+            Pour un restaurant réel, les conditions d'accueil des groupes,
+            les menus éventuels et les modalités de réservation devraient
+            être indiqués ou communiqués sur demande.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="section-wrap contact-inner">
+        <div class="contact-orb orb-a"></div>
+        <div class="contact-orb orb-b"></div>
+
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          UN CONCEPT SIGNÉ STUDIO WEB
+        </p>
+
+        <h2>Votre activité mérite un site <span class="text-gradient">à son image.</span></h2>
+
+        <p>
+          Cette démonstration illustre comment un site peut mettre en valeur
+          l'identité d'un restaurant, présenter une carte et rendre les
+          informations pratiques faciles à trouver.
+        </p>
+
+        <div class="contact-actions">
+          <a class="button button-primary button-light" href="index.html#contact">
+            Créer un site pour mon activité ↗
+          </a>
+          <a class="button button-outline" href="demo-plomberie.html">
+            Voir l'autre démonstration
+          </a>
+        </div>
+
+        <p class="contact-note">
+          Maison Olive est une marque fictive. Il n'existe pas de restaurant
+          réel associé à cette page et aucune réservation n'est proposée.
+        </p>
+      </div>
+    </section>
+
   </main>
 
+  <!-- PIED DE PAGE -->
   <footer class="site-footer">
     <div class="footer-main">
-      <a class="brand" href="index.html"><span class="brand-mark">S<span>.</span></span><span class="brand-name">studio<span>web</span></span></a>
-      <p>Projet de démonstration fictif.</p>
-      <a class="back-top" href="index.html">Retour au portfolio ↑</a>
+      <a class="brand" href="#accueil" aria-label="Maison Olive, accueil">
+        <span class="brand-mark">M<span>.</span></span>
+        <span class="brand-name">MAISON <span>OLIVE</span></span>
+      </a>
+
+      <p>Un concept de site vitrine imaginé par Studio Web.</p>
+
+      <a class="back-top" href="#accueil">Retour en haut ↑</a>
     </div>
-    <div class="footer-bottom"><span>© <span id="year"></span> Studio Web</span><div><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Maison Olive — concept fictif</span>
+
+      <div>
+        <a href="index.html#realisations">Retour au portfolio</a>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>
-

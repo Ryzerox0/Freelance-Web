@@ -3,57 +3,424 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#10251f">
   <meta name="robots" content="noindex, follow">
-  <title>Concept Dupont Plomberie — Studio Web</title>
+
+  <title>Dupont Plomberie | Dépannage, installation et rénovation</title>
+  <meta
+    name="description"
+    content="Découvrez les services de plomberie de Dupont Plomberie : dépannage, recherche de fuite, installation sanitaire et rénovation de salle de bains. Projet de démonstration fictif."
+  >
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="plomberie.css">
   <script src="script.js" defer></script>
 </head>
-<body>
+
+<body class="plumbing-site">
+
+  <!-- EN-TÊTE -->
   <header class="site-header">
-    <a class="brand" href="index.html"><span class="brand-mark">S<span>.</span></span><span class="brand-name">studio<span>web</span></span></a>
-    <a class="nav-cta" href="index.html#realisations">← Retour aux réalisations</a>
+    <a class="brand" href="#accueil" aria-label="Dupont Plomberie, accueil">
+      <span class="brand-mark">D<span>.</span></span>
+      <span class="brand-name">DUPONT<span> PLOMBERIE</span></span>
+    </a>
+
+    <nav class="navigation" aria-label="Navigation principale">
+      <a href="#services">Prestations</a>
+      <a href="#entreprise">L'entreprise</a>
+      <a href="#zone">Intervention</a>
+      <a class="nav-cta" href="#contact">Demander un devis ↗</a>
+    </nav>
   </header>
 
-  <main class="subpage-main">
-    <section class="section-wrap subpage-hero">
-      <p class="eyebrow"><span class="status-dot"></span> ÉTUDE DE CAS · CONCEPT FICTIF</p>
-      <h1>Dupont Plomberie — un site clair pour un artisan de proximité.</h1>
-      <p>Une démonstration de direction artistique et de structure de site vitrine, imaginée pour rendre les services d'un artisan plus faciles à comprendre et à contacter.</p>
+  <main id="contenu">
+
+    <!-- ACCUEIL -->
+    <section class="section-wrap subpage-hero" id="accueil">
+      <p class="eyebrow">
+        <span class="status-dot"></span>
+        PLOMBERIE · INSTALLATION · RÉNOVATION
+      </p>
+
+      <h1>
+        Une plomberie fiable.
+        <br>
+        <span class="text-gradient">Un travail bien fait.</span>
+      </h1>
+
+      <p>
+        Une fuite, un équipement à remplacer ou une salle de bains à rénover ?
+        Découvrez une approche claire de la plomberie, avec des prestations
+        adaptées à vos besoins et un projet défini avant les travaux.
+      </p>
+
       <div class="subpage-actions">
-        <a class="button button-primary" href="index.html#contact">Créer un site pour mon activité ↗</a>
-        <a class="button button-quiet" href="demo-restaurant.html">Voir l'autre concept →</a>
+        <a class="button button-primary" href="#contact">
+          Présenter mon besoin ↗
+        </a>
+        <a class="button button-quiet" href="#services">
+          Découvrir les prestations ↓
+        </a>
+      </div>
+
+      <p class="hero-note">
+        Dépannage · Installation sanitaire · Rénovation
+      </p>
+    </section>
+
+    <!-- BANDEAU DE SERVICES -->
+    <section class="trust-strip" aria-label="Principales prestations">
+      <div class="trust-inner">
+        <span>LES PRESTATIONS</span>
+        <div><span class="trust-symbol">⌁</span> Dépannage</div>
+        <div><span class="trust-symbol">◈</span> Installation</div>
+        <div><span class="trust-symbol">✳</span> Rénovation</div>
+        <div><span class="trust-symbol">✓</span> Conseils</div>
       </div>
     </section>
 
-    <section class="section-wrap demo-panel">
-      <div class="demo-notice">Ce projet est fictif. Il ne s'agit pas d'une entreprise réelle, d'un client de Studio Web ou d'une prestation déjà livrée.</div>
-      <h2>Une structure pensée pour aller à l'essentiel</h2>
-      <p>Le concept met l'accent sur la confiance, la proximité et la lisibilité. Un visiteur doit rapidement comprendre le type de services proposés et comment demander des informations.</p>
-      <div class="demo-grid">
-        <article class="demo-tile"><h3>01. Accueil</h3><p>Un message direct, une promesse claire et un accès rapide aux informations essentielles.</p></article>
-        <article class="demo-tile"><h3>02. Services</h3><p>Des prestations organisées en catégories faciles à parcourir, sans jargon inutile.</p></article>
-        <article class="demo-tile"><h3>03. Contact</h3><p>Des moyens de contact visibles pour faciliter la prise de renseignements.</p></article>
+    <!-- INTRODUCTION -->
+    <section class="section-wrap section-space" id="entreprise">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">VOTRE PROJET, EN TOUTE CLARTÉ</p>
+          <h2>Des solutions adaptées <span class="text-gradient">à votre logement.</span></h2>
+        </div>
+
+        <p>
+          Chaque intervention commence par la compréhension du problème
+          ou du projet. L'objectif : identifier le besoin, expliquer les
+          possibilités et convenir des travaux à réaliser.
+        </p>
       </div>
-      <h2>Les choix de conception</h2>
-      <ul>
-        <li>Une palette sobre inspirée des univers techniques et de l'artisanat.</li>
-        <li>Des titres lisibles et des informations hiérarchisées.</li>
-        <li>Une structure prévue pour les écrans mobiles.</li>
-        <li>Des appels à l'action faciles à repérer.</li>
-      </ul>
-      <p>Tu souhaites une approche similaire pour ton activité ? <a class="text-link" href="index.html#contact">Parlons de ton projet ↗</a></p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon icon-purple">⌁</div>
+          <span class="card-index">01 / DÉPANNAGE</span>
+          <h3>Recherche de fuite</h3>
+          <p>
+            Une fuite visible, un raccord qui goutte ou une arrivée d'eau
+            à vérifier ? Une première évaluation permet de déterminer
+            les vérifications et réparations à envisager.
+          </p>
+          <a class="text-link" href="#contact">
+            Décrire le problème <span>→</span>
+          </a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon icon-blue">◈</div>
+          <span class="card-index">02 / INSTALLATION</span>
+          <h3>Équipements sanitaires</h3>
+          <p>
+            Installation ou remplacement d'un lavabo, d'un évier,
+            d'un robinet ou d'autres équipements sanitaires, selon
+            la configuration et le besoin.
+          </p>
+          <a class="text-link" href="#contact">
+            Présenter mon installation <span>→</span>
+          </a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon icon-green">✳</div>
+          <span class="card-index">03 / RÉNOVATION</span>
+          <h3>Salle de bains</h3>
+          <p>
+            Réfléchir à une nouvelle implantation, remplacer des
+            équipements ou préparer un projet de rénovation en fonction
+            de l'espace disponible et du budget.
+          </p>
+          <a class="text-link" href="#contact">
+            Parler de mon projet <span>→</span>
+          </a>
+        </article>
+      </div>
     </section>
+
+    <!-- MÉTHODE DE TRAVAIL -->
+    <section class="process-section">
+      <div class="section-wrap section-space">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">COMMENT SE DÉROULE UN PROJET ?</p>
+            <h2>Un déroulement <span class="text-gradient">simple et lisible.</span></h2>
+          </div>
+
+          <p>
+            Des échanges clairs permettent de préciser le besoin,
+            les travaux envisagés et les conditions d'intervention
+            avant de commencer.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-step">
+            <span class="step-number">01</span>
+            <div class="step-line"></div>
+            <h3>Vous expliquez le besoin</h3>
+            <p>
+              Vous décrivez le problème rencontré ou les travaux
+              que vous souhaitez réaliser.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="step-number">02</span>
+            <div class="step-line"></div>
+            <h3>Nous étudions la solution</h3>
+            <p>
+              Les informations utiles sont recueillies pour évaluer
+              les possibilités et les contraintes du projet.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="step-number">03</span>
+            <div class="step-line"></div>
+            <h3>Le devis est précisé</h3>
+            <p>
+              Les travaux prévus, leur prix et les conditions
+              d'intervention sont définis avant l'accord.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <span class="step-number">04</span>
+            <div class="step-line"></div>
+            <h3>Les travaux sont réalisés</h3>
+            <p>
+              L'intervention est organisée selon le périmètre
+              convenu et les contraintes du chantier.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENTS -->
+    <section class="section-wrap section-space">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LES POINTS ESSENTIELS</p>
+          <h2>Bien comprendre avant <span class="text-gradient">de commencer.</span></h2>
+        </div>
+
+        <p>
+          Une prestation bien préparée repose sur des informations
+          compréhensibles et des conditions définies ensemble.
+        </p>
+      </div>
+
+      <div class="demo-grid">
+        <article class="demo-tile">
+          <h3>Des explications claires</h3>
+          <p>
+            Comprendre le problème, les solutions envisageables
+            et les limites éventuelles de l'intervention.
+          </p>
+        </article>
+
+        <article class="demo-tile">
+          <h3>Un périmètre défini</h3>
+          <p>
+            Identifier les travaux prévus et les éventuelles
+            prestations supplémentaires avant de s'engager.
+          </p>
+        </article>
+
+        <article class="demo-tile">
+          <h3>Un devis avant travaux</h3>
+          <p>
+            Disposer des informations nécessaires sur le prix
+            et les conditions avant de donner son accord.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ZONE D'INTERVENTION -->
+    <section class="offer-section" id="zone">
+      <div class="section-wrap offer-layout">
+        <div class="offer-copy">
+          <p class="eyebrow">
+            <span class="status-dot"></span>
+            ZONE D'INTERVENTION
+          </p>
+
+          <h2>Un projet près de chez vous ?</h2>
+
+          <p>
+            La zone d'intervention dépend du lieu, de la nature
+            des travaux et des disponibilités. Indiquez votre
+            commune pour vérifier si votre demande peut être étudiée.
+          </p>
+
+          <a class="button button-primary" href="#contact">
+            Indiquer ma commune ↗
+          </a>
+        </div>
+
+        <div class="offer-card">
+          <span class="offer-label">AVANT DE NOUS CONTACTER</span>
+          <h3>Préparez quelques informations</h3>
+
+          <ul class="check-list">
+            <li><span>✓</span> Votre commune</li>
+            <li><span>✓</span> Le type de problème ou de travaux</li>
+            <li><span>✓</span> Le type de logement</li>
+            <li><span>✓</span> Le délai souhaité</li>
+            <li><span>✓</span> Quelques photos si elles sont utiles</li>
+          </ul>
+
+          <div class="offer-note">
+            <span>ⓘ</span>
+            <p>
+              Ces informations aident à comprendre la demande.
+              Elles ne remplacent pas un diagnostic sur place
+              lorsque celui-ci est nécessaire.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUESTIONS FRÉQUENTES -->
+    <section class="section-wrap section-space faq-section" id="faq">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">QUESTIONS FRÉQUENTES</p>
+          <h2>Les réponses <span class="text-gradient">à vos questions.</span></h2>
+        </div>
+
+        <p>
+          Quelques repères pour préparer votre demande
+          et mieux comprendre les prochaines étapes.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>Comment demander un devis ? <span>+</span></summary>
+          <p>
+            Décrivez votre besoin, indiquez votre commune et précisez
+            le délai souhaité. Des informations complémentaires ou
+            une visite peuvent être nécessaires pour établir un devis adapté.
+          </p>
+        </details>
+
+        <details>
+          <summary>Combien coûte une intervention de plomberie ? <span>+</span></summary>
+          <p>
+            Le prix dépend notamment de la nature du problème,
+            du temps nécessaire, des fournitures et des conditions
+            d'accès. Les modalités et le montant doivent être précisés
+            avant tout engagement.
+          </p>
+        </details>
+
+        <details>
+          <summary>Intervenez-vous en urgence ? <span>+</span></summary>
+          <p>
+            Les possibilités de dépannage urgent dépendent des
+            disponibilités et de la zone couverte. Contactez le
+            professionnel pour vérifier s'il peut prendre en charge
+            votre situation et connaître les conditions applicables.
+          </p>
+        </details>
+
+        <details>
+          <summary>Puis-je fournir mes propres équipements ? <span>+</span></summary>
+          <p>
+            Cela peut être étudié selon l'équipement, sa compatibilité,
+            les conditions de pose et les garanties applicables.
+            Ce point doit être clarifié avant de valider le devis.
+          </p>
+        </details>
+
+        <details>
+          <summary>Quels renseignements donner pour une fuite ? <span>+</span></summary>
+          <p>
+            Précisez où se situe la fuite, quand elle a été constatée
+            et si elle semble toujours active. En cas de fuite importante,
+            si cela peut être fait sans danger, coupez l'arrivée d'eau
+            concernée. Si de l'eau menace une installation électrique,
+            évitez la zone et contactez les services compétents.
+          </p>
+        </details>
+
+        <details>
+          <summary>Quand les travaux peuvent-ils commencer ? <span>+</span></summary>
+          <p>
+            Le délai dépend de la nature des travaux, des disponibilités,
+            des fournitures et des éventuelles contraintes du chantier.
+            Une date doit être confirmée avec le professionnel.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="section-wrap contact-inner">
+        <div class="contact-orb orb-a"></div>
+        <div class="contact-orb orb-b"></div>
+
+        <p class="eyebrow">
+          <span class="status-dot"></span>
+          PARLONS DE VOTRE BESOIN
+        </p>
+
+        <h2>Un problème ou un projet de <span class="text-gradient">plomberie ?</span></h2>
+
+        <p>
+          Présentez votre demande et les informations dont vous disposez.
+          Cela permettra de mieux comprendre votre situation et d'étudier
+          les prochaines étapes.
+        </p>
+
+        <div class="contact-actions">
+          <a
+            class="button button-primary button-light"
+            href="mailto:contact@example.fr?subject=Demande%20de%20renseignements%20-%20Plomberie&body=Bonjour%2C%0A%0AMa%20commune%20%3A%0A%0AMon%20besoin%20%3A%0A%0AType%20de%20logement%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci."
+          >
+            Préparer une demande par e-mail ↗
+          </a>
+        </div>
+
+        <p class="contact-note">
+          Projet fictif de démonstration réalisé par Studio Web.
+          Les coordonnées affichées ici sont des exemples et ne permettent
+          pas de contacter une entreprise réelle.
+        </p>
+      </div>
+    </section>
+
   </main>
 
+  <!-- PIED DE PAGE -->
   <footer class="site-footer">
     <div class="footer-main">
-      <a class="brand" href="index.html"><span class="brand-mark">S<span>.</span></span><span class="brand-name">studio<span>web</span></span></a>
-      <p>Projet de démonstration fictif.</p>
-      <a class="back-top" href="index.html">Retour au portfolio ↑</a>
+      <a class="brand" href="#accueil" aria-label="Dupont Plomberie, accueil">
+        <span class="brand-mark">D<span>.</span></span>
+        <span class="brand-name">DUPONT<span> PLOMBERIE</span></span>
+      </a>
+
+      <p>Un concept de site vitrine pour une activité de plomberie.</p>
+
+      <a class="back-top" href="#accueil">Retour en haut ↑</a>
     </div>
-    <div class="footer-bottom"><span>© <span id="year"></span> Studio Web</span><div><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Dupont Plomberie — concept fictif</span>
+
+      <div>
+        <a href="index.html#realisations">Retour au portfolio</a>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>
-

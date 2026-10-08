@@ -1,0 +1,241 @@
+/* ========================================
+   DÉMO RESTAURANT — STYLE MÉDITERRANÉEN
+   Palette : crème, olive, terracotta
+======================================== */
+
+.restaurant-site {
+  --bg: #faf5eb;
+  --bg-soft: #f0e7d7;
+  --panel: #fffdf8;
+  --panel-light: #eee5d4;
+  --text: #302d22;
+  --muted: #77705f;
+  --muted-strong: #514b3e;
+  --line: rgba(48, 45, 34, 0.14);
+  --line-strong: rgba(48, 45, 34, 0.26);
+  --purple: #b85f43;
+  --blue: #606b3e;
+  --green: #e8dfc8;
+  --radius: 5px;
+  --radius-small: 3px;
+  --shadow: 0 18px 45px rgba(48, 45, 34, 0.08);
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.restaurant-site *,
+.restaurant-site *::before,
+.restaurant-site *::after {
+  box-sizing: border-box;
+}
+
+.restaurant-site body,
+body.restaurant-site {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.restaurant-site a {
+  color: inherit;
+}
+
+.restaurant-site .site-header {
+  background: rgba(250, 245, 235, 0.96);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.restaurant-site .brand-name {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.03em;
+}
+
+.restaurant-site .navigation a {
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+}
+
+.restaurant-site .brand-mark {
+  background: var(--blue);
+  color: #fff;
+  border-radius: 50%;
+}
+
+.restaurant-site .navigation a:hover {
+  color: var(--purple);
+}
+
+.restaurant-site .nav-cta,
+.restaurant-site .button-primary {
+  background: var(--blue);
+  color: #fff;
+  border: 1px solid var(--blue);
+  border-radius: 2px;
+  box-shadow: none;
+  font-family: Arial, sans-serif;
+}
+
+.restaurant-site .nav-cta:hover,
+.restaurant-site .button-primary:hover {
+  background: #4c5630;
+  border-color: #4c5630;
+  transform: translateY(-2px);
+}
+
+.restaurant-site .button-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  font-family: Arial, sans-serif;
+}
+
+.restaurant-site .button-secondary:hover {
+  background: var(--panel-light);
+  border-color: var(--blue);
+}
+
+.restaurant-site .hero {
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(184, 95, 67, 0.10), transparent 38%),
+    var(--bg);
+}
+
+.restaurant-site .eyebrow {
+  color: var(--purple);
+  font-family: Arial, sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.restaurant-site .hero h1,
+.restaurant-site h2,
+.restaurant-site h3 {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.restaurant-site .hero p,
+.restaurant-site .section-heading p,
+.restaurant-site .service-card p,
+.restaurant-site .offer-card p,
+.restaurant-site .process-grid p,
+.restaurant-site .faq-list p {
+  color: var(--muted);
+}
+
+.restaurant-site .trust-strip {
+  background: #e9e1ce;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.restaurant-site .trust-strip * {
+  color: var(--text);
+}
+
+.restaurant-site .service-card,
+.restaurant-site .offer-card,
+.restaurant-site .process-grid > *,
+.restaurant-site .faq-list details {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.restaurant-site .service-card:hover,
+.restaurant-site .offer-card:hover {
+  border-color: rgba(96, 107, 62, 0.5);
+  transform: translateY(-3px);
+}
+
+.restaurant-site .service-card h3,
+.restaurant-site .offer-card h3 {
+  color: var(--text);
+}
+
+.restaurant-site .offer-section {
+  background: #eee5d4;
+}
+
+.restaurant-site .offer-card {
+  background: #fffdf8;
+}
+
+.restaurant-site .offer-card strong,
+.restaurant-site .offer-card li::marker {
+  color: var(--blue);
+}
+
+.restaurant-site .faq-list details {
+  padding: 20px;
+}
+
+.restaurant-site .faq-list summary {
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.restaurant-site .contact-section {
+  background: #606b3e;
+  color: #fffdf8;
+}
+
+.restaurant-site .contact-section h2,
+.restaurant-site .contact-section h3,
+.restaurant-site .contact-section p,
+.restaurant-site .contact-section a {
+  color: #fffdf8;
+}
+
+.restaurant-site .contact-section .button-primary {
+  background: #b85f43;
+  border-color: #b85f43;
+  color: #fff;
+}
+
+.restaurant-site .site-footer {
+  background: #302d22;
+  color: #f5eddf;
+  border-top: 0;
+}
+
+.restaurant-site .site-footer a,
+.restaurant-site .site-footer p {
+  color: #e1d7c4;
+}
+
+.restaurant-site .site-footer a:hover {
+  color: #e5a68c;
+}
+
+.restaurant-site ::selection {
+  background: #606b3e;
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  .restaurant-site .navigation {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  .restaurant-site .navigation a {
+    color: var(--text);
+  }
+
+  .restaurant-site .hero {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
