@@ -25,14 +25,17 @@
   font-family: "DM Sans", Arial, sans-serif;
 }
 
+.plumbing-site,
 .plumbing-site *,
 .plumbing-site *::before,
 .plumbing-site *::after {
   box-sizing: border-box;
 }
 
-.plumbing-site body,
 body.plumbing-site {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
   background: var(--bg);
   color: var(--text);
 }
@@ -41,37 +44,91 @@ body.plumbing-site {
   color: inherit;
 }
 
-.plumbing-site .site-header {
-  background: rgba(247, 245, 239, 0.96);
-  border-bottom: 1px solid var(--line);
+/* ========================================
+   EN-TÊTE — HEADER
+======================================== */
+
+body.plumbing-site .site-header {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 18px max(24px, calc((100% - 1160px) / 2));
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  background: #f7f5ef;
+  border-bottom: 1px solid rgba(32, 57, 46, 0.14);
   box-shadow: none;
+  box-sizing: border-box;
 }
 
-.plumbing-site .brand-name,
-.plumbing-site .navigation a {
-  color: var(--text);
+.plumbing-site .site-header .brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.plumbing-site .site-header .brand-name {
+  color: #20392e;
 }
 
 .plumbing-site .brand-mark {
-  background: var(--blue);
-  color: #fff;
+  background: #315d49;
+  color: #ffffff;
   border-radius: 8px;
 }
 
-.plumbing-site .navigation a:hover {
-  color: var(--purple);
+.plumbing-site .navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-left: auto;
 }
 
-.plumbing-site .nav-cta,
-.plumbing-site .button-primary {
-  background: var(--blue);
-  color: #fff;
-  border: 1px solid var(--blue);
+.plumbing-site .navigation a {
+  color: #20392e;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.plumbing-site .navigation a:hover {
+  color: #b66e45;
+}
+
+/* Bouton du menu */
+
+.plumbing-site .site-header .navigation .nav-cta {
+  background: #315d49;
+  color: #ffffff;
+  border: 1px solid #315d49;
   border-radius: 6px;
   box-shadow: none;
 }
 
-.plumbing-site .nav-cta:hover,
+.plumbing-site .site-header .navigation .nav-cta:hover {
+  background: #244737;
+  border-color: #244737;
+  color: #ffffff;
+}
+
+/* ========================================
+   BOUTONS PRINCIPAUX
+======================================== */
+
+.plumbing-site .button-primary {
+  background: #315d49;
+  color: #ffffff;
+  border: 1px solid #315d49;
+  border-radius: 6px;
+  box-shadow: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
 .plumbing-site .button-primary:hover {
   background: #244737;
   border-color: #244737;
@@ -83,6 +140,7 @@ body.plumbing-site {
   background: transparent;
   border: 1px solid var(--line-strong);
   border-radius: 6px;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .plumbing-site .button-secondary:hover {
@@ -90,9 +148,18 @@ body.plumbing-site {
   border-color: var(--blue);
 }
 
-.plumbing-site .hero {
+/* ========================================
+   HERO — SECTION PRINCIPALE
+======================================== */
+
+.plumbing-site .hero,
+.plumbing-site .subpage-hero {
   background:
-    radial-gradient(ellipse at 85% 20%, rgba(182, 110, 69, 0.10), transparent 38%),
+    radial-gradient(
+      ellipse at 85% 20%,
+      rgba(182, 110, 69, 0.10),
+      transparent 38%
+    ),
     var(--bg);
 }
 
@@ -110,6 +177,7 @@ body.plumbing-site {
 }
 
 .plumbing-site .hero p,
+.plumbing-site .subpage-hero > p:not(.eyebrow),
 .plumbing-site .section-heading p,
 .plumbing-site .service-card p,
 .plumbing-site .offer-card p,
@@ -117,6 +185,16 @@ body.plumbing-site {
 .plumbing-site .faq-list p {
   color: var(--muted);
 }
+
+/* Texte mis en valeur */
+
+.plumbing-site .text-gradient {
+  color: #315d49;
+}
+
+/* ========================================
+   BANDEAU DE CONFIANCE
+======================================== */
 
 .plumbing-site .trust-strip {
   background: #e8eee7;
@@ -128,14 +206,23 @@ body.plumbing-site {
   color: var(--text);
 }
 
+/* ========================================
+   CARTES ET SECTIONS
+======================================== */
+
 .plumbing-site .service-card,
 .plumbing-site .offer-card,
 .plumbing-site .process-grid > *,
 .plumbing-site .faq-list details {
-  background: #fff;
+  background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: none;
+}
+
+.plumbing-site .service-card,
+.plumbing-site .offer-card {
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .plumbing-site .service-card:hover,
@@ -149,18 +236,23 @@ body.plumbing-site {
   color: var(--text);
 }
 
-.plumbing-site .offer-section {
+.plumbing-site .offer-section,
+.plumbing-site .process-section {
   background: #e8eee7;
 }
 
 .plumbing-site .offer-card {
-  background: #fff;
+  background: #ffffff;
 }
 
 .plumbing-site .offer-card strong,
 .plumbing-site .offer-card li::marker {
   color: var(--blue);
 }
+
+/* ========================================
+   FAQ
+======================================== */
 
 .plumbing-site .faq-list details {
   padding: 20px;
@@ -172,46 +264,165 @@ body.plumbing-site {
   font-weight: 700;
 }
 
+/* ========================================
+   CONTACT
+======================================== */
+
 .plumbing-site .contact-section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+
   background: #244737;
-  color: #fff;
+  color: #ffffff;
 }
 
 .plumbing-site .contact-section h2,
 .plumbing-site .contact-section h3,
 .plumbing-site .contact-section p,
 .plumbing-site .contact-section a {
-  color: #fff;
+  color: #ffffff;
 }
 
 .plumbing-site .contact-section .button-primary {
   background: #c27b50;
   border-color: #c27b50;
-  color: #fff;
+  color: #ffffff;
 }
 
-.plumbing-site .site-footer {
+.plumbing-site .contact-section .button-primary:hover {
+  background: #a96540;
+  border-color: #a96540;
+}
+
+/* ========================================
+   PIED DE PAGE — FOOTER
+   Fond vert forêt pleine largeur
+======================================== */
+
+body.plumbing-site .site-footer {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 24px;
+
   background: #20392e;
   color: #e9eee9;
   border-top: 0;
+  box-sizing: border-box;
 }
 
-.plumbing-site .site-footer a,
-.plumbing-site .site-footer p {
+/* Première ligne : logo, description, retour en haut */
+
+.plumbing-site .footer-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 30px 0;
+
+  box-sizing: border-box;
+}
+
+.plumbing-site .footer-main .brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.plumbing-site .footer-main .brand-name {
+  color: #ffffff;
+}
+
+.plumbing-site .footer-main .brand-mark {
+  background: #c27b50;
+  color: #ffffff;
+}
+
+.plumbing-site .footer-main p {
+  margin: 0;
   color: #d2ddd3;
 }
 
-.plumbing-site .site-footer a:hover {
+.plumbing-site .footer-main .back-top {
+  flex: 0 0 auto;
+  color: #d2ddd3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.plumbing-site .footer-main .back-top:hover {
   color: #e6b18d;
 }
 
-.plumbing-site ::selection {
-  background: #315d49;
-  color: #fff;
+/* Deuxième ligne : copyright et lien vers le portfolio */
+
+.plumbing-site .footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 18px 0 24px;
+
+  color: #d2ddd3;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  box-sizing: border-box;
 }
 
+.plumbing-site .footer-bottom a {
+  color: #d2ddd3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.plumbing-site .footer-bottom a:hover {
+  color: #e6b18d;
+}
+
+/* Liens du footer */
+
+.plumbing-site .site-footer a {
+  transition: color 0.2s ease;
+}
+
+/* ========================================
+   SÉLECTION DE TEXTE
+======================================== */
+
+.plumbing-site ::selection {
+  background: #315d49;
+  color: #ffffff;
+}
+
+/* ========================================
+   ADAPTATION AUX ÉCRANS MOBILES
+======================================== */
+
 @media (max-width: 760px) {
+  /* En-tête */
+
+  body.plumbing-site .site-header {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+  }
+
   .plumbing-site .navigation {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
     background: var(--bg);
     border: 1px solid var(--line);
     box-shadow: var(--shadow);
@@ -221,8 +432,35 @@ body.plumbing-site {
     color: var(--text);
   }
 
-  .plumbing-site .hero {
+  .plumbing-site .site-header .navigation .nav-cta {
+    color: #ffffff;
+  }
+
+  /* Sections principales */
+
+  .plumbing-site .hero,
+  .plumbing-site .subpage-hero {
     padding-top: 48px;
     padding-bottom: 48px;
+  }
+
+  /* Footer mobile */
+
+  body.plumbing-site .site-footer {
+    padding: 0 20px;
+  }
+
+  .plumbing-site .footer-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 26px 0;
+  }
+
+  .plumbing-site .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px 0 22px;
   }
 }

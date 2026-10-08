@@ -239,3 +239,75 @@ body.restaurant-site {
     padding-bottom: 48px;
   }
 }
+
+/* ========================================
+   CORRECTION DU FOND ET DES ALIGNEMENTS
+   DÉMO RESTAURANT UNIQUEMENT
+======================================== */
+
+body.restaurant-site {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* Le fond couvre toute la largeur */
+body.restaurant-site .site-footer,
+body.restaurant-site .contact-section {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+/* Logo et navigation sur la même ligne */
+body.restaurant-site .site-header {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px max(24px, calc((100% - 1160px) / 2));
+  box-sizing: border-box;
+}
+
+/* Le logo conserve sa position naturelle */
+body.restaurant-site .site-header .brand {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* Le menu reste aligné à droite */
+body.restaurant-site .site-header .navigation {
+  margin-left: auto;
+}
+
+/* Le contenu intérieur du pied de page reste centré */
+body.restaurant-site .footer-main,
+body.restaurant-site .footer-bottom {
+  width: 100%;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Téléphones */
+@media (max-width: 760px) {
+  body.restaurant-site .site-header {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+  }
+
+  body.restaurant-site .site-header .navigation {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  body.restaurant-site .footer-main,
+  body.restaurant-site .footer-bottom {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
