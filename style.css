@@ -2127,3 +2127,288 @@ summary:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================================
+   STUDIO WEB — ANIMATIONS HARMONISÉES
+   Une seule source de vérité : style.css
+   ========================================================= */
+
+:root {
+  --sw-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+html {
+  scroll-padding-top: 100px;
+}
+
+body {
+  overflow-x: clip;
+}
+
+.site-header {
+  transition: background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+.site-header.is-scrolled {
+  background: rgba(11, 16, 32, .94);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, .18);
+  border-bottom-color: rgba(255, 255, 255, .14);
+}
+
+.navigation > a:not(.nav-cta) {
+  position: relative;
+}
+.navigation > a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  background: var(--accent-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s var(--sw-ease);
+}
+.navigation > a:not(.nav-cta):hover::after,
+.navigation > a:not(.nav-cta):focus-visible::after {
+  transform: scaleX(1);
+}
+
+.animation-progress {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--accent), var(--blue), var(--green));
+  box-shadow: 0 0 14px rgba(184, 161, 255, .24);
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -8%;
+  right: -10%;
+  width: min(58vw, 720px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(140, 120, 230, .15), transparent 68%);
+  animation: swAura 10s ease-in-out infinite alternate;
+}
+.hero h1,
+.section-heading h2,
+.offer-copy h2,
+.contact-inner h2 {
+  text-wrap: balance;
+}
+.text-gradient {
+  color: transparent;
+  background: linear-gradient(105deg, var(--accent-light), var(--blue), var(--green), var(--accent-light));
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: swGradient 12s ease-in-out infinite alternate;
+}
+.hero-visual {
+  transform-origin: center;
+  will-change: transform;
+}
+.browser-window {
+  animation: swBrowserFloat 8s ease-in-out infinite;
+}
+.shape-one {
+  animation: swShapeMorph 10s ease-in-out infinite alternate;
+}
+.shape-two {
+  animation: swShapeDrift 8s ease-in-out infinite alternate;
+}
+.floating-tag {
+  animation: swTagFloat 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+.floating-tag.tag-bottom {
+  animation-delay: -2.7s;
+}
+.status-dot {
+  animation: swStatusPulse 2.8s ease-out infinite;
+}
+
+.button,
+.nav-cta,
+.back-top {
+  transition: transform .28s var(--sw-ease), box-shadow .28s ease, background-color .28s ease, border-color .28s ease;
+}
+.button,
+.nav-cta {
+  position: relative;
+}
+.button:hover,
+.nav-cta:hover {
+  transform: translateY(-2px);
+}
+.button:active,
+.nav-cta:active {
+  transform: translateY(0) scale(.985);
+}
+.button-primary:hover {
+  box-shadow: 0 12px 32px rgba(184, 161, 255, .22);
+}
+
+.service-card,
+.project-card,
+.offer-card,
+.process-card,
+.process-step {
+  transition: transform .38s var(--sw-ease), border-color .3s ease, box-shadow .38s ease, background-color .3s ease;
+}
+.service-card:hover,
+.project-card:hover,
+.offer-card:hover,
+.process-card:hover,
+.process-step:hover {
+  border-color: rgba(184, 161, 255, .38);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .18);
+}
+.service-card:hover,
+.project-card:hover,
+.offer-card:hover,
+.process-card:hover {
+  transform: translateY(-5px);
+}
+.service-icon,
+.step-number,
+.round-arrow,
+.preview-open,
+.project-preview img {
+  transition: transform .4s var(--sw-ease), filter .4s ease, box-shadow .4s ease;
+}
+.service-card:hover .service-icon {
+  transform: translateY(-2px) rotate(-3deg);
+}
+.project-card:hover .round-arrow {
+  transform: rotate(45deg);
+}
+.project-preview {
+  overflow: hidden;
+}
+.project-preview:hover img {
+  transform: scale(1.035);
+}
+.project-preview:hover .preview-open {
+  transform: translateY(-2px);
+}
+.faq-list summary {
+  transition: color .25s ease;
+}
+.faq-list details[open] summary {
+  color: var(--accent-light);
+}
+.faq-list summary > span {
+  display: inline-block;
+  transition: transform .25s var(--sw-ease), color .25s ease;
+}
+.faq-list details[open] summary > span {
+  color: var(--blue);
+  transform: rotate(45deg);
+}
+.contact-section {
+  isolation: isolate;
+}
+.contact-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -170px;
+  left: 50%;
+  width: min(72vw, 760px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(184, 161, 255, .08), transparent 68%);
+  transform: translateX(-50%);
+  animation: swContactAura 11s ease-in-out infinite alternate;
+}
+
+/* Les éléments restent visibles si JavaScript ou IntersectionObserver manque. */
+.js-animations .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .7s var(--sw-ease), transform .7s var(--sw-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js-animations .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes swAura {
+  from { opacity: .65; transform: scale(.96); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+@keyframes swBrowserFloat {
+  0%, 100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(-1deg) translateY(-6px); }
+}
+@keyframes swShapeMorph {
+  from { border-radius: 48% 52% 62% 38%; transform: rotate(32deg) scale(1); }
+  to { border-radius: 58% 42% 44% 56%; transform: rotate(40deg) scale(1.04); }
+}
+@keyframes swShapeDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-8px, -10px, 0) scale(1.05); }
+}
+@keyframes swGradient {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+@keyframes swTagFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes swStatusPulse {
+  0% { box-shadow: 0 0 0 0 rgba(134, 217, 176, .42); }
+  70% { box-shadow: 0 0 0 7px rgba(134, 217, 176, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(134, 217, 176, 0); }
+}
+@keyframes swContactAura {
+  from { opacity: .55; transform: translateX(-50%) scale(.94); }
+  to { opacity: 1; transform: translateX(-50%) scale(1.06); }
+}
+
+@media (hover: none) {
+  .service-card:hover,
+  .project-card:hover,
+  .offer-card:hover,
+  .process-card:hover,
+  .process-step:hover { transform: none; }
+}
+@media (max-width: 760px) {
+  .hero::before { width: 100vw; right: -35%; }
+  .browser-window { animation-duration: 10s; }
+  .contact-section::before { width: 100vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js-animations .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .animation-progress { display: none; }
+}

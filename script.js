@@ -1,254 +1,283 @@
+
 "use strict";
 
 /* =========================================================
    STUDIO WEB — SCRIPT PRINCIPAL
-   Compatible avec l'accueil et les pages secondaires
+   Navigation, accessibilité et animations : une seule initialisation.
    ========================================================= */
 
-/* -------------------- ANNÉE DU FOOTER -------------------- */
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 
-function updateFooterYear() {
-  const yearElement = document.querySelector("#year");
-
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-}
-
-/* -------------------- MENU MOBILE -------------------- */
-
-function initializeMobileMenu() {
-  const menuToggle = document.querySelector(".menu-toggle");
-
-  // Accepte les deux identifiants de navigation utilisés dans le projet.
-  const navigation =
-    document.querySelector("#navigation") ||
-    document.querySelector(".navigation");
-
-  if (!menuToggle || !navigation) {
-    return;
+  // Mise à jour automatique de l'année dans le pied de page
+  function updateFooterYear() {
+    const year = document.querySelector("#year");
+    if (year) year.textContent = String(new Date().getFullYear());
   }
 
-  const mobileBreakpoint = 760;
+  // Menu de navigation mobile
+  function initializeMobileMenu() {
+    const toggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector("#navigation, .navigation");
+    if (!toggle || !navigation) return;
 
-  function closeMenu() {
-    navigation.classList.remove("is-open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Ouvrir le menu");
-  }
+    const closeMenu = ({ returnFocus = false } = {}) => {
+      navigation.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Ouvrir le menu");
+      if (returnFocus) toggle.focus();
+    };
 
-  function openMenu() {
-    navigation.classList.add("is-open");
-    menuToggle.setAttribute("aria-expanded", "true");
-    menuToggle.setAttribute("aria-label", "Fermer le menu");
-  }
+    const openMenu = () => {
+      navigation.classList.add("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Fermer le menu");
+    };
 
-  function toggleMenu() {
-    const isOpen =
-      menuToggle.getAttribute("aria-expanded") === "true";
+    closeMenu();
 
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  }
+    toggle.addEventListener("click", () => {
+      toggle.getAttribute("aria-expanded") === "true"
+        ? closeMenu()
+        : openMenu();
+    });
 
-  // Synchroniser l'état initial avec le HTML.
-  closeMenu();
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => closeMenu());
+    });
 
-  menuToggle.addEventListener("click", toggleMenu);
-
-  // Fermer le menu après avoir choisi une destination.
-  navigation.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
-  // Fermer le menu avec Échap et rendre le focus au bouton.
-  document.addEventListener("keydown", (event) => {
-    const isOpen =
-      menuToggle.getAttribute("aria-expanded") === "true";
-
-    if (event.key === "Escape" && isOpen) {
-      closeMenu();
-      menuToggle.focus();
-    }
-  });
-
-  // Fermer le menu quand l'écran repasse en grand format.
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > mobileBreakpoint) {
-      closeMenu();
-    }
-  });
-}
-
-/* -------------------- COPIE DE L'E-MAIL -------------------- */
-
-function initializeEmailCopy() {
-  const copyButton = document.querySelector("[data-copy-email]");
-  const copyStatus = document.querySelector("#copy-status");
-
-  if (!copyButton || !copyStatus) {
-    return;
-  }
-
-  let statusTimeout;
-
-  function showCopyStatus(message) {
-    copyStatus.textContent = message;
-
-    if (statusTimeout) {
-      window.clearTimeout(statusTimeout);
-    }
-
-    statusTimeout = window.setTimeout(() => {
-      copyStatus.textContent = "";
-    }, 6000);
-  }
-
-  async function copyEmail() {
-    const email = copyButton.dataset.copyEmail;
-
-    if (!email) {
-      showCopyStatus("L'adresse e-mail n'est pas configurée.");
-      return;
-    }
-
-    try {
+    document.addEventListener("keydown", (event) => {
       if (
-        !navigator.clipboard ||
-        typeof navigator.clipboard.writeText !== "function"
+        event.key === "Escape" &&
+        toggle.getAttribute("aria-expanded") === "true"
       ) {
-        throw new Error("Presse-papiers indisponible");
+        closeMenu({ returnFocus: true });
       }
+    });
 
-      await navigator.clipboard.writeText(email);
-
-      showCopyStatus("Adresse e-mail copiée.");
-    } catch (error) {
-      showCopyStatus(
-        "Copie automatique indisponible. Tu peux copier l'adresse manuellement."
-      );
-
-      const emailLink = document.querySelector(".contact-email");
-
-      if (emailLink) {
-        emailLink.focus();
-      }
-    }
+    window.addEventListener(
+      "resize",
+      () => {
+        if (window.innerWidth > 760) closeMenu();
+      },
+      { passive: true }
+    );
   }
 
-  copyButton.addEventListener("click", copyEmail);
-}
+  // Copie de l'adresse e-mail
+  function initializeEmailCopy() {
+    const button = document.querySelector("[data-copy-email]");
+    const status = document.querySelector("#copy-status");
+    if (!button || !status) return;
 
-/* -------------------- FAQ -------------------- */
+    let timeoutId;
 
-function initializeFaq() {
-  const faqItems = document.querySelectorAll(".faq-list details");
+    const announce = (message) => {
+      status.textContent = message;
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        status.textContent = "";
+      }, 5000);
+    };
 
-  faqItems.forEach((item) => {
-    const summary = item.querySelector("summary");
-    const indicator = summary?.querySelector("span");
+    button.addEventListener("click", async () => {
+      const email = button.dataset.copyEmail?.trim();
 
-    if (!summary || !indicator) {
-      return;
-    }
-
-    function updateIndicator() {
-      indicator.textContent = item.open ? "−" : "+";
-    }
-
-    updateIndicator();
-
-    item.addEventListener("toggle", updateIndicator);
-  });
-}
-
-/* -------------------- RETOUR EN HAUT -------------------- */
-
-function initializeBackToTop() {
-  const backTopLinks = document.querySelectorAll(".back-top");
-
-  backTopLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      if (link.getAttribute("href") !== "#top") {
+      if (!email) {
+        announce("L'adresse e-mail n'est pas configurée.");
         return;
       }
 
-      event.preventDefault();
+      try {
+        if (!navigator.clipboard?.writeText) {
+          throw new Error("Clipboard indisponible");
+        }
 
-      const prefersReducedMotion =
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        await navigator.clipboard.writeText(email);
+        announce("Adresse e-mail copiée.");
+      } catch {
+        announce(
+          "Copie automatique indisponible. Sélectionnez l'adresse affichée pour la copier."
+        );
+        document.querySelector(".contact-email")?.focus();
+      }
+    });
+  }
 
-      window.scrollTo({
-        top: 0,
-        behavior: prefersReducedMotion ? "auto" : "smooth"
+  // Indicateurs des questions fréquentes
+  function initializeFaq() {
+    document.querySelectorAll(".faq-list details").forEach((item) => {
+      const summary = item.querySelector("summary");
+      const indicator = summary?.querySelector("span");
+      if (!summary || !indicator) return;
+
+      const update = () => {
+        indicator.textContent = item.open ? "−" : "+";
+        summary.setAttribute("aria-expanded", String(item.open));
+      };
+
+      update();
+      item.addEventListener("toggle", update);
+    });
+  }
+
+  // Retour en haut de page
+  function initializeBackToTop() {
+    document.querySelectorAll('.back-top[href="#top"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        window.scrollTo({
+          top: 0,
+          behavior: reduceMotion.matches ? "auto" : "smooth",
+        });
+
+        if (window.location.hash === "#top") {
+          history.replaceState(
+            null,
+            "",
+            window.location.pathname + window.location.search
+          );
+        }
       });
+    });
+  }
 
-      // Mettre à jour l'URL sans ajouter une entrée d'historique.
-      if (window.location.hash === "#top") {
-        history.replaceState(
-          null,
-          "",
-          window.location.pathname +
-            window.location.search
+  // Effets de défilement et barre de progression
+  function initializeScrollEffects() {
+    const header = document.querySelector(".site-header");
+    const progress = document.querySelector(".animation-progress");
+    let ticking = false;
+
+    const update = () => {
+      const scrollY = window.scrollY || 0;
+
+      header?.classList.toggle("is-scrolled", scrollY > 18);
+
+      if (progress && !reduceMotion.matches) {
+        const maxScroll =
+          document.documentElement.scrollHeight - window.innerHeight;
+
+        progress.style.transform = `scaleX(${
+          maxScroll > 0 ? Math.min(1, scrollY / maxScroll) : 0
+        })`;
+      }
+
+      ticking = false;
+    };
+
+    const requestUpdate = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    };
+
+    update();
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+  }
+
+  // Apparition progressive des éléments pendant le défilement
+  function initializeScrollReveal() {
+    if (reduceMotion.matches) return;
+
+    const targets = document.querySelectorAll(
+      "main section, .service-card, .project-card, .offer-card, .process-card, .process-step, .faq-item, .contact-actions, .about-photo"
+    );
+
+    if (!targets.length) return;
+
+    // Sans IntersectionObserver, les éléments restent visibles normalement.
+    if (!("IntersectionObserver" in window)) return;
+
+    document.documentElement.classList.add("js-animations");
+
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -32px 0px",
+      }
+    );
+
+    targets.forEach((element, index) => {
+      if (
+        element.matches(
+          ".service-card, .project-card, .offer-card, .process-card, .process-step"
+        )
+      ) {
+        element.style.setProperty(
+          "--reveal-delay",
+          `${(index % 3) * 70}ms`
         );
       }
+
+      element.classList.add("reveal-on-scroll");
+      observer.observe(element);
     });
-  });
-}
+  }
 
-/* -------------------- LIENS INTERNES -------------------- */
+  // Léger effet 3D sur le visuel principal, pour souris uniquement
+  function initializeHeroTilt() {
+    const visual = document.querySelector(".hero-visual");
 
-function initializeAnchorLinks() {
-  const internalLinks = document.querySelectorAll('a[href^="#"]');
+    if (!visual || reduceMotion.matches || !finePointer.matches) return;
 
-  internalLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const href = link.getAttribute("href");
+    let frame = 0;
 
-      // Ignorer les liens vides et le retour en haut.
-      if (!href || href === "#" || href === "#top") {
-        return;
-      }
+    visual.addEventListener(
+      "pointermove",
+      (event) => {
+        const rect = visual.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
 
-      // Ne pas interférer avec les ouvertures dans un nouvel onglet.
-      if (
-        event.defaultPrevented ||
-        event.button !== 0 ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey
-      ) {
-        return;
-      }
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
 
-      // Le navigateur gère naturellement le défilement vers l'ancre.
-      // On ne bloque pas le comportement natif.
+        window.cancelAnimationFrame(frame);
+
+        frame = window.requestAnimationFrame(() => {
+          visual.style.transform =
+            `perspective(1000px) rotateY(${x * 2.5}deg) ` +
+            `rotateX(${-y * 2.5}deg)`;
+        });
+      },
+      { passive: true }
+    );
+
+    visual.addEventListener("pointerleave", () => {
+      window.cancelAnimationFrame(frame);
+      visual.style.transform = "";
     });
-  });
-}
+  }
 
-/* -------------------- INITIALISATION -------------------- */
+  // Initialisation unique de toutes les fonctionnalités
+  function initializeStudioWeb() {
+    updateFooterYear();
+    initializeMobileMenu();
+    initializeEmailCopy();
+    initializeFaq();
+    initializeBackToTop();
+    initializeScrollEffects();
+    initializeScrollReveal();
+    initializeHeroTilt();
+  }
 
-function initializeStudioWeb() {
-  updateFooterYear();
-  initializeMobileMenu();
-  initializeEmailCopy();
-  initializeFaq();
-  initializeBackToTop();
-  initializeAnchorLinks();
-}
-
-// Fonctionner que le script soit chargé avant ou après le HTML.
-if (document.readyState === "loading") {
-  document.addEventListener(
-    "DOMContentLoaded",
-    initializeStudioWeb,
-    { once: true }
-  );
-} else {
-  initializeStudioWeb();
-}
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeStudioWeb, {
+      once: true,
+    });
+  } else {
+    initializeStudioWeb();
+  }
+})();
