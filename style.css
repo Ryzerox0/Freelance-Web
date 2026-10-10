@@ -2457,6 +2457,13 @@ body {
   .offer-extra-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
+  /* Garde les tarifs immédiatement visibles sur mobile, même si le reveal JS tarde. */
+  .js-animations .offer-product-card.reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .offer-catalog { padding: 70px 0; }
   .offer-catalog .offer-heading { margin-bottom: 38px; text-align: left; }
   .offer-catalog .offer-heading .eyebrow { justify-content: flex-start; }
