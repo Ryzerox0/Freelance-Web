@@ -140,6 +140,9 @@
   function initializeScrollReveal() {
     if (reduceMotion.matches) return;
 
+    // Sur mobile, laisse tout le contenu visible sans attendre l'animation.
+    if (window.matchMedia("(max-width: 640px)").matches) return;
+
     const targets = document.querySelectorAll(
       "main section, .service-card, .project-card, .offer-card, .offer-product-card, .process-card, .process-step, .faq-item, .contact-actions, .about-photo"
     );
