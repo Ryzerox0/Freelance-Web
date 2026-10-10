@@ -141,7 +141,7 @@
     if (reduceMotion.matches) return;
 
     const targets = document.querySelectorAll(
-      "main section, .service-card, .project-card, .offer-card, .process-card, .process-step, .faq-item, .contact-actions, .about-photo"
+      "main section, .service-card, .project-card, .offer-card, .offer-product-card, .process-card, .process-step, .faq-item, .contact-actions, .about-photo"
     );
     if (!targets.length) return;
 
@@ -158,7 +158,7 @@
     }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
 
     targets.forEach((element, index) => {
-      if (element.matches(".service-card, .project-card, .offer-card, .process-card, .process-step")) {
+      if (element.matches(".service-card, .project-card, .offer-card, .offer-product-card, .process-card, .process-step")) {
         element.style.setProperty("--reveal-delay", `${(index % 3) * 70}ms`);
       }
       element.classList.add("reveal-on-scroll");
