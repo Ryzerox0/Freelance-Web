@@ -1944,3 +1944,129 @@
     font-size: 12px;
   }
 }
+
+
+/* =========================================
+   ANIMATIONS — apparitions et micro-interactions
+   ========================================= */
+
+.restaurant-site .animation-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 1000;
+  width: 100%;
+  height: 3px;
+  background: var(--terracotta);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.restaurant-site .reveal-on-scroll { opacity: 1; transform: none; }
+
+.js-animations .restaurant-site .reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity 750ms cubic-bezier(.2,.7,.2,1),
+    transform 750ms cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.js-animations .restaurant-site .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.restaurant-site .hero-content > .eyebrow {
+  animation: olive-fade-down 700ms both;
+}
+.restaurant-site .hero-content h1 {
+  animation: olive-fade-up 900ms 100ms both;
+}
+.restaurant-site .hero-content .hero-description {
+  animation: olive-fade-up 850ms 230ms both;
+}
+.restaurant-site .hero-content .hero-actions {
+  animation: olive-fade-up 850ms 350ms both;
+}
+.restaurant-site .hero-content .hero-signature {
+  animation: olive-fade-up 850ms 470ms both;
+}
+.restaurant-site .hero-art {
+  animation: olive-fade-up 950ms 180ms both;
+}
+.restaurant-site .sun-disc {
+  animation: olive-sun-breathe 7s ease-in-out infinite;
+  transform-origin: center;
+}
+.restaurant-site .plate-outer {
+  animation: olive-plate-float 6s ease-in-out infinite;
+}
+.restaurant-site .art-leaf,
+.restaurant-site .plate-leaf {
+  transition: transform 450ms cubic-bezier(.2,.7,.2,1);
+}
+.restaurant-site .hero-art:hover .plate-outer {
+  transform: translate(-50%, -50%) rotate(-4deg) scale(1.025);
+}
+.restaurant-site .value-card,
+.restaurant-site .atmosphere-card,
+.restaurant-site .dish,
+.restaurant-site .info-card,
+.restaurant-site .faq-list details {
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+.restaurant-site .value-card:hover,
+.restaurant-site .atmosphere-card:hover {
+  transform: translateY(-6px);
+}
+.restaurant-site .dish:hover {
+  transform: translateX(4px);
+}
+.restaurant-site .brand-mark {
+  transition: transform 350ms ease, background 350ms ease, color 350ms ease;
+}
+.restaurant-site .brand:hover .brand-mark {
+  transform: rotate(-8deg);
+  background: var(--olive);
+  color: var(--white);
+}
+.restaurant-site .back-top {
+  transition: transform 220ms ease, color 220ms ease;
+}
+.restaurant-site .back-top:hover {
+  transform: translateY(-3px);
+}
+@keyframes olive-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes olive-fade-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes olive-sun-breathe {
+  0%, 100% { transform: scale(1); opacity: .72; }
+  50% { transform: scale(1.07); opacity: .86; }
+}
+@keyframes olive-plate-float {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-8deg); }
+  50% { transform: translate(-50%, calc(-50% - 7px)) rotate(-5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .restaurant-site *,
+  .restaurant-site *::before,
+  .restaurant-site *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js-animations .restaurant-site .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}

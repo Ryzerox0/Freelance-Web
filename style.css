@@ -2412,3 +2412,155 @@ body {
   }
   .animation-progress { display: none; }
 }
+
+
+/* =========================================================
+   CATALOGUE D'OFFRES — création, refonte et accompagnement
+   ========================================================= */
+.offer-catalog { padding: 100px 0; }
+.offer-catalog .offer-heading { max-width: 780px; margin: 0 auto 58px; text-align: center; }
+.offer-catalog .offer-heading .eyebrow { justify-content: center; }
+.offer-catalog .offer-heading h2 { margin: 14px 0 18px; }
+.offer-heading-intro { max-width: 690px; margin: 0 auto; color: var(--muted, #aab4cb); line-height: 1.8; }
+.offer-category-heading { display: flex; align-items: flex-start; gap: 18px; margin: 54px 0 24px; }
+.offer-category-number { display: grid; place-items: center; flex: 0 0 46px; height: 46px; border: 1px solid rgba(160, 133, 255, .38); border-radius: 14px; background: rgba(139, 92, 246, .12); color: #c5b5ff; font-weight: 800; }
+.offer-category-heading h3 { margin: 0 0 6px; font: 750 clamp(1.35rem, 2.4vw, 1.8rem)/1.2 var(--font-heading, "Manrope", sans-serif); color: var(--text, #f7f8ff); }
+.offer-category-heading p { margin: 0; color: var(--muted, #aab4cb); line-height: 1.65; }
+.offer-catalog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.offer-product-card { display: flex; flex-direction: column; min-width: 0; padding: 25px; border: 1px solid rgba(153, 169, 208, .17); border-radius: 22px; background: linear-gradient(155deg, rgba(23, 33, 57, .97), rgba(14, 21, 39, .98)); box-shadow: 0 16px 42px rgba(0, 0, 0, .12); transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease; }
+.offer-product-card:hover { transform: translateY(-4px); border-color: rgba(160, 133, 255, .5); box-shadow: 0 22px 48px rgba(0, 0, 0, .2); }
+.offer-product-card.offer-featured { border-color: rgba(157, 125, 255, .58); background: linear-gradient(155deg, rgba(39, 35, 74, .96), rgba(16, 23, 43, .99)); }
+.offer-card-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 25px; color: #b9a7ff; font-size: .68rem; font-weight: 800; letter-spacing: .12em; }
+.offer-card-icon { display: grid; place-items: center; width: 31px; height: 31px; border-radius: 10px; background: rgba(153, 129, 255, .12); font-size: 1rem; }
+.offer-popular { padding: 6px 9px; border-radius: 999px; background: rgba(161, 140, 255, .15); color: #d9ceff; font-size: .64rem; letter-spacing: .02em; }
+.offer-product-card h4 { margin: 18px 0 7px; color: var(--text, #f7f8ff); font: 750 1.24rem/1.3 var(--font-heading, "Manrope", sans-serif); }
+.offer-card-subtitle { min-height: 48px; margin: 0; color: var(--muted, #aab4cb); font-size: .9rem; line-height: 1.6; }
+.offer-product-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px; margin: 19px 0 17px; color: #fff; font: 800 clamp(1.7rem, 2.5vw, 2.1rem)/1.1 var(--font-heading, "Manrope", sans-serif); letter-spacing: -.045em; }
+.offer-product-price small { color: var(--muted, #aab4cb); font: 500 .72rem/1.4 var(--font-body, "DM Sans", sans-serif); letter-spacing: 0; }
+.offer-feature-list { display: grid; gap: 11px; list-style: none; padding: 18px 0 22px; margin: 0 0 20px; border-top: 1px solid rgba(153, 169, 208, .15); }
+.offer-feature-list li { position: relative; padding-left: 25px; color: #dce3f3; font-size: .88rem; line-height: 1.55; }
+.offer-feature-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #9fe4ca; font-weight: 800; }
+.offer-select-button { display: flex; justify-content: center; align-items: center; gap: 12px; width: 100%; margin-top: auto; text-align: center; text-decoration: none; }
+.offer-select-button span { font-size: 1.1rem; transition: transform .2s ease; }
+.offer-select-button:hover span { transform: translate(3px, -2px); }
+.offer-extra-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.offer-extra-grid .offer-product-card { padding: 22px; }
+.offer-extra-grid .offer-product-card h4 { font-size: 1.12rem; }
+.offer-extra-grid .offer-card-subtitle { min-height: 72px; }
+.offer-custom-card { border-style: dashed; }
+.offer-terms { display: flex; gap: 15px; margin-top: 34px; padding: 23px 25px; border: 1px solid rgba(153, 169, 208, .18); border-radius: 18px; background: rgba(18, 27, 47, .72); }
+.offer-terms-icon { display: grid; place-items: center; flex: 0 0 34px; width: 34px; height: 34px; border-radius: 11px; background: rgba(139, 92, 246, .15); color: #c5b5ff; }
+.offer-terms h4 { margin: 2px 0 7px; color: var(--text, #f7f8ff); font-size: 1rem; }
+.offer-terms p { margin: 0; color: var(--muted, #aab4cb); font-size: .86rem; line-height: 1.75; }
+@media (max-width: 1050px) {
+  .offer-catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .offer-extra-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .offer-catalog { padding: 70px 0; }
+  .offer-catalog .offer-heading { margin-bottom: 38px; text-align: left; }
+  .offer-catalog .offer-heading .eyebrow { justify-content: flex-start; }
+  .offer-catalog-grid, .offer-extra-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .offer-product-card, .offer-extra-grid .offer-product-card { padding: 22px; }
+  .offer-card-subtitle, .offer-extra-grid .offer-card-subtitle { min-height: 0; }
+  .offer-category-heading { margin-top: 40px; }
+  .offer-terms { padding: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .offer-product-card, .offer-select-button span { transition: none; }
+  .offer-product-card:hover { transform: none; }
+}
+
+/* =========================================================
+   FINITION PREMIUM — catalogue d'offres Studio Web
+   ========================================================= */
+.offer-catalog {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 12% 9%, rgba(123, 92, 255, .12), transparent 34%),
+    radial-gradient(ellipse at 92% 42%, rgba(61, 167, 226, .08), transparent 32%);
+}
+.offer-catalog::before,
+.offer-catalog::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .15;
+  pointer-events: none;
+}
+.offer-catalog::before { top: 14%; left: -190px; background: #8b5cf6; }
+.offer-catalog::after { top: 52%; right: -200px; background: #38bdf8; }
+.offer-catalog .offer-heading { position: relative; margin-bottom: 62px; }
+.offer-catalog .offer-heading h2 {
+  max-width: 780px;
+  margin: 17px auto 20px;
+  font-size: clamp(2.2rem, 5vw, 3.65rem);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+.offer-heading-intro { max-width: 700px; font-size: 1.02rem; }
+.offer-promise-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+.offer-promise-row span { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border: 1px solid rgba(164, 178, 215, .16); border-radius: 999px; background: rgba(20, 29, 50, .62); color: #dbe4f6; font-size: .78rem; font-weight: 650; }
+.offer-promise-row i { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(115, 226, 185, .14); color: #8de6c2; font-size: .7rem; font-style: normal; }
+.offer-category-heading { position: relative; align-items: center; gap: 17px; margin: 66px 0 24px; }
+.offer-category-heading::after { content: ""; height: 1px; flex: 1; margin-left: 10px; background: linear-gradient(90deg, rgba(154, 132, 255, .3), transparent); }
+.offer-category-number { flex-basis: 50px; height: 50px; border-radius: 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 8px 25px rgba(99, 72, 210, .12); }
+.offer-category-heading h3 { letter-spacing: -.035em; }
+.offer-category-heading p { font-size: .92rem; }
+.offer-catalog-grid { gap: 22px; }
+.offer-product-card {
+  position: relative;
+  overflow: hidden;
+  padding: 27px;
+  border-color: rgba(164, 178, 215, .19);
+  border-radius: 25px;
+  background: linear-gradient(145deg, rgba(25, 35, 61, .96), rgba(13, 20, 38, .99));
+  box-shadow: 0 18px 45px rgba(0,0,0,.17), inset 0 1px 0 rgba(255,255,255,.035);
+}
+.offer-product-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, transparent, rgba(157, 133, 255, .6), transparent); opacity: .0; transition: opacity .25s ease; }
+.offer-product-card:hover::before { opacity: 1; }
+.offer-product-card:hover { transform: translateY(-7px); border-color: rgba(165, 143, 255, .52); box-shadow: 0 26px 60px rgba(0,0,0,.25), 0 0 0 1px rgba(157, 133, 255, .06); }
+.offer-product-card.offer-featured { border-color: rgba(164, 137, 255, .72); background: radial-gradient(ellipse at 85% 0%, rgba(126, 94, 245, .18), transparent 45%), linear-gradient(145deg, rgba(37, 34, 72, .99), rgba(15, 22, 43, .99)); box-shadow: 0 20px 55px rgba(72, 49, 165, .15), inset 0 1px 0 rgba(255,255,255,.06); }
+.offer-product-card.offer-featured::before { opacity: 1; background: linear-gradient(90deg, #7c5cff, #9ee9d0, #7c5cff); }
+.offer-card-meta { min-height: 31px; font-size: .67rem; letter-spacing: .15em; }
+.offer-card-icon { width: 36px; height: 36px; border: 1px solid rgba(164, 145, 255, .17); border-radius: 12px; background: linear-gradient(145deg, rgba(145, 119, 255, .2), rgba(145, 119, 255, .06)); color: #e0d8ff; }
+.offer-popular { padding: 7px 10px; border: 1px solid rgba(168, 145, 255, .2); background: linear-gradient(135deg, rgba(143, 112, 255, .2), rgba(113, 86, 211, .1)); color: #e2d9ff; font-size: .66rem; font-weight: 800; }
+.offer-product-card h4 { margin-top: 20px; font-size: 1.35rem; letter-spacing: -.035em; }
+.offer-card-subtitle { min-height: 52px; font-size: .92rem; }
+.offer-product-price { gap: 9px; margin: 22px 0 20px; font-size: clamp(1.9rem, 2.8vw, 2.35rem); letter-spacing: -.06em; }
+.offer-product-price small { padding: 5px 8px; border-radius: 7px; background: rgba(153, 169, 208, .08); font-size: .68rem; }
+.offer-feature-list { gap: 12px; padding: 20px 0 24px; }
+.offer-feature-list li { padding-left: 27px; font-size: .9rem; }
+.offer-feature-list li::before { display: grid; place-items: center; width: 17px; height: 17px; top: 2px; border-radius: 50%; background: rgba(115, 226, 185, .12); font-size: .68rem; }
+.offer-select-button { min-height: 49px; border-radius: 14px; font-weight: 750; box-shadow: 0 9px 22px rgba(99, 72, 210, .13); }
+.offer-select-button span { margin-left: 3px; }
+.offer-extra-grid .offer-product-card { padding: 24px; }
+.offer-terms { margin-top: 42px; padding: 25px 27px; border-color: rgba(164, 178, 215, .16); background: linear-gradient(120deg, rgba(21, 30, 52, .88), rgba(15, 23, 42, .78)); box-shadow: inset 0 1px 0 rgba(255,255,255,.025); }
+.offer-terms-icon { flex-basis: 38px; width: 38px; height: 38px; border: 1px solid rgba(153, 129, 255, .17); }
+.offer-terms h4 { font-size: 1.03rem; }
+.offer-terms p { max-width: 1000px; }
+@media (max-width: 760px) {
+  .offer-catalog .offer-heading h2 { font-size: clamp(2.05rem, 9vw, 3rem); }
+  .offer-promise-row { justify-content: flex-start; }
+  .offer-category-heading { align-items: flex-start; }
+  .offer-category-heading::after { display: none; }
+}
+@media (max-width: 640px) {
+  .offer-catalog { padding: 76px 0; }
+  .offer-product-card, .offer-extra-grid .offer-product-card { padding: 24px; border-radius: 22px; }
+  .offer-product-card:hover { transform: translateY(-2px); }
+  .offer-category-heading { gap: 13px; margin-top: 46px; }
+  .offer-category-number { flex-basis: 43px; height: 43px; border-radius: 13px; }
+  .offer-category-heading h3 { font-size: 1.28rem; }
+  .offer-category-heading p { font-size: .87rem; }
+  .offer-terms { gap: 12px; padding: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .offer-product-card::before { transition: none; }
+}
