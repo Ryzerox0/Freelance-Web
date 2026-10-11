@@ -2534,3 +2534,115 @@ body {
     margin: 0 0 20px !important;
   }
 }
+
+/* =========================================
+   CORRECTIF MOBILE — CATALOGUE DES OFFRES
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* Afficher toute la section des tarifs */
+  #offre.offer-section,
+  #offre.offer-catalog {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: relative !important;
+    padding: 48px 0 !important;
+  }
+
+  #offre .section-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Afficher les titres et introductions */
+  #offre .offer-heading,
+  #offre .offer-category-heading {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #offre .offer-promise-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  /* Une seule colonne pour les cartes sur téléphone */
+  #offre .offer-catalog-grid,
+  #offre .offer-extra-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: auto !important;
+    gap: 18px !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Rendre chaque offre visible */
+  #offre .offer-product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: relative !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+
+  #offre .offer-product-card h4,
+  #offre .offer-product-card p,
+  #offre .offer-product-card ul,
+  #offre .offer-product-card li,
+  #offre .offer-product-card .offer-select-button {
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere;
+  }
+
+  #offre .offer-product-card .offer-select-button {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center;
+    box-sizing: border-box !important;
+    margin-top: 18px !important;
+  }
+
+  #offre .offer-feature-list {
+    padding-left: 20px !important;
+  }
+
+  #offre .offer-terms {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
