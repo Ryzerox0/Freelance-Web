@@ -2502,3 +2502,35 @@ body {
 @media (max-width: 600px) {
   .project-preview { aspect-ratio: 4 / 3; }
 }
+
+/* Correction mobile : section Offres */
+@media screen and (max-width: 768px) {
+  .offers,
+  .offres,
+  .pricing,
+  #offres,
+  #offers {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .offers *,
+  .offres *,
+  .pricing *,
+  #offres *,
+  #offers * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .offer-card,
+  .offre-card,
+  .pricing-card {
+    width: 100% !important;
+    margin: 0 0 20px !important;
+  }
+}
