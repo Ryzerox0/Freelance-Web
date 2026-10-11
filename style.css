@@ -2457,13 +2457,6 @@ body {
   .offer-extra-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  /* Garde les tarifs immédiatement visibles sur mobile, même si le reveal JS tarde. */
-  .js-animations .offer-product-card.reveal-on-scroll {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
   .offer-catalog { padding: 70px 0; }
   .offer-catalog .offer-heading { margin-bottom: 38px; text-align: left; }
   .offer-catalog .offer-heading .eyebrow { justify-content: flex-start; }
@@ -2476,4 +2469,36 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .offer-product-card, .offer-select-button span { transition: none; }
   .offer-product-card:hover { transform: none; }
+}
+
+
+/* Illustrations portfolio : photos réalistes des deux projets fictifs */
+.project-preview {
+  padding: 0 !important;
+  min-height: 0 !important;
+  aspect-ratio: 1 / 1;
+  background: #f2f2f2;
+}
+.project-preview .project-illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+.project-preview .preview-open {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 3;
+  padding: 9px 13px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(8, 28, 43, .88);
+  backdrop-filter: blur(8px);
+}
+@media (max-width: 600px) {
+  .project-preview { aspect-ratio: 4 / 3; }
 }
