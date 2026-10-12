@@ -4533,3 +4533,9 @@ font-size: 10px;
 .plumbing-site .visual-caption .caption-arrow {
   color: #b9431b !important;
 }
+
+
+/* Correction : rendre « DUPONT » aussi lisible que « PLOMBERIE » dans le pied de page */
+.plumbing-site .footer-brand .brand-text strong {
+  color: var(--pl-muted) !important;
+}
