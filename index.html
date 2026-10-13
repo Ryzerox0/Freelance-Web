@@ -1,1107 +1,635 @@
+
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
 
-  <meta charset="UTF-8">
+  <meta name="description" content="Studio Web, création et refonte de sites internet pour artisans et commerces locaux. Sites vitrines adaptés au mobile, tarifs indicatifs clairs et accompagnement par Baptiste Curie-Cadet.">
+  <meta name="robots" content="index, follow">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Web | Créons un site qui donne envie de vous choisir à Marseille</title>
+  <link rel="canonical" href="https://freelance-web-932.pages.dev/">
 
-  <meta name="theme-color" content="#0b1020">
+  <meta name="google-site-verification" content="l_Gaa3FGNYplKKV0mHMoYwS4ABu-09lPwUyt1lka_sQ">
 
-  <meta name="description" content="Studio Web, création et refonte de sites internet pour artisans et commerces locaux. Sites vitrines adaptés au mobile, tarifs indicatifs clairs et accompagnement par Baptiste Curie-Cadet.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Studio Web">
+  <meta property="og:title" content="Studio Web | Création et refonte de sites internet à Marseille">
+  <meta property="og:description" content="Création et refonte de sites internet pour artisans et commerces locaux à Marseille. Un interlocuteur unique, du premier échange à la mise en ligne.">
+  <meta property="og:url" content="https://freelance-web-932.pages.dev/">
+  <meta property="og:image" content="https://freelance-web-932.pages.dev/images/Logo.png">
+  <meta property="og:image:alt" content="Logo Studio Web">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="images/Logo.png">
 
-  <title>Studio Web | Création et refonte de sites internet à Marseille</title>
-
-  <link rel="canonical" href="https://freelance-web-932.pages.dev/">
-
-  <meta name="google-site-verification" content="l_Gaa3FGNYplKKV0mHMoYwS4ABu-09lPwUyt1lka_sQ">
-
-  <meta property="og:type" content="website">
-
-  <meta property="og:locale" content="fr_FR">
-
-  <meta property="og:site_name" content="Studio Web">
-
-  <meta property="og:title" content="Studio Web | Création et refonte de sites internet à Marseille">
-
-  <meta property="og:description" content="Création et refonte de sites internet pour artisans et commerces locaux à Marseille. Un interlocuteur unique, du premier échange à la mise en ligne.">
-
-  <meta property="og:url" content="https://freelance-web-932.pages.dev/">
-
-  <meta property="og:image" content="https://freelance-web-932.pages.dev/images/Logo.png">
-
-  <meta property="og:image:alt" content="Logo Studio Web">
-
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="icon" type="image/png" href="images/Logo.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-
-  <script src="script.js" defer></script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body id="top">
-
-  <div class="animation-progress" aria-hidden="true"></div>
-
-  <div class="site-shell">
-
-    <header class="site-header">
-
-      <a class="brand" href="index.html" aria-label="Studio Web, accueil">
-
-        <img class="brand-logo" src="images/Banniere.png" alt="Studio Web">
-
-      </a>
-
-      <button class="menu-toggle" type="button"
-
-        aria-expanded="false" aria-controls="navigation"
-
-        aria-label="Ouvrir le menu">
-
-        <span></span>
-
-        <span></span>
-
-        <span class="sr-only">Ouvrir le menu</span>
-
-      </button>
-
-      <nav class="navigation" id="navigation" aria-label="Navigation principale">
-
-        <a href="#services">Services</a>
-
-        <a href="#offre">Tarifs</a>
-
-        <a href="#realisations">Projets</a>
-
-        <a href="#apropos">À propos</a>
-
-        <a href="#faq">FAQ</a>
-
-        <a class="nav-cta" href="#contact">Parler de mon projet <span>↗</span></a>
-
-      </nav>
-
-    </header>
-
-    <main id="contenu">
-
-      <!-- INTRODUCTION -->
-
-      <section class="hero section-wrap">
-
-        <div class="hero-copy">
-
-          <div class="eyebrow">
-
-            <span class="status-dot"></span>
-
-            Création et refonte de sites internet
-
-          </div>
-
-          <h1>Un site internet qui <span class="text-gradient">fait rayonner votre activité.</span></h1>
-
-          <p class="hero-lead">
-
-            Artisan ou commerçant, donnez à votre savoir-faire une vitrine à la hauteur de votre activité. Je crée des sites clairs, modernes et adaptés au mobile pour mettre vos services en valeur, inspirer confiance et faciliter les prises de contact.
-
-          </p>
-
-          <div class="hero-actions">
-
-            <a class="button button-primary" href="#contact">
-
-              Parlons de votre projet <span>↗</span>
-
-            </a>
-
-            <a class="button button-quiet" href="#realisations">
-
-              <span class="play-icon">↘</span> Voir mes projets
-
-            </a>
-
-          </div>
-
-          <div class="hero-proof">
-
-            <div class="proof-icon">✳</div>
-
-            <p>
-
-              <strong>Vous échangez directement avec moi.</strong><br>
-
-              <span>Vous échangez avec moi à chaque étape, avec un devis clair et un projet construit ensemble.</span>
-
-            </p>
-
-          </div>
-
-          <p class="hero-note">Un site à votre image · Une navigation fluide · Une expérience mobile soignée · Une présence locale travaillée</p>
-
-        </div>
-
-        <!-- APERÇU ILLUSTRATIF -->
-
-        <div class="hero-visual" role="img" aria-label="Aperçu illustratif d’un site internet pouvant être créé ou refondu">
-
-          <div class="visual-glow"></div>
-
-          <div class="floating-tag tag-top">
-
-            <span class="tag-dot"></span> Adapté à votre activité
-
-          </div>
-
-          <div class="browser-window">
-
-            <div class="browser-bar">
-
-              <div class="browser-dots"><i></i><i></i><i></i></div>
-
-              <div class="browser-address">votre-activite.fr</div>
-
-              <span class="browser-menu">•••</span>
-
-            </div>
-
-            <div class="mock-site">
-
-              <div class="mock-nav">
-
-                <span class="mock-logo">VOTRE<span>ACTIVITÉ.</span></span>
-
-                <span class="mock-nav-links">Services　 À propos　 Contact</span>
-
-                <span class="mock-mini-button">Nous contacter ↗</span>
-
-              </div>
-
-              <div class="mock-content">
-
-                <div class="mock-kicker"><span></span> BIENVENUE</div>
-
-                <div class="mock-title">Votre métier.<br>Votre savoir-faire<span>.</span></div>
-
-                <p class="mock-description">
-
-                  Découvrez nos prestations, notre savoir-faire
-
-                  et les moyens de nous contacter.
-
-                </p>
-
-                <div class="mock-button">Découvrir nos services ↗</div>
-
-                <div class="mock-stats">
-
-                  <div><strong>01.</strong><small>Notre métier</small></div>
-
-                  <div><strong>02.</strong><small>Nos services</small></div>
-
-                  <div><strong>03.</strong><small>Contact</small></div>
-
-                </div>
-
-              </div>
-
-              <div class="mock-shape shape-one"></div>
-
-              <div class="mock-shape shape-two"></div>
-
-            </div>
-
-          </div>
-
-          <div class="floating-tag tag-bottom">
-
-            <span class="sparkle">✦</span> Également sur mobile
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- BÉNÉFICES -->
-
-      <section class="trust-strip" aria-label="Les objectifs du site">
-
-        <div class="trust-inner">
-
-          <span class="trust-heading">VOTRE SITE POUR</span>
-
-          <div><span class="trust-symbol">✳</span> Présenter vos services</div>
-
-          <div><span class="trust-symbol">↗</span> Être lisible sur mobile</div>
-
-          <div><span class="trust-symbol">◎</span> Faciliter les demandes</div>
-
-          <div><span class="trust-symbol">⌘</span> Inspirer confiance</div>
-
-        </div>
-
-      </section>
-
-      <!-- SERVICES -->
-
-      <section class="section-wrap section-space" id="services">
-
-        <div class="section-heading">
-
-          <div>
-
-            <p class="eyebrow">MES SERVICES</p>
-
-            <h2>Votre activité mérite un site à <span class="text-gradient">son image.</span></h2>
-
-          </div>
-
-          <p>
-
-            Premier site ou nouvelle version, construisons une présence en ligne qui vous ressemble. Vos visiteurs trouvent facilement vos services, votre zone d’intervention et vos coordonnées : tout est pensé pour valoriser votre activité et faciliter le contact.
-
-          </p>
-
-        </div>
-
-        <div class="services-grid">
-
-          <article class="service-card">
-
-            <div class="service-icon icon-purple">↗</div>
-
-            <span class="card-index">01 / CRÉATION</span>
-
-            <h3>Donner vie à votre site internet</h3>
-
-            <p>
-
-              Je crée une vitrine en ligne à votre image, avec une présentation soignée de votre entreprise, de vos prestations et de vos coordonnées. Vos futurs clients découvrent rapidement ce qui fait la valeur de votre activité.
-
-            </p>
-
-            <a class="text-link" href="#offre">Découvrir les formules <span>→</span></a>
-
-          </article>
-
-          <article class="service-card">
-
-            <div class="service-icon icon-blue">◈</div>
-
-            <span class="card-index">02 / REFONTE</span>
-
-            <h3>Offrir un nouvel élan à votre site</h3>
-
-            <p>
-
-              Faisons évoluer votre site pour qu’il reflète mieux votre activité. Selon sa structure et sa technologie, je peux moderniser son design, clarifier les contenus et améliorer le confort de navigation sur téléphone.
-
-            </p>
-
-            <a class="text-link" href="#contact">Discuter de votre site <span>→</span></a>
-
-          </article>
-
-          <article class="service-card">
-
-            <div class="service-icon icon-green">⌁</div>
-
-            <span class="card-index">03 / VISIBILITÉ LOCALE</span>
-
-            <h3>Renforcer votre présence locale</h3>
-
-            <p>
-
-              Mettons en valeur les informations qui comptent pour vos clients de proximité. Selon vos besoins, nous pouvons aussi étudier les améliorations possibles de votre présence locale et de votre fiche d’établissement Google.
-
-            </p>
-
-            <a class="text-link" href="#options">Découvrir les options <span>→</span></a>
-
-          </article>
-
-        </div>
-
-      </section>
-
-      <!-- TARIFS -->
-
-      <section class="offer-section offer-catalog" id="offre">
-
-  <div class="section-wrap">
-
-    <div class="offer-heading">
-
-      <p class="eyebrow"><span class="status-dot"></span> CRÉATION · REFONTE · ACCOMPAGNEMENT</p>
-
-      <h2>Le bon accompagnement pour <span class="text-gradient">faire avancer votre site.</span></h2>
-
-      <p class="offer-heading-intro">Que vous souhaitiez créer votre première vitrine en ligne, moderniser votre site ou le faire évoluer, découvrez les formules et choisissez celle qui vous correspond. Un e-mail prérempli vous permettra de présenter votre besoin simplement, puis nous pourrons en discuter ensemble.</p>
-
-      <div class="offer-promise-row" aria-label="Les engagements Studio Web">
-
-        <span><i>✓</i> Prix indicatifs affichés</span>
-
-        <span><i>✓</i> Devis avant démarrage</span>
-
-        <span><i>✓</i> Échange sans engagement</span>
-
-      </div>
-
-    </div>
-
-    <div class="offer-category-heading">
-
-      <span class="offer-category-number">01</span>
-
-      <div><h3>Créer un site</h3><p>Pour présenter votre activité avec une présence en ligne claire et professionnelle.</p></div>
-
-    </div>
-
-    <div class="offer-catalog-grid">
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>CRÉATION</span><span class="offer-card-icon">↗</span></div>
-
-        <h4>Site essentiel</h4><p class="offer-card-subtitle">Les informations essentielles, réunies sur une page.</p>
-
-        <p class="offer-product-price">600 € <small>prix indicatif</small></p>
-
-        <ul class="offer-feature-list"><li>Site vitrine d’une page</li><li>Présentation, services et contact</li><li>Adaptation mobile</li><li>Référencement naturel de base</li><li>Mise en ligne et deux séries de corrections</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Site%20essentiel&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20l%E2%80%99offre%20%3A%20Site%20essentiel%20(600%20%E2%82%AC%20indicatifs).%0A%0AMon%20activit%C3%A9%20%3A%0A%0AMon%20besoin%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card offer-featured">
-
-        <div class="offer-card-meta"><span>CRÉATION</span><span class="offer-popular">Plus complet</span></div>
-
-        <h4>Site professionnel</h4><p class="offer-card-subtitle">De l’espace pour présenter vos services en détail.</p>
-
-        <p class="offer-product-price">900 € <small>prix indicatif</small></p>
-
-        <ul class="offer-feature-list"><li>Jusqu’à 3 pages</li><li>Présentation des prestations</li><li>Galerie de réalisations (photos fournies par vos soins)</li><li>Adaptation mobile et bases du référencement naturel</li><li>Mise en ligne et deux séries de corrections</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Site%20professionnel&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20l%E2%80%99offre%20%3A%20Site%20professionnel%20(900%20%E2%82%AC%20indicatifs).%0A%0AMon%20activit%C3%A9%20%3A%0A%0ALes%20pages%20souhait%C3%A9es%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>CRÉATION</span><span class="offer-card-icon">◎</span></div>
-
-        <h4>Site + visibilité locale</h4><p class="offer-card-subtitle">Valorisez vos services auprès de votre clientèle locale.</p>
-
-        <p class="offer-product-price">1 150 € <small>prix indicatif</small></p>
-
-        <ul class="offer-feature-list"><li>Site vitrine jusqu’à 3 pages</li><li>Coordonnées et zone desservie mises en valeur</li><li>Référencement naturel de base</li><li>Conseils pour votre fiche Google, si votre activité y est éligible</li><li>Mise en ligne et deux séries de corrections</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Site%20et%20visibilit%C3%A9%20locale&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20l%E2%80%99offre%20%3A%20Site%20%2B%20visibilit%C3%A9%20locale%20(1%20150%20%E2%82%AC%20indicatifs).%0A%0AMon%20activit%C3%A9%20%3A%0A%0AMa%20zone%20g%C3%A9ographique%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-    </div>
-
-    <div class="offer-category-heading offer-category-refonte">
-
-      <span class="offer-category-number">02</span>
-
-      <div><h3>Refondre un site existant</h3><p>Pour moderniser votre site, améliorer son affichage ou revoir son organisation.</p></div>
-
-    </div>
-
-    <div class="offer-catalog-grid">
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>REFONTE</span><span class="offer-card-icon">✳</span></div>
-
-        <h4>Rafraîchissement visuel</h4><p class="offer-card-subtitle">Un design rafraîchi pour mieux refléter votre activité.</p>
-
-        <p class="offer-product-price">350–500 € <small>fourchette indicative</small></p>
-
-        <ul class="offer-feature-list"><li>Couleurs et typographies</li><li>Amélioration de la mise en page</li><li>Cohérence visuelle</li><li>Modifications limitées sur l’existant</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Refonte%20visuelle&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99une%20refonte%20visuelle%20(350%20%C3%A0%20500%20%E2%82%AC%20indicatifs).%0A%0ALien%20de%20mon%20site%20actuel%20%3A%0A%0ACe%20que%20je%20souhaite%20am%C3%A9liorer%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>REFONTE</span><span class="offer-card-icon">▣</span></div>
-
-        <h4>Refonte mobile</h4><p class="offer-card-subtitle">Une navigation confortable, même sur petit écran.</p>
-
-        <p class="offer-product-price">450–700 € <small>fourchette indicative</small></p>
-
-        <ul class="offer-feature-list"><li>Affichage mobile et tablette</li><li>Lisibilité des contenus</li><li>Navigation plus claire</li><li>Adaptation des éléments existants</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Refonte%20mobile&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99une%20refonte%20mobile%20(450%20%C3%A0%20700%20%E2%82%AC%20indicatifs).%0A%0ALien%20de%20mon%20site%20actuel%20%3A%0A%0ALes%20probl%C3%A8mes%20rencontr%C3%A9s%20sur%20mobile%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card offer-featured">
-
-        <div class="offer-card-meta"><span>REFONTE</span><span class="offer-popular">Refonte complète</span></div>
-
-        <h4>Refonte complète</h4><p class="offer-card-subtitle">Une nouvelle structure, pensée pour vos visiteurs.</p>
-
-        <p class="offer-product-price">700–1 200 € <small>fourchette indicative</small></p>
-
-        <ul class="offer-feature-list"><li>Jusqu’à 3 pages</li><li>Présentation visuelle et structure repensées</li><li>Navigation et affichage mobile</li><li>Amélioration des textes fournis</li><li>Bases du référencement naturel et mise en ligne</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Refonte%20compl%C3%A8te&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99une%20refonte%20compl%C3%A8te%20(700%20%C3%A0%201%20200%20%E2%82%AC%20indicatifs).%0A%0ALien%20de%20mon%20site%20actuel%20%3A%0A%0ACe%20que%20je%20souhaite%20changer%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>REFONTE</span><span class="offer-card-icon">⌁</span></div>
-
-        <h4>Refonte + visibilité locale</h4><p class="offer-card-subtitle">Un site modernisé qui met en avant votre ancrage local.</p>
-
-        <p class="offer-product-price">950–1 500 € <small>fourchette indicative</small></p>
-
-        <ul class="offer-feature-list"><li>Refonte jusqu’à 3 pages</li><li>Affichage mobile et contenus existants améliorés</li><li>Bases du référencement naturel</li><li>Coordonnées et zone desservie valorisées</li><li>Conseils de visibilité locale</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Refonte%20et%20visibilit%C3%A9%20locale&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99une%20refonte%20avec%20visibilit%C3%A9%20locale%20(950%20%C3%A0%201%20500%20%E2%82%AC%20indicatifs).%0A%0ALien%20de%20mon%20site%20actuel%20%3A%0A%0AMon%20activit%C3%A9%20et%20ma%20zone%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-    </div>
-
-    <div class="offer-category-heading offer-category-extras">
-
-      <span class="offer-category-number">03</span>
-
-      <div><h3>Compléter et entretenir votre site</h3><p>Des prestations ponctuelles ou un suivi, selon votre besoin.</p></div>
-
-    </div>
-
-    <div class="offer-catalog-grid offer-extra-grid">
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>ACCOMPAGNEMENT</span><span class="offer-card-icon">↻</span></div>
-
-        <h4>Maintenance légère</h4><p class="offer-card-subtitle">Gardez votre site à jour grâce à un suivi léger.</p>
-
-        <p class="offer-product-price">35 € <small>/ mois</small></p>
-
-        <ul class="offer-feature-list"><li>Vérifications périodiques</li><li>Jusqu’à 30 minutes de petites modifications par mois</li><li>Réponse sous trois jours ouvrés</li><li>Temps non utilisé non reporté au mois suivant</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20renseignements%20%E2%80%94%20Maintenance%20l%C3%A9g%C3%A8re&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20la%20maintenance%20l%C3%A9g%C3%A8re%20%C3%A0%2035%20%E2%82%AC%2Fmois.%0A%0ALien%20de%20mon%20site%20%3A%0A%0ALes%20modifications%20dont%20j%E2%80%99ai%20besoin%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>RÉDACTION</span><span class="offer-card-icon">✎</span></div>
-
-        <h4>Réécriture d’une page</h4><p class="offer-card-subtitle">Des mots plus clairs pour mieux faire passer votre message.</p>
-
-        <p class="offer-product-price">80 € <small>/ page</small></p>
-
-        <ul class="offer-feature-list"><li>Amélioration du texte fourni</li><li>Structure et clarté du message</li><li>Une série de corrections</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20R%C3%A9%C3%A9criture%20d%E2%80%99une%20page&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20des%20renseignements%20sur%20la%20r%C3%A9%C3%A9criture%20d%E2%80%99une%20page%20(80%20%E2%82%AC%20indicatifs).%0A%0ALe%20type%20de%20page%20concern%C3%A9e%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>RÉDACTION</span><span class="offer-card-icon">✍</span></div>
-
-        <h4>Rédaction d’une page</h4><p class="offer-card-subtitle">Un contenu pensé pour votre activité et vos objectifs.</p>
-
-        <p class="offer-product-price">120 € <small>/ page</small></p>
-
-        <ul class="offer-feature-list"><li>Échange initial pour définir les besoins</li><li>Recherche limitée</li><li>Rédaction et une série de corrections</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20R%C3%A9daction%20d%E2%80%99une%20page&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20des%20renseignements%20sur%20la%20r%C3%A9daction%20d%E2%80%99une%20page%20(120%20%E2%82%AC%20indicatifs).%0A%0ALe%20type%20de%20page%20souhait%C3%A9e%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card">
-
-        <div class="offer-card-meta"><span>RÉDACTION</span><span class="offer-card-icon">▤</span></div>
-
-        <h4>Rédaction de 3 pages</h4><p class="offer-card-subtitle">Trois pages pour raconter l’essentiel de votre activité.</p>
-
-        <p class="offer-product-price">300 € <small>les 3 pages</small></p>
-
-        <ul class="offer-feature-list"><li>Trois pages à partir d’un contenu de départ validé</li><li>Ton harmonisé</li><li>Une série de corrections</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20R%C3%A9daction%20de%203%20pages&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20des%20renseignements%20sur%20la%20r%C3%A9daction%20de%203%20pages%20(300%20%E2%82%AC%20indicatifs).%0A%0ALes%20pages%20dont%20j%E2%80%99ai%20besoin%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
-
-      </article>
-
-      <article class="offer-product-card offer-custom-card">
-
-        <div class="offer-card-meta"><span>SUR MESURE</span><span class="offer-card-icon">✦</span></div>
-
-        <h4>Identité visuelle ou photos</h4><p class="offer-card-subtitle">Un besoin spécifique ? Étudions ensemble la solution adaptée.</p>
-
-        <p class="offer-product-price">Sur devis</p>
-
-        <ul class="offer-feature-list"><li>Besoin étudié au cas par cas</li><li>Livrables et droits précisés</li><li>Partenaire possible selon la demande</li></ul>
-
-        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20sur%20mesure%20%E2%80%94%20Identit%C3%A9%20visuelle%20ou%20photos&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99un%20besoin%20compl%C3%A9mentaire%20en%20identit%C3%A9%20visuelle%20ou%20photographie.%0A%0AMon%20besoin%20%3A%0A%0AMerci%20%21">Demander un devis <span>↗</span></a>
-
-      </article>
-
-    </div>
-
-    <div class="offer-terms">
-
-      <div class="offer-terms-icon">ⓘ</div>
-
-      <div><h4>Avant de démarrer</h4><p>Les prix affichés sont indicatifs et ne constituent pas un devis ferme. La rédaction complète des textes, les photos, le logo, le nom de domaine, l’hébergement, les licences, les fonctionnalités particulières et les prestations tierces ne sont inclus que s’ils sont mentionnés dans le devis. Pour une refonte, le prix dépend aussi de la technologie et de l’état du site existant. Aucun travail ne commence sans validation du devis et des modalités convenues. Le devis précisera le montant total ainsi que le traitement de la TVA applicable.</p></div>
-
-    </div>
-
-  </div>
-
+  <div class="animation-progress" aria-hidden="true"></div>
+  <div class="site-shell">
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Studio Web, accueil">
+        <img class="brand-logo" src="images/Banniere.png" alt="Studio Web">
+      </a>
+
+      <button class="menu-toggle" type="button"
+        aria-expanded="false" aria-controls="navigation"
+        aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span class="sr-only">Ouvrir le menu</span>
+      </button>
+
+      <nav class="navigation" id="navigation" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#offre">Tarifs</a>
+        <a href="#realisations">Projets</a>
+        <a href="#apropos">À propos</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#contact">Parler de mon projet <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main id="contenu">
+
+      <!-- INTRODUCTION -->
+      <section class="hero section-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            Création et refonte de sites internet
+          </div>
+
+          <h1>Un site internet qui <span class="text-gradient">fait rayonner votre activité.</span></h1>
+
+          <p class="hero-lead">
+            Artisan ou commerçant, votre savoir-faire mérite d’être vu ! Je crée des sites vitrines modernes ou donne un nouvel élan à votre site actuel, pour mettre vos services en valeur, inspirer confiance et aider vos futurs clients à vous contacter.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">
+              Parlons de vos idées <span>↗</span>
+            </a>
+            <a class="button button-quiet" href="#realisations">
+              <span class="play-icon">↘</span> Voir mes projets
+            </a>
+          </div>
+
+          <div class="hero-proof">
+            <div class="proof-icon">✳</div>
+            <p>
+              <strong>Un projet pensé avec vous.</strong><br>
+              <span>Un interlocuteur unique, des explications claires et un devis avant de commencer.</span>
+            </p>
+          </div>
+
+          <p class="hero-note">Création de site · Refonte · Mobile · Présence locale</p>
+        </div>
+
+        <!-- APERÇU ILLUSTRATIF -->
+        <div class="hero-visual" role="img" aria-label="Aperçu illustratif d’un site internet pouvant être créé ou refondu">
+          <div class="visual-glow"></div>
+
+          <div class="floating-tag tag-top">
+            <span class="tag-dot"></span> Adapté à votre activité
+          </div>
+
+          <div class="browser-window">
+            <div class="browser-bar">
+              <div class="browser-dots"><i></i><i></i><i></i></div>
+              <div class="browser-address">votre-activite.fr</div>
+              <span class="browser-menu">•••</span>
+            </div>
+
+            <div class="mock-site">
+              <div class="mock-nav">
+                <span class="mock-logo">VOTRE<span>ACTIVITÉ.</span></span>
+                <span class="mock-nav-links">Services　 À propos　 Contact</span>
+                <span class="mock-mini-button">Nous contacter ↗</span>
+              </div>
+
+              <div class="mock-content">
+                <div class="mock-kicker"><span></span> BIENVENUE</div>
+                <div class="mock-title">Votre savoir-faire.<br>Votre savoir-faire<span>.</span></div>
+                <p class="mock-description">
+                  Découvrez ce que nous pouvons faire pour vous
+                  et contactez-nous simplement.
+                </p>
+                <div class="mock-button">Découvrir nos services ↗</div>
+
+                <div class="mock-stats">
+                  <div><strong>01.</strong><small>Notre métier</small></div>
+                  <div><strong>02.</strong><small>Nos services</small></div>
+                  <div><strong>03.</strong><small>Contact</small></div>
+                </div>
+              </div>
+
+              <div class="mock-shape shape-one"></div>
+              <div class="mock-shape shape-two"></div>
+            </div>
+          </div>
+
+          <div class="floating-tag tag-bottom">
+            <span class="sparkle">✦</span> Également sur mobile
+          </div>
+        </div>
+      </section>
+
+      <!-- BÉNÉFICES -->
+      <section class="trust-strip" aria-label="Les objectifs du site">
+        <div class="trust-inner">
+          <span class="trust-heading">VOTRE SITE POUR</span>
+          <div><span class="trust-symbol">✳</span> Présenter vos services</div>
+          <div><span class="trust-symbol">↗</span> Être lisible sur mobile</div>
+          <div><span class="trust-symbol">◎</span> Faciliter les demandes</div>
+          <div><span class="trust-symbol">⌘</span> Inspirer confiance</div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section-wrap section-space" id="services">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MES SERVICES</p>
+            <h2>Une présence en ligne qui met <span class="text-gradient">votre métier en lumière.</span></h2>
+          </div>
+          <p>
+            Vous lancez votre activité ou vous êtes prêt à faire évoluer votre site ? Ensemble, mettons en avant ce qui vous rend unique et donnons à vos clients les bonnes informations pour passer à l’action.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon icon-purple">↗</div>
+            <span class="card-index">01 / CRÉATION</span>
+            <h3>Donner vie à votre site</h3>
+            <p>
+              Je crée une vitrine en ligne à votre image : vos services, votre histoire et vos coordonnées sont présentés clairement pour que vos visiteurs comprennent rapidement ce que vous leur apportez.
+            </p>
+            <a class="text-link" href="#offre">Découvrir les formules <span>→</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon icon-blue">◈</div>
+            <span class="card-index">02 / REFONTE</span>
+            <h3>Offrir un nouveau souffle à votre site</h3>
+            <p>
+              Votre activité a évolué ? Votre site peut évoluer avec elle. Selon sa structure, je peux moderniser son apparence, clarifier les informations et améliorer le confort de navigation, notamment sur téléphone.
+            </p>
+            <a class="text-link" href="#contact">Discuter de votre site <span>→</span></a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon icon-green">⌁</div>
+            <span class="card-index">03 / VISIBILITÉ LOCALE</span>
+            <h3>Mieux présenter votre activité locale</h3>
+            <p>
+              Nous mettons en avant les informations qui comptent pour vos clients : votre zone d’intervention, vos coordonnées et vos services. Selon vos besoins, nous pouvons aussi étudier les pistes pour renforcer votre présence locale.
+            </p>
+            <a class="text-link" href="#options">Découvrir les options <span>→</span></a>
+          </article>
+        </div>
+      </section>
+
+      <!-- TARIFS -->
+      <section class="offer-section offer-catalog" id="offre">
+  <div class="section-wrap">
+    <div class="offer-heading">
+      <p class="eyebrow"><span class="status-dot"></span> CRÉATION · REFONTE · ACCOMPAGNEMENT</p>
+      <h2>Des formules claires pour faire avancer <span class="text-gradient">votre projet.</span></h2>
+      <p class="offer-heading-intro">Un premier site, une refonte ou quelques améliorations ciblées : choisissez la formule qui correspond à votre objectif. Les prix sont indicatifs et nous pourrons préciser ensemble votre besoin avant tout démarrage.</p>
+      <div class="offer-promise-row" aria-label="Les engagements Studio Web">
+        <span><i>✓</i> Prix indicatifs affichés</span>
+        <span><i>✓</i> Devis avant démarrage</span>
+        <span><i>✓</i> Échange sans engagement</span>
+      </div>
+    </div>
+
+    <div class="offer-category-heading">
+      <span class="offer-category-number">01</span>
+      <div><h3>Créer un site</h3><p>Pour présenter votre activité avec une présence en ligne claire et professionnelle.</p></div>
+    </div>
+    <div class="offer-catalog-grid">
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>CRÉATION</span><span class="offer-card-icon">↗</span></div>
+        <h4>Site essentiel</h4><p class="offer-card-subtitle">Une page pour aller à l’essentiel.</p>
+        <p class="offer-product-price">600 € <small>prix indicatif</small></p>
+        <ul class="offer-feature-list"><li>Site vitrine d’une page</li><li>Présentation, services et contact</li><li>Adaptation mobile</li><li>Référencement naturel de base</li><li>Mise en ligne et deux séries de corrections</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Site%20essentiel&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20l%E2%80%99offre%20%3A%20Site%20essentiel%20(600%20%E2%82%AC%20indicatifs).%0A%0AMon%20activit%C3%A9%20%3A%0A%0AMon%20besoin%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card offer-featured">
+        <div class="offer-card-meta"><span>CRÉATION</span><span class="offer-popular">Plus complet</span></div>
+        <h4>Site professionnel</h4><p class="offer-card-subtitle">Plusieurs pages pour détailler vos services.</p>
+        <p class="offer-product-price">900 € <small>prix indicatif</small></p>
+        <ul class="offer-feature-list"><li>Jusqu’à 3 pages</li><li>Présentation des prestations</li><li>Galerie de réalisations (photos fournies par vos soins)</li><li>Adaptation mobile et bases du référencement naturel</li><li>Mise en ligne et deux séries de corrections</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Site%20professionnel&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20l%E2%80%99offre%20%3A%20Site%20professionnel%20(900%20%E2%82%AC%20indicatifs).%0A%0AMon%20activit%C3%A9%20%3A%0A%0ALes%20pages%20souhait%C3%A9es%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>CRÉATION</span><span class="offer-card-icon">◎</span></div>
+        <h4>Site + visibilité locale</h4><p class="offer-card-subtitle">Un site conçu pour vos clients locaux.</p>
+        <p class="offer-product-price">1 150 € <small>prix indicatif</small></p>
+        <ul class="offer-feature-list"><li>Site vitrine jusqu’à 3 pages</li><li>Coordonnées et zone desservie mises en valeur</li><li>Référencement naturel de base</li><li>Conseils pour votre fiche Google, si votre activité y est éligible</li><li>Mise en ligne et deux séries de corrections</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Site%20et%20visibilit%C3%A9%20locale&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20l%E2%80%99offre%20%3A%20Site%20%2B%20visibilit%C3%A9%20locale%20(1%20150%20%E2%82%AC%20indicatifs).%0A%0AMon%20activit%C3%A9%20%3A%0A%0AMa%20zone%20g%C3%A9ographique%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+    </div>
+
+    <div class="offer-category-heading offer-category-refonte">
+      <span class="offer-category-number">02</span>
+      <div><h3>Refondre un site existant</h3><p>Pour moderniser votre site, améliorer son affichage ou revoir son organisation.</p></div>
+    </div>
+    <div class="offer-catalog-grid">
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>REFONTE</span><span class="offer-card-icon">✳</span></div>
+        <h4>Rafraîchissement visuel</h4><p class="offer-card-subtitle">Une apparence plus actuelle, sans tout reconstruire.</p>
+        <p class="offer-product-price">350–500 € <small>fourchette indicative</small></p>
+        <ul class="offer-feature-list"><li>Couleurs et typographies</li><li>Amélioration de la mise en page</li><li>Cohérence visuelle</li><li>Modifications limitées sur l’existant</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Refonte%20visuelle&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99une%20refonte%20visuelle%20(350%20%C3%A0%20500%20%E2%82%AC%20indicatifs).%0A%0ALien%20de%20mon%20site%20actuel%20%3A%0A%0ACe%20que%20je%20souhaite%20am%C3%A9liorer%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>REFONTE</span><span class="offer-card-icon">▣</span></div>
+        <h4>Refonte mobile</h4><p class="offer-card-subtitle">Un site plus agréable à consulter sur téléphone.</p>
+        <p class="offer-product-price">450–700 € <small>fourchette indicative</small></p>
+        <ul class="offer-feature-list"><li>Affichage mobile et tablette</li><li>Lisibilité des contenus</li><li>Navigation plus claire</li><li>Adaptation des éléments existants</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Refonte%20mobile&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99une%20refonte%20mobile%20(450%20%C3%A0%20700%20%E2%82%AC%20indicatifs).%0A%0ALien%20de%20mon%20site%20actuel%20%3A%0A%0ALes%20probl%C3%A8mes%20rencontr%C3%A9s%20sur%20mobile%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card offer-featured">
+        <div class="offer-card-meta"><span>REFONTE</span><span class="offer-popular">Refonte complète</span></div>
+        <h4>Refonte complète</h4><p class="offer-card-subtitle">Repenser le site et ses pages.</p>
+        <p class="offer-product-price">700–1 200 € <small>fourchette indicative</small></p>
+        <ul class="offer-feature-list"><li>Jusqu’à 3 pages</li><li>Présentation visuelle et structure repensées</li><li>Navigation et affichage mobile</li><li>Amélioration des textes fournis</li><li>Bases du référencement naturel et mise en ligne</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Refonte%20compl%C3%A8te&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99une%20refonte%20compl%C3%A8te%20(700%20%C3%A0%201%20200%20%E2%82%AC%20indicatifs).%0A%0ALien%20de%20mon%20site%20actuel%20%3A%0A%0ACe%20que%20je%20souhaite%20changer%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>REFONTE</span><span class="offer-card-icon">⌁</span></div>
+        <h4>Refonte + visibilité locale</h4><p class="offer-card-subtitle">Moderniser le site et mieux présenter votre activité locale.</p>
+        <p class="offer-product-price">950–1 500 € <small>fourchette indicative</small></p>
+        <ul class="offer-feature-list"><li>Refonte jusqu’à 3 pages</li><li>Affichage mobile et contenus existants améliorés</li><li>Bases du référencement naturel</li><li>Coordonnées et zone desservie valorisées</li><li>Conseils de visibilité locale</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20Refonte%20et%20visibilit%C3%A9%20locale&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99une%20refonte%20avec%20visibilit%C3%A9%20locale%20(950%20%C3%A0%201%20500%20%E2%82%AC%20indicatifs).%0A%0ALien%20de%20mon%20site%20actuel%20%3A%0A%0AMon%20activit%C3%A9%20et%20ma%20zone%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+    </div>
+
+    <div class="offer-category-heading offer-category-extras">
+      <span class="offer-category-number">03</span>
+      <div><h3>Compléter et entretenir votre site</h3><p>Des prestations ponctuelles ou un suivi, selon votre besoin.</p></div>
+    </div>
+    <div class="offer-catalog-grid offer-extra-grid">
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>ACCOMPAGNEMENT</span><span class="offer-card-icon">↻</span></div>
+        <h4>Maintenance légère</h4><p class="offer-card-subtitle">Pour de petites modifications après la mise en ligne.</p>
+        <p class="offer-product-price">35 € <small>/ mois</small></p>
+        <ul class="offer-feature-list"><li>Vérifications périodiques</li><li>Jusqu’à 30 minutes de petites modifications par mois</li><li>Réponse sous trois jours ouvrés</li><li>Temps non utilisé non reporté au mois suivant</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20renseignements%20%E2%80%94%20Maintenance%20l%C3%A9g%C3%A8re&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20la%20maintenance%20l%C3%A9g%C3%A8re%20%C3%A0%2035%20%E2%82%AC%2Fmois.%0A%0ALien%20de%20mon%20site%20%3A%0A%0ALes%20modifications%20dont%20j%E2%80%99ai%20besoin%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>RÉDACTION</span><span class="offer-card-icon">✎</span></div>
+        <h4>Réécriture d’une page</h4><p class="offer-card-subtitle">Rendre un texte existant plus clair et convaincant.</p>
+        <p class="offer-product-price">80 € <small>/ page</small></p>
+        <ul class="offer-feature-list"><li>Amélioration du texte fourni</li><li>Structure et clarté du message</li><li>Une série de corrections</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20R%C3%A9%C3%A9criture%20d%E2%80%99une%20page&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20des%20renseignements%20sur%20la%20r%C3%A9%C3%A9criture%20d%E2%80%99une%20page%20(80%20%E2%82%AC%20indicatifs).%0A%0ALe%20type%20de%20page%20concern%C3%A9e%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>RÉDACTION</span><span class="offer-card-icon">✍</span></div>
+        <h4>Rédaction d’une page</h4><p class="offer-card-subtitle">Un texte rédigé à partir de votre activité et de vos objectifs.</p>
+        <p class="offer-product-price">120 € <small>/ page</small></p>
+        <ul class="offer-feature-list"><li>Échange initial pour définir les besoins</li><li>Recherche limitée</li><li>Rédaction et une série de corrections</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20R%C3%A9daction%20d%E2%80%99une%20page&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20des%20renseignements%20sur%20la%20r%C3%A9daction%20d%E2%80%99une%20page%20(120%20%E2%82%AC%20indicatifs).%0A%0ALe%20type%20de%20page%20souhait%C3%A9e%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card">
+        <div class="offer-card-meta"><span>RÉDACTION</span><span class="offer-card-icon">▤</span></div>
+        <h4>Rédaction de 3 pages</h4><p class="offer-card-subtitle">Pour présenter votre activité, vos services et vos coordonnées.</p>
+        <p class="offer-product-price">300 € <small>les 3 pages</small></p>
+        <ul class="offer-feature-list"><li>Trois pages à partir d’un contenu de départ validé</li><li>Ton harmonisé</li><li>Une série de corrections</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20devis%20%E2%80%94%20R%C3%A9daction%20de%203%20pages&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20des%20renseignements%20sur%20la%20r%C3%A9daction%20de%203%20pages%20(300%20%E2%82%AC%20indicatifs).%0A%0ALes%20pages%20dont%20j%E2%80%99ai%20besoin%20%3A%0A%0AMerci%20%21">Choisir cette offre <span>↗</span></a>
+      </article>
+      <article class="offer-product-card offer-custom-card">
+        <div class="offer-card-meta"><span>SUR MESURE</span><span class="offer-card-icon">✦</span></div>
+        <h4>Identité visuelle ou photos</h4><p class="offer-card-subtitle">Une demande particulière ou un besoin complémentaire.</p>
+        <p class="offer-product-price">Sur devis</p>
+        <ul class="offer-feature-list"><li>Besoin étudié au cas par cas</li><li>Livrables et droits précisés</li><li>Partenaire possible selon la demande</li></ul>
+        <a class="button button-primary offer-select-button" href="mailto:bcuriecadet@gmail.com?subject=Demande%20sur%20mesure%20%E2%80%94%20Identit%C3%A9%20visuelle%20ou%20photos&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20discuter%20d%E2%80%99un%20besoin%20compl%C3%A9mentaire%20en%20identit%C3%A9%20visuelle%20ou%20photographie.%0A%0AMon%20besoin%20%3A%0A%0AMerci%20%21">Demander un devis <span>↗</span></a>
+      </article>
+    </div>
+
+    <div class="offer-terms">
+      <div class="offer-terms-icon">ⓘ</div>
+      <div><h4>Avant de démarrer</h4><p>Les prix affichés sont indicatifs et ne constituent pas un devis ferme. La rédaction complète des textes, les photos, le logo, le nom de domaine, l’hébergement, les licences, les fonctionnalités particulières et les prestations tierces ne sont inclus que s’ils sont mentionnés dans le devis. Pour une refonte, le prix dépend aussi de la technologie et de l’état du site existant. Aucun travail ne commence sans validation du devis et des modalités convenues. Le devis précisera le montant total ainsi que le traitement de la TVA applicable.</p></div>
+    </div>
+  </div>
 </section>
 
-      <!-- PROJETS -->
-
-      <section class="section-wrap section-space" id="realisations">
-
-        <div class="section-heading">
-
-          <div>
-
-            <p class="eyebrow">MES PROJETS</p>
-
-            <h2>Deux univers, une même ambition : <span class="text-gradient">valoriser chaque activité.</span></h2>
-
-          </div>
-
-          <p>
-
-            Ces deux démonstrations fictives illustrent mon approche : organiser les informations avec clarté et créer une identité visuelle cohérente avec chaque métier. Elles donnent un aperçu des possibilités, sans être présentées comme des commandes de clients.
-
-          </p>
-
-        </div>
-
-        <div class="projects-grid">
-
-          <article class="project-card">
-
-            <a class="project-preview preview-plumber" href="demo-plomberie.html"
-
-              aria-label="Découvrir le projet fictif de site pour plombier">
-
-              <img class="project-illustration" src="images/plomberie.png"
-
-                alt="Site fictif Dupont Plomberie affiché sur ordinateur portable et téléphone, dans un atelier avec des outils de plomberie" />
-
-              <span class="preview-open">Voir la démo ↗</span>
-
-            </a>
-
-            <div class="project-meta">
-
-              <div>
-
-                <span class="project-type">HTML · CSS · Adaptation mobile</span>
-
-                <h3>Exemple pour un artisan</h3>
-
-              </div>
-
-              <a class="round-arrow" href="demo-plomberie.html" aria-label="Ouvrir le projet plomberie">↗</a>
-
-            </div>
-
-            <p>
-
-              Pour cet exemple de plomberie, l’objectif est de rendre les prestations et les coordonnées faciles à trouver. Les tons naturels et le vert forêt donnent au site une identité sobre et rassurante.
-
-            </p>
-
-          </article>
-
-          <article class="project-card">
-
-            <a class="project-preview preview-restaurant" href="demo-restaurant.html"
-
-              aria-label="Découvrir le projet fictif de site pour restaurant">
-
-              <img class="project-illustration" src="images/restaurant.png"
-
-                alt="Site fictif Maison Olive affiché sur ordinateur portable et téléphone, dans une ambiance de restaurant méditerranéen" />
-
-              <span class="preview-open">Voir la démo ↗</span>
-
-            </a>
-
-            <div class="project-meta">
-
-              <div>
-
-                <span class="project-type">HTML · CSS · Adaptation mobile</span>
-
-                <h3>Exemple pour un restaurant</h3>
-
-              </div>
-
-              <a class="round-arrow" href="demo-restaurant.html" aria-label="Ouvrir le projet restaurant">↗</a>
-
-            </div>
-
-            <p>
-
-              Pour ce restaurant fictif, une ambiance chaleureuse et des références à la cuisine de saison créent un univers accueillant. Cet exemple montre comment le design peut raconter l’esprit d’un lieu.
-
-            </p>
-
-          </article>
-
-        </div>
-
-        <p class="fiction-note">
-
-          <span>ⓘ</span>
-
-          Les noms, les entreprises et les activités présentés dans ces démonstrations sont fictifs.
-
-          Ces projets personnels ne constituent pas des témoignages ou des résultats clients.
-
-        </p>
-
-        <div class="projects-cta">
-
-          <p>
-
-            Votre métier a son propre univers : faisons-en une force. Nous construirons votre site autour de votre activité, de vos clients et des informations qui leur seront vraiment utiles.
-
-          </p>
-
-          <a class="button button-primary" href="#contact">Parler de votre activité <span>↗</span></a>
-
-        </div>
-
-      </section>
-
-      <!-- À PROPOS -->
-
-      <section class="section-wrap section-space about-section" id="apropos">
-
-        <div class="section-heading">
-
-          <div>
-
-            <p class="eyebrow">À PROPOS</p>
-
-            <h2>Un accompagnement direct, <span class="text-gradient">à chaque étape.</span></h2>
-
-          </div>
-
-        </div>
-
-        <div class="about-layout">
-
-          <div class="about-profile">
-
-            <div class="about-visual">
-
-              <img src="images/portrait.png"
-
-                alt="Portrait de Baptiste Curie-Cadet, créateur indépendant de sites web"
-
-                class="about-photo" loading="lazy">
-
-            </div>
-
-            <div class="about-photo-caption">
-
-              <span class="about-status-dot"></span>
-
-              <div>
-
-                <strong>Baptiste Curie-Cadet</strong>
-
-                <span>Création et refonte de sites internet</span>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="about-copy">
-
-            <span class="project-type">QUI SUIS-JE ?</span>
-
-            <h3>Bonjour, je suis <span class="text-gradient">Baptiste.</span></h3>
-
-            <p>
-
-              J’ai créé Studio Web pour aider les artisans et les commerces locaux à faire une place à leur savoir-faire sur internet. Que vous lanciez votre premier site ou souhaitiez donner un nouvel élan à l’existant, je vous accompagne vers une présence en ligne claire, professionnelle et agréable à consulter.
-
-            </p>
-
-            <p>
-
-              Un bon site donne envie d’en savoir plus et répond simplement aux questions essentielles : que proposez-vous, où intervenez-vous et comment vous contacter ? Il met en avant les bonnes informations au bon moment.
-
-            </p>
-
-            <p>
-
-              Chaque page est pensée pour guider vos visiteurs et mettre votre activité en valeur. Je privilégie un design clair et des fonctionnalités utiles, afin de proposer une expérience fluide et adaptée à votre clientèle.
-
-            </p>
-
-            <p>
-
-              Nous échangeons directement sur votre activité et vos idées. Je vous présente les possibilités, puis vous recevez un devis détaillé pour décider sereinement de la suite.
-
-            </p>
-
-            <ul class="check-list">
-
-              <li><span>✓</span> Un interlocuteur unique</li>
-
-              <li><span>✓</span> Des choix expliqués simplement</li>
-
-              <li><span>✓</span> Un devis avant de commencer</li>
-
-            </ul>
-
-            <a class="button button-primary" href="#contact">Faire connaissance <span>↗</span></a>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- MÉTHODE -->
-
-      <section class="process-section" id="methode">
-
-        <div class="section-wrap section-space">
-
-          <div class="section-heading">
-
-            <div>
-
-              <p class="eyebrow">COMMENT TRAVAILLONS-NOUS ?</p>
-
-              <h2>Vous connaissez votre métier.<br><span class="text-gradient">Je vous accompagne pour le site.</span></h2>
-
-            </div>
-
-            <p>
-
-              Vous connaissez votre métier, je vous guide pour le site. Nous avançons simplement, étape par étape, avec un budget, des prestations et un calendrier estimé définis avant de commencer.
-
-            </p>
-
-          </div>
-
-          <div class="process-grid">
-
-            <article class="process-step">
-
-              <span class="step-number">01</span><div class="step-line"></div>
-
-              <h3>Nous échangeons</h3>
-
-              <p>Nous faisons le point sur votre activité, vos clients et vos envies, que ce soit pour un premier site ou une nouvelle version.</p>
-
-            </article>
-
-            <article class="process-step">
-
-              <span class="step-number">02</span><div class="step-line"></div>
-
-              <h3>Je prépare un devis</h3>
-
-              <p>Vous découvrez une proposition claire : les pages prévues, les prestations, le budget et le calendrier estimé.</p>
-
-            </article>
-
-            <article class="process-step">
-
-              <span class="step-number">03</span><div class="step-line"></div>
-
-              <h3>Je crée ou refonds le site</h3>
-
-              <p>Je donne forme au projet convenu, puis je vous présente le résultat pour recueillir vos retours et effectuer les corrections prévues.</p>
-
-            </article>
-
-            <article class="process-step">
-
-              <span class="step-number">04</span><div class="step-line"></div>
-
-              <h3>Nous préparons la livraison</h3>
-
-              <p>Une fois les éléments validés et le règlement effectué selon le devis, nous préparons la mise en ligne et la remise des accès prévus.</p>
-
-            </article>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- FAQ -->
-
-      <section class="section-wrap section-space faq-section" id="faq">
-
-        <div class="section-heading">
-
-          <div>
-
-            <p class="eyebrow">QUESTIONS FRÉQUENTES</p>
-
-            <h2>Tout ce qu’il faut savoir pour <span class="text-gradient">avancer sereinement.</span></h2>
-
-          </div>
-
-          <p>Retrouvez ici les réponses aux questions les plus fréquentes pour préparer votre projet en toute confiance.</p>
-
-        </div>
-
-        <div class="faq-list">
-
-          <details>
-
-            <summary>Combien coûte la création ou la refonte d’un site ? <span>+</span></summary>
-
-            <p>Pour la création d’un site, les tarifs indicatifs commencent à 600 € pour une page. Pour une refonte, les tarifs dépendent de l’état du site existant, de sa technologie et de l’ampleur des changements souhaités. Les fourchettes de prix affichées sur cette page sont indicatives. Le montant exact sera précisé dans le devis avant le début du projet.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Combien de temps faut-il pour créer ou refondre mon site ? <span>+</span></summary>
-
-            <p>Le calendrier dépend du nombre de pages, des fonctionnalités et de la disponibilité des contenus. Pour une refonte, l’état du site existant compte également. Je vous indique un délai estimé dans le devis afin que nous puissions organiser le projet ensemble.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Dois-je fournir les textes et les photos ? <span>+</span></summary>
-
-            <p>Nous en discutons avant le début du projet. Si vous avez déjà vos contenus, nous pouvons partir de ceux-ci. La rédaction, la recherche d'images ou la création de visuels peuvent être proposées en supplément si elles ne sont pas incluses au devis.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Le nom de domaine et l'hébergement sont-ils inclus ? <span>+</span></summary>
-
-            <p>Pas automatiquement. Les frais de domaine, d'hébergement et les éventuels services tiers seront identifiés dans le devis. Il est préférable que le nom de domaine soit enregistré à votre nom ou à celui de votre entreprise.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Mon site sera-t-il adapté aux téléphones ? <span>+</span></summary>
-
-            <p>L'affichage sur mobile fait partie des objectifs de conception. Je vérifie la présentation sur différentes tailles d'écran. Le résultat final dépend également des contenus et des fonctionnalités retenus.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Mon site apparaîtra-t-il sur Google ? <span>+</span></summary>
-
-            <p>Je peux préparer les bases du référencement naturel : structure des pages, titres, descriptions et contenus pertinents. Ces éléments donnent à votre site de bonnes bases pour être compris par les moteurs de recherche, même si aucune position précise sur Google ne peut être garantie.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Pouvez-vous m'aider avec ma fiche Google ? <span>+</span></summary>
-
-            <p>Nous pouvons étudier votre présence locale et les besoins autour de votre fiche d'établissement Google. La création, la vérification ou l’optimisation de cette fiche doit être explicitement prévue dans le devis. Les résultats ne peuvent pas être garantis.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Pourrai-je modifier mon site moi-même ? <span>+</span></summary>
-
-            <p>Cela dépend de la solution choisie. Avant de commencer, nous préciserons comment le site sera construit, quels accès seront remis et quelles modifications vous pourrez effectuer en autonomie.</p>
-
-          </details>
-
-          <details>
-
-            <summary>À qui appartiennent le site et les accès ? <span>+</span></summary>
-
-            <p>Les modalités de livraison, les accès et les droits sur les éléments créés seront définis par écrit. Les conditions applicables, notamment celles qui concernent les outils et les ressources de tiers, seront précisées dans les documents du projet.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Comment se passe le paiement ? <span>+</span></summary>
-
-            <p>Le devis indique le prix et les modalités de règlement. Un acompte peut être demandé au démarrage, puis le solde est réglé selon l’échéancier accepté. Les conditions doivent être validées avant le début du travail.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Proposez-vous de la maintenance ? <span>+</span></summary>
-
-            <p>Un forfait de suivi peut être proposé si votre site en a besoin. Son prix, les tâches incluses, la fréquence des interventions et les limites du service seront précisés dans une proposition distincte.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Que se passe-t-il après la mise en ligne ? <span>+</span></summary>
-
-            <p>Les accès et les éléments prévus sont remis selon le devis. Toute période de support, correction ou maintenance après livraison doit être définie par écrit, avec sa durée et son périmètre.</p>
-
-          </details>
-
-          <details>
-
-            <summary>Pourquoi ne pas créer mon site moi-même ? <span>+</span></summary>
-
-            <p>Vous pouvez tout à fait utiliser un outil de création de site. Faire appel à moi peut être utile si vous préférez déléguer la conception et la réalisation, ou si vous souhaitez être accompagné pour organiser les informations de votre activité.</p>
-
-          </details>
-
-        </div>
-
-      </section>
-
-      <!-- CONTACT -->
-
-      <section class="contact-section" id="contact">
-
-        <div class="section-wrap contact-inner">
-
-          <div class="contact-orb orb-a"></div>
-
-          <div class="contact-orb orb-b"></div>
-
-          <p class="eyebrow"><span class="status-dot"></span> PARLONS DE VOTRE PROJET</p>
-
-          <h2>Et si nous donnions vie à <span class="text-gradient">votre projet ?</span></h2>
-
-          <p>
-
-            Parlez-moi de votre activité et de ce que vous aimeriez mettre en place. Nous regarderons ensemble les possibilités et la formule adaptée à votre besoin. Le premier échange est simple et sans engagement.
-
-          </p>
-
-          <div class="contact-actions">
-
-            <a class="button button-primary button-light"
-
-              href="mailto:bcuriecadet@gmail.com?subject=Mon%20projet%20de%20site%20web&body=Bonjour%20Baptiste%2C%0A%0AMon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20recherche%20%3A%0A%0AMon%20site%20actuel%20(si%20j'en%20ai%20un)%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci.">
-
-              Écrire à Baptiste <span>↗</span>
-
-            </a>
-
-            <button class="button button-outline" type="button"
-
-              data-copy-email="bcuriecadet@gmail.com">
-
-              Copier mon e-mail
-
-            </button>
-
-          </div>
-
-          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
-
-          <a class="contact-email" href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>
-
-          <p class="contact-note">
-
-            Un premier e-mail suffit pour démarrer. Même si votre idée n’est pas encore totalement définie, nous pouvons la préciser ensemble.
-
-          </p>
-
-          <!--
-
-            Pour ajouter un formulaire, connectez-le à un service de traitement
-
-            de formulaires ou à un backend avant de le publier.
-
-            Un formulaire HTML seul ne transmet pas les messages.
-
-          -->
-
-        </div>
-
-      </section>
-
-    </main>
-
-    <!-- PIED DE PAGE -->
-
-    <footer class="site-footer">
-
-      <div class="footer-main">
-
-        <a class="brand" href="index.html" aria-label="Studio Web, accueil">
-
-          <img class="brand-logo" src="images/Banniere.png" alt="Studio Web">
-
-        </a>
-
-        <p>Des sites internet pensés pour valoriser le savoir-faire des artisans et commerces locaux, avec un accompagnement direct et personnalisé.</p>
-
-        <a class="back-top" href="#top">Retour en haut ↑</a>
-
-      </div>
-
-      <div class="footer-bottom">
-
-        <span>© <span id="year"></span> Studio Web</span>
-
-        <div>
-
-          <a href="mentions-legales.html">Mentions légales</a>
-
-          <a href="confidentialite.html">Confidentialité</a>
-
-        </div>
-
-        <span class="footer-location">Baptiste Curie-Cadet · Création et refonte de sites internet</span>
-
-      </div>
-
-    </footer>
-
-  </div>
-
+      <!-- PROJETS -->
+      <section class="section-wrap section-space" id="realisations">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MES PROJETS</p>
+            <h2>Deux univers fictifs pour <span class="text-gradient">imaginer les possibilités.</span></h2>
+          </div>
+          <p>
+            Ces projets fictifs donnent un aperçu de deux styles possibles : une présentation claire et rassurante pour un artisan, puis une ambiance chaleureuse pour un restaurant. Ils illustrent ma façon d’adapter le design et les informations à chaque activité.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <a class="project-preview preview-plumber" href="demo-plomberie.html"
+              aria-label="Découvrir le projet fictif de site pour plombier">
+              <img class="project-illustration" src="plomberie.png"
+                alt="Site fictif Dupont Plomberie affiché sur ordinateur portable et téléphone, dans un atelier avec des outils de plomberie" />
+              <span class="preview-open">Voir la démo ↗</span>
+            </a>
+
+            <div class="project-meta">
+              <div>
+                <span class="project-type">HTML · CSS · Adaptation mobile</span>
+                <h3>Dupont Plomberie — exemple fictif</h3>
+              </div>
+              <a class="round-arrow" href="demo-plomberie.html" aria-label="Ouvrir le projet plomberie">↗</a>
+            </div>
+
+            <p>
+              Une vitrine imaginée pour mettre en avant les prestations, rassurer les visiteurs et rendre le contact facile. Les tons naturels et le vert forêt créent une identité sobre et professionnelle.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <a class="project-preview preview-restaurant" href="demo-restaurant.html"
+              aria-label="Découvrir le projet fictif de site pour restaurant">
+              <img class="project-illustration" src="restaurant.png"
+                alt="Site fictif Maison Olive affiché sur ordinateur portable et téléphone, dans une ambiance de restaurant méditerranéen" />
+              <span class="preview-open">Voir la démo ↗</span>
+            </a>
+
+            <div class="project-meta">
+              <div>
+                <span class="project-type">HTML · CSS · Adaptation mobile</span>
+                <h3>Maison Olive — exemple fictif</h3>
+              </div>
+              <a class="round-arrow" href="demo-restaurant.html" aria-label="Ouvrir le projet restaurant">↗</a>
+            </div>
+
+            <p>
+              Une ambiance méditerranéenne, des couleurs chaleureuses et une présentation pensée pour donner envie de découvrir le lieu. Ce concept montre comment le site peut prolonger l’univers d’un restaurant.
+            </p>
+          </article>
+        </div>
+
+        <p class="fiction-note">
+          <span>ⓘ</span>
+          Les noms, les entreprises et les activités présentés dans ces démonstrations sont fictifs.
+          Ces projets personnels ne constituent pas des témoignages ou des résultats clients.
+        </p>
+
+        <div class="projects-cta">
+          <p>
+            Votre activité a son propre caractère. Nous partirons de vos objectifs, de vos clients et de ce qui vous distingue pour imaginer un site à votre image.
+          </p>
+          <a class="button button-primary" href="#contact">Parler de votre activité <span>↗</span></a>
+        </div>
+      </section>
+
+      <!-- À PROPOS -->
+      <section class="section-wrap section-space about-section" id="apropos">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">À PROPOS</p>
+            <h2>Un échange simple, un projet construit <span class="text-gradient">ensemble.</span></h2>
+          </div>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-profile">
+            <div class="about-visual">
+              <img src="images/portrait.png"
+                alt="Portrait de Baptiste Curie-Cadet, créateur indépendant de sites web"
+                class="about-photo" loading="lazy">
+            </div>
+            <div class="about-photo-caption">
+              <span class="about-status-dot"></span>
+              <div>
+                <strong>Baptiste Curie-Cadet</strong>
+                <span>Création et refonte de sites internet</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-copy">
+            <span class="project-type">QUI SUIS-JE ?</span>
+            <h3>Bonjour, je suis <span class="text-gradient">Baptiste.</span></h3>
+
+            <p>
+              Avec Studio Web, j’accompagne les artisans et les commerces locaux qui veulent présenter leur activité avec clarté et personnalité. Création ou refonte, l’idée est de construire une présence en ligne professionnelle, facile à consulter et adaptée à vos clients.
+            </p>
+
+            <p>
+              Un bon site met en avant l’essentiel : ce que vous proposez, où vous intervenez, ce qui fait votre différence et comment vous contacter. Vos visiteurs trouvent plus facilement les informations dont ils ont besoin.
+            </p>
+
+            <p>
+              Chaque page a un rôle : valoriser vos services, guider vos visiteurs et leur donner envie de vous contacter. Je privilégie un design soigné, une navigation simple et des fonctionnalités réellement utiles à votre activité.
+            </p>
+
+            <p>
+              Vous échangez directement avec moi, sans jargon inutile. Nous faisons le point sur vos idées, je vous présente les possibilités et vous recevez un devis clair pour décider sereinement de la suite.
+            </p>
+
+            <ul class="check-list">
+              <li><span>✓</span> Un interlocuteur unique</li>
+              <li><span>✓</span> Des choix expliqués simplement</li>
+              <li><span>✓</span> Un devis avant de commencer</li>
+            </ul>
+
+            <a class="button button-primary" href="#contact">Faire connaissance <span>↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÉTHODE -->
+      <section class="process-section" id="methode">
+        <div class="section-wrap section-space">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">COMMENT TRAVAILLONS-NOUS ?</p>
+              <h2>Vous connaissez votre métier.<br><span class="text-gradient">Construisons votre vitrine en ligne.</span></h2>
+            </div>
+            <p>
+              Vous n’avez pas besoin de maîtriser la technique : je vous guide à chaque étape. Nous définissons ensemble les priorités, le budget et les prochaines étapes avant de commencer.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-step">
+              <span class="step-number">01</span><div class="step-line"></div>
+              <h3>Nous échangeons</h3>
+              <p>Vous m’expliquez votre activité, vos clients et si vous souhaitez créer un site ou améliorer un site existant.</p>
+            </article>
+            <article class="process-step">
+              <span class="step-number">02</span><div class="step-line"></div>
+              <h3>Je prépare un devis</h3>
+              <p>Vous recevez le détail des pages, des prestations, du prix, des modalités de paiement et du calendrier estimé.</p>
+            </article>
+            <article class="process-step">
+              <span class="step-number">03</span><div class="step-line"></div>
+              <h3>Je crée ou refonds le site</h3>
+              <p>Je crée les pages prévues ou retravaille celles de votre site existant, puis vous transmets les éléments convenus pour recueillir vos retours.</p>
+            </article>
+            <article class="process-step">
+              <span class="step-number">04</span><div class="step-line"></div>
+              <h3>Nous préparons la livraison</h3>
+              <p>Après validation et règlement selon le devis, nous préparons la mise en ligne et la remise des accès prévus.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section-wrap section-space faq-section" id="faq">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">QUESTIONS FRÉQUENTES</p>
+            <h2>Vos questions, des réponses <span class="text-gradient">en toute clarté.</span></h2>
+          </div>
+          <p>Vous avez une question avant de vous lancer ? Retrouvez ici les informations essentielles pour avancer avec une vision claire du projet.</p>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Combien coûte la création ou la refonte d’un site ? <span>+</span></summary>
+            <p>Pour la création d’un site, les tarifs indicatifs commencent à 600 € pour une page. Pour une refonte, les tarifs dépendent de l’état du site existant, de sa technologie et de l’ampleur des changements souhaités. Les fourchettes de prix affichées sur cette page sont indicatives. Le montant exact sera précisé dans le devis avant le début du projet.</p>
+          </details>
+
+          <details>
+            <summary>Combien de temps faut-il pour créer ou refondre mon site ? <span>+</span></summary>
+            <p>Le délai dépend du nombre de pages, des fonctionnalités, de la disponibilité des textes et des photos et, pour une refonte, de l’état du site existant. Le calendrier estimé sera indiqué dans le devis et les conditions de démarrage seront convenues ensemble.</p>
+          </details>
+
+          <details>
+            <summary>Dois-je fournir les textes et les photos ? <span>+</span></summary>
+            <p>Nous en discutons avant le début du projet. Si vous avez déjà vos contenus, nous pouvons partir de ceux-ci. La rédaction, la recherche d'images ou la création de visuels peuvent être proposées en supplément si elles ne sont pas incluses au devis.</p>
+          </details>
+
+          <details>
+            <summary>Le nom de domaine et l'hébergement sont-ils inclus ? <span>+</span></summary>
+            <p>Pas automatiquement. Les frais de domaine, d'hébergement et les éventuels services tiers seront identifiés dans le devis. Il est préférable que le nom de domaine soit enregistré à votre nom ou à celui de votre entreprise.</p>
+          </details>
+
+          <details>
+            <summary>Mon site sera-t-il adapté aux téléphones ? <span>+</span></summary>
+            <p>L'affichage sur mobile fait partie des objectifs de conception. Je vérifie la présentation sur différentes tailles d'écran. Le résultat final dépend également des contenus et des fonctionnalités retenus.</p>
+          </details>
+
+          <details>
+            <summary>Mon site apparaîtra-t-il sur Google ? <span>+</span></summary>
+            <p>Je peux mettre en place les bases du référencement naturel : structure des pages, titres, descriptions et contenus pertinents. Personne ne peut garantir une position précise sur Google, car le classement dépend de nombreux facteurs et de la concurrence.</p>
+          </details>
+
+          <details>
+            <summary>Pouvez-vous m'aider avec ma fiche Google ? <span>+</span></summary>
+            <p>Nous pouvons étudier votre présence locale et les besoins autour de votre fiche d'établissement Google. La création, la vérification ou l’optimisation de cette fiche doit être explicitement prévue dans le devis. Les résultats ne peuvent pas être garantis.</p>
+          </details>
+
+          <details>
+            <summary>Pourrai-je modifier mon site moi-même ? <span>+</span></summary>
+            <p>Cela dépend de la solution choisie. Avant de commencer, nous préciserons comment le site sera construit, quels accès seront remis et quelles modifications vous pourrez effectuer en autonomie.</p>
+          </details>
+
+          <details>
+            <summary>À qui appartiennent le site et les accès ? <span>+</span></summary>
+            <p>Les modalités de livraison, les accès et les droits sur les éléments créés seront définis par écrit. Les conditions applicables, notamment celles qui concernent les outils et les ressources de tiers, seront précisées dans les documents du projet.</p>
+          </details>
+
+          <details>
+            <summary>Comment se passe le paiement ? <span>+</span></summary>
+            <p>Le devis indique le prix et les modalités de règlement. Un acompte peut être demandé au démarrage, puis le solde est réglé selon l’échéancier accepté. Les conditions doivent être validées avant le début du travail.</p>
+          </details>
+
+          <details>
+            <summary>Proposez-vous de la maintenance ? <span>+</span></summary>
+            <p>Un forfait de suivi peut être proposé si votre site en a besoin. Son prix, les tâches incluses, la fréquence des interventions et les limites du service seront précisés dans une proposition distincte.</p>
+          </details>
+
+          <details>
+            <summary>Que se passe-t-il après la mise en ligne ? <span>+</span></summary>
+            <p>Les accès et les éléments prévus sont remis selon le devis. Toute période de support, correction ou maintenance après livraison doit être définie par écrit, avec sa durée et son périmètre.</p>
+          </details>
+
+          <details>
+            <summary>Pourquoi ne pas créer mon site moi-même ? <span>+</span></summary>
+            <p>Vous pouvez tout à fait utiliser un outil de création de site. Faire appel à moi peut être utile si vous préférez déléguer la conception et la réalisation, ou si vous souhaitez être accompagné pour organiser les informations de votre activité.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact-section" id="contact">
+        <div class="section-wrap contact-inner">
+          <div class="contact-orb orb-a"></div>
+          <div class="contact-orb orb-b"></div>
+
+          <p class="eyebrow"><span class="status-dot"></span> PARLONS DE VOTRE PROJET</p>
+          <h2>Et si on donnait vie à <span class="text-gradient">votre projet ?</span></h2>
+          <p>
+            Parlez-moi de votre activité et de ce que vous aimeriez améliorer ou créer. Nous regarderons ensemble les possibilités et les prochaines étapes. Le premier échange est sans engagement : c’est simplement l’occasion de faire connaissance.
+          </p>
+
+          <div class="contact-actions">
+            <a class="button button-primary button-light"
+              href="mailto:bcuriecadet@gmail.com?subject=Mon%20projet%20de%20site%20web&body=Bonjour%20Baptiste%2C%0A%0AMon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20recherche%20%3A%0A%0AMon%20site%20actuel%20(si%20j'en%20ai%20un)%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci.">
+              Écrire à Baptiste <span>↗</span>
+            </a>
+
+            <button class="button button-outline" type="button"
+              data-copy-email="bcuriecadet@gmail.com">
+              Copier mon e-mail
+            </button>
+          </div>
+
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+          <a class="contact-email" href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>
+
+          <p class="contact-note">
+            Un simple e-mail suffit pour commencer. Même si votre idée n’est pas encore totalement définie, nous pouvons la faire avancer ensemble.
+          </p>
+
+          <!--
+            Pour ajouter un formulaire, connectez-le à un service de traitement
+            de formulaires ou à un backend avant de le publier.
+            Un formulaire HTML seul ne transmet pas les messages.
+          -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer class="site-footer">
+      <div class="footer-main">
+        <a class="brand" href="index.html" aria-label="Studio Web, accueil">
+          <img class="brand-logo" src="images/Banniere.png" alt="Studio Web">
+        </a>
+        <p>Des sites internet pensés pour valoriser les artisans et commerces locaux, avec un interlocuteur unique et un accompagnement clair.</p>
+        <a class="back-top" href="#top">Retour en haut ↑</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Studio Web</span>
+        <div>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="confidentialite.html">Confidentialité</a>
+        </div>
+        <span class="footer-location">Baptiste Curie-Cadet · Création et refonte de sites internet</span>
+      </div>
+    </footer>
+
+  </div>
 </body>
-
 </html>
