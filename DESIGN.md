@@ -1,61 +1,85 @@
 ---
 name: Studio Web
-description: Portfolio de Baptiste Curie-Cadet, créateur de sites pour artisans et commerçants de Marseille. Monde « La lumière qui pousse ».
+description: Portfolio de Baptiste Curie-Cadet, créateur de sites vitrines pour artisans et commerçants de Marseille. Monde « Du plan au réel ».
 colors:
-  nuit: "#07080d"
-  sol: "#0c0e16"
-  lilas: "#b57bff"
-  cyan: "#3fe0d0"
-  veine: "#9fffe9"
-  eclosion: "#f4fffd"
-  texte: "#d5d9ee"
-  texte-doux: "#a3a9c8"
-  texte-faible: "#868dae"
-  filet: "rgba(181, 123, 255, 0.22)"
-  filet-clair: "rgba(213, 217, 238, 0.14)"
-  alerte: "#ffd27a"
+  noir: "#090b0f"
+  ardoise: "#10141b"
+  ardoise-2: "#161c25"
+  texte: "#e6eaf0"
+  texte-doux: "#b4bfcd"
+  gris: "#8b97a8"
+  filet: "rgba(139, 151, 168, 0.18)"
+  filet-fort: "rgba(139, 151, 168, 0.34)"
+  bleu: "#4f8cff"
+  bleu-plein: "#2f6bea"
+  bleu-survol: "#2559c9"
+  bleu-voile: "rgba(79, 140, 255, 0.07)"
+  bleu-clair: "#a9c6ff"
+  blanc: "#ffffff"
 typography:
   display:
-    fontFamily: "Darker Grotesque, Arial Narrow, sans-serif"
-    fontSize: "clamp(3.4rem, 8.6vw, 6rem)"
-    fontWeight: 300
-    lineHeight: 0.9
-    letterSpacing: "-0.015em"
-  headline:
-    fontFamily: "Darker Grotesque, Arial Narrow, sans-serif"
-    fontSize: "clamp(2.6rem, 5.4vw, 4.25rem)"
-    fontWeight: 400
-    lineHeight: 0.98
-    letterSpacing: "-0.01em"
-  headline-project:
-    fontFamily: "Darker Grotesque, Arial Narrow, sans-serif"
-    fontSize: "clamp(2.4rem, 4vw, 3.4rem)"
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(2.5rem, 5.6vw, 5.1rem)"
     fontWeight: 500
-    lineHeight: 0.95
-  title:
-    fontFamily: "Darker Grotesque, Arial Narrow, sans-serif"
-    fontSize: "clamp(1.6rem, 2.4vw, 2rem)"
-    fontWeight: 600
+    lineHeight: 1.02
+    letterSpacing: "-0.035em"
+  headline:
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(2rem, 3.8vw, 3.1rem)"
+    fontWeight: 500
     lineHeight: 1.05
+    letterSpacing: "-0.025em"
+  headline-contact:
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(2.3rem, 5vw, 4rem)"
+    fontWeight: 500
+    lineHeight: 1.05
+    letterSpacing: "-0.035em"
+  title-case:
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(1.8rem, 2.8vw, 2.4rem)"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "-0.03em"
+  title:
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(1.25rem, 1.8vw, 1.45rem)"
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: "-0.015em"
   title-small:
-    fontFamily: "Darker Grotesque, Arial Narrow, sans-serif"
-    fontSize: "1.45rem"
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.2rem"
     fontWeight: 600
-    lineHeight: 1.1
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
   price:
-    fontFamily: "Darker Grotesque, Arial Narrow, sans-serif"
-    fontSize: "2.1rem"
-    fontWeight: 600
-    lineHeight: 1
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.75rem"
+    fontWeight: 500
+    lineHeight: 1.1
+    letterSpacing: "-0.03em"
     fontFeature: "tnum"
+  email:
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(1.9rem, 5.4vw, 4.2rem)"
+    fontWeight: 400
+    lineHeight: 1.1
+    letterSpacing: "-0.035em"
+  lead-display:
+    fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
+    fontSize: "clamp(1.3rem, 1.9vw, 1.6rem)"
+    fontWeight: 400
+    lineHeight: 1.35
+    letterSpacing: "-0.015em"
+  body-lead:
+    fontFamily: "Atkinson Hyperlegible, Verdana, sans-serif"
+    fontSize: "clamp(1.0625rem, 1.3vw, 1.18rem)"
+    fontWeight: 400
+    lineHeight: 1.65
   body:
     fontFamily: "Atkinson Hyperlegible, Verdana, sans-serif"
     fontSize: "1.0625rem"
-    fontWeight: 400
-    lineHeight: 1.65
-  body-lead:
-    fontFamily: "Atkinson Hyperlegible, Verdana, sans-serif"
-    fontSize: "clamp(1.0625rem, 1.4vw, 1.2rem)"
     fontWeight: 400
     lineHeight: 1.65
   body-small:
@@ -68,247 +92,251 @@ typography:
     fontSize: "1rem"
     fontWeight: 700
     lineHeight: 1.65
+  cote:
+    fontFamily: "Fragment Mono, ui-monospace, Consolas, monospace"
+    fontSize: "0.9rem"
+    fontWeight: 400
+    lineHeight: 1.65
 rounded:
   rayon: "6px"
-  cadre: "10px"
-  pilule: "999px"
+  feuille: "8px"
+  rond: "50%"
 spacing:
-  largeur: "1200px"
   gouttiere: "clamp(20px, 5vw, 64px)"
-  section: "clamp(88px, 12vw, 160px)"
-  hauteur-entete: "76px"
-  hauteur-entete-mobile: "64px"
+  section: "clamp(88px, 11vw, 152px)"
+  entete: "72px"
+  entete-mobile: "64px"
+  largeur: "1200px"
 components:
-  button-bloom:
-    backgroundColor: "{colors.eclosion}"
-    textColor: "{colors.nuit}"
+  button-primary:
+    backgroundColor: "{colors.bleu-plein}"
+    textColor: "{colors.blanc}"
     typography: "{typography.label}"
     rounded: "{rounded.rayon}"
-    padding: "0 26px"
-    height: "52px"
+    padding: "0 24px"
+    height: "50px"
+  button-primary-hover:
+    backgroundColor: "{colors.bleu-survol}"
+    textColor: "{colors.blanc}"
   button-outline:
-    backgroundColor: "rgba(63, 224, 208, 0.04)"
-    textColor: "{colors.eclosion}"
+    backgroundColor: "transparent"
+    textColor: "{colors.texte}"
     typography: "{typography.label}"
     rounded: "{rounded.rayon}"
-    padding: "0 26px"
-    height: "52px"
+    padding: "0 24px"
+    height: "50px"
   button-outline-hover:
-    backgroundColor: "rgba(63, 224, 208, 0.1)"
-    textColor: "#ffffff"
+    backgroundColor: "{colors.bleu-voile}"
+    textColor: "{colors.texte}"
   quote-cta:
-    backgroundColor: "rgba(63, 224, 208, 0.04)"
-    textColor: "{colors.eclosion}"
+    backgroundColor: "transparent"
+    textColor: "{colors.texte}"
     typography: "{typography.label}"
     rounded: "{rounded.rayon}"
     padding: "0 18px"
     height: "46px"
-  nav-link:
-    textColor: "{colors.texte-doux}"
-    typography: "{typography.label}"
-    padding: "0 14px"
-    height: "44px"
-  nav-link-hover:
-    textColor: "{colors.eclosion}"
   nav-cta:
-    textColor: "{colors.eclosion}"
+    backgroundColor: "transparent"
+    textColor: "{colors.texte}"
     typography: "{typography.label}"
     rounded: "{rounded.rayon}"
     padding: "0 18px"
     height: "44px"
-  nav-cta-hover:
-    backgroundColor: "rgba(159, 255, 233, 0.06)"
+  nav-cta-mobile:
+    backgroundColor: "{colors.bleu-plein}"
+    textColor: "{colors.blanc}"
+    rounded: "{rounded.rayon}"
+    height: "56px"
   text-link:
-    textColor: "{colors.eclosion}"
+    textColor: "{colors.texte}"
     typography: "{typography.label}"
     height: "44px"
-  quote-tag:
-    textColor: "#d8bdff"
-    rounded: "{rounded.pilule}"
-    padding: "2px 12px"
-  project-frame:
-    backgroundColor: "{colors.sol}"
-    rounded: "{rounded.cadre}"
-  legal-panel:
-    backgroundColor: "{colors.sol}"
-    rounded: "{rounded.cadre}"
-    padding: "clamp(24px, 4vw, 52px)"
-  placeholder-warning:
-    backgroundColor: "rgba(255, 210, 122, 0.07)"
-    textColor: "{colors.alerte}"
+  text-link-hover:
+    textColor: "{colors.blanc}"
+  skill-chip:
+    backgroundColor: "transparent"
+    textColor: "{colors.texte}"
+    typography: "{typography.cote}"
     rounded: "{rounded.rayon}"
-    padding: "16px 20px"
+    padding: "6px 14px"
+  quote-line-featured:
+    backgroundColor: "{colors.ardoise-2}"
+    padding: "24px 20px"
+  plan-sheet:
+    backgroundColor: "{colors.ardoise}"
+    rounded: "{rounded.feuille}"
 ---
 
 # Design System: Studio Web
 
 ## Overview
 
-**Creative North Star: "La lumière qui pousse"**
+**Creative North Star: « Du plan au réel »**
 
-« Faire rayonner votre activité » pris à la lettre. La page est une nuit profonde où pousse un réseau de racines lumineuses : une plante en canvas éclot dans l'introduction, une racine SVG longe la marge gauche de toute la page d'accueil, s'allonge au défilement et allume un nœud à chaque titre de section, puis rejoint une seconde plante au pied du contact. La lumière n'est jamais un décor posé sur des cartes : c'est la matière même du monde, et elle se dépose sur ce que le visiteur regarde (titre, projet survolé, ligne de tarif, étape de méthode).
+Studio Web se présente comme un atelier de construction : chaque site montré existe d'abord comme un plan au trait bleu, coté, relevé sur la vraie page, puis la page réelle prend sa place. Le monde est un noir bleuté profond, des surfaces ardoise à peine plus claires, des filets d'un pixel et un seul bleu qui sert à la fois de trait de plan, de lien et d'action. La précision remplace l'effet : tout ce qui est dessiné l'est à un pixel, tout ce qui est mesuré l'est en chiffres mono.
 
-La densité est aérée et éditoriale : de grands titres fins et hauts, des colonnes asymétriques 7/5, des listes séparées par des filets d'un pixel plutôt que des grilles de cartes égales. Le mouvement suit trois verbes : pousser (un tracé qui s'allonge), éclore (opacité et lueur qui montent, sortie expo), dériver (spores lentes). Tout est lisible sans JavaScript, sans GSAP et avec mouvements réduits.
+La densité est éditoriale et calme : de grandes respirations entre sections, des listes structurées par des filets plutôt que des cartes, des tableaux de devis qui se lisent comme une feuille d'atelier. La typographie porte l'élégance (grotesque serrée en titres, texte hyperlisible), le bleu porte la structure. La profondeur ne vient jamais d'une lueur ni d'un flou : uniquement de deux tons d'ardoise et de filets.
 
-Le monde refuse explicitement le portfolio sombre à dégradé fait de cartes de verre identiques.
+Refus confirmés par l'utilisateur et le contrat : aucun effet lumineux, aucun halo, aucun flou, aucun dégradé décoratif, pas de portfolio noir générique à cartes.
 
 **Key Characteristics:**
-- Fond nuit unique, surfaces à peine plus claires, aucune ombre noire : la profondeur vient de la lumière.
-- Deux lueurs du logo (lilas, cyan) et un vert pâle de veine pour tout ce qui est trait, nœud ou racine.
-- Le seul aplat blanc du site est l'action principale « Écrire à Baptiste ».
-- Titres Darker Grotesque fins et hauts ; texte Atkinson Hyperlegible.
-- Filets d'un pixel, nœuds lumineux comme puces, pas d'empilement de cartes égales.
-- Mouvement : pousser, éclore, dériver ; joué une fois ; mouvements réduits = image fixe, tout visible.
+- Noir bleuté, deux ardoises, trois niveaux de texte gris bleuté, un seul bleu.
+- Filets d'un pixel comme unique structure (listes, tableaux, en-têtes, pied de page).
+- Feuilles de plan cotées (SVG au trait, cotes en Fragment Mono) qui se révèlent en capture réelle.
+- Grammaire de mouvement : tracer, coter, révéler.
+- Aucune ombre, aucune lueur, aucun flou.
 
 ## Colors
 
-Une nuit bleutée presque noire, deux lueurs saturées issues du logo et un vert d'eau pâle qui trace la vie du monde.
+Une palette nocturne quasi monochrome, gris bleuté du fond au texte, traversée par un seul bleu franc.
 
 ### Primary
-- **Cyan de lueur** (cyan) : la lumière d'ambiance. Halo des boutons au survol, bord et fond des boutons secondaires, anneau de focus (2px, décalage 4px), curseur de saisie, lueur floue de la racine, halo autour des nœuds allumés et des spores.
-
-### Secondary
-- **Lilas du logo** (lilas) : la lueur rare. Sélection de texte, nœud de la ligne de tarif mise en avant, dégradé lilas vers cyan sous l'adresse e-mail du contact, halo derrière le portrait et dans la lueur des projets. Ses filets (filet, lilas à 22 %) structurent les tableaux et les cadres.
-
-### Tertiary
-- **Veine** (veine) : la couleur de tout ce qui pousse. Racine SVG, nœuds, brindilles et vrilles, puces-nœuds, petits traits des inclusions, soulignement qui pousse sous les liens de navigation, croix de la FAQ, message de copie, liens des pages légales. Toujours en trait, nœud ou texte court, jamais en grande surface.
+- **Bleu de trait** (`bleu`) : le trait de tous les plans SVG, le soulignement des liens, le trait qui se trace sous la navigation survolée, la ligne de cote de la méthode, les numéros d'étape, les puces en tiret des inclusions, le pouce du curseur de comparaison, l'icône plus/moins de la FAQ, l'anneau de focus (2px, décalage 3px) et la couleur du curseur de saisie. Contraste 6:1 sur le fond.
+- **Bleu plein** (`bleu-plein`) : le seul aplat bleu du site, réservé à l'action principale (« Écrire à Baptiste », « Aller à l'accueil », bouton « Me contacter » dans le menu mobile) et à la sélection de texte. Texte blanc dessus (4,8:1).
+- **Bleu survol** (`bleu-survol`) : état survolé du bouton plein uniquement.
+- **Voile bleu** (`bleu-voile`) : remplissage à 7 % des boutons contour au survol et des blocs de titre dans les plans.
+- **Bleu clair** (`bleu-clair`) : petit texte bleu qui doit rester lisible en gras à 0,875rem (étiquette « Plus complet », liens dans le texte légal, bouton « Ce qui est inclus » sur mobile). Valeur codée en dur dans la feuille, pas encore en propriété personnalisée.
 
 ### Neutral
-- **Nuit** (nuit) : fond de toutes les pages, intérieur des nœuds éteints, texte du bouton principal.
-- **Sol** (sol) : surfaces posées sur la nuit : fond des cadres de projet, bande des tarifs (dégradé vers sol à 86 %), panneau des pages légales.
-- **Éclosion** (eclosion) : titres, textes forts, valeurs de prix, spores et bourgeons ; en aplat uniquement sur l'action principale.
-- **Texte** (texte, 14:1 sur la nuit) : texte courant.
-- **Texte doux** (texte-doux, 8:1) : chapôs, paragraphes de section, liens de navigation au repos.
-- **Texte faible** (texte-faible, 5,6:1) : métadonnées, notes, unités, en-têtes de colonnes, légendes, chiffres d'étapes éteints.
-- **Filet clair** (filet-clair) : séparateurs neutres (lignes de tarif, FAQ, pied de page, en-tête défilé).
-- **Alerte** (alerte) : uniquement l'avertissement des champs à renseigner sur les pages légales.
+- **Noir bleuté** (`noir`) : fond de page, en-tête défilé (à 96 % d'opacité), menu mobile, pied de page.
+- **Ardoise** (`ardoise`) : fond des sections Tarifs et Contact, fond des feuilles de plan avant chargement de la capture.
+- **Ardoise claire** (`ardoise-2`) : la ligne de tarif mise en avant ; aucun autre usage en surface.
+- **Texte** (`texte`) : titres, texte fort, montants, adresse e-mail (16:1).
+- **Texte doux** (`texte-doux`) : paragraphes courants et liens de navigation au repos (10:1).
+- **Gris ardoise** (`gris`) : légendes, notes, problèmes des services, unités de prix, cotes des plans, en-têtes de colonnes (6,6:1).
+- **Filet** (`filet`) : séparateurs entre lignes de listes et de tableaux, bordures de section.
+- **Filet fort** (`filet-fort`) : bord d'ouverture d'une liste ou d'un tableau, cadre des feuilles et du portrait, contour des boutons secondaires et des étiquettes de compétence, piste du curseur.
+- **Blanc** (`blanc`) : texte sur bleu plein, et état survolé des liens et des questions de FAQ (le texte passe de `texte` à blanc).
+
+### Exception de marque
+Le logo existant (`images/logo-studio-web*.webp`) garde son dégradé violet vers turquoise : c'est un actif de marque antérieur, et la seule couleur hors palette admise. Il ne fournit aucune couleur au reste du système.
 
 ### Named Rules
-**The Éclosion Unique Rule.** L'éclosion n'est posée en aplat que sur l'action principale (bouton « Écrire à Baptiste », son équivalent « Me contacter » dans le menu mobile, et le lien d'évitement). Partout ailleurs elle n'est que couleur de texte ou de point lumineux.
+**La règle du bleu unique.** Un seul bleu dessine, souligne et agit. Aucune deuxième teinte d'accent ; seul le logo fait exception.
 
-**The Veine Rule.** La veine est réservée à ce qui pousse : traits, nœuds, vrilles et courts textes d'état. Elle ne remplit jamais une surface.
-
-**The Glow Not Shadow Rule.** Toute lueur est colorée (cyan ou lilas, en rgba). Aucune ombre grise ou noire n'existe dans le système.
+**La règle de l'aplat rare.** Le bleu plein n'apparaît qu'en fond du bouton d'action principale. Partout ailleurs le bleu est un trait d'un pixel ou un voile de 7 %.
 
 ## Typography
 
-**Display Font:** Darker Grotesque (avec Arial Narrow, sans-serif), graisses 300 à 700 chargées depuis Google Fonts
-**Body Font:** Atkinson Hyperlegible (avec Verdana, sans-serif), 400 et 700, italique 400
+**Display Font:** Schibsted Grotesk (avec Segoe UI, system-ui)
+**Body Font:** Atkinson Hyperlegible (avec Verdana)
+**Label/Mono Font:** Fragment Mono (avec ui-monospace, Consolas)
 
-**Character:** Un grotesque étroit et haut, très fin aux grandes tailles, qui se lit comme de la lumière filée ; en face, une linéale conçue pour la lisibilité qui porte les explications et les prix sans effort.
+**Character:** une grotesque serrée, graisse 500 et interlettrage négatif, pour une élégance d'architecte ; un texte conçu pour la lisibilité pour un public non technique ; un mono réservé à ce qui se mesure.
+
+Écart assumé par rapport au contrat de direction : le contrat nommait Geist et Geist Mono ; le détecteur les a signalés comme surexploitées, d'où Schibsted Grotesk et Fragment Mono.
 
 ### Hierarchy
-- **Display** (300, clamp(3.4rem, 8.6vw, 6rem), 0.9) : le seul titre d'accueil, largeur max 11.5em ; sur mobile clamp(3rem, 15vw, 4.25rem). Le titre du contact (300, clamp(3rem, 7vw, 5.5rem), 16ch) et celui des pages légales (300, clamp(3rem, 7vw, 5rem)) en sont des variantes.
-- **Headline** (400, clamp(2.6rem, 5.4vw, 4.25rem), 0.98, -0.01em) : titres de section, chacun porteur d'un nœud de la racine.
-- **Headline projet** (500, clamp(2.4rem, 4vw, 3.4rem), 0.95) : nom de chaque démo.
-- **Title** (600, clamp(1.6rem, 2.4vw, 2rem), 1.05) : titres d'étapes et de groupes ; groupes de tarifs en 500, clamp(2rem, 3vw, 2.5rem).
-- **Title small** (600, 1.45rem, 1.1) : nom d'une ligne de tarif.
-- **Prix** (600, 2.1rem, 1, chiffres tabulaires) : montants du registre de tarifs.
-- **Body** (400, 1.0625rem, 1.65) : texte courant ; colonnes limitées à 32rem en section, 62 à 72ch pour la lecture longue.
-- **Body lead** (400, clamp(1.0625rem, 1.4vw, 1.2rem)) : chapôs de l'accueil et du contact.
-- **Body small** (400, 0.95rem) : notes, unités, légendes, inclusions.
-- **Label** (700, 1rem) : boutons, navigation, liens d'action, questions de FAQ (1.1rem, 1.35).
-
-Deux usages d'affichage ponctuels de Darker Grotesque : la phrase d'introduction du portrait (400, clamp(1.8rem, 2.6vw, 2.25rem), 1.22) et l'adresse e-mail du contact (400, clamp(2.2rem, 6.4vw, 5rem)). Les chiffres d'étapes sont des compteurs CSS en 300, 4.5rem (3.75rem sur mobile).
+- **Display** (500, clamp(2.5rem, 5.6vw, 5.1rem), 1.02, -0.035em) : le titre d'accueil, en trois lignes ; clamp(2.15rem, 9.6vw, 3rem) sous 760px. Les titres de page des pages légales et 404 suivent la même voix à clamp(2.4rem, 5.4vw, 4.2rem).
+- **Headline** (500, clamp(2rem, 3.8vw, 3.1rem), 1.05, -0.025em) : titres de section. Le titre du contact monte à clamp(2.3rem, 5vw, 4rem), limité à 18ch.
+- **Title réalisation** (500, clamp(1.8rem, 2.8vw, 2.4rem), -0.03em) : nom de chaque démo.
+- **Title** (600, clamp(1.25rem, 1.8vw, 1.45rem), 1.2) : services, étapes, groupes de tarifs (ceux-ci à 500, clamp(1.5rem, 2.2vw, 1.9rem)).
+- **Title small** (600, 1.2rem, 1.25) : intitulé de chaque ligne de tarif.
+- **Prix** (Schibsted Grotesk 500, 1.75rem, chiffres tabulaires, -0.03em, jamais coupé) : montants des tarifs.
+- **Adresse e-mail** (Schibsted Grotesk 400, clamp(1.9rem, 5.4vw, 4.2rem)) : l'adresse du contact, soulignée d'un filet bleu.
+- **Chapeau en display** (Schibsted Grotesk 400, clamp(1.3rem, 1.9vw, 1.6rem), 1.35) : la phrase d'ouverture de « À propos ».
+- **Body lead** (Atkinson 400, clamp(1.0625rem, 1.3vw, 1.18rem), 1.65) : phrase d'accueil et chapeau du contact, 38 à 40rem de large.
+- **Body** (Atkinson 400, 1.0625rem, 1.65) : tout le texte courant, 62 à 72ch maximum.
+- **Body small** (Atkinson 400, 0.95rem) : légendes, notes, inclusions, conditions, pied de page. Jamais en dessous.
+- **Label** (Atkinson 700, 1rem) : boutons, liens d'action, navigation (0.97rem), questions de FAQ (1.08rem).
+- **Cote** (Fragment Mono 400, 0.9 à 0.95rem) : cotes des plans (22px en unités SVG, 64px pour la seule cote conservée sous 760px), en-têtes de colonnes du devis, libellés « Plan / Site » du comparateur, numéros d'étape 01 à 04, étiquettes de compétence.
 
 ### Named Rules
-**The Thin Tall Rule.** Plus un titre est grand, plus il est fin : 300 pour l'affichage, 400 pour les sections, 500 à 600 seulement pour les titres de taille moyenne. Les titres sont équilibrés (text-wrap: balance), les paragraphes « pretty ».
+**La règle du mono qui mesure.** Fragment Mono n'écrit que des mesures, des repères et des noms d'outils : cotes, numéros, colonnes, compétences. Jamais un titre, jamais une phrase.
 
-**The Lit Word Rule.** Dans un titre, un seul mot peut s'allumer (« rayonner » : 600, blanc pur, halo cyan 14px). C'est la thèse de la page, pas un effet réutilisable sur chaque titre.
+**La règle des prix lisibles.** Les montants sont en Schibsted Grotesk à chiffres tabulaires, pas en mono : écart délibéré au contrat (qui prévoyait le mono), pour la lisibilité des grands montants.
 
 ## Layout
 
-Une colonne de contenu de 1200px maximum, gouttières fluides (clamp(20px, 5vw, 64px)) et sections rythmées par un grand espacement vertical (clamp(88px, 12vw, 160px) ; 1.1 fois au contact). L'en-tête collant mesure 76px (64px sous 760px) et le défilement d'ancre compense sa hauteur plus 16px.
+Conteneur unique de 1200px plus deux gouttières fluides (clamp(20px, 5vw, 64px)). Les sections respirent de clamp(88px, 11vw, 152px) ; l'en-tête collant fait 72px (64px sous 760px) et le défilement par ancre compense sa hauteur plus 16px.
 
-La grille est asymétrique : en-têtes de section, projets et pied en 7/5 (texte large, paragraphe étroit), À propos en 5/7, FAQ en 4/8 avec titre collant. Les projets alternent l'image à gauche puis à droite. Le registre de tarifs est un tableau en trois colonnes (description, 11rem de prix, 12rem d'action). La méthode aligne quatre étapes sur une même tige horizontale. L'introduction occupe la hauteur de l'écran (moins l'en-tête, 960px au plus) et laisse le tiers droit à la plante.
+Les compositions sont des grilles asymétriques en fractions : en-tête de section 6/5 (titre à gauche, phrase alignée en bas à droite), services en trois colonnes 3/4/5 (titre, problème, réponse) alignées sur la ligne de base, réalisations 7/4 alternées (la seconde inversée), à propos 5/7, FAQ 4/8 avec la colonne de titre collante, devis en trois colonnes (intitulé, prix de 11rem, bouton de 12rem). La feuille d'accueil est en retrait à droite, 840px maximum, pour laisser le titre dominer.
 
-La racine occupe la marge gauche de la colonne, environ 34px avant le texte ; sur mobile la colonne est décalée (34px à gauche) pour qu'elle court à 12px du bord.
+Sections alternées : fond noir, puis Tarifs et Contact sur ardoise, bornés par des filets.
 
-Points de rupture :
-- **1024px** : tarifs resserrés (9rem, auto), méthode sur deux colonnes sans tige, FAQ sur une colonne et titre non collant.
-- **960px** : navigation repliée derrière un bouton de 48px (même seuil dans script.js) ; le menu ouvert est un panneau nuit pleine largeur, liens en Darker Grotesque 1.75rem séparés par des filets, action en aplat éclosion.
-- **760px** : tout passe sur une colonne ; la plante d'accueil reçoit un emplacement réservé sous les boutons (min(80vw, 330px)), celle du contact 250px ; les lignes de tarif deviennent description puis prix et action, inclusions repliées dans un détail ; les étapes s'empilent sans nœud ; la vrille de « rayonner » disparaît ; les boutons du contact prennent toute la largeur.
+Points de rupture observés :
+- **1024px** : le devis resserre ses colonnes (9rem, puis bouton à largeur libre) ; services en deux colonnes avec titre au-dessus ; méthode en deux colonnes et la ligne de cote disparaît ; FAQ et réalisations en une colonne, la colonne de titre FAQ cesse d'être collante.
+- **960px** : la navigation passe en menu repliable (même seuil dans script.js) : liste plein écran sous l'en-tête, liens en Schibsted Grotesk 1.35rem séparés par des filets, hauteur 56px, et « Me contacter » devient un bouton bleu plein.
+- **760px** : tout passe en une colonne ; boutons d'accueil et de contact pleine largeur ; les lignes de tarif s'empilent (intitulé, prix, bouton) et leurs inclusions se replient derrière « Ce qui est inclus » (ouvertes sans JavaScript) ; les en-têtes de colonnes du devis disparaissent ; seule la cote de largeur reste sur les plans, agrandie.
 
 ## Elevation & Depth
 
-Pas d'élévation par ombre portée. La profondeur est lumineuse : tout ce qui se soulève émet une lueur colorée, et le seul autre étagement est tonal (nuit, puis sol). L'en-tête devient nuit à 94 % avec un filet clair une fois la page défilée de 18px. Les plantes du canvas utilisent la composition additive (« lighter ») ; le bas du canvas d'accueil s'estompe par masque (noir à 80 % puis transparent) au lieu d'être coupé.
-
-### Shadow Vocabulary
-- **Éclosion du bouton** (`box-shadow: 0 10px 36px rgba(63, 224, 208, 0.38), 0 4px 18px rgba(181, 123, 255, 0.3)`) : survol du bouton principal, avec élévation de 2px ; à l'appui `0 4px 14px rgba(63, 224, 208, 0.3)`.
-- **Lueur intérieure** (`box-shadow: inset 0 0 12px rgba(63, 224, 208, 0.08)`) : bouton secondaire au repos ; au survol `inset 0 0 16px rgba(63, 224, 208, 0.18), 0 6px 24px rgba(63, 224, 208, 0.22)`.
-- **Halo du projet** (`box-shadow: 0 30px 80px -30px rgba(63, 224, 208, 0.45)`) : cadre de projet qui éclot.
-- **Nœud allumé** (`box-shadow: 0 2px 12px rgba(63, 224, 208, 0.9)`) : puces et nœuds actifs ; version lilas `0 2px 14px rgba(181, 123, 255, 0.9)` pour la ligne mise en avant.
+Le système est entièrement plat. Aucune `box-shadow`, aucun `backdrop-filter`, aucun flou, aucune lueur. La profondeur vient de trois moyens seulement : le passage noir vers ardoise vers ardoise claire, les filets d'un pixel à deux intensités, et la superposition des deux couches d'une feuille de plan. L'en-tête ne s'opacifie (noir à 96 %, filet bas) qu'après 18px de défilement.
 
 ### Named Rules
-**The Light Lifts Rule.** Un élément n'est jamais « posé » par une ombre ; il est allumé. Au repos les surfaces sont plates ; la lueur répond à un état (survol, éclosion, nœud atteint).
+**La règle du filet.** Ce qui sépare est un filet d'un pixel ; ce qui ouvre une liste est un filet fort. Jamais une ombre, jamais une carte flottante.
 
 ## Shapes
 
-Des angles à peine adoucis pour les éléments d'action (6px), un peu plus pour les images et panneaux (10px), la pilule réservée à l'étiquette « Plus complet ». Tout le reste est trait et cercle : filets d'un pixel, nœuds circulaires de 7 à 11px, cercles de spores, courbes de Bézier de la racine aux extrémités arrondies. Les images de projet s'ouvrent depuis le centre par un découpage arrondi (inset 14 % vers 0, rayon 10px). Le halo du portrait est une ellipse floutée (30px) décalée derrière l'image.
-
-### Named Rules
-**The One Pixel Rule.** Toute séparation est un filet d'un pixel (filet ou filet-clair). Aucun bloc ne se délimite par un fond plein contrasté ni par une bordure épaisse.
+Des angles à peine adoucis : 6px pour tout ce qui se clique ou s'étiquette (boutons, appel de devis, étiquettes de compétence, lien d'évitement), 8px pour ce qui encadre une image (feuilles de plan, portrait), 7px à l'intérieur pour la capture. Seuls ronds : le pouce du curseur (20px, bordé de 2px de noir) et la poignée de la barre de défilement. Les traits du plan ont des extrémités arrondies, une épaisseur fixe de 1,4px qui ne suit pas l'échelle (2px pour les lignes de texte, 1px pour les cotes). Les marqueurs sont dessinés au trait plutôt qu'en glyphes : tiret de 7px pour les inclusions, croix de deux traits de 1,5px pour la FAQ, deux barres pour le menu.
 
 ## Components
 
 ### Buttons
-Un aplat lumineux pour la seule action principale, un contour cyan pour tout le reste.
-- **Shape :** coins à peine adoucis (6px), hauteur 52px, padding 0 26px, Atkinson 700 1rem.
-- **Primary (éclosion) :** aplat éclosion, texte nuit. Survol : élévation de 2px et halo cyan et lilas ; appui : retour à 0 et halo réduit. Transitions couleur 240ms, ombre et transformation 400ms en sortie douce.
-- **Secondary (contour) :** bord cyan à 60 %, fond cyan à 4 %, lueur intérieure. Survol et focus : bord cyan plein, fond à 10 %, texte blanc, lueur extérieure.
-- **Quote CTA :** même traitement que le contour, 46px de haut, padding 0 18px, aligné à droite dans sa ligne.
-- **Text link :** texte éclosion en 700, soulignement d'un pixel cyan à 60 % décalé de 6px ; au survol le soulignement devient cyan plein et descend à 9px. Cible minimale 44px.
+Sobres et nets, hauteur généreuse pour le toucher.
+- **Shape:** angles légèrement adoucis (6px), hauteur 50px, marge interne 0 24px, Atkinson 700 1rem.
+- **Primary:** aplat bleu plein, texte blanc. Un par écran au plus.
+- **Hover / Focus:** le fond passe au bleu survol en 220ms ; enfoncé, translation de 1px vers le bas ; focus en anneau bleu de 2px décalé de 3px.
+- **Outline:** fond transparent, contour filet fort, texte clair ; au survol le contour devient bleu et le fond prend le voile bleu. Même traitement pour « Demander un devis » (46px, 0 18px) et « Me contacter » dans la navigation (44px).
+
+### Liens d'action
+- Texte clair en gras, soulignement bleu de 1px décalé de 6px ; au survol le texte devient blanc et le soulignement descend à 9px. Hauteur de cible 44px.
+- Liens du pied de page : texte doux, soulignement filet fort qui devient bleu au survol.
 
 ### Chips
-- **Style :** une seule étiquette (« Plus complet ») : pilule, bord lilas à 60 %, texte lilas clair, Atkinson 700 0.875rem, accrochée au titre de la ligne de tarif.
-
-### Cards / Containers
-- **Cadre de projet :** coins 10px, fond sol, filet lilas d'un pixel, image carrée (715/718). Survol ou centrage tactile : bord veine à 50 %, halo du projet, image agrandie à 1.025, et une lueur radiale (420px, lilas vers cyan, fusion « screen ») qui suit le pointeur.
-- **Panneau légal :** coins 10px, fond sol, filet clair, padding clamp(24px, 4vw, 52px), 50rem de large au plus. Seul conteneur à fond plein du système, réservé aux pages légales.
-- **Avertissement :** coins 6px, fond alerte à 7 %, bord alerte à 50 %, texte alerte 700.
-
-### Inputs / Fields
-Aucun champ de saisie : le contact se fait par e-mail (liens mailto pré-remplis et bouton de copie de l'adresse, dont le statut s'affiche en veine 700).
+- **Style:** étiquettes de compétence en Fragment Mono 0.95rem, contour filet fort, 6px, marge 6px 14px, fond transparent. Pas d'état sélectionné : ce sont des étiquettes, pas des filtres.
 
 ### Navigation
-- **Bureau :** logo 36px à gauche ; liens Atkinson 700 en texte doux, padding 0 14px, 44px de haut. Au survol le texte passe en éclosion et un filet veine d'un pixel pousse de gauche à droite sous le lien (420ms). « Me contacter » est cerné d'un filet veine à 45 % (6px) qui s'intensifie au survol.
-- **En-tête :** transparent au sommet, nuit à 94 % et filet clair après 18px de défilement.
-- **Mobile (sous 960px) :** bouton de 48px à deux traits qui se croisent à l'ouverture ; panneau nuit en pleine largeur, liens Darker Grotesque 500 1.75rem de 56px séparés par des filets clairs ; « Me contacter » en aplat éclosion pleine largeur.
+- Liens en Atkinson 700, texte doux, 44px de haut ; au survol le texte s'éclaircit et un trait bleu de 1px se trace de gauche à droite sous le lien (380ms, courbe de sortie). « Me contacter » en bouton contour.
+- Sous 960px : bouton à deux barres qui se croisent en X, liste déroulée sur fond noir, liens en Schibsted Grotesk 1.35rem, « Me contacter » en bleu plein.
+- Pages légales et 404 : seulement le logo et « Retour à l'accueil ».
 
-### Racine lumineuse (signature)
-Un tracé SVG d'1.4px en veine (opacité 0.85) doublé d'une lueur cyan de 7px floutée à 5px. Il part du pied de la plante d'accueil, descend dans la marge gauche, passe par un nœud à hauteur de la première ligne de chaque titre de section, puis tourne à l'horizontale vers le pied de la plante du contact. Sa pointe suit le défilement aux trois quarts de l'écran (quickTo 0.6s, power3.out). Chaque nœud atteint s'allume : point rempli d'éclosion avec halo cyan, trois vrilles qui poussent (1400ms, décalées de 160 et 320ms), deux bourgeons qui éclosent après 900ms. Des spores immobiles scintillent (5s, aller-retour) dans les marges des réalisations, de la méthode et du contact. Sur mobile, nœuds plus petits (3.5px) et sans vrilles.
+### Feuille de plan (composant signature)
+Le cœur du monde : une page réelle et son plan relevé, superposés dans un cadre au format 1440/900.
+- **Cadre:** filet fort, 8px, fond ardoise.
+- **Trois couches:** la capture réelle (découpée depuis la gauche par la variable de révélation) ; la couche de détail du plan (blocs, image barrée d'une croix, lignes de texte, blocs de titre voilés de bleu), découpée depuis la droite ; et la couche permanente, au-dessus, avec le cadre et les cotes. Le cadre et les cotes restent visibles en toutes circonstances : la feuille se lit « du plan au réel » même immobile.
+- **Cotes:** traits gris de 1px avec talons, chiffres en Fragment Mono gris (largeur 1440, hauteur d'en-tête, largeur du titre). La viewBox déborde de 56 unités pour loger les cotes, d'où une marge intérieure de 36px en haut et 44px à gauche autour de la feuille.
+- **Sous 760px:** seule la cote de largeur reste, agrandie (64 unités) pour être lue.
+- **Pas de quadrillage:** aucune trame de fond derrière les feuilles (écart délibéré).
 
-### Plante lumineuse (signature)
-Canvas génératif à graine fixe (même forme à chaque visite) : réseau de racines horizontales, tiges effilées cyan puis lilas, ombrelles translucides à nervures, lamelles et bord perlé qui respire, spores qui montent. Le pointeur ravive la lueur des ombrelles et écarte les spores. Croissance en 2.6s (accueil, au chargement) et 2.4s (contact, à l'entrée dans l'écran), power2.inOut. La boucle ne tourne que lorsque la plante est visible.
+### Comparateur plan / réel
+- Curseur natif accessible au clavier, entre les libellés mono « Plan » et « Site » : piste d'un filet fort de 1px, pouce bleu rond de 20px qui grossit de 15 % au survol, focus décalé de 6px.
+- Pendant la manipulation, un trait bleu vertical de 1px marque la séparation (il disparaît au relâchement).
+- Masqué sans JavaScript ; la page réelle s'affiche alors en entier.
 
-### Registre de tarifs
-Tableau à filets : en-têtes de colonnes en texte faible 700, groupes séparés par un filet lilas, lignes par un filet clair. Chaque ligne porte un nœud de 7px dans la marge gauche, qui s'allume en veine au survol ; la ligne mise en avant a son nœud lilas allumé en permanence. Les inclusions sont listées sur deux colonnes, chacune précédée d'un trait veine de 7px.
+### Feuille de devis
+- Tableau ouvert par un filet fort, en-têtes de colonnes en mono gris, groupes titrés au-dessus d'un filet fort, lignes séparées par des filets (24px de marge verticale).
+- La ligne mise en avant déborde de 20px de chaque côté sur fond ardoise claire, avec l'étiquette « Plus complet » en bleu clair.
+- Inclusions en deux colonnes, chaque élément précédé d'un tiret bleu de 7px.
+- Prix alignés à droite (à gauche sous 760px), unité en gris en dessous.
 
-### Étapes de méthode
-Quatre étapes sur une tige d'un pixel (filet lilas vers veine vers filet lilas). Chaque étape a son grand chiffre Darker Grotesque 300 en texte faible et un nœud de 11px sur la tige ; quand la racine passe, le chiffre devient éclosion avec halo cyan et le nœud s'allume (800ms).
+### Ligne de cote de la méthode
+Quatre étapes sur une ligne horizontale : un filet fort de fond, un trait bleu qui le recouvre au fil du défilement (variable de progression de 0 à 1, entre 85 % et 55 % de la fenêtre, lissage 0,6), un talon bleu vertical de 15px au-dessus de chaque étape, et le numéro en mono bleu au-dessus du titre. Sans JavaScript, la ligne est entièrement tracée. Sous 1024px, la ligne et les talons disparaissent et seuls les numéros restent.
 
-### Motion
-- **Pousser :** tracés révélés par stroke-dashoffset (racine, vrilles, vrille de « rayonner » en 1.4s).
-- **Éclore :** opacité et lueur, sortie expo.out ; projets ouverts depuis le centre (inset 14 %, luminosité 0.35 et flou 6px vers net, 1.5s), puis leur texte (décalé de 0.08s, back.out(1.3)).
-- **Dériver :** spores lentes, portrait qui flotte de 36px contre le défilement.
-- **Titre :** écrit ligne à ligne une seule fois (clip-path de gauche à droite, 1.2s, décalage 0.22s), « rayonner » s'allume à 1.15s. Chapô, boutons et promesses posés avec un léger dépassement (back.out(1.4)). Un garde-fou termine l'introduction après 4.5s.
-- **Mouvements réduits :** transitions et animations ramenées à 0.01ms, défilement non animé, plantes dessinées adultes en image fixe, racine entièrement tracée, tous les nœuds et étapes allumés. Sans GSAP, tout est affiché et la racine suit seulement le défilement.
+### FAQ
+Questions en Atkinson 700 1.08rem, 66px de haut minimum, séparées par des filets ; une croix bleue dont la barre verticale pivote à plat à l'ouverture (380ms).
+
+### Mouvement
+- **Ouverture:** chaque ligne du titre s'écrit de gauche à droite (découpe de 100 % à 0, montée de 14px, 1,1s, décalage de 0,18s, expo.out) ; l'en-tête, la phrase et les boutons sont visibles d'emblée.
+- **Du plan au réel:** les traits se tracent (1,1s, power2.inOut, étalés sur 0,9s), les cotes apparaissent (0,5s, décalage de 0,12s), puis la page réelle se révèle (1,3s, expo.inOut) avec le trait de séparation visible. À l'accueil au chargement ; sur chaque réalisation une seule fois, quand elle atteint 72 % de la fenêtre. Si le visiteur touche le curseur avant, le plan s'affiche aussitôt et l'animation est abandonnée. Garde-fou : l'ouverture se termine d'office après 5s.
+- **Transitions d'état:** 220ms ; courbe de sortie cubic-bezier(0.16, 1, 0.3, 1) pour ce qui se trace ou pivote (380ms).
+- **Mouvements réduits:** aucune animation GSAP, transitions ramenées à 0,01ms, défilement instantané. Tout est tracé et révélé : page réelle visible, cadre et cotes visibles, ligne de cote de la méthode complète, comparateur utilisable.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** garder la nuit (nuit) comme unique fond et sol (sol) comme seule surface posée dessus.
-- **Do** réserver l'aplat éclosion à l'action principale, une fois par zone d'action.
-- **Do** séparer par des filets d'un pixel (filet, filet-clair) et marquer les listes par des nœuds circulaires de 7px en veine.
-- **Do** colorer chaque lueur en cyan ou lilas rgba, et la déclencher par un état (survol, nœud atteint, éclosion).
-- **Do** donner un nœud de racine à tout nouveau titre de section de l'accueil (attribut data-node).
-- **Do** écrire les grands titres en Darker Grotesque fin (300 à 400) et le texte en Atkinson Hyperlegible, avec des cibles d'au moins 44px.
-- **Do** garantir que tout est visible sans JavaScript et avec mouvements réduits : image fixe, nœuds allumés.
+- **Do** tracer la structure avec des filets d'un pixel (`filet` entre les lignes, `filet-fort` pour ouvrir une liste ou cadrer une image).
+- **Do** réserver le bleu plein au bouton d'action principale, et utiliser `bleu` en trait de 1px pour tout le reste.
+- **Do** écrire en Fragment Mono uniquement les mesures, numéros, colonnes et noms d'outils.
+- **Do** afficher les prix en Schibsted Grotesk à chiffres tabulaires, sans retour à la ligne.
+- **Do** garder le cadre et les cotes d'une feuille de plan toujours visibles, et ne laisser que la cote de largeur, agrandie, sous 760px.
+- **Do** suivre la grammaire tracer, coter, révéler pour tout nouveau mouvement, une seule fois, et livrer l'état final complet en mouvements réduits ou sans JavaScript.
+- **Do** tenir les cibles à 44px minimum et le texte à 0.95rem minimum.
 
 ### Don't:
-- **Don't** empiler des cartes égales ni des panneaux de verre : le monde refuse le portfolio sombre à dégradé fait de cartes identiques.
-- **Don't** utiliser d'ombre grise ou noire, ni d'ombre décalée dure.
-- **Don't** remplir une surface en veine ou en lilas.
-- **Don't** utiliser de pictogrammes en caractères (flèches, coches, étoiles) : les marques se dessinent en traits et cercles.
-- **Don't** ajouter de surtitre ou d'étiquette au-dessus des titres de section.
-- **Don't** rejouer l'écriture du titre ou l'éclosion d'un bloc : chaque entrée se joue une seule fois.
+- **Don't** ajouter d'ombre, de lueur, de halo, de flou ou de `backdrop-filter` : la profondeur vient de l'ardoise et des filets.
+- **Don't** introduire un deuxième accent ni un dégradé ; le dégradé violet vers turquoise du logo est un actif de marque et ne se propage pas.
+- **Don't** poser un quadrillage ou une trame derrière les feuilles de plan.
+- **Don't** enfermer le contenu dans des cartes à fond et ombre ; listes et tableaux restent ouverts, bornés par des filets.
+- **Don't** utiliser de caractères comme icônes (flèches, coches) : les marqueurs se dessinent au trait.
+- **Don't** placer de surtitre au-dessus des titres de section.

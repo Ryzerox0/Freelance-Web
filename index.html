@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07080d">
+  <meta name="theme-color" content="#090b0f">
+  <meta name="color-scheme" content="dark">
 
-  <meta name="description" content="Studio Web, création et refonte de sites internet pour artisans et commerces locaux. Sites vitrines adaptés au mobile, tarifs indicatifs clairs et accompagnement par Baptiste Curie-Cadet.">
+  <title>Studio Web | Création et refonte de sites vitrines à Marseille</title>
+  <meta name="description" content="Studio Web, création et refonte de sites vitrines pour artisans et commerces locaux à Marseille et alentours. Tarifs indicatifs affichés, devis écrit, un seul interlocuteur : Baptiste Curie-Cadet.">
   <meta name="robots" content="index, follow">
-
-  <title>Studio Web | Créons un site qui donne envie de vous choisir à Marseille</title>
   <link rel="canonical" href="https://freelance-web-932.pages.dev/">
 
   <meta name="google-site-verification" content="l_Gaa3FGNYplKKV0mHMoYwS4ABu-09lPwUyt1lka_sQ">
@@ -16,23 +16,30 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Studio Web">
-  <meta property="og:title" content="Studio Web | Création et refonte de sites internet à Marseille">
-  <meta property="og:description" content="Création et refonte de sites internet pour artisans et commerces locaux à Marseille. Un interlocuteur unique, du premier échange à la mise en ligne.">
+  <meta property="og:title" content="Studio Web | Création et refonte de sites vitrines à Marseille">
+  <meta property="og:description" content="Des sites vitrines clairs pour les artisans et commerçants de Marseille et alentours. Un interlocuteur unique, du premier échange à la mise en ligne.">
   <meta property="og:url" content="https://freelance-web-932.pages.dev/">
   <meta property="og:image" content="https://freelance-web-932.pages.dev/images/Logo.png">
+  <meta property="og:image:width" content="455">
+  <meta property="og:image:height" content="455">
   <meta property="og:image:alt" content="Logo Studio Web">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
 
   <link rel="icon" type="image/png" href="images/Logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&amp;family=Fragment+Mono&amp;family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="preload" as="image" href="images/demo-plomberie-accueil-480.webp" media="(max-width: 600px)">
+  <link rel="preload" as="image" href="images/demo-plomberie-accueil-960.webp" media="(min-width: 601px) and (max-width: 960px)">
+  <link rel="preload" as="image" href="images/demo-plomberie-accueil.webp" media="(min-width: 961px)">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="script.js?v=6" defer></script>
-  <script src="lumiere.js?v=10" defer></script>
+  <script src="script.js?v=10" defer></script>
+  <script src="animations.js?v=3" defer></script>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Studio Web", "description": "Création et refonte de sites vitrines pour artisans et commerces locaux.", "url": "https://freelance-web-932.pages.dev/", "image": "https://freelance-web-932.pages.dev/images/Logo.png", "email": "bcuriecadet@gmail.com", "areaServed": {"@type": "City", "name": "Marseille"}, "founder": {"@type": "Person", "name": "Baptiste Curie-Cadet"}, "knowsAbout": ["HTML", "CSS", "JavaScript", "Git", "GitHub"]}</script>
 </head>
 
 <body id="top">
@@ -41,7 +48,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Studio Web, accueil">
-        <img class="brand-logo" src="images/logo-studio-web.webp" alt="Studio Web" width="632" height="148">
+        <img class="brand-logo" src="images/logo-studio-web-300.webp" srcset="images/logo-studio-web-300.webp 300w, images/logo-studio-web.webp 632w" sizes="150px" alt="Studio Web" width="632" height="148">
       </a>
 
       <button class="menu-toggle" type="button"
@@ -52,6 +59,7 @@
       </button>
 
       <nav class="navigation" id="navigation" aria-label="Navigation principale">
+        <a href="#services">Services</a>
         <a href="#realisations">Réalisations</a>
         <a href="#offre">Tarifs</a>
         <a href="#methode">Méthode</a>
@@ -63,73 +71,132 @@
   </header>
 
   <main id="contenu">
-    <svg class="root-layer" aria-hidden="true" focusable="false"><path class="root-glow"></path><path class="root-path"></path><g class="root-nodes"></g></svg>
 
     <!-- INTRODUCTION -->
     <section class="hero" aria-labelledby="hero-title">
-      <canvas class="hero-canvas" aria-hidden="true"></canvas>
-      <div class="wrap hero-inner">
+      <div class="wrap">
         <h1 id="hero-title" class="hero-title">
-          <span class="line"><span class="line-ink">Un site internet</span></span>
-          <span class="line"><span class="line-ink">qui fait <em class="bloom">rayonner<svg class="bloom-tendril" viewBox="0 0 120 70" aria-hidden="true" focusable="false"><path d="M2 18 C 28 12, 50 34, 72 50 S 104 66, 118 66"/><path d="M50 34 C 56 22, 70 16, 86 18"/><circle cx="118" cy="66" r="3"/><circle cx="86" cy="18" r="2.4"/><circle cx="72" cy="50" r="1.8"/></svg></em></span></span>
-          <span class="line"><span class="line-ink">votre activité.</span></span>
+          <span class="line"><span class="line-ink">Des sites vitrines clairs</span></span>
+          <span class="line"><span class="line-ink">pour les artisans et</span></span>
+          <span class="line"><span class="line-ink">commerçants de Marseille.</span></span>
         </h1>
 
-        <p class="hero-lead">
-          Artisan ou commerçant à Marseille, votre savoir-faire mérite d’être vu. Je crée des sites vitrines modernes ou donne un nouvel élan à votre site actuel, pour mettre vos services en valeur, inspirer confiance et aider vos futurs clients à vous contacter.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button-bloom"
-            href="mailto:bcuriecadet@gmail.com?subject=Mon%20projet%20de%20site%20web&amp;body=Bonjour%20Baptiste%2C%0A%0AMon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20recherche%20%3A%0A%0AMon%20site%20actuel%20(si%20j'en%20ai%20un)%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci.">Écrire à Baptiste</a>
-          <a class="text-link" href="#realisations">Voir les deux démos</a>
+        <div class="hero-row">
+          <p class="hero-lead">
+            Je suis Baptiste Curie-Cadet. Je crée des sites vitrines modernes ou donne un nouvel élan à votre site actuel, pour mettre vos services en valeur, inspirer confiance et aider vos futurs clients à vous contacter.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:bcuriecadet@gmail.com?subject=Mon%20projet%20de%20site%20web&amp;body=Bonjour%20Baptiste%2C%0A%0AMon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20recherche%20%3A%0A%0AMon%20site%20actuel%20(si%20j'en%20ai%20un)%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci.">Écrire à Baptiste</a>
+            <a class="text-link" href="#realisations">Voir les réalisations</a>
+          </div>
         </div>
+      </div>
 
-        <div class="hero-plant-slot" aria-hidden="true"></div>
-
-        <ul class="hero-promises" aria-label="Ce que vous pouvez attendre">
-          <li><strong>Un interlocuteur unique</strong> du premier échange à la mise en ligne.</li>
-          <li><strong>Des explications claires</strong>, sans jargon technique.</li>
-          <li><strong>Un devis écrit</strong> avant de commencer quoi que ce soit.</li>
-        </ul>
+      <div class="hero-stage wrap" aria-hidden="true">
+        <div class="hero-sheet">
+          <img class="hero-real" src="images/demo-plomberie-accueil.webp"
+            srcset="images/demo-plomberie-accueil-480.webp 480w, images/demo-plomberie-accueil-960.webp 960w, images/demo-plomberie-accueil.webp 1440w"
+            sizes="(max-width: 960px) calc(100vw - 40px), 840px"
+            width="1440" height="900" fetchpriority="high" alt="">
+          <div class="hero-cotes"><svg class="plan-drawing plan-rest" viewBox="-56 -56 1552 1012" aria-hidden="true" focusable="false"><rect class="plan-stroke plan-frame" x="0" y="0" width="1440" height="900" pathLength="1"/><g class="plan-cote"><path class="plan-stroke" d="M0 -34V-18M1440 -34V-18M0 -26H1440" pathLength="1"/><text x="720" y="-38" text-anchor="middle">1440</text></g><g class="plan-cote"><path class="plan-stroke" d="M-30 29H-14M-30 114H-14M-22 29V114" pathLength="1"/><text x="-36" y="78" text-anchor="end">85</text></g><g class="plan-cote"><path class="plan-stroke" d="M130 940V956M675 940V956M130 948H675" pathLength="1"/><text x="402" y="978" text-anchor="middle">545</text></g></svg></div>
+          <div class="hero-plan"><svg class="plan-drawing" viewBox="-56 -56 1552 1012" aria-hidden="true" focusable="false"><rect class="plan-stroke plan-block" x="0" y="0" width="1440" height="29" pathLength="1"/><rect class="plan-stroke plan-block" x="0" y="29" width="1440" height="85" pathLength="1"/><rect class="plan-stroke plan-block" x="1114" y="47" width="196" height="46" pathLength="1"/><rect class="plan-stroke plan-block" x="130" y="658" width="239" height="52" pathLength="1"/><rect class="plan-stroke plan-block" x="781" y="600" width="517" height="94" pathLength="1"/><rect class="plan-stroke plan-image" x="769" y="248" width="541" height="470" pathLength="1"/><path class="plan-stroke plan-image" d="M769 248L1310 718M1310 248L769 718" pathLength="1"/><line class="plan-stroke plan-text" x1="576" y1="13" x2="863" y2="13" pathLength="1"/><line class="plan-stroke plan-text" x1="182" y1="60" x2="259" y2="60" pathLength="1"/><line class="plan-stroke plan-text" x1="182" y1="82" x2="257" y2="82" pathLength="1"/><line class="plan-stroke plan-text" x1="841" y1="70" x2="905" y2="70" pathLength="1"/><line class="plan-stroke plan-text" x1="927" y1="70" x2="999" y2="70" pathLength="1"/><line class="plan-stroke plan-text" x1="1021" y1="70" x2="1092" y2="70" pathLength="1"/><line class="plan-stroke plan-text" x1="1134" y1="69" x2="1268" y2="69" pathLength="1"/><line class="plan-stroke plan-text" x1="186" y1="204" x2="366" y2="204" pathLength="1"/><rect class="plan-stroke plan-head" x="130" y="278" width="545" height="53" pathLength="1"/><rect class="plan-stroke plan-head" x="130" y="364" width="362" height="53" pathLength="1"/><rect class="plan-stroke plan-head" x="130" y="450" width="378" height="53" pathLength="1"/><line class="plan-stroke plan-text" x1="150" y1="558" x2="618" y2="558" pathLength="1"/><line class="plan-stroke plan-text" x1="150" y1="585" x2="636" y2="585" pathLength="1"/><line class="plan-stroke plan-text" x1="150" y1="612" x2="199" y2="612" pathLength="1"/><line class="plan-stroke plan-text" x1="155" y1="684" x2="311" y2="684" pathLength="1"/><line class="plan-stroke plan-text" x1="383" y1="683" x2="531" y2="683" pathLength="1"/><line class="plan-stroke plan-text" x1="180" y1="758" x2="489" y2="758" pathLength="1"/><line class="plan-stroke plan-text" x1="793" y1="279" x2="967" y2="279" pathLength="1"/><line class="plan-stroke plan-text" x1="1248" y1="279" x2="1286" y2="279" pathLength="1"/><line class="plan-stroke plan-text" x1="809" y1="630" x2="929" y2="630" pathLength="1"/><line class="plan-stroke plan-text" x1="809" y1="656" x2="962" y2="656" pathLength="1"/><line class="plan-stroke plan-text" x1="130" y1="856" x2="191" y2="856" pathLength="1"/><line class="plan-stroke plan-text" x1="265" y1="856" x2="354" y2="856" pathLength="1"/><line class="plan-stroke plan-text" x1="427" y1="856" x2="520" y2="856" pathLength="1"/></svg></div>
+        </div>
+        <p class="hero-caption">Démo Dupont Plomberie : du plan relevé sur la page à la page réalisée.</p>
       </div>
     </section>
 
-    <!-- PROJETS -->
-    <section class="projects wrap" id="realisations" aria-labelledby="projects-title">
+    <!-- SERVICES -->
+    <section class="services wrap" id="services" aria-labelledby="services-title">
       <div class="section-head">
-        <h2 id="projects-title" data-node>Deux démos pour imaginer le vôtre</h2>
-        <p>
-          Ces projets fictifs montrent deux styles possibles : une présentation claire et rassurante pour un artisan, puis une ambiance chaleureuse pour un restaurant. Ils illustrent ma façon d’adapter le design et les informations à chaque activité.
-        </p>
+        <h2 id="services-title">Ce que je fais pour vous</h2>
+        <p>Trois besoins reviennent chez les artisans et les commerces de quartier. Voici comment j’y réponds, sans jargon et avec un devis écrit avant de commencer.</p>
       </div>
 
-      <article class="project" data-bloom>
-        <a class="project-image" href="demo-plomberie.html" tabindex="-1" aria-hidden="true">
-          <img src="images/plomberie.webp" width="715" height="718" loading="lazy"
-            alt="">
-        </a>
-        <div class="project-text">
+      <ul class="service-list">
+        <li class="service">
+          <h3>Créer votre site</h3>
+          <p class="service-problem">Vous n’avez pas encore de site, ou seulement une page sur les réseaux sociaux.</p>
+          <p class="service-answer">Je conçois une vitrine à votre image : vos services, votre histoire et vos coordonnées, présentés clairement et lisibles sur téléphone.</p>
+        </li>
+        <li class="service">
+          <h3>Moderniser votre site</h3>
+          <p class="service-problem">Votre site a vieilli, s’affiche mal sur téléphone ou ne vous ressemble plus.</p>
+          <p class="service-answer">Selon sa structure, je modernise son apparence, clarifie les informations et améliore la navigation.</p>
+        </li>
+        <li class="service">
+          <h3>Être trouvé près de chez vous</h3>
+          <p class="service-problem">Vos clients cherchent un professionnel dans leur quartier.</p>
+          <p class="service-answer">Je mets en valeur votre zone d’intervention et vos coordonnées, et je pose les bases du référencement naturel. Personne ne peut garantir une position sur Google.</p>
+        </li>
+      </ul>
+      <a class="text-link" href="#offre">Voir les tarifs indicatifs</a>
+    </section>
+
+    <!-- RÉALISATIONS -->
+    <section class="projects wrap" id="realisations" aria-labelledby="projects-title">
+      <div class="section-head">
+        <h2 id="projects-title">Deux démos, du plan au site</h2>
+        <p>Ces projets fictifs montrent deux univers possibles. Faites glisser le curseur pour comparer le plan, relevé sur la vraie page, et le site réalisé.</p>
+      </div>
+
+      <article class="case" data-case>
+        <div class="case-visual">
+          <figure class="compare" data-compare>
+            <img class="compare-real" src="images/demo-plomberie-accueil.webp"
+              srcset="images/demo-plomberie-accueil-480.webp 480w, images/demo-plomberie-accueil-960.webp 960w, images/demo-plomberie-accueil.webp 1440w"
+              sizes="(max-width: 760px) calc(100vw - 54px), 58vw"
+              width="1440" height="900" loading="lazy" decoding="async"
+              alt="Page d’accueil de la démo Dupont Plomberie, telle qu’elle s’affiche sur ordinateur">
+            <div class="compare-cotes"><svg class="plan-drawing plan-rest" viewBox="-56 -56 1552 1012" aria-hidden="true" focusable="false"><rect class="plan-stroke plan-frame" x="0" y="0" width="1440" height="900" pathLength="1"/><g class="plan-cote"><path class="plan-stroke" d="M0 -34V-18M1440 -34V-18M0 -26H1440" pathLength="1"/><text x="720" y="-38" text-anchor="middle">1440</text></g><g class="plan-cote"><path class="plan-stroke" d="M-30 29H-14M-30 114H-14M-22 29V114" pathLength="1"/><text x="-36" y="78" text-anchor="end">85</text></g><g class="plan-cote"><path class="plan-stroke" d="M130 940V956M675 940V956M130 948H675" pathLength="1"/><text x="402" y="978" text-anchor="middle">545</text></g></svg></div>
+            <div class="compare-plan"><svg class="plan-drawing" viewBox="-56 -56 1552 1012" aria-hidden="true" focusable="false"><rect class="plan-stroke plan-block" x="0" y="0" width="1440" height="29" pathLength="1"/><rect class="plan-stroke plan-block" x="0" y="29" width="1440" height="85" pathLength="1"/><rect class="plan-stroke plan-block" x="1114" y="47" width="196" height="46" pathLength="1"/><rect class="plan-stroke plan-block" x="130" y="658" width="239" height="52" pathLength="1"/><rect class="plan-stroke plan-block" x="781" y="600" width="517" height="94" pathLength="1"/><rect class="plan-stroke plan-image" x="769" y="248" width="541" height="470" pathLength="1"/><path class="plan-stroke plan-image" d="M769 248L1310 718M1310 248L769 718" pathLength="1"/><line class="plan-stroke plan-text" x1="576" y1="13" x2="863" y2="13" pathLength="1"/><line class="plan-stroke plan-text" x1="182" y1="60" x2="259" y2="60" pathLength="1"/><line class="plan-stroke plan-text" x1="182" y1="82" x2="257" y2="82" pathLength="1"/><line class="plan-stroke plan-text" x1="841" y1="70" x2="905" y2="70" pathLength="1"/><line class="plan-stroke plan-text" x1="927" y1="70" x2="999" y2="70" pathLength="1"/><line class="plan-stroke plan-text" x1="1021" y1="70" x2="1092" y2="70" pathLength="1"/><line class="plan-stroke plan-text" x1="1134" y1="69" x2="1268" y2="69" pathLength="1"/><line class="plan-stroke plan-text" x1="186" y1="204" x2="366" y2="204" pathLength="1"/><rect class="plan-stroke plan-head" x="130" y="278" width="545" height="53" pathLength="1"/><rect class="plan-stroke plan-head" x="130" y="364" width="362" height="53" pathLength="1"/><rect class="plan-stroke plan-head" x="130" y="450" width="378" height="53" pathLength="1"/><line class="plan-stroke plan-text" x1="150" y1="558" x2="618" y2="558" pathLength="1"/><line class="plan-stroke plan-text" x1="150" y1="585" x2="636" y2="585" pathLength="1"/><line class="plan-stroke plan-text" x1="150" y1="612" x2="199" y2="612" pathLength="1"/><line class="plan-stroke plan-text" x1="155" y1="684" x2="311" y2="684" pathLength="1"/><line class="plan-stroke plan-text" x1="383" y1="683" x2="531" y2="683" pathLength="1"/><line class="plan-stroke plan-text" x1="180" y1="758" x2="489" y2="758" pathLength="1"/><line class="plan-stroke plan-text" x1="793" y1="279" x2="967" y2="279" pathLength="1"/><line class="plan-stroke plan-text" x1="1248" y1="279" x2="1286" y2="279" pathLength="1"/><line class="plan-stroke plan-text" x1="809" y1="630" x2="929" y2="630" pathLength="1"/><line class="plan-stroke plan-text" x1="809" y1="656" x2="962" y2="656" pathLength="1"/><line class="plan-stroke plan-text" x1="130" y1="856" x2="191" y2="856" pathLength="1"/><line class="plan-stroke plan-text" x1="265" y1="856" x2="354" y2="856" pathLength="1"/><line class="plan-stroke plan-text" x1="427" y1="856" x2="520" y2="856" pathLength="1"/></svg></div>
+            <span class="compare-split" aria-hidden="true"></span>
+          </figure>
+          <label class="compare-control" hidden>
+            <span class="compare-end">Plan</span>
+            <input type="range" min="0" max="100" value="100" step="1"
+              aria-label="Comparer le plan et le site réalisé de la démo Dupont Plomberie">
+            <span class="compare-end">Site</span>
+          </label>
+        </div>
+        <div class="case-text">
           <h3>Dupont Plomberie</h3>
-          <p class="project-kind">Artisan plombier, site de 3 pages</p>
-          <p>
-            Une vitrine imaginée pour mettre en avant les prestations, rassurer les visiteurs et rendre le contact facile. Le bleu nuit et l’orange vif donnent une identité franche, proche de l’univers du chantier.
-          </p>
+          <p class="case-kind">Artisan plombier, site de 3 pages</p>
+          <dl class="case-facts">
+            <div><dt>Objectif</dt><dd>Rassurer les visiteurs et rendre la demande de devis facile, sur ordinateur comme sur téléphone.</dd></div>
+            <div><dt>Choix</dt><dd>Bleu nuit et orange vif, titres en capitales serrées, trois pages (accueil, services, contact) et un formulaire de démonstration qui n’envoie rien.</dd></div>
+            <div><dt>Résultat</dt><dd>Projet de démonstration : pas de client ni de chiffres à présenter.</dd></div>
+          </dl>
           <a class="text-link" href="demo-plomberie.html">Voir la démo Dupont Plomberie</a>
         </div>
       </article>
 
-      <article class="project project-reverse" data-bloom>
-        <a class="project-image" href="demo-restaurant.html" tabindex="-1" aria-hidden="true">
-          <img src="images/restaurant.webp" width="715" height="718" loading="lazy"
-            alt="">
-        </a>
-        <div class="project-text">
+      <article class="case case-reverse" data-case>
+        <div class="case-visual">
+          <figure class="compare" data-compare>
+            <img class="compare-real" src="images/demo-restaurant-accueil.webp"
+              srcset="images/demo-restaurant-accueil-480.webp 480w, images/demo-restaurant-accueil-960.webp 960w, images/demo-restaurant-accueil.webp 1440w"
+              sizes="(max-width: 760px) calc(100vw - 54px), 58vw"
+              width="1440" height="900" loading="lazy" decoding="async"
+              alt="Page d’accueil de la démo Maison Olive, telle qu’elle s’affiche sur ordinateur">
+            <div class="compare-cotes"><svg class="plan-drawing plan-rest" viewBox="-56 -56 1552 1012" aria-hidden="true" focusable="false"><rect class="plan-stroke plan-frame" x="0" y="0" width="1440" height="900" pathLength="1"/><g class="plan-cote"><path class="plan-stroke" d="M0 -34V-18M1440 -34V-18M0 -26H1440" pathLength="1"/><text x="720" y="-38" text-anchor="middle">1440</text></g><g class="plan-cote"><path class="plan-stroke" d="M-30 31H-14M-30 132H-14M-22 31V132" pathLength="1"/><text x="-36" y="88" text-anchor="end">101</text></g><g class="plan-cote"><path class="plan-stroke" d="M140 940V956M575 940V956M140 948H575" pathLength="1"/><text x="358" y="978" text-anchor="middle">435</text></g></svg></div>
+            <div class="compare-plan"><svg class="plan-drawing" viewBox="-56 -56 1552 1012" aria-hidden="true" focusable="false"><rect class="plan-stroke plan-block" x="0" y="0" width="1440" height="31" pathLength="1"/><rect class="plan-stroke plan-block" x="0" y="31" width="1440" height="101" pathLength="1"/><rect class="plan-stroke plan-block" x="1156" y="58" width="144" height="46" pathLength="1"/><rect class="plan-stroke plan-block" x="140" y="700" width="175" height="52" pathLength="1"/><rect class="plan-stroke plan-block" x="797" y="746" width="481" height="85" pathLength="1"/><rect class="plan-stroke plan-image" x="797" y="246" width="481" height="420" pathLength="1"/><path class="plan-stroke plan-image" d="M797 246L1278 666M1278 246L797 666" pathLength="1"/><line class="plan-stroke plan-text" x1="586" y1="16" x2="854" y2="16" pathLength="1"/><line class="plan-stroke plan-text" x1="149" y1="80" x2="177" y2="80" pathLength="1"/><line class="plan-stroke plan-text" x1="198" y1="74" x2="335" y2="74" pathLength="1"/><line class="plan-stroke plan-text" x1="198" y1="92" x2="332" y2="92" pathLength="1"/><line class="plan-stroke plan-text" x1="768" y1="81" x2="838" y2="81" pathLength="1"/><line class="plan-stroke plan-text" x1="868" y1="81" x2="915" y2="81" pathLength="1"/><line class="plan-stroke plan-text" x1="945" y1="81" x2="1022" y2="81" pathLength="1"/><line class="plan-stroke plan-text" x1="1052" y1="81" x2="1125" y2="81" pathLength="1"/><line class="plan-stroke plan-text" x1="1173" y1="81" x2="1257" y2="81" pathLength="1"/><line class="plan-stroke plan-text" x1="158" y1="238" x2="351" y2="238" pathLength="1"/><rect class="plan-stroke plan-head" x="140" y="287" width="435" height="58" pathLength="1"/><rect class="plan-stroke plan-head" x="140" y="382" width="258" height="58" pathLength="1"/><rect class="plan-stroke plan-head" x="140" y="478" width="312" height="58" pathLength="1"/><line class="plan-stroke plan-text" x1="140" y1="594" x2="603" y2="594" pathLength="1"/><line class="plan-stroke plan-text" x1="140" y1="623" x2="573" y2="623" pathLength="1"/><line class="plan-stroke plan-text" x1="140" y1="653" x2="451" y2="653" pathLength="1"/><line class="plan-stroke plan-text" x1="163" y1="725" x2="259" y2="725" pathLength="1"/><line class="plan-stroke plan-text" x1="341" y1="726" x2="445" y2="726" pathLength="1"/><line class="plan-stroke plan-text" x1="186" y1="800" x2="371" y2="800" pathLength="1"/><line class="plan-stroke plan-text" x1="797" y1="238" x2="888" y2="238" pathLength="1"/><line class="plan-stroke plan-text" x1="1096" y1="238" x2="1278" y2="238" pathLength="1"/><line class="plan-stroke plan-text" x1="816" y1="773" x2="917" y2="773" pathLength="1"/><line class="plan-stroke plan-text" x1="816" y1="796" x2="1027" y2="796" pathLength="1"/></svg></div>
+            <span class="compare-split" aria-hidden="true"></span>
+          </figure>
+          <label class="compare-control" hidden>
+            <span class="compare-end">Plan</span>
+            <input type="range" min="0" max="100" value="100" step="1"
+              aria-label="Comparer le plan et le site réalisé de la démo Maison Olive">
+            <span class="compare-end">Site</span>
+          </label>
+        </div>
+        <div class="case-text">
           <h3>Maison Olive</h3>
-          <p class="project-kind">Restaurant méditerranéen, site d’une page</p>
-          <p>
-            Une ambiance méditerranéenne, des couleurs chaleureuses et une présentation pensée pour donner envie de découvrir le lieu. Ce concept montre comment le site peut prolonger l’univers d’un restaurant.
-          </p>
+          <p class="case-kind">Restaurant méditerranéen, site d’une page</p>
+          <dl class="case-facts">
+            <div><dt>Objectif</dt><dd>Donner envie de découvrir le lieu et réunir l’essentiel sur une seule page : l’esprit, la carte et les informations pratiques.</dd></div>
+            <div><dt>Choix</dt><dd>Tons crème, vert olive et terre cuite, titres à empattements avec italique, photographies de plats en grand.</dd></div>
+            <div><dt>Résultat</dt><dd>Projet de démonstration : pas de client ni de chiffres à présenter.</dd></div>
+          </dl>
           <a class="text-link" href="demo-restaurant.html">Voir la démo Maison Olive</a>
         </div>
       </article>
@@ -141,13 +208,11 @@
     </section>
 
     <!-- TARIFS -->
-    <section class="pricing" id="services" aria-labelledby="pricing-title">
+    <section class="pricing" aria-labelledby="pricing-title">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="pricing-title" data-node>Tarifs indicatifs</h2>
-          <p>
-            Un premier site, une refonte ou quelques améliorations ciblées : chaque ligne indique un prix de départ. Nous précisons ensemble votre besoin, puis vous recevez un devis écrit. Le premier échange est sans engagement.
-          </p>
+          <h2 id="pricing-title">Tarifs indicatifs</h2>
+          <p>Un premier site, une refonte ou quelques améliorations ciblées : chaque ligne indique un prix de départ. Nous précisons ensemble votre besoin, puis vous recevez un devis écrit. Le premier échange est sans engagement.</p>
         </div>
 
         <div class="quote-sheet" id="offre">
@@ -256,7 +321,7 @@
                 <details class="quote-details" open><summary>Ce qui est inclus</summary><ul class="quote-includes"><li>Vérifications périodiques</li><li>Jusqu’à 30 minutes de petites modifications par mois</li><li>Réponse sous trois jours ouvrés</li><li>Temps non utilisé non reporté au mois suivant</li></ul></details>
               </div>
               <p class="quote-price"><span class="quote-amount">35&nbsp;€</span><span class="quote-unit">par mois</span></p>
-              <a class="quote-cta" aria-label="Demander des renseignements sur la maintenance légère" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20renseignements%20%E2%80%94%20Maintenance%20l%C3%A9g%C3%A8re&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20la%20maintenance%20l%C3%A9g%C3%A8re%20%C3%A0%2035%20%E2%82%AC%2Fmois.%0A%0ALien%20de%20mon%20site%20%3A%0A%0ALes%20modifications%20dont%20j%E2%80%99ai%20besoin%20%3A%0A%0AMerci%20%21">Se renseigner</a>
+              <a class="quote-cta" aria-label="Se renseigner sur la maintenance légère" href="mailto:bcuriecadet@gmail.com?subject=Demande%20de%20renseignements%20%E2%80%94%20Maintenance%20l%C3%A9g%C3%A8re&body=Bonjour%20Baptiste%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20la%20maintenance%20l%C3%A9g%C3%A8re%20%C3%A0%2035%20%E2%82%AC%2Fmois.%0A%0ALien%20de%20mon%20site%20%3A%0A%0ALes%20modifications%20dont%20j%E2%80%99ai%20besoin%20%3A%0A%0AMerci%20%21">Se renseigner</a>
             </article>
 
             <article class="quote-line">
@@ -311,10 +376,8 @@
     <!-- MÉTHODE -->
     <section class="process wrap" id="methode" aria-labelledby="process-title">
       <div class="section-head">
-        <h2 id="process-title" data-node>Vous connaissez votre métier. Je m’occupe de la vitrine.</h2>
-        <p>
-          Vous n’avez pas besoin de maîtriser la technique : je vous guide à chaque étape. Nous définissons ensemble les priorités, le budget et les prochaines étapes avant de commencer.
-        </p>
+        <h2 id="process-title">Vous connaissez votre métier. Je m’occupe de la vitrine.</h2>
+        <p>Vous n’avez pas besoin de maîtriser la technique : je vous guide à chaque étape. Nous définissons ensemble les priorités, le budget et les prochaines étapes avant de commencer.</p>
       </div>
 
       <ol class="steps">
@@ -341,13 +404,13 @@
     <section class="about" id="apropos" aria-labelledby="about-title">
       <div class="wrap about-layout">
         <figure class="about-portrait">
-          <img src="images/portrait.webp" width="900" height="900" loading="lazy"
+          <img src="images/portrait.webp" width="900" height="900" loading="lazy" decoding="async"
             alt="Portrait de Baptiste Curie-Cadet, créateur indépendant de sites web">
           <figcaption>Baptiste Curie-Cadet, création et refonte de sites internet</figcaption>
         </figure>
 
         <div class="about-copy">
-          <h2 id="about-title" data-node>Bonjour, je suis Baptiste.</h2>
+          <h2 id="about-title">Bonjour, je suis Baptiste.</h2>
 
           <p class="about-lead">
             Avec Studio Web, j’accompagne les artisans et les commerces locaux qui veulent présenter leur activité avec clarté et personnalité.
@@ -358,12 +421,20 @@
           </p>
 
           <p>
-            Chaque page a un rôle : valoriser vos services, guider vos visiteurs et leur donner envie de vous contacter. Je privilégie un design soigné, une navigation simple et des fonctionnalités réellement utiles à votre activité.
-          </p>
-
-          <p>
             Vous échangez directement avec moi, sans jargon inutile. Nous faisons le point sur vos idées, je vous présente les possibilités et vous recevez un devis clair pour décider sereinement de la suite.
           </p>
+
+          <div class="skills">
+            <h3>Les outils avec lesquels je travaille</h3>
+            <ul class="skill-list">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Git</li>
+              <li>GitHub</li>
+            </ul>
+            <p class="skills-note">Ce site est construit avec ces mêmes outils, sans constructeur de site.</p>
+          </div>
 
           <a class="text-link" href="#contact">Faire connaissance</a>
         </div>
@@ -373,7 +444,7 @@
     <!-- FAQ -->
     <section class="faq wrap" id="faq" aria-labelledby="faq-title">
       <div class="faq-head">
-        <h2 id="faq-title" data-node>Questions fréquentes</h2>
+        <h2 id="faq-title">Questions fréquentes</h2>
         <p>Vous avez une question avant de vous lancer ? Voici les informations essentielles pour avancer avec une vision claire du projet.</p>
         <a class="text-link" href="#contact">Poser une autre question</a>
       </div>
@@ -448,9 +519,8 @@
 
     <!-- CONTACT -->
     <section class="contact" id="contact" aria-labelledby="contact-title">
-      <canvas class="contact-canvas" aria-hidden="true"></canvas>
       <div class="wrap contact-inner">
-        <h2 id="contact-title" data-node>Et si on donnait vie à votre projet ?</h2>
+        <h2 id="contact-title">Et si on donnait vie à votre projet ?</h2>
         <p class="contact-lead">
           Parlez-moi de votre activité et de ce que vous aimeriez améliorer ou créer. Le premier échange est sans engagement : c’est simplement l’occasion de faire connaissance.
         </p>
@@ -458,15 +528,8 @@
         <a class="contact-email" href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>
 
         <div class="contact-actions">
-          <a class="button button-bloom"
-            href="mailto:bcuriecadet@gmail.com?subject=Mon%20projet%20de%20site%20web&body=Bonjour%20Baptiste%2C%0A%0AMon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20recherche%20%3A%0A%0AMon%20site%20actuel%20(si%20j'en%20ai%20un)%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci.">
-            Écrire à Baptiste
-          </a>
-
-          <button class="button button-outline" type="button"
-            data-copy-email="bcuriecadet@gmail.com">
-            Copier l’adresse
-          </button>
+          <a class="button button-primary" href="mailto:bcuriecadet@gmail.com?subject=Mon%20projet%20de%20site%20web&amp;body=Bonjour%20Baptiste%2C%0A%0AMon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20recherche%20%3A%0A%0AMon%20site%20actuel%20(si%20j'en%20ai%20un)%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci.">Écrire à Baptiste</a>
+          <button class="button button-outline" type="button" data-copy-email="bcuriecadet@gmail.com">Copier l’adresse</button>
         </div>
 
         <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
@@ -474,8 +537,6 @@
         <p class="contact-note">
           Un simple e-mail suffit pour commencer. Même si votre idée n’est pas encore totalement définie, nous pouvons la faire avancer ensemble.
         </p>
-
-        <div class="contact-plant-slot" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -486,7 +547,7 @@
     <div class="wrap footer-inner">
       <div class="footer-brand">
         <a class="brand" href="index.html" aria-label="Studio Web, accueil">
-          <img class="brand-logo" src="images/logo-studio-web.webp" alt="Studio Web" width="632" height="148" loading="lazy">
+          <img class="brand-logo" src="images/logo-studio-web-300.webp" srcset="images/logo-studio-web-300.webp 300w, images/logo-studio-web.webp 632w" sizes="150px" alt="Studio Web" width="632" height="148" loading="lazy">
         </a>
         <p>Des sites internet pensés pour valoriser les artisans et commerces locaux, avec un interlocuteur unique et un accompagnement clair.</p>
       </div>

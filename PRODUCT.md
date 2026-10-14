@@ -20,7 +20,7 @@ Un interlocuteur unique, du premier échange à la mise en ligne, qui explique s
 
 ## Operating Context
 
-- Premier contact par e-mail uniquement (liens `mailto:` pré-remplis par offre, bouton de copie de l'adresse). Pas de formulaire ni de serveur.
+- Premier contact par e-mail uniquement (liens `mailto:` pré-remplis par offre, bouton de copie de l'adresse). Pas de formulaire ni de serveur : choix confirmé par l'utilisateur le 14/10/2026, pour ne dépendre d'aucune clé ni d'aucun service tiers.
 - Les tarifs sont indicatifs ; le devis écrit fait foi.
 - Site statique publié sur Cloudflare Pages (`freelance-web-932.pages.dev`), déployé depuis la branche `master`.
 
@@ -31,18 +31,21 @@ Un interlocuteur unique, du premier échange à la mise en ligne, qui explique s
 - Ancres à préserver : `#services`, `#offre`, `#realisations`, `#methode`, `#apropos`, `#faq`, `#contact`.
 - Les fichiers CSS et JS sont versionnés par paramètre (`?v=`) pour contourner le cache.
 - Les pages légales contiennent encore des champs `[À RENSEIGNER]` que seul l'éditeur peut compléter.
+- Cloudflare Pages publie tout le contenu du dépôt : aucun fichier de travail ni secret ne doit y être versionné (`.impeccable/` et `.claude/` sont exclus par `.gitignore`).
 
 ## Brand Commitments
 
 - Nom : Studio Web. Logo existant (`images/Logo.png`, `images/logo-studio-web.webp`) : monogramme « SW » et texte, dégradé violet vers turquoise.
 - Voix : vouvoiement, phrases simples, ton chaleureux et rassurant, sans jargon technique.
+- Direction visuelle demandée par l'utilisateur (14/10/2026) : portfolio sombre et élégant, surfaces noir profond, nuances gris bleuté, typographie raffinée, un accent bleu maîtrisé ; premium, sobre, précis et mémorable ; aucun effet lumineux décoratif.
 
 ## Evidence on Hand
 
 - Deux projets de démonstration fictifs, présentés explicitement comme tels : Dupont Plomberie et Maison Olive (visuels `images/plomberie.webp`, `images/restaurant.webp`).
 - Portrait de Baptiste (`images/portrait.webp`).
 - Grille de tarifs indicatifs et FAQ dans `index.html`.
-- Aucun client réel, témoignage, résultat chiffré, avis, certification ou expérience datée : ne pas en inventer. Le parcours et les compétences se limitent à ce que dit déjà le site (confirmé par l'utilisateur, 14/10/2026).
+- Compétences techniques confirmées par l'utilisateur (14/10/2026) : HTML, CSS, JavaScript, Git et GitHub. Rien d'autre ne doit être affiché.
+- Aucun client réel, témoignage, résultat chiffré, avis, certification ou expérience datée : ne pas en inventer. Le parcours se limite à ce que dit déjà le site.
 
 ## Product Principles
 
