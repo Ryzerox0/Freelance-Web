@@ -1,3 +1,8 @@
+/* Les images gardent leurs proportions quand elles portent largeur et hauteur (spécificité nulle). */
+:where(.restaurant-site) img {
+  height: auto;
+}
+
 /* =========================================
 
 

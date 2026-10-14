@@ -1,75 +1,89 @@
-```text
-STUDIO WEB — INSTRUCTIONS
+STUDIO WEB — GUIDE DU PROJET
+============================
 
-FICHIERS À AVOIR DANS LE MÊME DOSSIER
--------------------------------------
-index.html
-style.css
-script.js
-demo-plomberie.html
-services.html          (démo plomberie)
-contact.html           (démo plomberie)
-plomberie.css
-demo-restaurant.html
-restaurant.css
-mentions-legales.html
-confidentialite.html
-robots.txt
-sitemap.xml
-images/
-README.txt
+Site statique (HTML, CSS, JavaScript), sans étape de build.
+Publié par Cloudflare Pages à chaque fusion sur la branche master :
+https://freelance-web-932.pages.dev/
 
-ÉTAPE 1 — INSTALLATION
-----------------------
-1. Ouvre le dossier du projet dans VS Code.
-2. Remplace intégralement le contenu des trois fichiers existants :
-   index.html, style.css et script.js.
-3. Crée les cinq nouveaux fichiers listés ci-dessus.
-4. Copie le contenu correspondant dans chaque fichier.
-5. Enregistre tout avec Ctrl + S.
+Attention : Cloudflare Pages publie TOUT le contenu du dépôt.
+Ne versionnez jamais de fichier de travail, de mot de passe ni de clé.
 
-ÉTAPE 2 — TEST LOCAL
---------------------
-1. Ouvre index.html dans ton navigateur.
-2. Vérifie les liens du menu et les boutons.
-3. Ouvre les deux concepts depuis la section Réalisations.
-4. Vérifie le lien e-mail.
-5. Teste le menu sur un écran étroit ou avec les outils mobiles
-   des outils de développement du navigateur.
-6. Vérifie les pages Mentions légales et Confidentialité.
 
-Le lien e-mail ouvre le logiciel de messagerie du visiteur.
-Il ne garantit pas qu'un message a été envoyé ou reçu.
-Le bouton de copie nécessite un navigateur qui autorise
-l'accès au presse-papiers ; sinon, l'adresse s'affiche à l'écran.
+FICHIERS
+--------
+index.html              Page d'accueil (services, réalisations, tarifs,
+                        méthode, à propos, FAQ, contact)
+style.css               Styles de tout le site Studio Web
+script.js               Menu mobile, copie de l'adresse e-mail, FAQ,
+                        retour en haut, détails des tarifs sur mobile
+animations.js           Animations (GSAP et ScrollTrigger, chargés depuis
+                        cdnjs) et comparateurs plan / site
+mentions-legales.html   Mentions légales (à compléter, voir plus bas)
+confidentialite.html    Politique de confidentialité
+404.html                Page « introuvable », servie par Cloudflare Pages
+_headers                En-têtes de sécurité et de cache (Cloudflare Pages)
+robots.txt, sitemap.xml Référencement
+images/                 Images du site et des démos
 
-ÉTAPE 3 — INFORMATIONS À VÉRIFIER
----------------------------------
-- Compléter les mentions légales avec les informations exactes.
-- Vérifier les informations requises selon ton statut.
-- Compléter la politique de confidentialité selon les traitements
-  réellement effectués.
-- Vérifier l'hébergement, le nom de domaine et les coûts éventuels.
-- Ne pas présenter les projets fictifs comme de vrais clients.
-- Vérifier l'adresse e-mail et le fonctionnement du site publié.
+demo-plomberie.html, services.html, contact.html, plomberie.css
+                        Démo fictive « Dupont Plomberie »
+demo-restaurant.html, restaurant.css
+                        Démo fictive « Maison Olive »
 
-ÉTAPE 4 — PUBLICATION AVEC GIT
-------------------------------
-Dans le terminal VS Code, à la racine du projet :
+PRODUCT.md              Ce que fait le site, pour qui, et ce qu'il ne doit
+                        jamais affirmer
+DESIGN.md               Système visuel (couleurs, polices, composants,
+                        animations)
+outils/verifier-site.mjs
+                        Vérifications automatiques (voir plus bas)
 
-git status
-git add index.html style.css script.js demo-plomberie.html demo-restaurant.html mentions-legales.html confidentialite.html README.txt
-git commit -m "Amélioration du portfolio Studio Web"
-git push
 
-Après le push, attends la publication GitHub Pages et recharge
-le site. Utilise Ctrl + F5 pour forcer le rechargement.
+VOIR LE SITE EN LOCAL
+---------------------
+À la racine du projet :
 
-IMPORTANT
----------
-Le prix de 600 € est un prix indicatif de départ, à confirmer
-dans un devis adapté au projet.
-Les modèles juridiques doivent être complétés et vérifiés.
-Ces fichiers ne créent pas une entreprise et ne réalisent aucune
-démarche administrative à ta place.
-```
+    python -m http.server 8080
+
+puis ouvrir http://localhost:8080 dans le navigateur.
+(Ouvrir index.html par un double-clic fonctionne aussi, mais certains
+navigateurs limitent alors les scripts.)
+
+
+VÉRIFIER AVANT DE PUBLIER
+-------------------------
+    node outils/verifier-site.mjs
+
+Le script contrôle les liens et les ancres, les textes alternatifs et les
+dimensions des images, la hiérarchie des titres, les libellés des tarifs,
+les données structurées, les variables CSS, la syntaxe des scripts, les
+en-têtes de sécurité et l'absence de secrets dans le dépôt.
+Il doit afficher « Toutes les vérifications sont passées. »
+
+
+MODIFIER LE SITE
+----------------
+- Après une modification de style.css, script.js ou animations.js,
+  augmenter le numéro « ?v= » qui les appelle dans les pages HTML,
+  sinon les visiteurs gardent l'ancienne version en cache.
+- Les prix sont indicatifs : le devis écrit fait foi.
+- Les démos doivent rester présentées comme fictives.
+- Ne jamais afficher de client, d'avis, de chiffre ou de compétence
+  qui ne soit pas réel.
+
+
+PUBLIER
+-------
+1. Créer une branche, faire les modifications, lancer la vérification.
+2. Pousser la branche et ouvrir une Pull Request sur GitHub.
+3. Cloudflare publie un aperçu de la branche : le vérifier.
+4. Fusionner la Pull Request : le site est mis en ligne.
+
+
+À COMPLÉTER PAR L'ÉDITEUR
+-------------------------
+- Mentions légales : statut juridique, adresse, numéro SIREN ou SIRET
+  (champs « [À RENSEIGNER] »), puis retirer l'encadré d'avertissement.
+- Confidentialité : vérifier que la notice correspond aux services
+  réellement utilisés, puis retirer l'encadré d'avertissement.
+- Ces modèles ne remplacent pas un conseil juridique et ne réalisent
+  aucune démarche administrative.
