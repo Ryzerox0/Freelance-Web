@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 345" width="460" height="345">
+  <title>Schéma d’un chauffe-eau électrique et de son groupe de sécurité</title>
+  <defs>
+    <pattern id="trame" width="23" height="23" patternUnits="userSpaceOnUse">
+      <path d="M23 0H0V23" fill="none" stroke="#e2e8ee" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="460" height="345" fill="#ffffff"/>
+  <rect width="460" height="345" fill="url(#trame)"/>
+  <g font-family="Arial Narrow, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1" fill="#1b2127">
+    <!-- Ballon -->
+    <rect x="170" y="28" width="120" height="226" rx="54" fill="#ffffff" stroke="#1b2127" stroke-width="1.6"/>
+    <path d="M182 92H278M182 214H278" stroke="#c7d0d8" stroke-width="1" stroke-dasharray="4 4"/>
+    <!-- Résistance et thermostat -->
+    <path d="M214 254V214M246 254V214" stroke="#46515c" stroke-width="2"/>
+    <rect x="204" y="254" width="52" height="16" fill="#f1f4f7" stroke="#1b2127" stroke-width="1.4"/>
+    <!-- Eau chaude : tube plongeur jusqu'en haut du ballon -->
+    <path d="M262 270V300H392" fill="none" stroke="#c4321e" stroke-width="4" stroke-linecap="round"/>
+    <path d="M262 254V60" fill="none" stroke="#c4321e" stroke-width="2" stroke-dasharray="5 4"/>
+    <!-- Eau froide : arrivée par le groupe de sécurité -->
+    <path d="M198 270V300H112V332" fill="none" stroke="#1658c4" stroke-width="4" stroke-linecap="round"/>
+    <rect x="94" y="284" width="36" height="32" fill="#ffffff" stroke="#1b2127" stroke-width="1.6"/>
+    <path d="M112 316V326M104 326H120" stroke="#1b2127" stroke-width="1.6"/>
+    <!-- Repères -->
+    <g stroke="#1b2127" stroke-width="1" fill="none">
+      <path d="M290 120H340H370"/>
+      <path d="M94 300H60V258H30"/>
+      <path d="M392 300V270H420"/>
+      <path d="M230 270V320H280"/>
+    </g>
+    <circle cx="290" cy="120" r="3"/>
+    <circle cx="94" cy="300" r="3"/>
+    <circle cx="392" cy="300" r="3"/>
+    <circle cx="230" cy="270" r="3"/>
+    <text x="300" y="112">BALLON</text>
+    <text x="30" y="250">GROUPE DE SÉCURITÉ</text>
+    <text x="330" y="262">EAU CHAUDE</text>
+    <text x="288" y="324">THERMOSTAT</text>
+    <text x="120" y="340" fill="#1658c4">ARRIVÉE EAU FROIDE</text>
+  </g>
+</svg>
