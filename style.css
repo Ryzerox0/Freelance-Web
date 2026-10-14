@@ -1,24 +1,24 @@
 /* =========================================================
    STUDIO WEB — FEUILLE DE STYLE
-   Direction « Du plan au réel » : noir bleuté, gris ardoise,
-   un seul bleu pour le trait du plan, les liens et l'action.
+   Version claire : fond pierre, encre foncée,
+   un seul bleu pour les liens, les repères et l'action.
    Aucune lueur : la profondeur vient des filets et des plans.
    ========================================================= */
 
 :root {
   /* Couleurs */
-  --noir: #090b0f;            /* fond */
-  --ardoise: #10141b;         /* surfaces */
-  --ardoise-2: #161c25;       /* surfaces au survol, curseurs */
-  --texte: #e6eaf0;           /* titres et texte fort (16:1) */
-  --texte-doux: #b4bfcd;      /* paragraphes (10:1) */
-  --gris: #8b97a8;            /* légendes et texte secondaire (6,6:1) */
-  --filet: rgba(139, 151, 168, 0.18);
-  --filet-fort: rgba(139, 151, 168, 0.34);
-  --bleu: #4f8cff;            /* trait du plan, liens, état actif (6:1) */
-  --bleu-plein: #2f6bea;      /* fond du bouton principal (texte blanc 4,8:1) */
-  --bleu-survol: #2559c9;
-  --bleu-voile: rgba(79, 140, 255, 0.07);
+  --noir: #f4f2ed;            /* fond */
+  --ardoise: #ebe8e1;         /* surfaces */
+  --ardoise-2: #e1ddd3;       /* surfaces au survol, curseurs */
+  --texte: #14161b;           /* titres et texte fort (16:1) */
+  --texte-doux: #3a3f49;      /* paragraphes (9:1) */
+  --gris: #575e69;            /* légendes et texte secondaire (6:1) */
+  --filet: rgba(20, 22, 27, 0.12);
+  --filet-fort: rgba(20, 22, 27, 0.26);
+  --bleu: #2149b8;            /* liens, filets actifs, état actif (7:1) */
+  --bleu-plein: #2149b8;      /* fond du bouton principal (texte blanc 7,7:1) */
+  --bleu-survol: #183a96;
+  --bleu-voile: rgba(33, 73, 184, 0.07);
 
   /* Typographie */
   --police-titre: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
@@ -49,7 +49,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--hauteur-entete) + 16px);
   -webkit-text-size-adjust: 100%;
-  scrollbar-color: #2a3341 var(--noir);
+  scrollbar-color: #c9c4b8 var(--noir);
   background: var(--noir);
 }
 
@@ -81,11 +81,11 @@ body {
 ::-webkit-scrollbar-thumb {
   border: 3px solid var(--noir);
   border-radius: 999px;
-  background: #2a3341;
+  background: #c9c4b8;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a4659;
+  background: #aea89a;
 }
 
 img {
@@ -230,7 +230,7 @@ input {
 }
 
 .text-link:hover {
-  color: #ffffff;
+  color: var(--bleu);
   text-underline-offset: 9px;
 }
 
@@ -241,13 +241,13 @@ input {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid transparent;
-  background: rgba(9, 11, 15, 0);
+  background: rgba(244, 242, 237, 0);
   transition: background-color 300ms ease, border-color 300ms ease;
 }
 
 .site-header.is-scrolled {
   border-bottom-color: var(--filet);
-  background: rgba(9, 11, 15, 0.96);
+  background: rgba(244, 242, 237, 0.96);
 }
 
 .header-inner {
@@ -639,7 +639,7 @@ input {
 }
 
 .quote-tag {
-  color: #a9c6ff;
+  color: var(--bleu);
   font-family: var(--police-texte);
   font-size: 0.875rem;
   font-weight: 700;
@@ -927,7 +927,7 @@ input {
 }
 
 .faq-list summary:hover {
-  color: #ffffff;
+  color: var(--bleu);
 }
 
 .faq-icon {
@@ -1002,7 +1002,7 @@ details[open] .faq-icon::after {
 }
 
 .contact-email:hover {
-  color: #ffffff;
+  color: var(--bleu);
 }
 
 .contact-actions {
@@ -1123,7 +1123,7 @@ details[open] .faq-icon::after {
 }
 
 .legal-content a:not(.text-link) {
-  color: #a9c6ff;
+  color: var(--bleu);
   font-weight: 700;
   overflow-wrap: anywhere;
 }
@@ -1340,7 +1340,7 @@ details[open] .faq-icon::after {
     gap: 10px;
     min-height: 44px;
     margin-top: 4px;
-    color: #a9c6ff;
+    color: var(--bleu);
     font-weight: 700;
     cursor: pointer;
     list-style: none;
