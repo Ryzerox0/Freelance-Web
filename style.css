@@ -1,24 +1,24 @@
 /* =========================================================
    STUDIO WEB — FEUILLE DE STYLE
-   Direction « Du plan au réel » : noir bleuté, gris ardoise,
-   un seul bleu pour le trait du plan, les liens et l'action.
+   Version claire : fond pierre, encre foncée,
+   un seul bleu pour les liens, les repères et l'action.
    Aucune lueur : la profondeur vient des filets et des plans.
    ========================================================= */
 
 :root {
   /* Couleurs */
-  --noir: #090b0f;            /* fond */
-  --ardoise: #10141b;         /* surfaces */
-  --ardoise-2: #161c25;       /* surfaces au survol, curseurs */
-  --texte: #e6eaf0;           /* titres et texte fort (16:1) */
-  --texte-doux: #b4bfcd;      /* paragraphes (10:1) */
-  --gris: #8b97a8;            /* légendes et texte secondaire (6,6:1) */
-  --filet: rgba(139, 151, 168, 0.18);
-  --filet-fort: rgba(139, 151, 168, 0.34);
-  --bleu: #4f8cff;            /* trait du plan, liens, état actif (6:1) */
-  --bleu-plein: #2f6bea;      /* fond du bouton principal (texte blanc 4,8:1) */
-  --bleu-survol: #2559c9;
-  --bleu-voile: rgba(79, 140, 255, 0.07);
+  --noir: #f4f2ed;            /* fond */
+  --ardoise: #ebe8e1;         /* surfaces */
+  --ardoise-2: #e1ddd3;       /* surfaces au survol, curseurs */
+  --texte: #14161b;           /* titres et texte fort (16:1) */
+  --texte-doux: #3a3f49;      /* paragraphes (9:1) */
+  --gris: #575e69;            /* légendes et texte secondaire (6:1) */
+  --filet: rgba(20, 22, 27, 0.12);
+  --filet-fort: rgba(20, 22, 27, 0.26);
+  --bleu: #2149b8;            /* liens, filets actifs, état actif (7:1) */
+  --bleu-plein: #2149b8;      /* fond du bouton principal (texte blanc 7,7:1) */
+  --bleu-survol: #183a96;
+  --bleu-voile: rgba(33, 73, 184, 0.07);
 
   /* Typographie */
   --police-titre: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
@@ -49,7 +49,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--hauteur-entete) + 16px);
   -webkit-text-size-adjust: 100%;
-  scrollbar-color: #2a3341 var(--noir);
+  scrollbar-color: #c9c4b8 var(--noir);
   background: var(--noir);
 }
 
@@ -81,11 +81,11 @@ body {
 ::-webkit-scrollbar-thumb {
   border: 3px solid var(--noir);
   border-radius: 999px;
-  background: #2a3341;
+  background: #c9c4b8;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a4659;
+  background: #aea89a;
 }
 
 img {
@@ -230,7 +230,7 @@ input {
 }
 
 .text-link:hover {
-  color: #ffffff;
+  color: var(--bleu);
   text-underline-offset: 9px;
 }
 
@@ -241,13 +241,13 @@ input {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid transparent;
-  background: rgba(9, 11, 15, 0);
+  background: rgba(244, 242, 237, 0);
   transition: background-color 300ms ease, border-color 300ms ease;
 }
 
 .site-header.is-scrolled {
   border-bottom-color: var(--filet);
-  background: rgba(9, 11, 15, 0.96);
+  background: rgba(244, 242, 237, 0.96);
 }
 
 .header-inner {
@@ -349,14 +349,27 @@ input {
 /* ---------- Introduction ---------- */
 
 .hero {
-  padding-top: clamp(48px, 7vw, 104px);
+  display: flex;
+  align-items: center;
+  min-height: min(calc(100svh - var(--hauteur-entete)), 820px);
+  padding-block: clamp(48px, 7vw, 104px);
+}
+
+.hero-grid {
+  width: 100%;
+}
+
+/* Le titre occupe toute la largeur ; la phrase et les boutons suivent sous un filet. */
+.hero-text {
+  display: grid;
+  gap: clamp(36px, 5vw, 64px);
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5.6vw, 5.1rem);
+  font-size: clamp(2.5rem, 6.4vw, 6rem);
   font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
 .hero-title .line {
@@ -367,16 +380,17 @@ input {
   display: inline-block;
 }
 
-.hero-row {
+.hero-foot {
   display: grid;
-  grid-template-columns: minmax(0, 38rem) auto;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   align-items: end;
-  justify-content: space-between;
-  gap: 28px 56px;
-  margin-top: clamp(28px, 3.6vw, 44px);
+  gap: 28px clamp(40px, 6vw, 96px);
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid var(--filet-fort);
 }
 
 .hero-lead {
+  max-width: 40rem;
   color: var(--texte-doux);
   font-size: clamp(1.0625rem, 1.3vw, 1.18rem);
 }
@@ -385,130 +399,8 @@ input {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px 28px;
-}
-
-.hero-stage {
-  margin-top: clamp(64px, 7vw, 96px);
-}
-
-/* La feuille reste en retrait à droite : le titre de Studio Web domine, la démo l'illustre. */
-.hero-stage .hero-sheet,
-.hero-stage .hero-caption {
-  max-width: 840px;
-  margin-left: auto;
-}
-
-/* La feuille : le plan relevé sur la démo, puis la page réelle. */
-.hero-sheet,
-.compare {
-  --reveal: 100%;
-  position: relative;
-  margin: 0;
-  aspect-ratio: 1440 / 900;
-  border: 1px solid var(--filet-fort);
-  border-radius: 8px;
-  background: var(--ardoise);
-}
-
-.hero-real,
-.compare-real {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 7px;
-  object-fit: cover;
-  clip-path: inset(0 calc(100% - var(--reveal)) 0 0);
-}
-
-.hero-plan,
-.compare-plan {
-  position: absolute;
-  inset: 0;
-  clip-path: inset(-12% -12% -12% var(--reveal));
-  pointer-events: none;
-}
-
-/* Le cadre et les cotes restent tracés : la page se lit « du plan au réel » même immobile. */
-.hero-cotes,
-.compare-cotes {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* La viewBox du plan déborde de 56 unités pour loger les cotes. */
-.plan-drawing {
-  position: absolute;
-  top: -6.222%;
-  left: -3.889%;
-  width: 107.778%;
-  height: 112.444%;
-  overflow: visible;
-}
-
-.plan-stroke {
-  fill: none;
-  stroke: var(--bleu);
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-}
-
-.plan-frame {
-  stroke-opacity: 0.7;
-}
-
-.plan-block {
-  stroke-opacity: 0.85;
-}
-
-.plan-head {
-  fill: var(--bleu-voile);
-}
-
-.plan-image {
-  stroke-opacity: 0.6;
-}
-
-.plan-text {
-  stroke-width: 2;
-  stroke-opacity: 0.75;
-}
-
-.plan-cote text {
-  fill: var(--gris);
-  font-family: var(--police-cote);
-  font-size: 22px;
-}
-
-.plan-cote .plan-stroke {
-  stroke: var(--gris);
-  stroke-width: 1;
-}
-
-/* Le trait de séparation entre plan et réel. */
-.compare-split {
-  position: absolute;
-  top: -10px;
-  bottom: -10px;
-  left: var(--reveal);
-  width: 1px;
-  background: var(--bleu);
-  opacity: 0;
-  transition: opacity var(--duree) ease;
-}
-
-.is-comparing .compare-split {
-  opacity: 1;
-}
-
-.hero-caption {
-  margin-top: 60px;
-  color: var(--gris);
-  font-size: 0.95rem;
 }
 
 /* ---------- En-têtes de section ---------- */
@@ -583,67 +475,18 @@ input {
 
 .case-visual {
   min-width: 0;
-  padding: 36px 0 0 44px;
 }
 
-.compare-control {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 60px;
-  color: var(--gris);
-  font-family: var(--police-cote);
-  font-size: 0.9rem;
-}
-
-.compare-control[hidden] {
-  display: none;
-}
-
-.compare-control input {
-  flex: 1;
-  height: 44px;
+.case-shot {
   margin: 0;
-  background: transparent;
-  cursor: pointer;
-  appearance: none;
 }
 
-.compare-control input::-webkit-slider-runnable-track {
-  height: 1px;
-  background: var(--filet-fort);
-}
-
-.compare-control input::-moz-range-track {
-  height: 1px;
-  background: var(--filet-fort);
-}
-
-.compare-control input::-webkit-slider-thumb {
-  width: 20px;
-  height: 20px;
-  margin-top: -10px;
-  border: 2px solid var(--noir);
-  border-radius: 50%;
-  background: var(--bleu);
-  appearance: none;
-  transition: transform var(--duree) ease;
-}
-
-.compare-control input::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--noir);
-  border-radius: 50%;
-  background: var(--bleu);
-}
-
-.compare-control input:hover::-webkit-slider-thumb {
-  transform: scale(1.15);
-}
-
-.compare-control input:focus-visible {
-  outline-offset: 6px;
+.case-shot img {
+  width: 100%;
+  aspect-ratio: 1440 / 900;
+  border: 1px solid var(--filet-fort);
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .case-kind {
@@ -758,7 +601,7 @@ input {
 }
 
 .quote-tag {
-  color: #a9c6ff;
+  color: var(--bleu);
   font-family: var(--police-texte);
   font-size: 0.875rem;
   font-weight: 700;
@@ -935,31 +778,77 @@ input {
   border-top: 1px solid var(--filet);
 }
 
+/* Le portrait à gauche, la présentation à droite : la photo répond au « Bonjour ». */
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-areas:
+    "portrait intro"
+    "portrait copy";
+  grid-template-rows: auto 1fr;
   align-items: start;
-  gap: 48px clamp(48px, 7vw, 104px);
+  gap: 0 clamp(48px, 7vw, 112px);
 }
 
 .about-portrait {
+  position: relative;
+  isolation: isolate;
+  grid-area: portrait;
+  width: 100%;
+  max-width: 440px;
   margin: 0;
 }
 
 .about-portrait img {
   width: 100%;
+  aspect-ratio: 4 / 5;
   border: 1px solid var(--filet-fort);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Un trait bleu d'un pixel, décalé : le seul accent autour du portrait. */
+.about-portrait::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: -24px;
+  bottom: 72px;
+  left: 24px;
+  z-index: -1;
+  border: 1px solid var(--bleu);
   border-radius: 8px;
 }
 
 .about-portrait figcaption {
-  margin-top: 14px;
+  display: grid;
+  gap: 2px;
+  margin-top: 16px;
   color: var(--gris);
   font-size: 0.95rem;
 }
 
-.about-copy h2 {
-  margin-bottom: 26px;
+.about-portrait figcaption strong {
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.about-intro {
+  grid-area: intro;
+  padding-top: clamp(8px, 2vw, 32px);
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--filet);
+  margin-bottom: 32px;
+}
+
+.about-copy {
+  grid-area: copy;
+}
+
+.about-intro h2 {
+  margin-bottom: 22px;
 }
 
 .about-copy p {
@@ -968,7 +857,7 @@ input {
   color: var(--texte-doux);
 }
 
-.about-copy .about-lead {
+.about-intro .about-lead {
   color: var(--texte);
   font-family: var(--police-titre);
   font-size: clamp(1.3rem, 1.9vw, 1.6rem);
@@ -1061,7 +950,7 @@ input {
 }
 
 .faq-list summary:hover {
-  color: #ffffff;
+  color: var(--bleu);
 }
 
 .faq-icon {
@@ -1136,7 +1025,7 @@ details[open] .faq-icon::after {
 }
 
 .contact-email:hover {
-  color: #ffffff;
+  color: var(--bleu);
 }
 
 .contact-actions {
@@ -1257,7 +1146,7 @@ details[open] .faq-icon::after {
 }
 
 .legal-content a:not(.text-link) {
-  color: #a9c6ff;
+  color: var(--bleu);
   font-weight: 700;
   overflow-wrap: anywhere;
 }
@@ -1431,7 +1320,7 @@ details[open] .faq-icon::after {
     font-size: clamp(2.15rem, 9.6vw, 3rem);
   }
 
-  .hero-row,
+  .hero-foot,
   .section-head,
   .service,
   .about-layout,
@@ -1440,30 +1329,37 @@ details[open] .faq-icon::after {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
   .hero-actions .button {
     flex: 1 1 100%;
   }
 
-  .hero-stage {
-    margin-top: 40px;
+  .about-layout {
+    grid-template-areas:
+      "intro"
+      "portrait"
+      "copy";
+    grid-template-rows: auto;
   }
 
-  /* Sur téléphone, seule la cote de largeur reste, assez grande pour être lue. */
-  .plan-cote {
-    display: none;
+  .about-intro {
+    padding-top: 0;
+    border-bottom: 0;
+    margin-bottom: 32px;
+    padding-bottom: 0;
   }
 
-  .plan-rest .plan-cote:first-of-type {
-    display: block;
+  .about-portrait {
+    max-width: 360px;
+    margin-bottom: 40px;
   }
 
-  .plan-rest .plan-cote:first-of-type text {
-    font-size: 64px;
-  }
-
-  .hero-stage,
-  .case-visual {
-    padding-top: 30px;
+  .about-portrait::before {
+    right: -12px;
+    left: 12px;
   }
 
   .quote-columns {
@@ -1490,22 +1386,13 @@ details[open] .faq-icon::after {
     text-align: left;
   }
 
-  .case-visual {
-    padding: 0;
-  }
-
-  .hero-caption,
-  .compare-control {
-    margin-top: 24px;
-  }
-
   .quote-details summary {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     min-height: 44px;
     margin-top: 4px;
-    color: #a9c6ff;
+    color: var(--bleu);
     font-weight: 700;
     cursor: pointer;
     list-style: none;
@@ -1543,8 +1430,8 @@ details[open] .faq-icon::after {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .about-portrait {
-    max-width: 420px;
+  .hero {
+    min-height: auto;
   }
 
   .contact-actions .button {
@@ -1552,7 +1439,7 @@ details[open] .faq-icon::after {
   }
 }
 
-/* ---------- Mouvements réduits : tout est tracé, tout est visible ---------- */
+/* ---------- Mouvements réduits : tout est visible, rien ne bouge ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   html {
