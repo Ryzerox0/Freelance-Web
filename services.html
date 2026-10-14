@@ -8,10 +8,8 @@
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#fbfcfd">
   <link rel="icon" type="image/png" href="images/Logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="plomberie.css?v=31">
+  <link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="plomberie.css?v=42">
   <script src="plomberie.js?v=12" defer></script>
 </head>
 <body>
@@ -65,7 +63,8 @@
       </div>
     </section>
 
-    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+    <div class="colonne">
+    <div class="wrap reseau reseau-vanne" aria-hidden="true"><svg class="jonction" viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg><span class="sens sens-f"></span><span class="sens sens-c"></span></div>
 
     <div class="wrap fiches">
         <article class="fiche" id="depannage" aria-labelledby="depannage-titre">
@@ -135,7 +134,7 @@
         </article>
     </div>
 
-    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+    <div class="wrap reseau reseau-te" aria-hidden="true"><svg class="jonction" viewBox="0 0 30 30"><circle cx="15" cy="15" r="8" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><circle cx="15" cy="15" r="2.5" fill="#1b2127"/></svg><span class="sens sens-f"></span><span class="sens sens-c"></span></div>
 
     <section class="section" aria-labelledby="faq-titre">
       <div class="wrap faq">
@@ -153,7 +152,8 @@
       </div>
     </section>
 
-    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+    <div class="wrap reseau reseau-clapet reseau-arrivee" aria-hidden="true"><svg class="jonction" viewBox="0 0 30 30"><circle cx="15" cy="15" r="11" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M8 22L22 8" stroke="#1b2127" stroke-width="1.6"/></svg><span class="sens sens-f"></span><span class="sens sens-c"></span><span class="piquage"></span></div>
+    </div>
 
     <section class="raccord" aria-labelledby="raccord-titre">
       <div class="wrap">

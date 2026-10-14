@@ -23,7 +23,9 @@ confidentialite.html    Politique de confidentialité
 404.html                Page « introuvable », servie par Cloudflare Pages
 _headers                En-têtes de sécurité et de cache (Cloudflare Pages)
 robots.txt, sitemap.xml Référencement
-images/                 Images du site et des démos
+images/                 Images du site et des démos (dont les schémas SVG de la plomberie)
+fonts/                  Police Archivo de la démo plomberie, hébergée sur le site
+                        (licence SIL OFL : fonts/OFL-Archivo.txt)
 
 demo-plomberie.html, services.html, contact.html, plomberie.css, plomberie.js
                         Démo fictive « Dupont Plomberie » (menu mobile et

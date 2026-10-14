@@ -5,13 +5,14 @@
    une seule famille, Archivo, du très étroit au très large.
    ========================================================= */
 
-/* Police de repli calée sur Archivo large, pour que la page ne saute pas quand la vraie police arrive */
+/* Archivo (licence SIL OFL, voir fonts/OFL-Archivo.txt), hébergée sur le site et préchargée */
 @font-face {
-  font-family: "Archivo repli";
-  src: local("Arial");
-  size-adjust: 112%;
-  ascent-override: 86%;
-  descent-override: 21%;
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("fonts/archivo-latin.woff2") format("woff2");
 }
 
 :root {
@@ -27,7 +28,7 @@
   --chaud: #c4321e;
   --blanc: #ffffff;
 
-  --police: "Archivo", "Archivo repli", Arial, sans-serif;
+  --police: "Archivo", Arial, sans-serif;
   --large: 118;
   --etroit: 72;
 
@@ -783,9 +784,7 @@ ol {
 }
 
 /* Sens d'écoulement, une flèche par fluide */
-.reseau::before,
-.reseau::after {
-  content: "";
+.reseau .sens {
   position: absolute;
   right: 18%;
   width: 12px;
@@ -793,14 +792,120 @@ ol {
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
-.reseau::before {
+.reseau .sens-f {
   top: -7.5px;
   background: var(--froid);
 }
 
-.reseau::after {
+.reseau .sens-c {
   bottom: -7.5px;
   background: var(--chaud);
+}
+
+.reseau-te svg,
+.reseau-union svg,
+.reseau-clapet svg {
+  left: 30%;
+}
+
+.reseau-clapet svg {
+  left: 62%;
+}
+
+/* La colonne montante : le réseau descend de la planche jusqu'au bouton final */
+.colonne {
+  position: relative;
+}
+
+@media (min-width: 1025px) {
+  .colonne {
+    --x-colonne: calc((100% - min(100% - 2 * var(--gouttiere), var(--largeur))) / 2 - 34px);
+  }
+
+  .colonne::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 6px;
+    left: var(--x-colonne);
+    width: 12px;
+    border-left: 3px solid var(--froid);
+    border-right: 3px solid var(--chaud);
+  }
+
+  .colonne-courte::before {
+    bottom: var(--section);
+  }
+
+  /* Chaque tronçon part de la colonne, à angle droit */
+  .colonne .reseau::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    right: 100%;
+    width: 34px;
+    height: 12px;
+    border-top: 3px solid var(--froid);
+    border-bottom: 3px solid var(--chaud);
+  }
+
+  /* Départ : un piquage remonte vers la planche du schéma */
+  .reseau-depart .piquage {
+    position: absolute;
+    right: 26%;
+    bottom: 100%;
+    width: 12px;
+    height: clamp(56px, 7vw, 96px);
+    border-left: 3px solid var(--froid);
+    border-right: 3px solid var(--chaud);
+  }
+
+  /* Arrivée : un piquage descend jusqu'au bouton du raccord final */
+  .reseau-arrivee .piquage {
+    position: absolute;
+    top: 100%;
+    right: 20%;
+    width: 12px;
+    height: calc(var(--section) - 16px);
+    border-left: 3px solid var(--froid);
+    border-right: 3px solid var(--chaud);
+  }
+
+  /* Bouchons en bout de conduite */
+  .reseau-arrivee .piquage::after,
+  .colonne-courte::after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    background: var(--graphite);
+  }
+
+  .reseau-arrivee .piquage::after {
+    bottom: -6px;
+    left: -6px;
+    width: 24px;
+  }
+
+  .colonne-courte::after {
+    bottom: calc(var(--section) - 6px);
+    left: calc(var(--x-colonne) - 6px);
+    width: 24px;
+  }
+
+  .colonne .deroule-zone .conduite {
+    left: -34px;
+  }
+
+  /* Entre deux fiches, une simple branche d'eau froide remplace le filet gris */
+  .colonne .fiche + .fiche::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -34px;
+    width: 120px;
+    height: 3px;
+    background: var(--froid);
+  }
 }
 
 .tete {
@@ -1097,12 +1202,16 @@ ol {
 
 /* Fiches de prestation */
 .fiche {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   align-items: start;
   gap: 32px clamp(32px, 5vw, 80px);
   padding-block: clamp(56px, 7vw, 88px);
-  border-bottom: 1px solid var(--filet);
+}
+
+.fiche + .fiche {
+  border-top: 1px dashed var(--filet);
 }
 
 .fiche:nth-child(even) .releve {
