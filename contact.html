@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Contact | Dupont Plomberie</title><meta content="Contactez Dupont Plomberie pour présenter votre besoin et préparer une demande de devis fictive." name="description"/><meta content="noindex, follow" name="robots"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="plomberie.css?v=9" rel="stylesheet"/></head><body class="plumbing-site"><div aria-hidden="true" class="animation-progress"></div><a class="back-portfolio" href="index.html">← Retour au Site</a><div class="demo-banner">Site de démonstration — entreprise fictive</div><header class="site-header">
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Contact | Dupont Plomberie</title><meta content="Contactez Dupont Plomberie pour présenter votre besoin et préparer une demande de devis fictive." name="description"/><meta content="noindex, follow" name="robots"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="plomberie.css?v=10" rel="stylesheet"/></head><body class="plumbing-site"><div aria-hidden="true" class="animation-progress"></div><a class="back-portfolio" href="index.html">← Retour au Site</a><div class="demo-banner">Site de démonstration — entreprise fictive</div><header class="site-header">
 
     <div class="container header-inner">
 
@@ -106,7 +106,7 @@
 
 
 
-        <form action="mailto:contact@example.fr" class="contact-form" enctype="text/plain" method="post">
+        <form class="contact-form" data-demo-form="">
 
           <div class="form-heading">
 
@@ -176,17 +176,19 @@
 
           <button class="button button-primary form-submit" type="submit">
 
-            Préparer mon message <span>↗</span>
+            Envoyer ma demande <span>↗</span>
 
           </button>
 
 
 
+          <p class="form-status" hidden="" role="status" tabindex="-1"></p>
+
           <p class="form-note">
 
-            Démonstration : le formulaire ouvre le logiciel de messagerie
+            Démonstration : ce formulaire n'envoie aucune donnée
 
-            de votre appareil et n'envoie pas les données à un serveur.
+            et ne contacte personne.
 
           </p>
 
@@ -320,6 +322,26 @@
 
 
 
+
+
+    // Formulaire de démonstration : aucun envoi, simple message de confirmation
+    const demoForm = document.querySelector("[data-demo-form]");
+
+    if (demoForm) {
+      const formStatus = demoForm.querySelector(".form-status");
+
+      demoForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        demoForm.reset();
+
+        if (formStatus) {
+          formStatus.textContent =
+            "Merci ! Ceci est un site de démonstration : votre message n'a été envoyé à personne.";
+          formStatus.hidden = false;
+          formStatus.focus();
+        }
+      });
+    }
 
 
     // Animations d'apparition au défilement
