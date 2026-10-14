@@ -172,7 +172,7 @@ components:
 
 **Creative North Star: « La précision sans effet »**
 
-Studio Web se présente comme un atelier sérieux et clair : on comprend en un écran qui est Baptiste, ce qu'il propose et à partir de quel prix, sans image de démonstration en ouverture. Le monde est un noir bleuté profond, des surfaces ardoise à peine plus claires, des filets d'un pixel et un seul bleu qui sert de lien, de repère et d'action. La précision remplace l'effet : tout est aligné, mesuré et lisible.
+Studio Web se présente comme un atelier sérieux et clair : on comprend en un écran qui est Baptiste et ce qu'il propose : son portrait, son titre, sa présentation et un bouton pour lui écrire, sans image de démonstration en ouverture. Le monde est un noir bleuté profond, des surfaces ardoise à peine plus claires, des filets d'un pixel et un seul bleu qui sert de lien, de repère et d'action. La précision remplace l'effet : tout est aligné, mesuré et lisible.
 
 Décision de l'utilisateur (14/10/2026) : pas d'image de site fictif en haut de page, et pas d'effet d'apparition (tracé, révélation, comparateur) sur les captures des démos. Les démos s'affichent en captures fixes dans la section Réalisations.
 
@@ -183,7 +183,7 @@ Refus confirmés par l'utilisateur et le contrat : aucun effet lumineux, aucun h
 **Key Characteristics:**
 - Noir bleuté, deux ardoises, trois niveaux de texte gris bleuté, un seul bleu.
 - Filets d'un pixel comme unique structure (listes, tableaux, en-têtes, pied de page).
-- Ouverture en texte seul : titre, présentation, bouton, et un encadré « L'essentiel » (prix de départ, devis écrit, interlocuteur, zone).
+- Ouverture sur la personne : titre, présentation et bouton à gauche, portrait noir et blanc de Baptiste à droite.
 - Démos en captures fixes, encadrées d'un filet, sans animation.
 - Mouvement limité au titre qui s'écrit et à la ligne de cote de la méthode.
 - Aucune ombre, aucune lueur, aucun flou.
@@ -293,10 +293,11 @@ Sobres et nets, hauteur généreuse pour le toucher.
 - Sous 960px : bouton à deux barres qui se croisent en X, liste déroulée sur fond noir, liens en Schibsted Grotesk 1.35rem, « Me contacter » en bleu plein.
 - Pages légales et 404 : seulement le logo et « Retour à l'accueil ».
 
-### Encadré « L'essentiel » (ouverture)
-- À droite de la présentation (sept colonnes contre quatre) ; au-dessus de 760px seulement, empilé dessous sur téléphone.
-- Ouvert par un filet fort, lignes séparées par des filets, libellé en gris à gauche, valeur en Schibsted Grotesk 600 à droite (retour à la ligne permis).
-- Contenu uniquement tiré des tarifs et du produit : création dès 600 €, refonte dès 350 €, devis écrit, interlocuteur unique, Marseille et alentours.
+### Ouverture avec portrait
+- Pleine hauteur d'écran (920px au plus), contenu centré verticalement ; grille sept colonnes de texte, cinq pour le portrait.
+- Titre sur quatre lignes équilibrées, présentation, puis le bouton bleu « Écrire à Baptiste » et le lien vers les réalisations.
+- Portrait recadré en 4:5 (largeur maximale 460px), filet fort et angles de 8px ; un second cadre au trait bleu de 1px, décalé de 24px vers la droite et le bas, est le seul accent ; légende avec le nom en Schibsted Grotesk et l'activité en gris.
+- Aucune animation sur le portrait. Sous 760px, le portrait passe sous le bouton (360px au plus).
 
 ### Capture de démo
 - Capture fixe de la page d'accueil de la démo, format 1440/900, filet fort, angles de 8px, chargement différé.
@@ -328,7 +329,7 @@ Questions en Atkinson 700 1.08rem, 66px de haut minimum, séparées par des file
 - **Do** réserver le bleu plein au bouton d'action principale, et utiliser `bleu` en trait de 1px pour tout le reste.
 - **Do** écrire en Fragment Mono uniquement les mesures, numéros, colonnes et noms d'outils.
 - **Do** afficher les prix en Schibsted Grotesk à chiffres tabulaires, sans retour à la ligne.
-- **Do** ouvrir la page sur du texte utile (qui, quoi, à partir de quel prix), sans image de démonstration.
+- **Do** ouvrir la page sur la personne (portrait, titre, présentation, bouton), sans image de démonstration ni encadré de chiffres.
 - **Do** réserver le mouvement au titre et à la ligne de la méthode, une seule fois, et livrer l'état final complet en mouvements réduits ou sans JavaScript.
 - **Do** tenir les cibles à 44px minimum et le texte à 0.95rem minimum.
 

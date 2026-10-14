@@ -349,11 +349,73 @@ input {
 /* ---------- Introduction ---------- */
 
 .hero {
-  padding-top: clamp(48px, 7vw, 104px);
+  display: flex;
+  align-items: center;
+  min-height: min(calc(100svh - var(--hauteur-entete)), 920px);
+  padding-block: clamp(40px, 6vw, 88px);
+}
+
+/* Le texte à gauche, le portrait à droite : on voit tout de suite qui fait le travail. */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: center;
+  gap: 48px clamp(40px, 6vw, 96px);
+}
+
+.hero-text {
+  display: grid;
+  gap: clamp(24px, 3vw, 36px);
+  max-width: 44rem;
+}
+
+.hero-portrait {
+  position: relative;
+  isolation: isolate;
+  justify-self: end;
+  width: 100%;
+  max-width: 460px;
+  margin: 0;
+}
+
+.hero-portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--filet-fort);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Un trait bleu d'un pixel, décalé : le seul accent autour du portrait. */
+.hero-portrait::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: -24px;
+  bottom: 72px;
+  left: 24px;
+  z-index: -1;
+  border: 1px solid var(--bleu);
+  border-radius: 8px;
+}
+
+.hero-portrait figcaption {
+  display: grid;
+  gap: 2px;
+  margin-top: 16px;
+  color: var(--gris);
+  font-size: 0.95rem;
+}
+
+.hero-portrait figcaption strong {
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5.6vw, 5.1rem);
+  font-size: clamp(2.3rem, 4.3vw, 4rem);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.02;
@@ -365,56 +427,6 @@ input {
 
 .hero-title .line-ink {
   display: inline-block;
-}
-
-.hero {
-  padding-bottom: clamp(24px, 4vw, 48px);
-}
-
-/* Sous le titre : la présentation à gauche, l'essentiel à droite. */
-.hero-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
-  align-items: start;
-  gap: 40px clamp(40px, 6vw, 96px);
-  margin-top: clamp(32px, 4vw, 56px);
-}
-
-.hero-row {
-  display: grid;
-  gap: 32px;
-  max-width: 38rem;
-}
-
-.hero-facts {
-  padding-top: 6px;
-  border-top: 1px solid var(--filet-fort);
-}
-
-.hero-facts dl {
-  margin: 0 0 12px;
-}
-
-.hero-facts div {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: baseline;
-  gap: 4px 20px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--filet);
-}
-
-.hero-facts dt {
-  color: var(--gris);
-  font-size: 0.95rem;
-}
-
-.hero-facts dd {
-  margin: 0;
-  color: var(--texte);
-  font-family: var(--police-titre);
-  font-weight: 600;
-  text-align: right;
 }
 
 .hero-lead {
@@ -807,27 +819,12 @@ input {
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  /* intro à gauche, texte et compétences à droite */
   align-items: start;
   gap: 48px clamp(48px, 7vw, 104px);
 }
 
-.about-portrait {
-  margin: 0;
-}
-
-.about-portrait img {
-  width: 100%;
-  border: 1px solid var(--filet-fort);
-  border-radius: 8px;
-}
-
-.about-portrait figcaption {
-  margin-top: 14px;
-  color: var(--gris);
-  font-size: 0.95rem;
-}
-
-.about-copy h2 {
+.about-intro h2 {
   margin-bottom: 26px;
 }
 
@@ -837,7 +834,7 @@ input {
   color: var(--texte-doux);
 }
 
-.about-copy .about-lead {
+.about-intro .about-lead {
   color: var(--texte);
   font-family: var(--police-titre);
   font-size: clamp(1.3rem, 1.9vw, 1.6rem);
@@ -1300,7 +1297,7 @@ details[open] .faq-icon::after {
     font-size: clamp(2.15rem, 9.6vw, 3rem);
   }
 
-  .hero-layout,
+  .hero-grid,
   .section-head,
   .service,
   .about-layout,
@@ -1381,8 +1378,18 @@ details[open] .faq-icon::after {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .about-portrait {
-    max-width: 420px;
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-portrait {
+    justify-self: start;
+    max-width: 360px;
+  }
+
+  .hero-portrait::before {
+    right: -12px;
+    left: 12px;
   }
 
   .contact-actions .button {

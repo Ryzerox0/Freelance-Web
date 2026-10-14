@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&amp;family=Fragment+Mono&amp;family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=27">
+  <link rel="stylesheet" href="style.css?v=29">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="script.js?v=10" defer></script>
@@ -71,35 +71,33 @@
 
     <!-- INTRODUCTION -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap">
-        <h1 id="hero-title" class="hero-title">
-          <span class="line"><span class="line-ink">Des sites vitrines clairs</span></span>
-          <span class="line"><span class="line-ink">pour les artisans et</span></span>
-          <span class="line"><span class="line-ink">commerçants de Marseille.</span></span>
-        </h1>
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <h1 id="hero-title" class="hero-title">
+            <span class="line"><span class="line-ink">Des sites vitrines</span></span>
+            <span class="line"><span class="line-ink">clairs pour les artisans</span></span>
+            <span class="line"><span class="line-ink">et commerçants</span></span>
+            <span class="line"><span class="line-ink">de Marseille.</span></span>
+          </h1>
 
-        <div class="hero-layout">
-          <div class="hero-row">
           <p class="hero-lead">
             Je suis Baptiste Curie-Cadet. Je crée des sites vitrines modernes ou donne un nouvel élan à votre site actuel, pour mettre vos services en valeur, inspirer confiance et aider vos futurs clients à vous contacter.
           </p>
+
           <div class="hero-actions">
             <a class="button button-primary" href="mailto:bcuriecadet@gmail.com?subject=Mon%20projet%20de%20site%20web&amp;body=Bonjour%20Baptiste%2C%0A%0AMon%20activit%C3%A9%20%3A%0A%0ACe%20que%20je%20recherche%20%3A%0A%0AMon%20site%20actuel%20(si%20j'en%20ai%20un)%20%3A%0A%0AMon%20d%C3%A9lai%20souhait%C3%A9%20%3A%0A%0AMerci.">Écrire à Baptiste</a>
             <a class="text-link" href="#realisations">Voir les réalisations</a>
           </div>
         </div>
 
-          <aside class="hero-facts" aria-label="L’essentiel">
-            <dl>
-              <div><dt>Création de site</dt><dd>dès 600&nbsp;€</dd></div>
-              <div><dt>Refonte de site</dt><dd>dès 350&nbsp;€</dd></div>
-              <div><dt>Avant de commencer</dt><dd>un devis écrit</dd></div>
-              <div><dt>Interlocuteur</dt><dd>un seul, du début à la fin</dd></div>
-              <div><dt>Zone</dt><dd>Marseille et alentours</dd></div>
-            </dl>
-            <a class="text-link" href="#offre">Voir tous les tarifs</a>
-          </aside>
-        </div>
+        <figure class="hero-portrait">
+          <img src="images/portrait-accueil.webp"
+            srcset="images/portrait-accueil-600.webp 600w, images/portrait-accueil.webp 1003w"
+            sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1240px) 38vw, 460px"
+            width="1003" height="1254" fetchpriority="high" decoding="async"
+            alt="Portrait de Baptiste Curie-Cadet, créateur indépendant de sites internet">
+          <figcaption><strong>Baptiste Curie-Cadet</strong> Création et refonte de sites, Marseille et alentours</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -383,18 +381,16 @@
     <!-- À PROPOS -->
     <section class="about" id="apropos" aria-labelledby="about-title">
       <div class="wrap about-layout">
-        <figure class="about-portrait">
-          <img src="images/portrait.webp" width="900" height="900" loading="lazy" decoding="async"
-            alt="Portrait de Baptiste Curie-Cadet, créateur indépendant de sites web">
-          <figcaption>Baptiste Curie-Cadet, création et refonte de sites internet</figcaption>
-        </figure>
-
-        <div class="about-copy">
+        <div class="about-intro">
           <h2 id="about-title">Bonjour, je suis Baptiste.</h2>
+
 
           <p class="about-lead">
             Avec Studio Web, j’accompagne les artisans et les commerces locaux qui veulent présenter leur activité avec clarté et personnalité.
           </p>
+        </div>
+
+        <div class="about-copy">
 
           <p>
             Création ou refonte, l’idée est de construire une présence en ligne professionnelle, facile à consulter et adaptée à vos clients. Un bon site met en avant l’essentiel : ce que vous proposez, où vous intervenez, ce qui fait votre différence et comment vous contacter.
