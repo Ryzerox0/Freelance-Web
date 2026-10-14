@@ -3,323 +3,265 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maison Olive | Table méditerranéenne (démo)</title>
-  <meta name="description" content="Maison Olive, restaurant méditerranéen fictif : cuisine de saison, carte généreuse et ambiance chaleureuse. Site de démonstration Studio Web.">
+  <title>Maison Olive · Table méditerranéenne (démo)</title>
+  <meta name="description" content="Maison Olive, restaurant méditerranéen fictif : cuisine du marché, carte du midi et du soir, terrasse. Site de démonstration Studio Web.">
   <meta name="robots" content="noindex, follow">
-  <meta name="theme-color" content="#f8f4e9">
+  <meta name="theme-color" content="#1d3c8f">
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Playfair+Display:ital,wght@0,500;1,500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="restaurant.css?v=5">
-  <script src="restaurant.js?v=2" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&amp;family=Karla:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="restaurant.css?v=23">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="restaurant.js?v=20" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <div class="demo-bar">
-    <div class="container demo-bar-inner">
-      <a href="index.html#realisations">← Retour au portfolio Studio Web</a>
-      <span><strong>Démonstration</strong> · Maison Olive est un restaurant fictif</span>
+    <div class="wrap">
+      <a href="index.html#realisations"><svg class="retour" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 10H4M9 5L4 10l5 5" stroke="currentColor" stroke-width="2"/></svg>Retour au portfolio Studio Web</a>
+      <span>Démonstration : Maison Olive est un restaurant fictif</span>
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#accueil">
-        <span class="brand-mark" aria-hidden="true">M.</span>
-        <span class="brand-name"><strong>MAISON OLIVE</strong><small>TABLE MÉDITERRANÉENNE</small></span>
+  <header class="entete">
+    <div class="wrap">
+      <a class="marque" href="#contenu">
+        <svg viewBox="0 0 42 42" aria-hidden="true">
+          <circle cx="21" cy="21" r="20" fill="#f4b41a"/>
+          <path d="M8 30C13 17 25 10 35 11C31 23 20 30 8 30Z" fill="#1f5a3f"/>
+          <path d="M9 30C17 25 25 19 33 12" fill="none" stroke="#f4b41a" stroke-width="1.5"/>
+          <circle cx="28" cy="27" r="4.5" fill="#10203d"/>
+        </svg>
+        <span>Maison Olive</span>
       </a>
-
-      <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">
-        <span class="menu-bars" aria-hidden="true"></span>
-        <span class="sr-only">Ouvrir le menu</span>
-      </button>
-
-      <nav class="nav" id="menu" aria-label="Navigation principale">
-        <a href="#esprit">Notre esprit</a>
+      <nav class="nav" aria-label="Navigation principale">
         <a href="#carte">La carte</a>
-        <a href="#ambiance">Le lieu</a>
-        <a href="#infos">Infos pratiques</a>
-        <a class="button button-primary" href="#infos">Réserver une table</a>
+        <a href="#lieu">Le lieu</a>
+        <a href="#infos">Infos</a>
+        <a class="bouton" href="#reserver">Réserver</a>
       </nav>
     </div>
   </header>
 
   <main id="contenu">
-    <section class="hero" id="accueil">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">L’esprit de la Méditerranée</p>
-          <h1>Le goût des <em>choses simples.</em></h1>
-          <p class="hero-lead">Des produits de saison, des assiettes généreuses et le plaisir de se retrouver autour d’une belle table.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#carte">Découvrir la carte <span aria-hidden="true">↘</span></a>
-            <a class="text-link" href="#esprit">Notre philosophie <span aria-hidden="true">→</span></a>
+    <section class="affiche" aria-labelledby="titre">
+      <div class="wrap">
+        <h1 id="titre">Maison <span>Olive</span></h1>
+      </div>
+      <div class="wrap affiche-grille">
+        <div class="affiche-texte">
+          <p class="affiche-sous-titre">Table méditerranéenne · midi et soir</p>
+          <p class="affiche-chapeau">Une cuisine du marché, des assiettes à partager et une terrasse à l’ombre des pins. On vous garde une table ?</p>
+        </div>
+        <div class="affiche-scene" aria-hidden="true">
+          <span class="soleil"></span>
+          <figure class="vignette">
+            <img src="images/plat-mediterraneen.webp"
+              srcset="images/plat-mediterraneen-600.webp 600w, images/plat-mediterraneen.webp 1000w"
+              sizes="(max-width: 860px) 66vw, 360px"
+              width="1000" height="667" fetchpriority="high" alt="">
+            <figcaption>La tartine du moment</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="mer" aria-hidden="true"></div>
+    </section>
+
+    <section class="bande-reserver" id="reserver" aria-labelledby="reserver-titre">
+      <div class="wrap">
+        <form data-reservation action="#infos">
+          <h2 class="reserver-titre" id="reserver-titre">Réserver une table</h2>
+          <div class="champ">
+            <label for="jour">Jour</label>
+            <select id="jour" name="jour">
+              <option>Aujourd’hui</option>
+              <option>Demain</option>
+            </select>
           </div>
-          <p class="hero-signature">Du soleil, du goût et du partage.</p>
+          <div class="champ">
+            <label for="heure">Heure</label>
+            <select id="heure" name="heure">
+              <option value="12:30">12 h 30</option>
+              <option value="20:00" selected>20 h</option>
+            </select>
+          </div>
+          <div class="champ">
+            <label for="couverts">Couverts</label>
+            <select id="couverts" name="couverts">
+              <option>1</option>
+              <option selected>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+          <button class="bouton" type="submit">Réserver</button>
+        </form>
+        <p class="reserver-statut" role="status" tabindex="-1" hidden></p>
+        <p class="reserver-note">Démonstration : la réservation n’est pas envoyée. Au-delà de huit personnes, voir les questions plus bas.</p>
+      </div>
+    </section>
+
+    <section class="carte" id="carte" data-moment="dejeuner" aria-labelledby="carte-titre">
+      <div class="wrap">
+        <div class="carte-tete">
+          <h2 id="carte-titre">La carte</h2>
+          <div>
+            <p>Courte, de saison, réécrite chaque semaine avec le marché. Choisissez votre moment :</p>
+            <div class="onglets" role="tablist" aria-label="Moment du repas">
+              <button type="button" role="tab" id="onglet-dejeuner" aria-controls="panneau-dejeuner" aria-selected="true" data-moment="dejeuner">Déjeuner</button>
+              <button type="button" role="tab" id="onglet-diner" aria-controls="panneau-diner" aria-selected="false" tabindex="-1" data-moment="diner">Dîner</button>
+              <button type="button" role="tab" id="onglet-douceurs" aria-controls="panneau-douceurs" aria-selected="false" tabindex="-1" data-moment="douceurs">Douceurs</button>
+            </div>
+          </div>
         </div>
 
-        <figure class="hero-art">
-          <img src="images/plat-mediterraneen.webp"
-            srcset="images/plat-mediterraneen-600.webp 600w, images/plat-mediterraneen.webp 1000w"
-            sizes="(max-width: 880px) calc(100vw - 68px), 480px"
-            width="1000" height="667" fetchpriority="high"
-            alt="Tartine grillée garnie de tomates fraîches et de basilic">
-          <figcaption class="hero-caption">
-            <div><span>Notre art de vivre</span><strong>Simplement, autour de la table.</strong></div>
-            <span class="initial" aria-hidden="true">M.</span>
-          </figcaption>
+        <div class="panneau" id="panneau-dejeuner" role="tabpanel" aria-labelledby="onglet-dejeuner" tabindex="0">
+          <div>
+            <p class="formule"><strong>Formule du midi</strong> · entrée et plat, ou plat et dessert · 19 €</p>
+            <ul class="plats">
+              <li><div class="plat-ligne"><h3>Houmous maison</h3><span class="prix">8 €</span></div><p>Pois chiches, citron, huile d’olive, pain grillé au feu de bois.</p></li>
+              <li><div class="plat-ligne"><h3>Carpaccio de bœuf</h3><span class="prix">14 €</span></div><p>Olives taggiasche, copeaux de parmesan, jeunes pousses.</p></li>
+              <li><div class="plat-ligne"><h3>Gnocchis à la sauge</h3><span class="prix">17 €</span></div><p>Beurre noisette, copeaux de pecorino.</p></li>
+              <li><div class="plat-ligne"><h3>Légumes rôtis du marché</h3><span class="prix">16 €</span></div><p>Semoule aux herbes, sauce au yaourt et citron.</p></li>
+            </ul>
+          </div>
+          <figure class="carte-visuel">
+            <img src="images/carpaccio-480.webp" srcset="images/carpaccio-480.webp 480w, images/carpaccio.webp 800w"
+              sizes="(max-width: 1024px) 360px, 380px" width="800" height="1000" loading="lazy" decoding="async"
+              alt="Carpaccio de bœuf garni d’olives, de copeaux de parmesan et de jeunes pousses">
+            <figcaption>Carpaccio de bœuf</figcaption>
+          </figure>
+        </div>
+
+        <div class="panneau" id="panneau-diner" role="tabpanel" aria-labelledby="onglet-diner" tabindex="0" hidden>
+          <ul class="plats">
+            <li><div class="plat-ligne"><h3>Tartine de tomates rôties</h3><span class="prix">9 €</span></div><p>Pain de campagne, ail confit, origan.</p></li>
+            <li><div class="plat-ligne"><h3>Poisson du jour</h3><span class="prix">22 €</span></div><p>Selon la pêche, fenouil braisé et citron.</p></li>
+            <li><div class="plat-ligne"><h3>Épaule d’agneau confite</h3><span class="prix">24 €</span></div><p>Sept heures au four, pois chiches et jus aux herbes.</p></li>
+            <li><div class="plat-ligne"><h3>Gnocchis à la sauge</h3><span class="prix">17 €</span></div><p>Beurre noisette, copeaux de pecorino.</p></li>
+          </ul>
+          <figure class="carte-visuel">
+            <img src="images/table-dressee.webp" width="700" height="1050" loading="lazy" decoding="async"
+              alt="Bouquet de fleurs des champs et verres sur une table dressée pour le dîner">
+            <figcaption>Le soir, en terrasse</figcaption>
+          </figure>
+        </div>
+
+        <div class="panneau" id="panneau-douceurs" role="tabpanel" aria-labelledby="onglet-douceurs" tabindex="0" hidden>
+          <ul class="plats">
+            <li><div class="plat-ligne"><h3>Panna cotta à la vanille</h3><span class="prix">7 €</span></div><p>Coulis de fruits rouges du moment.</p></li>
+            <li><div class="plat-ligne"><h3>Gâteau au citron</h3><span class="prix">7 €</span></div><p>Moelleux, glaçage acidulé.</p></li>
+            <li><div class="plat-ligne"><h3>Figues rôties</h3><span class="prix">8 €</span></div><p>Miel de lavande, amandes grillées.</p></li>
+            <li><div class="plat-ligne"><h3>Café gourmand</h3><span class="prix">9 €</span></div><p>Trois petites douceurs et un espresso.</p></li>
+          </ul>
+          <p class="formule">Le gâteau au citron se commande aussi entier, la veille, pour six personnes.</p>
+        </div>
+
+        <p class="carte-note">Carte d’exemple : les plats et les prix illustrent la démonstration.</p>
+      </div>
+    </section>
+
+    <section class="lieu" id="lieu" aria-labelledby="lieu-titre">
+      <div class="wrap">
+        <div class="lieu-tete">
+          <h2 id="lieu-titre">Une salle claire, <span>une terrasse à l’ombre.</span></h2>
+          <p>On y vient pour un déjeuner rapide comme pour un long dîner entre amis. Aux beaux jours, toutes les tables passent dehors.</p>
+        </div>
+        <figure class="tirage">
+          <img src="images/interieur-restaurant.webp" width="800" height="533" loading="lazy" decoding="async"
+            alt="Salle de restaurant lumineuse, grandes fenêtres en arche et tables en bois clair">
+          <figcaption><strong>La salle</strong><span>Grandes baies, bois clair, lin. Photo d’illustration.</span></figcaption>
         </figure>
       </div>
-
-      <div class="container">
-        <ul class="hero-values" aria-label="Nos engagements">
-          <li>Produits de saison</li>
-          <li>Inspiration du Sud</li>
-          <li>Plaisir de partager</li>
-        </ul>
-      </div>
     </section>
 
-    <section class="section section-papier" id="esprit" aria-labelledby="esprit-titre">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">L’esprit Maison Olive</p>
-            <h2 id="esprit-titre">Une cuisine sincère. <em>Un moment à partager.</em></h2>
-          </div>
-          <p>De bons produits, des recettes simples et ces repas qui donnent envie de rester un peu plus longtemps.</p>
+    <section class="infos" id="infos" aria-labelledby="infos-titre">
+      <div class="store" aria-hidden="true"></div>
+      <div class="wrap infos-grille">
+        <div>
+          <h2 id="infos-titre">Infos pratiques</h2>
+          <p class="adresse"><strong>Maison Olive</strong>12, place du Marché<br><span class="etiquette">Adresse d’exemple</span></p>
+          <ul class="pratique">
+            <li>
+              <svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 25C14 25 5 16.5 5 11A9 9 0 0 1 23 11C23 16.5 14 25 14 25Z" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="11" r="3" stroke="currentColor" stroke-width="2"/></svg>
+              <span>À deux pas du marché couvert, stationnement sur la place.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="2"/><path d="M14 8V14L18 17" stroke="currentColor" stroke-width="2"/></svg>
+              <span>Cuisine ouverte jusqu’à 22 h 30, 23 h le samedi.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="5.5" r="2.5" stroke="currentColor" stroke-width="2"/><path d="M6 10H22M14 10V17M14 17L9 25M14 17L19 25" stroke="currentColor" stroke-width="2"/></svg>
+              <span>Salle de plain-pied et toilettes accessibles.</span>
+            </li>
+          </ul>
         </div>
 
-        <ul class="value-cards">
-          <li class="value-card">
-            <span class="value-symbol" aria-hidden="true">✳</span>
-            <p class="value-kicker">Les produits</p>
-            <h3>Au rythme des saisons.</h3>
-            <p>Légumes colorés, herbes aromatiques et ingrédients frais pour une cuisine pleine de caractère.</p>
-          </li>
-          <li class="value-card value-card-featured">
-            <span class="value-symbol" aria-hidden="true">◈</span>
-            <p class="value-kicker">La cuisine</p>
-            <h3>Des saveurs généreuses.</h3>
-            <p>Des recettes du Sud où chaque ingrédient trouve sa place, avec équilibre et gourmandise.</p>
-          </li>
-          <li class="value-card">
-            <span class="value-symbol" aria-hidden="true">◎</span>
-            <p class="value-kicker">L’accueil</p>
-            <h3>Le plaisir d’être ensemble.</h3>
-            <p>Un lieu chaleureux pour un déjeuner entre amis, un dîner à deux ou un repas en famille.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
+        <div>
+          <table class="horaires">
+            <caption>Horaires <span class="etiquette">Exemple</span></caption>
+            <thead>
+              <tr><th scope="col">Jour</th><th scope="col">Midi</th><th scope="col">Soir</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Lundi</th><td class="ferme" colspan="2">Fermé</td></tr>
+              <tr><th scope="row">Mardi au vendredi</th><td>12 h – 14 h 30</td><td>19 h – 22 h 30</td></tr>
+              <tr><th scope="row">Samedi</th><td>12 h – 15 h</td><td>19 h – 23 h</td></tr>
+              <tr><th scope="row">Dimanche</th><td class="ferme" colspan="2">Fermé</td></tr>
+            </tbody>
+          </table>
 
-    <section class="section section-sable" id="carte" aria-labelledby="carte-titre">
-      <div class="container menu-layout">
-        <div class="menu-intro">
-          <p class="eyebrow">À la table de Maison Olive</p>
-          <h2 id="carte-titre">De bons produits. <em>De belles assiettes.</em></h2>
-          <p>Une carte courte, qui change avec les saisons : des recettes simples, généreuses et pleines de soleil.</p>
-          <p class="menu-note">Carte d’exemple : les plats et les prix illustrent la démonstration.</p>
-          <a class="text-link" href="#infos">Réserver une table <span aria-hidden="true">→</span></a>
-        </div>
-
-        <div class="menu-paper">
-          <div class="menu-paper-head">
-            <span>Maison Olive</span>
-            <span class="flourish" aria-hidden="true">✳</span>
-            <span>Menu de saison</span>
+          <div class="questions">
+            <details>
+              <summary>Proposez-vous des plats végétariens ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 4V18M4 11H18" stroke="currentColor" stroke-width="2"/></svg></summary>
+              <p>Toujours au moins deux, au déjeuner comme au dîner. Ils sont signalés sur la carte du jour.</p>
+            </details>
+            <details>
+              <summary>Et pour les allergies ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 4V18M4 11H18" stroke="currentColor" stroke-width="2"/></svg></summary>
+              <p>Signalez-les au moment de réserver. L’équipe détaille la composition de chaque plat et adapte ce qui peut l’être.</p>
+            </details>
+            <details>
+              <summary>Peut-on venir à plus de huit ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 4V18M4 11H18" stroke="currentColor" stroke-width="2"/></svg></summary>
+              <p>Avec plaisir. Pour un anniversaire ou un repas d’équipe, la cuisine prépare un menu à partager, sur réservation quelques jours avant.</p>
+            </details>
+            <details>
+              <summary>Les chiens sont-ils acceptés ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M11 4V18M4 11H18" stroke="currentColor" stroke-width="2"/></svg></summary>
+              <p>Oui, en terrasse. Une gamelle d’eau les attend à l’entrée.</p>
+            </details>
           </div>
-
-          <div class="menu-category">
-            <div class="category-head"><h3>Pour commencer</h3><span>À partager</span></div>
-            <article class="dish">
-              <div><h4>Houmous maison</h4><p>Crème de pois chiches, citron, huile d’olive et pain grillé.</p></div>
-              <strong>8 €</strong>
-            </article>
-            <article class="dish dish-with-image">
-              <img src="images/burrata-tomates.webp" width="400" height="267" loading="lazy" decoding="async"
-                alt="Burrata entourée de tomates fraîches et de basilic">
-              <div><h4>Burrata &amp; tomates</h4><p>Tomates de saison, basilic frais et vinaigrette parfumée.</p></div>
-              <strong>12 €</strong>
-            </article>
-          </div>
-
-          <div class="menu-category">
-            <div class="category-head"><h3>Les plats</h3><span>Cuisine du Sud</span></div>
-            <article class="dish dish-with-image">
-              <img src="images/gnocchis-sauge.webp" width="400" height="198" loading="lazy" decoding="async"
-                alt="Gnocchis dorés à la sauge dans une assiette">
-              <div><h4>Gnocchis à la sauge</h4><p>Gnocchis fondants, beurre parfumé et copeaux de fromage.</p></div>
-              <strong>17 €</strong>
-            </article>
-            <article class="dish">
-              <div><h4>Légumes rôtis du marché</h4><p>Légumes de saison, semoule aux herbes et sauce citronnée.</p></div>
-              <strong>16 €</strong>
-            </article>
-            <article class="dish">
-              <div><h4>Poisson du jour</h4><p>Selon la pêche, avec ses légumes et un filet d’huile d’olive.</p></div>
-              <strong>22 €</strong>
-            </article>
-          </div>
-
-          <div class="menu-category">
-            <div class="category-head"><h3>Pour terminer</h3><span>Douceurs</span></div>
-            <article class="dish">
-              <div><h4>Panna cotta à la vanille</h4><p>Crème délicate et coulis de fruits de saison.</p></div>
-              <strong>7 €</strong>
-            </article>
-            <article class="dish">
-              <div><h4>Gâteau au citron</h4><p>Moelleux, frais et légèrement acidulé.</p></div>
-              <strong>7 €</strong>
-            </article>
-          </div>
-
-          <div class="menu-paper-foot">
-            <span>De la saison, du goût, du partage</span>
-            <span>Buon appetito ✳</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="ambiance" aria-labelledby="ambiance-titre">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">L’art de recevoir</p>
-            <h2 id="ambiance-titre">Un esprit du Sud, <em>une atmosphère à part.</em></h2>
-          </div>
-          <p>Des matières naturelles, des couleurs douces et le charme des repas qui s’étirent.</p>
-        </div>
-
-        <div class="atmosphere-grid">
-          <figure class="atmosphere-card">
-            <img src="images/interieur-restaurant.webp" width="800" height="533" loading="lazy" decoding="async"
-              alt="Salle de restaurant lumineuse avec grandes fenêtres en arche">
-            <figcaption>
-              <span>01 · Le lieu</span>
-              <h3>Des matières naturelles.</h3>
-              <p>Bois clair, lin et lumière du jour : une simplicité qui met à l’aise.</p>
-            </figcaption>
-          </figure>
-          <figure class="atmosphere-card">
-            <img src="images/table-dressee.webp" width="700" height="1050" loading="lazy" decoding="async"
-              alt="Bouquet de fleurs et verres sur une table dressée">
-            <figcaption>
-              <span>02 · Les couleurs</span>
-              <h3>Une palette du Sud.</h3>
-              <p>Olive, terre cuite, crème et sable.</p>
-            </figcaption>
-          </figure>
-          <figure class="atmosphere-card">
-            <img src="images/plats-a-partager.webp" width="615" height="523" loading="lazy" decoding="async"
-              alt="Plats méditerranéens disposés au centre de la table pour être partagés">
-            <figcaption>
-              <span>03 · Le partage</span>
-              <h3>Le plaisir d’être ensemble.</h3>
-              <p>Des plats au centre de la table, pour goûter à tout.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-papier" id="infos" aria-labelledby="infos-titre">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Informations pratiques</p>
-            <h2 id="infos-titre">Tout pour préparer <em>votre visite.</em></h2>
-          </div>
-          <p>L’essentiel en un coup d’œil, avant de passer à table. Les informations sont des exemples.</p>
-        </div>
-
-        <ul class="info-grid">
-          <li class="info-card">
-            <span class="info-icon" aria-hidden="true">⌖</span>
-            <h3>Nous trouver</h3>
-            <p>Au cœur du quartier, à deux pas du marché. <strong>Terrasse ombragée aux beaux jours.</strong></p>
-            <span class="info-tag">Adresse d’exemple</span>
-          </li>
-          <li class="info-card">
-            <span class="info-icon" aria-hidden="true">◷</span>
-            <h3>Les horaires</h3>
-            <p>Du mardi au samedi. <strong>12 h – 14 h 30 · 19 h – 22 h 30</strong></p>
-            <span class="info-tag">Horaires d’exemple</span>
-          </li>
-          <li class="info-card">
-            <span class="info-icon" aria-hidden="true">♡</span>
-            <h3>Les réservations</h3>
-            <p>Par téléphone ou en ligne, <strong>jusqu’à la veille au soir.</strong></p>
-            <span class="info-tag">Réservation fictive</span>
-          </li>
-          <li class="info-card">
-            <span class="info-icon" aria-hidden="true">↗</span>
-            <h3>L’accessibilité</h3>
-            <p>Salle de plain-pied, <strong>accueil adapté sur simple demande.</strong></p>
-            <span class="info-tag">Exemple</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section-sable" id="faq" aria-labelledby="faq-titre">
-      <div class="container faq-layout">
-        <div class="faq-intro">
-          <p class="eyebrow">Questions fréquentes</p>
-          <h2 id="faq-titre">Avant de passer <em>à table.</em></h2>
-          <p>Les réponses aux questions que l’on se pose avant de réserver.</p>
-        </div>
-        <div class="faq-list">
-          <details>
-            <summary>La carte change-t-elle selon les saisons ?</summary>
-            <p>Oui : elle suit le marché et se renouvelle avec les produits du moment.</p>
-          </details>
-          <details>
-            <summary>Comment réserver une table ?</summary>
-            <p>Par téléphone ou en ligne, jusqu’à la veille au soir. Pour un repas en terrasse, pensez à le préciser.</p>
-          </details>
-          <details>
-            <summary>Comment connaître les allergènes ?</summary>
-            <p>L’équipe détaille chaque plat sur demande. Signalez une allergie dès la réservation : la cuisine s’adapte quand c’est possible.</p>
-          </details>
-          <details>
-            <summary>Peut-on organiser un repas de groupe ?</summary>
-            <p>Avec plaisir. Anniversaire, repas d’équipe ou fête de famille : un menu à partager peut être préparé pour l’occasion.</p>
-          </details>
         </div>
       </div>
     </section>
 
     <section class="pitch" aria-labelledby="pitch-titre">
-      <div class="container">
-        <p class="eyebrow">Un concept créé par Studio Web</p>
-        <h2 id="pitch-titre">Votre activité mérite un site <em>à son image.</em></h2>
-        <p class="pitch-lead">Cette démonstration montre comment un site soigné met en valeur un restaurant : son ambiance, sa carte et ses informations pratiques, lisibles sur téléphone.</p>
-        <div class="pitch-actions">
-          <a class="button button-terre" href="index.html#contact">Créer le site de mon activité <span aria-hidden="true">↗</span></a>
-          <a class="button button-ghost" href="demo-plomberie.html">Voir la démo plomberie</a>
+      <div class="wrap">
+        <div>
+          <h2 id="pitch-titre">Chaque métier <span>mérite son site.</span></h2>
+          <p>Maison Olive est un concept imaginé par Studio Web pour montrer comment un site peut donner faim, présenter une carte et simplifier la réservation.</p>
         </div>
-        <p class="pitch-note">Maison Olive est une marque fictive : la carte, les horaires et les réservations sont des exemples.</p>
+        <div class="pitch-actions">
+          <a class="bouton" href="index.html#contact">Parler de mon projet</a>
+          <a class="bouton bouton-clair" href="demo-plomberie.html">Voir la démo plomberie</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-top">
-      <a class="brand" href="#accueil">
-        <span class="brand-mark" aria-hidden="true">M.</span>
-        <span class="brand-name"><strong>MAISON OLIVE</strong><small>TABLE MÉDITERRANÉENNE</small></span>
-      </a>
-      <p class="footer-tagline">Du soleil, du goût et du partage.</p>
-      <a href="#accueil">Retour en haut ↑</a>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="annee">2026</span> Maison Olive, restaurant fictif.</span>
-      <span>Site de démonstration réalisé par <a href="index.html">Studio Web</a>.</span>
+  <footer class="pied">
+    <div class="wrap">
+      <span>© <span id="annee">2026</span> Maison Olive, restaurant fictif · site de démonstration réalisé par <a href="index.html">Studio Web</a></span>
+      <a href="index.html#realisations">Retour au portfolio</a>
     </div>
   </footer>
+
+  <div class="barre-reserver">
+    <a class="bouton" href="#reserver">Réserver une table</a>
+  </div>
 </body>
 </html>

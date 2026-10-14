@@ -3,178 +3,199 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nos services | Dupont Plomberie (démo)</title>
-  <meta name="description" content="Dépannage, installation sanitaire et rénovation de salle de bains : les services de Dupont Plomberie, entreprise fictive.">
+  <title>Services · Dupont Plomberie (démo)</title>
+  <meta name="description" content="Dépannage et fuites, chauffe-eau, installation sanitaire, rénovation de salle de bains : les fiches de prestation de Dupont Plomberie, entreprise fictive.">
   <meta name="robots" content="noindex, follow">
-  <meta name="theme-color" content="#0a2538">
+  <meta name="theme-color" content="#fbfcfd">
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="plomberie.css?v=14">
-  <script src="plomberie.js?v=2" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="plomberie.css?v=31">
+  <script src="plomberie.js?v=12" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <div class="demo-bar">
-    <div class="container demo-bar-inner">
-      <a href="index.html#realisations">← Retour au portfolio Studio Web</a>
-      <span><strong>Démonstration</strong> · Dupont Plomberie est une entreprise fictive</span>
+    <div class="wrap">
+      <a href="index.html#realisations"><svg class="retour" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 10H4M9 5L4 10l5 5" stroke="currentColor" stroke-width="2"/></svg>Retour au portfolio Studio Web</a>
+      <span>Démonstration : Dupont Plomberie est une entreprise fictive</span>
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="demo-plomberie.html">
-          <span class="brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path d="M15 8V19C15 24 19 28 24 28H31C36 28 40 32 40 37" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <path d="M9 8H21M34 37H44" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <circle cx="40" cy="39" r="3.5" fill="currentColor"/>
-            </svg>
-          </span>
-          <span class="brand-text"><strong>DUPONT</strong><span>PLOMBERIE</span></span>
+  <header class="entete">
+    <div class="wrap">
+      <a class="marque" href="demo-plomberie.html">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M7 1V19A15 15 0 0 0 22 34H39" stroke="#1658c4" stroke-width="4"/>
+            <path d="M15 1V19A7 7 0 0 0 22 26H39" stroke="#c4321e" stroke-width="4"/>
+            <path d="M3 9H19M31 30V38" stroke="#1b2127" stroke-width="2"/>
+          </svg>
+        <span class="marque-nom"><strong>Dupont</strong><span class="cote">Plomberie · Chauffe-eau</span></span>
       </a>
 
       <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">
         <span class="menu-bars" aria-hidden="true"></span>
-        <span class="sr-only">Ouvrir le menu</span>
+        <span class="menu-label">Menu</span>
       </button>
 
       <nav class="nav" id="menu" aria-label="Navigation principale">
-        <a href="demo-plomberie.html">Accueil</a><a href="services.html" aria-current="page">Services</a><a href="contact.html">Contact</a>
-        <a class="button button-primary" href="contact.html">Demander un devis <span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="demo-plomberie.html">Accueil</a>
+        <a href="services.html" aria-current="page">Services</a>
+        <a href="contact.html">Contact</a>
+        <a class="bouton" href="contact.html">Demander une intervention</a>
       </nav>
     </div>
   </header>
 
   <main id="contenu">
-    <section class="page-hero on-dark">
-      <div class="container">
+    <section class="page-tete" aria-labelledby="titre">
+      <div class="wrap">
         <div>
-          <p class="eyebrow">Nos services</p>
-          <h1>Des solutions concrètes pour votre <span class="accent">quotidien.</span></h1>
+          <h1 id="titre">Les interventions, repère par repère.</h1>
+          <nav class="sommaire" aria-label="Fiches de prestation">
+            <a href="#depannage"><span class="repere">A</span>Dépannage et fuites</a>
+            <a href="#chauffe-eau"><span class="repere">B</span>Chauffe-eau</a>
+            <a href="#installation"><span class="repere">C</span>Installation</a>
+            <a href="#renovation"><span class="repere">D</span>Rénovation</a>
+          </nav>
         </div>
-        <p>Chaque intervention commence par une écoute attentive et se termine par des explications simples.</p>
+        <p>Ce que couvre chaque prestation, comment elle se déroule et ce que vous pouvez préparer avant le passage de l’artisan.</p>
       </div>
     </section>
 
-    <section class="section section-alt" aria-labelledby="prestations-titre">
-      <div class="container">
-        <h2 class="sr-only" id="prestations-titre">Nos prestations</h2>
-        <ul class="service-cards">
-          <li class="service-card" id="depannage">
-            <img class="service-photo" src="images/depannage-fuite.webp" width="612" height="523" loading="lazy" decoding="async" alt="Plombier réparant une fuite sous un évier">
-            <div class="service-card-body">
-              <span class="service-number" aria-hidden="true">01</span>
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 5C24 5 12 20 12 29A12 12 0 0 0 36 29C36 20 24 5 24 5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/><path d="M18 30C18 34 21 37 25 37" stroke="currentColor" stroke-linecap="round" stroke-width="3"/></svg></span>
-              <h3>Dépannage et réparations</h3>
-              <p>Fuite, robinet qui goutte, chasse d’eau ou canalisation à vérifier : nous trouvons la solution adaptée et durable.</p>
-              <a class="text-link" href="contact.html">Parler d’un dépannage <span aria-hidden="true">→</span></a>
-            </div>
-          </li>
-          <li class="service-card service-card-featured" id="installation">
-            <img class="service-photo" src="images/installation-robinet.webp" width="612" height="526" loading="lazy" decoding="async" alt="Pose d’un robinet chromé sur un lavabo">
-            <div class="service-card-body">
-              <span class="service-number" aria-hidden="true">02</span>
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M8 13H40V39H8V13Z" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/><path d="M15 13V8H33V13M15 22H33M15 28H28" stroke="currentColor" stroke-linecap="round" stroke-width="3"/></svg></span>
-              <h3>Installation sanitaire</h3>
-              <p>Pose ou remplacement de robinetterie, lavabo, évier et équipements sanitaires, raccordements compris.</p>
-              <a class="text-link" href="contact.html">Préparer une installation <span aria-hidden="true">→</span></a>
-            </div>
-          </li>
-          <li class="service-card" id="renovation">
-            <img class="service-photo" src="images/renovation.webp" srcset="images/renovation-600.webp 600w, images/renovation.webp 900w" sizes="(max-width: 1024px) min(640px, calc(100vw - 40px)), 380px" width="900" height="598" loading="lazy" decoding="async" alt="Salle de bains rénovée avec douche et carrelage contemporain">
-            <div class="service-card-body">
-              <span class="service-number" aria-hidden="true">03</span>
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M7 12H41V40H7V12Z" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/><path d="M7 20H41M15 12V20M33 12V20M13 28H20M28 28H35M13 34H20M28 34H35" stroke="currentColor" stroke-linecap="round" stroke-width="3"/><path d="M18 5H30" stroke="currentColor" stroke-linecap="round" stroke-width="3"/></svg></span>
-              <h3>Rénovation de salle de bains</h3>
-              <p>Équipements modernisés, éléments sanitaires remplacés et espace repensé pour votre confort.</p>
-              <a class="text-link" href="contact.html">Imaginer votre projet <span aria-hidden="true">→</span></a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
 
-    <section class="section" aria-labelledby="methode-titre">
-      <div class="container">
-        <div class="section-head">
+    <div class="wrap fiches">
+        <article class="fiche" id="depannage" aria-labelledby="depannage-titre">
+          <figure class="releve">
+            <img src="images/schema-chasse-eau.svg" width="612" height="459" loading="lazy" decoding="async"
+              alt="Coupe d’un réservoir de WC : arrivée d’eau, robinet flotteur et mécanisme de chasse">
+            <figcaption class="cote"><span>Réservoir de chasse d’eau</span><span>Schéma</span></figcaption>
+          </figure>
           <div>
-            <p class="eyebrow">Comment ça se passe</p>
-            <h2 id="methode-titre">Quatre étapes,<br><span class="accent">tout est clair.</span></h2>
+            <div class="fiche-titre"><span class="repere" aria-hidden="true">A</span><h2 id="depannage-titre">Dépannage et fuites</h2></div>
+            <p class="fiche-chapeau">Une fuite ne s’arrange jamais toute seule. On en trouve l’origine, on répare durablement et on vérifie que tout est sec avant de partir.</p>
+            <div class="fiche-colonnes">
+              <div><h3>Ce qu’on fait</h3><ul><li>Recherche de fuite apparente</li><li>Joints, flexibles et robinets remplacés</li><li>Mécanisme de chasse d’eau</li><li>Évier, lavabo ou douche débouchés</li></ul></div>
+              <div><h3>Bon à savoir</h3><ul><li>En attendant, coupez l’eau à la vanne générale</li><li>Une photo du problème aide à préparer le passage</li><li>Un dégât des eaux se déclare à votre assureur</li></ul></div>
+            </div>
+            <a class="lien" href="contact.html?besoin=fuite">Demander cette intervention <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
           </div>
-          <p>Du premier appel à la finition, vous savez toujours où en est votre projet.</p>
-        </div>
-        <ol class="steps">
-          <li><h3>Vous nous contactez</h3><p>Vous décrivez votre besoin ou votre idée en quelques mots.</p></li>
-          <li><h3>Nous faisons le point</h3><p>Nous précisons votre besoin et vous présentons les options.</p></li>
-          <li><h3>Nous intervenons</h3><p>Le travail est réalisé comme convenu, dans le respect de votre intérieur.</p></li>
-          <li><h3>Nous vérifions ensemble</h3><p>Nous contrôlons le résultat et vous donnons les conseils utiles.</p></li>
-        </ol>
-      </div>
-    </section>
+        </article>
+        <article class="fiche" id="chauffe-eau" aria-labelledby="chauffe-eau-titre">
+          <figure class="releve">
+            <img src="images/schema-chauffe-eau.svg" width="460" height="345" loading="lazy" decoding="async"
+              alt="Schéma d’un chauffe-eau : arrivée d’eau froide par le groupe de sécurité, départ d’eau chaude en haut du ballon">
+            <figcaption class="cote"><span>Chauffe-eau et groupe de sécurité</span><span>Schéma</span></figcaption>
+          </figure>
+          <div>
+            <div class="fiche-titre"><span class="repere" aria-hidden="true">B</span><h2 id="chauffe-eau-titre">Chauffe-eau</h2></div>
+            <p class="fiche-chapeau">Plus d’eau chaude, une eau tiède ou un groupe de sécurité qui goutte : on contrôle le ballon pièce par pièce avant de parler de remplacement.</p>
+            <div class="fiche-colonnes">
+              <div><h3>Ce qu’on fait</h3><ul><li>Thermostat et résistance contrôlés</li><li>Groupe de sécurité remplacé</li><li>Détartrage du ballon</li><li>Remplacement d’un chauffe-eau électrique</li></ul></div>
+              <div><h3>Bon à savoir</h3><ul><li>Le groupe de sécurité se manœuvre une fois par mois</li><li>Le modèle et la capacité figurent sur la plaque du ballon</li><li>Une eau très calcaire use le ballon plus vite</li></ul></div>
+            </div>
+            <a class="lien" href="contact.html?besoin=panne">Demander cette intervention <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+          </div>
+        </article>
+        <article class="fiche" id="installation" aria-labelledby="installation-titre">
+          <figure class="releve">
+            <img src="images/schema-lave-linge.svg" width="612" height="459" loading="lazy" decoding="async"
+              alt="Raccordement d’un lave-linge : robinet d’arrêt, flexible d’alimentation et évacuation dans un siphon mural">
+            <figcaption class="cote"><span>Raccordement d’un lave-linge</span><span>Schéma</span></figcaption>
+          </figure>
+          <div>
+            <div class="fiche-titre"><span class="repere" aria-hidden="true">C</span><h2 id="installation-titre">Installation sanitaire</h2></div>
+            <p class="fiche-chapeau">Un nouvel appareil, posé d’aplomb, bien raccordé et réglé. Vous pouvez acheter l’équipement vous-même ou le choisir avec nous.</p>
+            <div class="fiche-colonnes">
+              <div><h3>Ce qu’on fait</h3><ul><li>Lavabo, évier et meuble vasque</li><li>WC suspendu ou au sol</li><li>Mitigeur, douchette, robinet thermostatique</li><li>Raccordement lave-linge et lave-vaisselle</li></ul></div>
+              <div><h3>Bon à savoir</h3><ul><li>Vérifiez les cotes avant d’acheter un appareil</li><li>Gardez la notice : elle sert au raccordement</li><li>Un WC suspendu demande un bâti adapté</li></ul></div>
+            </div>
+            <a class="lien" href="contact.html?besoin=installation">Demander cette intervention <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+          </div>
+        </article>
+        <article class="fiche" id="renovation" aria-labelledby="renovation-titre">
+          <figure class="releve">
+            <img src="images/renovation.webp" width="900" height="598" loading="lazy" decoding="async"
+              srcset="images/renovation-600.webp 600w, images/renovation.webp 900w" sizes="(max-width: 860px) calc(100vw - 40px), 460px"
+              alt="Salle de bains rénovée avec douche vitrée et carrelage clair">
+            <figcaption class="cote"><span>Salle de bains rénovée</span><span>Photo d’illustration</span></figcaption>
+          </figure>
+          <div>
+            <div class="fiche-titre"><span class="repere" aria-hidden="true">D</span><h2 id="renovation-titre">Rénovation de salle de bains</h2></div>
+            <p class="fiche-chapeau">On repart des arrivées et des évacuations pour que la nouvelle pièce fonctionne aussi bien qu’elle en a l’air : réseau refait, équipements posés, finitions propres.</p>
+            <div class="fiche-colonnes">
+              <div><h3>Ce qu’on fait</h3><ul><li>Baignoire remplacée par une douche</li><li>Réseau d’eau et évacuations refaits</li><li>Pose des équipements sanitaires</li><li>Coordination avec le carreleur si besoin</li></ul></div>
+              <div><h3>Bon à savoir</h3><ul><li>Une visite pour mesurer précède le devis</li><li>Les équipements se choisissent avant le chantier</li><li>La pièce reste inutilisable quelques jours</li></ul></div>
+            </div>
+            <a class="lien" href="contact.html?besoin=renovation">Demander cette intervention <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+          </div>
+        </article>
+    </div>
 
-    <section class="section on-dark" aria-labelledby="faq-titre">
-      <div class="container faq-grid">
-        <div class="faq-intro">
-          <p class="eyebrow">Vos questions</p>
-          <h2 id="faq-titre">Avant de vous lancer.</h2>
-          <p>Les réponses aux questions qu’on nous pose le plus souvent.</p>
-          <a class="text-link" href="contact.html">Poser une autre question <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="faq-list">
-          <details>
-            <summary>Quels travaux réalisez-vous ?</summary>
-            <p>Le dépannage, les réparations, l’installation sanitaire et la rénovation de salle de bains. Chaque demande est étudiée selon votre logement.</p>
-          </details>
-          <details>
-            <summary>Comment obtenir un devis ?</summary>
-            <p>Décrivez votre besoin avec le formulaire de contact. Nous revenons vers vous pour préciser la demande et vous proposer un devis clair.</p>
-          </details>
-          <details>
-            <summary>Intervenez-vous en urgence ?</summary>
-            <p>Oui, selon le problème, votre adresse et le planning. Contactez-nous en décrivant la situation : nous vous indiquons le délai possible.</p>
-          </details>
-          <details>
-            <summary>Puis-je demander conseil avant des travaux ?</summary>
-            <p>Bien sûr. Présenter votre projet en amont permet de fixer les priorités et de choisir les solutions les plus adaptées.</p>
-          </details>
-        </div>
-      </div>
-    </section>
+    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
 
-    <section class="cta-band">
-      <div class="container cta-inner">
+    <section class="section" aria-labelledby="faq-titre">
+      <div class="wrap faq">
         <div>
-          <p class="eyebrow">À votre service</p>
-          <h2>Un projet en tête ?</h2>
-          <p>Décrivez votre besoin en quelques lignes : nous vous répondons avec une proposition claire.</p>
+          <h2 id="faq-titre">Les questions qu’on nous pose.</h2>
+          <a class="lien" href="contact.html">Poser la vôtre <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
         </div>
-        <a class="button button-dark" href="contact.html">Demander un devis <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="faq-liste">
+          <details><summary>Intervenez-vous le week-end ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M8 4l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg></summary><p>Pour une vraie urgence, oui, selon les disponibilités. Décrivez la situation dans le bon de demande : on vous dit vite ce qui est possible.</p></details>
+          <details><summary>Le déplacement est-il facturé ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M8 4l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg></summary><p>Il figure sur le devis, avant toute intervention. Rien ne s’ajoute au moment de payer.</p></details>
+          <details><summary>Faut-il être présent pendant les travaux ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M8 4l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg></summary><p>Au début et à la fin : pour montrer le problème, puis pour la remise en eau et les explications. Entre les deux, vous êtes libre.</p></details>
+          <details><summary>Puis-je fournir mes propres équipements ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M8 4l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg></summary><p>Oui. On vérifie simplement avec vous qu’ils conviennent à votre installation avant de les poser.</p></details>
+          <details><summary>Comment préparer la visite ? <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M8 4l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg></summary><p>Dégagez l’accès sous l’évier ou autour du chauffe-eau et repérez la vanne générale. Le reste, on s’en occupe.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+
+    <section class="raccord" aria-labelledby="raccord-titre">
+      <div class="wrap">
+        <h2 id="raccord-titre">Une fuite maintenant ? Coupez l’eau, puis écrivez-nous.</h2>
+        <div>
+          <p>La vanne générale se trouve le plus souvent près du compteur. Le bon de demande se remplit en deux minutes.</p>
+          <a class="bouton" href="contact.html">Remplir le bon de demande <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-top">
-      <a class="brand" href="demo-plomberie.html">
-          <span class="brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path d="M15 8V19C15 24 19 28 24 28H31C36 28 40 32 40 37" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <path d="M9 8H21M34 37H44" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <circle cx="40" cy="39" r="3.5" fill="currentColor"/>
-            </svg>
-          </span>
-          <span class="brand-text"><strong>DUPONT</strong><span>PLOMBERIE</span></span>
-      </a>
-      <p class="footer-tagline">Le souci du détail, jusque dans les tuyaux.</p>
-      <ul class="footer-nav"><li><a href="demo-plomberie.html">Accueil</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="annee">2026</span> Dupont Plomberie, entreprise fictive.</span>
-      <span>Site de démonstration réalisé par <a href="index.html">Studio Web</a>.</span>
+  <footer class="pied">
+    <div class="wrap">
+      <dl class="cartouche">
+        <div>
+          <dt class="cote">Entreprise</dt>
+          <dd><a class="marque" href="demo-plomberie.html"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M7 1V19A15 15 0 0 0 22 34H39" stroke="#1658c4" stroke-width="4"/>
+            <path d="M15 1V19A7 7 0 0 0 22 26H39" stroke="#c4321e" stroke-width="4"/>
+            <path d="M3 9H19M31 30V38" stroke="#1b2127" stroke-width="2"/>
+          </svg><span class="marque-nom"><strong>Dupont</strong><span class="cote">Plomberie · Chauffe-eau</span></span></a></dd>
+        </div>
+        <div>
+          <dt class="cote">Document</dt>
+          <dd>Site de démonstration</dd>
+        </div>
+        <div>
+          <dt class="cote">Statut</dt>
+          <dd>Entreprise fictive, aucune intervention réelle</dd>
+        </div>
+        <div>
+          <dt class="cote">Réalisation</dt>
+          <dd><a href="index.html">Studio Web</a>, <span id="annee">2026</span></dd>
+        </div>
+      </dl>
+      <nav class="pied-nav" aria-label="Pied de page">
+        <a href="demo-plomberie.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Bon de demande</a>
+        <a href="index.html#realisations">Retour au portfolio</a>
+      </nav>
     </div>
   </footer>
 </body>

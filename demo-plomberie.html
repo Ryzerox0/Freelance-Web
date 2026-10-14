@@ -3,182 +3,214 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dupont Plomberie | Artisan plombier (démo)</title>
-  <meta name="description" content="Dupont Plomberie, artisan plombier fictif : dépannage, installation sanitaire et rénovation de salle de bains. Site de démonstration Studio Web.">
+  <title>Dupont Plomberie · Dépannage, chauffe-eau, salle de bains (démo)</title>
+  <meta name="description" content="Dupont Plomberie, artisan plombier fictif : fuites, chauffe-eau, installation sanitaire et rénovation de salle de bains. Site de démonstration Studio Web.">
   <meta name="robots" content="noindex, follow">
-  <meta name="theme-color" content="#0a2538">
+  <meta name="theme-color" content="#fbfcfd">
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="plomberie.css?v=14">
-  <script src="plomberie.js?v=2" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="plomberie.css?v=31">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="plomberie.js?v=12" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <div class="demo-bar">
-    <div class="container demo-bar-inner">
-      <a href="index.html#realisations">← Retour au portfolio Studio Web</a>
-      <span><strong>Démonstration</strong> · Dupont Plomberie est une entreprise fictive</span>
+    <div class="wrap">
+      <a href="index.html#realisations"><svg class="retour" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 10H4M9 5L4 10l5 5" stroke="currentColor" stroke-width="2"/></svg>Retour au portfolio Studio Web</a>
+      <span>Démonstration : Dupont Plomberie est une entreprise fictive</span>
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="demo-plomberie.html">
-          <span class="brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path d="M15 8V19C15 24 19 28 24 28H31C36 28 40 32 40 37" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <path d="M9 8H21M34 37H44" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <circle cx="40" cy="39" r="3.5" fill="currentColor"/>
-            </svg>
-          </span>
-          <span class="brand-text"><strong>DUPONT</strong><span>PLOMBERIE</span></span>
+  <header class="entete">
+    <div class="wrap">
+      <a class="marque" href="demo-plomberie.html">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M7 1V19A15 15 0 0 0 22 34H39" stroke="#1658c4" stroke-width="4"/>
+            <path d="M15 1V19A7 7 0 0 0 22 26H39" stroke="#c4321e" stroke-width="4"/>
+            <path d="M3 9H19M31 30V38" stroke="#1b2127" stroke-width="2"/>
+          </svg>
+        <span class="marque-nom"><strong>Dupont</strong><span class="cote">Plomberie · Chauffe-eau</span></span>
       </a>
 
       <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">
         <span class="menu-bars" aria-hidden="true"></span>
-        <span class="sr-only">Ouvrir le menu</span>
+        <span class="menu-label">Menu</span>
       </button>
 
       <nav class="nav" id="menu" aria-label="Navigation principale">
-        <a href="demo-plomberie.html" aria-current="page">Accueil</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
-        <a class="button button-primary" href="contact.html">Demander un devis <span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="demo-plomberie.html" aria-current="page">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a class="bouton" href="contact.html">Demander une intervention</a>
       </nav>
     </div>
   </header>
 
   <main id="contenu">
-    <section class="hero on-dark">
-      <div class="container hero-grid">
+    <div class="zone-trame">
+    <section class="ouverture" aria-labelledby="titre">
+      <div class="wrap">
         <div>
-          <p class="eyebrow">Votre artisan plombier</p>
-          <h1>La plomberie,<br>en toute <span class="accent">sérénité.</span></h1>
-          <p class="hero-lead">Fuite, installation ou salle de bains à rénover : un artisan qui explique, conseille et soigne chaque finition.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="contact.html">Parler de votre projet <span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="text-link" href="services.html">Découvrir les services <span aria-hidden="true">→</span></a>
-          </div>
-          <p class="hero-note">Un devis clair avant chaque intervention.</p>
+          <h1 id="titre">Une fuite, une panne, un projet : <em>on suit le tuyau.</em></h1>
+          <p class="ouverture-chapeau">Dupont Plomberie dépanne, installe et rénove chez les particuliers. Dites-nous ce qui se passe : on revient vers vous avec un créneau et un devis clair.</p>
+
+          <form class="besoin" action="contact.html" method="get">
+            <fieldset>
+              <legend>Qu’est-ce qui vous amène ?</legend>
+              <div class="choix">
+              <label><input type="radio" name="besoin" value="fuite"><span class="repere">A</span><span>Une fuite d’eau</span></label>
+              <label><input type="radio" name="besoin" value="panne"><span class="repere">B</span><span>Le chauffe-eau ne chauffe plus</span></label>
+              <label><input type="radio" name="besoin" value="installation"><span class="repere">C</span><span>Installer un appareil</span></label>
+              <label><input type="radio" name="besoin" value="renovation"><span class="repere">D</span><span>Rénover la salle de bains</span></label>
+              </div>
+            </fieldset>
+            <button class="bouton" type="submit">Demander une intervention <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></button>
+            <p class="besoin-note">Vous arrivez sur le bon de demande, avec votre besoin déjà indiqué.</p>
+          </form>
         </div>
 
-        <figure class="hero-visual">
-          <img class="hero-photo" src="images/plombier-intervention.webp" width="616" height="532" fetchpriority="high"
-            alt="Plombier en intervention sous un évier">
-          <figcaption class="hero-caption">
-            <div><span>Notre engagement</span><strong>Du travail bien fait.</strong></div>
-          </figcaption>
+        <figure class="planche">
+          <div class="planche-entete">
+            <span class="cote">Planche · Salle de bains type</span>
+            <span class="legende-fluides cote"><span class="froid">Eau froide</span><span class="chaud">Eau chaude</span></span>
+          </div>
+          <svg class="schema" viewBox="0 0 640 590" role="img" aria-labelledby="schema-titre"><title id="schema-titre">Schéma d’une salle de bains : arrivée d’eau, chauffe-eau, lavabo, WC et douche, avec les tuyaux d’eau froide en bleu et d’eau chaude en rouge</title><g class="piece"><polygon class="mur mur-droit" points="300.0,254.0 566.7,408.0 566.7,184.0 300.0,30.0"/><polygon class="mur mur-gauche" points="300.0,254.0 57.5,394.0 57.5,170.0 300.0,30.0"/><polygon class="sol" points="300.0,254.0 566.7,408.0 324.2,548.0 57.5,394.0"/><polyline class="joint" points="324.2,268.0 81.8,408.0" pathLength="1"/><polyline class="joint" points="348.5,282.0 106.0,422.0" pathLength="1"/><polyline class="joint" points="372.7,296.0 130.3,436.0" pathLength="1"/><polyline class="joint" points="397.0,310.0 154.5,450.0" pathLength="1"/><polyline class="joint" points="421.2,324.0 178.8,464.0" pathLength="1"/><polyline class="joint" points="445.5,338.0 203.0,478.0" pathLength="1"/><polyline class="joint" points="469.7,352.0 227.3,492.0" pathLength="1"/><polyline class="joint" points="494.0,366.0 251.5,506.0" pathLength="1"/><polyline class="joint" points="518.2,380.0 275.8,520.0" pathLength="1"/><polyline class="joint" points="542.5,394.0 300.0,534.0" pathLength="1"/><polyline class="joint" points="275.8,268.0 542.5,422.0" pathLength="1"/><polyline class="joint" points="251.5,282.0 518.2,436.0" pathLength="1"/><polyline class="joint" points="227.3,296.0 494.0,450.0" pathLength="1"/><polyline class="joint" points="203.0,310.0 469.7,464.0" pathLength="1"/><polyline class="joint" points="178.8,324.0 445.5,478.0" pathLength="1"/><polyline class="joint" points="154.5,338.0 421.2,492.0" pathLength="1"/><polyline class="joint" points="130.3,352.0 397.0,506.0" pathLength="1"/><polyline class="joint" points="106.0,366.0 372.7,520.0" pathLength="1"/><polyline class="joint" points="81.8,380.0 348.5,534.0" pathLength="1"/></g><g class="arrivee"><polygon class="vanne face-x" points="306.1,237.9 289.1,247.7 289.1,267.3 306.1,257.5"/><polygon class="vanne face-y" points="277.0,240.7 289.1,247.7 289.1,267.3 277.0,260.3"/><polygon class="vanne face-dessus" points="293.9,230.9 306.1,237.9 289.1,247.7 277.0,240.7"/><g class="repere-plan vanne-plan"><polyline points="291.5,258.9 291.5,378.9"/><circle cx="291.5" cy="258.9" r="3"/><rect x="276.5" y="363.9" width="30" height="30"/><path d="M282.5,369.9 L300.5,387.9 M300.5,369.9 L282.5,387.9"/></g></g><g class="groupe" data-besoin="panne"><polyline class="tuyau froid" points="289.8,248.1 241.3,276.1 241.3,197.7" pathLength="1"/><polygon class="sens sens-froid" points="241.3,228.9 245.5,242.5 237.1,242.5"/><polyline class="tuyau chaud" points="221.9,208.9 221.9,274.7" pathLength="1"/><polygon class="sens sens-chaud" points="221.9,249.8 217.7,236.2 226.1,236.2"/><path class="appareil face-x" d="M220.8,104.9 L220.8,216.9 A34.3,19.8 0 0 0 289.4,216.9 L289.4,104.9 Z"/><ellipse class="appareil face-dessus" cx="255.1" cy="104.9" rx="34.3" ry="19.8"/><path class="vanne-symbole" d="M234.3,222.3 L248.3,222.3 L234.3,240.3 L248.3,240.3 Z"/><g class="repere-plan"><polyline points="255.1,104.9 195.1,74.9"/><circle class="point" cx="255.1" cy="104.9" r="3"/><circle class="pastille" cx="195.1" cy="74.9" r="16"/><text x="195.1" y="80.9" text-anchor="middle">B</text></g></g><g class="groupe" data-besoin="fuite"><polyline class="tuyau froid" points="310.2,248.1 368.4,281.7 368.4,228.5" pathLength="1"/><polygon class="sens sens-froid" points="346.2,268.9 332.3,265.7 336.5,258.5"/><path class="vanne-symbole" d="M361.4,236.3 L375.4,236.3 L361.4,254.3 L375.4,254.3 Z"/><polyline class="tuyau chaud" points="221.9,274.7 292.7,233.8 375.7,281.7 375.7,241.1" pathLength="1"/><polygon class="sens sens-chaud" points="341.1,261.8 327.2,258.6 331.4,251.3"/><polygon class="appareil face-x" points="411.5,234.4 365.5,261.0 365.5,275.0 411.5,248.4"/><polygon class="appareil face-y" points="302.4,224.6 365.5,261.0 365.5,275.0 302.4,238.6"/><polygon class="appareil face-dessus" points="348.5,198.0 411.5,234.4 365.5,261.0 302.4,224.6"/><ellipse class="appareil vasque" cx="355.8" cy="230.2" rx="21.3" ry="12.3"/><polyline class="robinet" points="374.0,219.7 374.0,200.1 361.8,207.1" pathLength="1"/><polyline class="evacuation" points="355.8,244.2 355.8,266.6 370.3,258.2 375.7,255.1" pathLength="1"/><path class="goutte" d="M355.8,267.2 C362.8,277.2 362.8,285.2 355.8,285.2 C348.8,285.2 348.8,277.2 355.8,267.2 Z"/><g class="repere-plan"><polyline points="388.5,247.7 428.5,187.7"/><circle class="point" cx="388.5" cy="247.7" r="3"/><circle class="pastille" cx="428.5" cy="187.7" r="16"/><text x="428.5" y="193.7" text-anchor="middle">A</text></g></g><g class="groupe" data-besoin="installation"><polyline class="tuyau froid" points="368.4,281.7 465.4,337.7 465.4,309.7" pathLength="1"/><polygon class="sens sens-froid" points="423.8,313.7 409.9,310.5 414.1,303.3"/><polygon class="appareil face-x" points="491.6,263.8 478.2,271.5 478.2,327.5 491.6,319.8"/><polygon class="appareil face-y" points="434.6,246.3 478.2,271.5 478.2,327.5 434.6,302.3"/><polygon class="appareil face-dessus" points="447.9,238.6 491.6,263.8 478.2,271.5 434.6,246.3"/><polygon class="appareil face-x" points="469.7,326.8 417.6,356.9 417.6,382.1 469.7,352.0"/><polygon class="appareil face-y" points="390.9,341.5 417.6,356.9 417.6,382.1 390.9,366.7"/><polygon class="appareil face-dessus" points="443.1,311.4 469.7,326.8 417.6,356.9 390.9,341.5"/><ellipse class="appareil vasque" cx="427.3" cy="335.9" rx="14.4" ry="8.3"/><g class="repere-plan"><polyline points="484.3,268.0 524.3,228.0"/><circle class="point" cx="484.3" cy="268.0" r="3"/><circle class="pastille" cx="524.3" cy="228.0" r="16"/><text x="524.3" y="234.0" text-anchor="middle">C</text></g></g><g class="groupe" data-besoin="renovation"><polyline class="tuyau froid" points="241.3,276.1 127.3,341.9 127.3,241.1" pathLength="1"/><polygon class="sens sens-froid" points="177.4,313.0 187.1,302.6 191.3,309.8"/><polyline class="tuyau chaud" points="221.9,274.7 115.2,336.3 115.2,248.1" pathLength="1"/><polygon class="sens sens-chaud" points="161.6,309.5 171.3,299.1 175.5,306.3"/><polygon class="appareil face-x" points="232.1,375.0 149.7,422.6 149.7,430.4 232.1,382.8"/><polygon class="appareil face-y" points="72.1,377.8 149.7,422.6 149.7,430.4 72.1,385.6"/><polygon class="appareil face-dessus" points="154.5,330.2 232.1,375.0 149.7,422.6 72.1,377.8"/><polyline class="robinet" points="121.3,244.6 121.3,169.0 141.2,180.5" pathLength="1"/><ellipse class="appareil vasque" cx="142.4" cy="185.4" rx="11.0" ry="6.3"/><polygon class="mitigeur face-x" points="132.7,234.4 112.1,246.3 112.1,260.3 132.7,248.4"/><polygon class="mitigeur face-y" points="103.1,241.1 112.1,246.3 112.1,260.3 103.1,255.1"/><polygon class="mitigeur face-dessus" points="123.7,229.2 132.7,234.4 112.1,246.3 103.1,241.1"/><g class="repere-plan"><polyline points="110.9,400.2 70.9,440.2"/><circle class="point" cx="110.9" cy="400.2" r="3"/><circle class="pastille" cx="70.9" cy="440.2" r="16"/><text x="70.9" y="446.2" text-anchor="middle">D</text></g></g></svg>
+          <figcaption class="planche-pied" data-schema-legende>Choisissez votre besoin : le réseau concerné s’affiche sur le plan.</figcaption>
         </figure>
-      </div>
-
-      <div class="container">
-        <ul class="hero-values" aria-label="Nos valeurs">
-          <li>Proximité</li>
-          <li>Transparence</li>
-          <li>Travail soigné</li>
-        </ul>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="services-titre">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Nos services</p>
-            <h2 id="services-titre">Trois métiers,<br>un seul interlocuteur.</h2>
-          </div>
-          <p>Du robinet qui goutte à la salle de bains complète, vous gardez le même artisan du premier appel à la finition.</p>
+    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+
+    <section class="section" aria-labelledby="prestations-titre">
+      <div class="wrap">
+        <div class="tete">
+          <h2 id="prestations-titre">Ce qu’on répare, ce qu’on installe.</h2>
+          <p>Quatre familles d’interventions, repérées comme sur un plan. Chaque repère renvoie à sa fiche détaillée.</p>
         </div>
-
-        <ul class="service-cards">
-          <li class="service-card">
-            <div class="service-card-body">
-              <span class="service-number" aria-hidden="true">01</span>
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M24 5C24 5 12 20 12 29A12 12 0 0 0 36 29C36 20 24 5 24 5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/><path d="M18 30C18 34 21 37 25 37" stroke="currentColor" stroke-linecap="round" stroke-width="3"/></svg></span>
-              <h3>Dépannage et réparations</h3>
-              <p>Fuite, chasse d’eau, canalisation : une solution durable, expliquée simplement.</p>
-              <a class="text-link" href="services.html#depannage">En savoir plus <span aria-hidden="true">→</span></a>
-            </div>
-          </li>
-          <li class="service-card service-card-featured">
-            <div class="service-card-body">
-              <span class="service-number" aria-hidden="true">02</span>
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M8 13H40V39H8V13Z" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/><path d="M15 13V8H33V13M15 22H33M15 28H28" stroke="currentColor" stroke-linecap="round" stroke-width="3"/></svg></span>
-              <h3>Installation sanitaire</h3>
-              <p>Robinetterie, lavabo, évier, raccordements : une pose propre et bien réglée.</p>
-              <a class="text-link" href="services.html#installation">En savoir plus <span aria-hidden="true">→</span></a>
-            </div>
-          </li>
-          <li class="service-card">
-            <div class="service-card-body">
-              <span class="service-number" aria-hidden="true">03</span>
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M7 12H41V40H7V12Z" stroke="currentColor" stroke-linejoin="round" stroke-width="3"/><path d="M7 20H41M15 12V20M33 12V20M13 28H20M28 28H35M13 34H20M28 34H35" stroke="currentColor" stroke-linecap="round" stroke-width="3"/><path d="M18 5H30" stroke="currentColor" stroke-linecap="round" stroke-width="3"/></svg></span>
-              <h3>Rénovation de salle de bains</h3>
-              <p>Des équipements modernes et un espace pensé pour votre quotidien.</p>
-              <a class="text-link" href="services.html#renovation">En savoir plus <span aria-hidden="true">→</span></a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section-alt" aria-labelledby="apropos-titre">
-      <div class="container about-grid">
-        <figure class="about-visual">
-          <img class="about-photo" src="images/salle-de-bains.webp"
-            srcset="images/salle-de-bains-600.webp 600w, images/salle-de-bains.webp 1000w"
-            sizes="(max-width: 880px) calc(100vw - 54px), 520px"
-            width="1000" height="1000" loading="lazy" decoding="async"
-            alt="Salle de bains lumineuse avec baignoire et robinetterie chromée">
-          <span class="about-stamp" aria-hidden="true">Fait<br>avec<br>soin</span>
-        </figure>
-
-        <div>
-          <p class="eyebrow">Une approche de proximité</p>
-          <h2 id="apropos-titre">Un artisan à l’écoute,<br>pas seulement un <span class="accent">dépanneur.</span></h2>
-          <p class="about-lead">Bien faire son métier, c’est aussi expliquer, conseiller et respecter votre intérieur.</p>
-          <p class="about-copy">Chez Dupont Plomberie, vous parlez directement à l’artisan. Il vous aide à choisir la bonne solution pour votre logement et soigne chaque détail.</p>
-          <ul class="values">
-            <li><div><strong>Des explications claires</strong><span>Vous savez ce qui est fait, et pourquoi.</span></div></li>
-            <li><div><strong>Un intérieur respecté</strong><span>Une intervention organisée et un espace laissé propre.</span></div></li>
-            <li><div><strong>Des finitions soignées</strong><span>Et des conseils d’entretien pour que tout dure.</span></div></li>
+        <div class="nomenclature">
+          <div class="nomenclature-entete cote" aria-hidden="true"><span>Repère</span><span>Prestation</span><span>Ce que ça couvre</span><span></span></div>
+          <ul>
+            <li>
+              <span class="repere">A</span>
+              <h3>Dépannage et fuites <span class="troncon" aria-hidden="true"><i class="f"></i></span></h3>
+              <p>Fuite sous un évier, robinet qui goutte, chasse d’eau qui coule, évacuation lente ou bouchée.</p>
+              <a class="lien" href="services.html#depannage">La fiche <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+            </li>
+            <li>
+              <span class="repere">B</span>
+              <h3>Chauffe-eau <span class="troncon" aria-hidden="true"><i class="c"></i></span></h3>
+              <p>Eau tiède ou froide, groupe de sécurité qui goutte, ballon entartré ou à remplacer.</p>
+              <a class="lien" href="services.html#chauffe-eau">La fiche <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+            </li>
+            <li>
+              <span class="repere">C</span>
+              <h3>Installation sanitaire <span class="troncon" aria-hidden="true"><i class="f"></i><i class="c"></i></span></h3>
+              <p>Lavabo, évier, WC suspendu, mitigeur, raccordement du lave-linge ou du lave-vaisselle.</p>
+              <a class="lien" href="services.html#installation">La fiche <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+            </li>
+            <li>
+              <span class="repere">D</span>
+              <h3>Rénovation de salle de bains <span class="troncon" aria-hidden="true"><i class="f"></i><i class="c"></i></span></h3>
+              <p>Baignoire remplacée par une douche, réseau refait à neuf, équipements choisis avec vous.</p>
+              <a class="lien" href="services.html#renovation">La fiche <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+            </li>
           </ul>
-          <a class="button button-dark" href="contact.html">Échangeons sur vos besoins <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+
+    <section class="section" aria-labelledby="artisan-titre">
+      <div class="wrap artisan">
+        <figure class="releve">
+          <img src="images/schema-sous-evier.svg" width="616" height="532" loading="lazy" decoding="async"
+            alt="Coupe d’un meuble sous évier : arrivées d’eau froide et chaude, robinets d’arrêt, flexibles vers le mitigeur et siphon">
+          <figcaption class="cote"><span>Coupe sous évier</span><span>Là où se cachent la plupart des fuites</span></figcaption>
+        </figure>
+        <div class="artisan-texte">
+          <h2 id="artisan-titre">Celui qui décroche est celui qui vient.</h2>
+          <p class="chapeau">Pas de standard ni de sous-traitant : l’artisan qui lit votre demande est celui qui fait les travaux.</p>
+          <p>Il prend le temps de regarder, explique ce qu’il a trouvé et vous laisse décider. Les petites réparations se font souvent dans la foulée ; un chantier plus important commence par une visite et un devis.</p>
+          <ol class="notes">
+            <li><svg class="marqueur" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4L17 16V4L3 16Z" fill="#fff" stroke="currentColor" stroke-width="1.6"/></svg><span><strong>Un devis écrit avant d’intervenir</strong>Même pour un dépannage, le prix est annoncé avant de commencer.</span></li>
+            <li><svg class="marqueur" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4L17 16V4L3 16Z" fill="#fff" stroke="currentColor" stroke-width="1.6"/></svg><span><strong>Un chantier protégé</strong>Bâches au sol, meubles déplacés avec soin, pièce laissée propre.</span></li>
+            <li><svg class="marqueur" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 4L17 16V4L3 16Z" fill="#fff" stroke="currentColor" stroke-width="1.6"/></svg><span><strong>Des explications, pas du jargon</strong>Vous savez ce qui a été changé, pourquoi, et comment l’entretenir.</span></li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section class="cta-band">
-      <div class="container cta-inner">
-        <div>
-          <p class="eyebrow">À votre service</p>
-          <h2>Un besoin près de chez vous ?</h2>
-          <p>Indiquez votre adresse et votre besoin : nous vous confirmons notre passage et la suite.</p>
+    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+
+    <section class="section" aria-labelledby="deroule-titre">
+      <div class="wrap">
+        <div class="tete">
+          <h2 id="deroule-titre">Du premier message à la remise en eau.</h2>
+          <p>Une intervention suit toujours le même fil, qu’il s’agisse d’un joint ou d’une salle de bains entière.</p>
         </div>
-        <a class="button button-dark" href="contact.html">Vérifier ma zone <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="deroule-zone">
+          <span class="conduite" aria-hidden="true"><span></span></span>
+          <ol class="deroule">
+            <li><h3>Vous décrivez le problème</h3><p>Avec le bon de demande, en quelques lignes : où, depuis quand, ce que vous avez déjà essayé.</p></li>
+            <li><h3>On convient d’un passage</h3><p>L’artisan revient vers vous, pose les questions utiles et propose un créneau.</p></li>
+            <li><h3>On répare ou on installe</h3><p>Le devis validé, le travail est fait proprement, au prix annoncé.</p></li>
+            <li><h3>On remet en eau ensemble</h3><p>Essais, contrôle d’étanchéité et conseils d’entretien avant de partir.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+
+    <section class="raccord" aria-labelledby="raccord-titre">
+      <div class="wrap">
+        <h2 id="raccord-titre">Une fuite maintenant ? Coupez l’eau, puis écrivez-nous.</h2>
+        <div>
+          <p>La vanne générale se trouve le plus souvent près du compteur. Le bon de demande se remplit en deux minutes.</p>
+          <a class="bouton" href="contact.html">Remplir le bon de demande <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-top">
-      <a class="brand" href="demo-plomberie.html">
-          <span class="brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path d="M15 8V19C15 24 19 28 24 28H31C36 28 40 32 40 37" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <path d="M9 8H21M34 37H44" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <circle cx="40" cy="39" r="3.5" fill="currentColor"/>
-            </svg>
-          </span>
-          <span class="brand-text"><strong>DUPONT</strong><span>PLOMBERIE</span></span>
-      </a>
-      <p class="footer-tagline">Le souci du détail, jusque dans les tuyaux.</p>
-      <ul class="footer-nav"><li><a href="demo-plomberie.html">Accueil</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="annee">2026</span> Dupont Plomberie, entreprise fictive.</span>
-      <span>Site de démonstration réalisé par <a href="index.html">Studio Web</a>.</span>
+  <footer class="pied">
+    <div class="wrap">
+      <dl class="cartouche">
+        <div>
+          <dt class="cote">Entreprise</dt>
+          <dd><a class="marque" href="demo-plomberie.html"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M7 1V19A15 15 0 0 0 22 34H39" stroke="#1658c4" stroke-width="4"/>
+            <path d="M15 1V19A7 7 0 0 0 22 26H39" stroke="#c4321e" stroke-width="4"/>
+            <path d="M3 9H19M31 30V38" stroke="#1b2127" stroke-width="2"/>
+          </svg><span class="marque-nom"><strong>Dupont</strong><span class="cote">Plomberie · Chauffe-eau</span></span></a></dd>
+        </div>
+        <div>
+          <dt class="cote">Document</dt>
+          <dd>Site de démonstration</dd>
+        </div>
+        <div>
+          <dt class="cote">Statut</dt>
+          <dd>Entreprise fictive, aucune intervention réelle</dd>
+        </div>
+        <div>
+          <dt class="cote">Réalisation</dt>
+          <dd><a href="index.html">Studio Web</a>, <span id="annee">2026</span></dd>
+        </div>
+      </dl>
+      <nav class="pied-nav" aria-label="Pied de page">
+        <a href="demo-plomberie.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Bon de demande</a>
+        <a href="index.html#realisations">Retour au portfolio</a>
+      </nav>
     </div>
   </footer>
 </body>

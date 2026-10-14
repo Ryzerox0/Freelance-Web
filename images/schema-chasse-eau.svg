@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 459" width="612" height="459">
+  <title>Coupe d’un réservoir de WC : robinet flotteur, mécanisme de chasse et arrivée d’eau</title>
+  <defs>
+    <pattern id="trame" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#e2e8ee" stroke-width="1"/>
+    </pattern>
+    <marker id="sens" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#1658c4"/>
+    </marker>
+  </defs>
+  <rect width="612" height="459" fill="#ffffff"/>
+  <rect width="612" height="459" fill="url(#trame)"/>
+
+  <!-- Réservoir et niveau d'eau -->
+  <path d="M150 70H462V330H150Z" fill="#ffffff" stroke="#1b2127" stroke-width="1.8"/>
+  <path d="M152 170H460V328H152Z" fill="#e7effb"/>
+  <path d="M152 170H460" stroke="#1658c4" stroke-width="1.2" stroke-dasharray="6 5"/>
+  <path d="M140 60H472V70H140Z" fill="#f1f4f7" stroke="#1b2127" stroke-width="1.6"/>
+
+  <!-- Robinet flotteur -->
+  <path d="M100 400H200V160" fill="none" stroke="#1658c4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-mid="url(#sens)"/>
+  <path d="M188 140H212V160H188Z" fill="#ffffff" stroke="#1b2127" stroke-width="1.6"/>
+  <path d="M212 150H262" stroke="#1b2127" stroke-width="2"/>
+  <rect x="256" y="160" width="40" height="26" rx="13" fill="#ffffff" stroke="#1b2127" stroke-width="1.6"/>
+
+  <!-- Mécanisme de chasse -->
+  <path d="M330 62V110M318 110H342V300H318Z" fill="#ffffff" stroke="#1b2127" stroke-width="1.6"/>
+  <path d="M300 300H360V318H300Z" fill="#f1f4f7" stroke="#1b2127" stroke-width="1.6"/>
+  <path d="M330 318V400" stroke="#46515c" stroke-width="6" stroke-dasharray="1 9" stroke-linecap="round"/>
+
+  <!-- Robinet d'arrêt -->
+  <path d="M124 386L148 414V386L124 414Z" fill="#ffffff" stroke="#1b2127" stroke-width="1.6"/>
+
+  <g font-family="Arial Narrow, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#1b2127">
+    <g stroke="#1b2127" stroke-width="1" fill="none">
+      <path d="M296 173H400V214H486"/>
+      <path d="M342 120H486"/>
+      <path d="M136 400V436H170"/>
+      <path d="M460 170H486V164"/>
+    </g>
+    <circle cx="296" cy="173" r="3"/>
+    <circle cx="342" cy="120" r="3"/>
+    <circle cx="136" cy="400" r="3"/>
+    <text x="492" y="218">FLOTTEUR</text>
+    <text x="492" y="124">MÉCANISME</text>
+    <text x="492" y="160" fill="#1658c4">NIVEAU</text>
+    <text x="176" y="440">ROBINET D’ARRÊT</text>
+    <text x="346" y="410" fill="#46515c">VERS LA CUVETTE</text>
+  </g>
+</svg>

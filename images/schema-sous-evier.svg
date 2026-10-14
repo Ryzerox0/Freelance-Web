@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 616 532" width="616" height="532">
+  <title>Coupe d’un meuble sous évier : robinets d’arrêt, flexibles, mitigeur et siphon</title>
+  <defs>
+    <pattern id="trame" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#e2e8ee" stroke-width="1"/>
+    </pattern>
+    <marker id="sens-froid" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#1658c4"/>
+    </marker>
+    <marker id="sens-chaud" viewBox="0 0 10 10" refX="5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#c4321e"/>
+    </marker>
+  </defs>
+  <rect width="616" height="532" fill="#ffffff"/>
+  <rect width="616" height="532" fill="url(#trame)"/>
+
+  <g fill="none" stroke="#1b2127" stroke-width="1.6" stroke-linejoin="round">
+    <!-- Plan de travail et cuve -->
+    <path d="M70 120H546V140H70Z" fill="#f1f4f7"/>
+    <path d="M190 140V200A20 20 0 0 0 210 220H406A20 20 0 0 0 426 200V140"/>
+    <!-- Meuble -->
+    <path d="M70 140V470H546V140"/>
+    <path d="M70 470H546" stroke-width="2.4"/>
+    <!-- Mitigeur -->
+    <path d="M300 120V62H336V72H312V120" fill="#ffffff"/>
+    <path d="M296 74H286V86" />
+  </g>
+
+  <!-- Évacuation : bonde, siphon, sortie au mur -->
+  <g fill="none" stroke="#46515c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M308 220V286A24 24 0 0 0 356 286V270H546" stroke-dasharray="1 9"/>
+  </g>
+  <path d="M296 286A24 24 0 0 0 368 286" fill="none" stroke="#1b2127" stroke-width="1.6"/>
+
+  <!-- Alimentations : arrivée au mur, robinet d'arrêt, flexible vers le mitigeur -->
+  <g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M70 410H150V370" stroke="#1658c4" marker-end="url(#sens-froid)"/>
+    <path d="M150 340C150 270 268 230 304 140" stroke="#1658c4" marker-start="url(#sens-froid)"/>
+    <path d="M70 440H470V370" stroke="#c4321e" marker-end="url(#sens-chaud)"/>
+    <path d="M470 340C470 270 352 230 316 140" stroke="#c4321e" marker-start="url(#sens-chaud)"/>
+  </g>
+  <!-- Robinets d'arrêt (symbole de vanne) -->
+  <g fill="#ffffff" stroke="#1b2127" stroke-width="1.6">
+    <path d="M138 340L162 370V340L138 370Z"/>
+    <path d="M458 340L482 370V340L458 370Z"/>
+  </g>
+  <path d="M150 355H132M470 355H488" stroke="#1b2127" stroke-width="1.6"/>
+
+  <!-- Repères -->
+  <g font-family="Arial Narrow, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#1b2127">
+    <g stroke="#1b2127" stroke-width="1" fill="none">
+      <path d="M336 66H420"/>
+      <path d="M138 355H100V300H120"/>
+      <path d="M332 310V380H380"/>
+      <path d="M226 260H180V236H200"/>
+    </g>
+    <circle cx="336" cy="66" r="3"/>
+    <circle cx="138" cy="355" r="3"/>
+    <circle cx="332" cy="310" r="3"/>
+    <circle cx="226" cy="260" r="3"/>
+    <text x="426" y="70">MITIGEUR</text>
+    <text x="126" y="304">ROBINET D’ARRÊT</text>
+    <text x="386" y="384">SIPHON</text>
+    <text x="206" y="240">FLEXIBLE</text>
+    <text x="80" y="500" fill="#1658c4">EAU FROIDE</text>
+    <text x="200" y="500" fill="#c4321e">EAU CHAUDE</text>
+    <text x="330" y="500" fill="#46515c">ÉVACUATION</text>
+  </g>
+</svg>

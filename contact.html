@@ -3,129 +3,148 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact | Dupont Plomberie (démo)</title>
-  <meta name="description" content="Contactez Dupont Plomberie, entreprise fictive, pour un devis. Formulaire de démonstration.">
+  <title>Bon de demande · Dupont Plomberie (démo)</title>
+  <meta name="description" content="Décrivez votre besoin à Dupont Plomberie, entreprise fictive. Bon de demande de démonstration, rien n’est envoyé.">
   <meta name="robots" content="noindex, follow">
-  <meta name="theme-color" content="#0a2538">
+  <meta name="theme-color" content="#fbfcfd">
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="plomberie.css?v=14">
-  <script src="plomberie.js?v=2" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="plomberie.css?v=31">
+  <script src="plomberie.js?v=12" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <div class="demo-bar">
-    <div class="container demo-bar-inner">
-      <a href="index.html#realisations">← Retour au portfolio Studio Web</a>
-      <span><strong>Démonstration</strong> · Dupont Plomberie est une entreprise fictive</span>
+    <div class="wrap">
+      <a href="index.html#realisations"><svg class="retour" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M17 10H4M9 5L4 10l5 5" stroke="currentColor" stroke-width="2"/></svg>Retour au portfolio Studio Web</a>
+      <span>Démonstration : Dupont Plomberie est une entreprise fictive</span>
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="demo-plomberie.html">
-          <span class="brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path d="M15 8V19C15 24 19 28 24 28H31C36 28 40 32 40 37" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <path d="M9 8H21M34 37H44" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <circle cx="40" cy="39" r="3.5" fill="currentColor"/>
-            </svg>
-          </span>
-          <span class="brand-text"><strong>DUPONT</strong><span>PLOMBERIE</span></span>
+  <header class="entete">
+    <div class="wrap">
+      <a class="marque" href="demo-plomberie.html">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M7 1V19A15 15 0 0 0 22 34H39" stroke="#1658c4" stroke-width="4"/>
+            <path d="M15 1V19A7 7 0 0 0 22 26H39" stroke="#c4321e" stroke-width="4"/>
+            <path d="M3 9H19M31 30V38" stroke="#1b2127" stroke-width="2"/>
+          </svg>
+        <span class="marque-nom"><strong>Dupont</strong><span class="cote">Plomberie · Chauffe-eau</span></span>
       </a>
 
       <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">
         <span class="menu-bars" aria-hidden="true"></span>
-        <span class="sr-only">Ouvrir le menu</span>
+        <span class="menu-label">Menu</span>
       </button>
 
       <nav class="nav" id="menu" aria-label="Navigation principale">
-        <a href="demo-plomberie.html">Accueil</a><a href="services.html">Services</a><a href="contact.html" aria-current="page">Contact</a>
-        <a class="button button-primary" href="contact.html">Demander un devis <span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="demo-plomberie.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a class="bouton" href="contact.html">Demander une intervention</a>
       </nav>
     </div>
   </header>
 
   <main id="contenu">
-    <section class="contact-section">
-      <div class="container contact-grid">
-        <div class="contact-panel on-dark">
-          <p class="eyebrow">Parlons de votre besoin</p>
-          <h1>Un projet en tête ?<br><span class="accent">Commençons ici.</span></h1>
-          <p>Quelques lignes suffisent pour démarrer la conversation.</p>
-          <img class="contact-photo" src="images/artisan-contact-500.webp"
-            srcset="images/artisan-contact-500.webp 500w, images/artisan-contact.webp 800w"
-            sizes="(max-width: 880px) calc(100vw - 96px), 460px"
-            width="800" height="800" loading="lazy" decoding="async"
-            alt="Artisan plombier souriant, prêt à vous conseiller">
-          <div class="contact-detail">
-            <span class="contact-detail-icon" aria-hidden="true">✉</span>
-            <div>
-              <span class="contact-label">E-mail</span>
-              <a href="mailto:contact@example.fr">contact@example.fr</a>
-            </div>
-          </div>
-          <p class="fine-print">Adresse fictive, utilisée pour la démonstration.</p>
-        </div>
+    <section class="page-tete" aria-labelledby="titre">
+      <div class="wrap">
+        <h1 id="titre">Bon de demande</h1>
+        <p>Décrivez votre besoin : l’artisan revient vers vous avec un créneau et un devis clair.</p>
+      </div>
+    </section>
 
-        <form class="contact-form" data-demo-form novalidate>
-          <div>
-            <h2>Votre demande</h2>
-            <p class="form-intro">Les champs marqués d’un astérisque (*) sont obligatoires.</p>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="nom">Votre nom *</label>
-              <input id="nom" name="nom" type="text" autocomplete="name" placeholder="Jean Dupont" required>
+    <div class="wrap reseau" aria-hidden="true"><svg viewBox="0 0 30 30"><path d="M4 4L26 26V4L4 26Z" fill="#fbfcfd" stroke="#1b2127" stroke-width="1.6"/><path d="M15 15V0M9 0H21" stroke="#1b2127" stroke-width="1.6"/></svg></div>
+
+    <section class="demande" aria-label="Formulaire de demande">
+      <div class="wrap">
+        <form class="bon" data-demo-form novalidate>
+          <div class="bon-entete"><span class="cote">Bon de demande · numéro attribué à réception</span><span class="cote">* champ obligatoire</span></div>
+          <div class="bon-corps">
+            <fieldset>
+              <legend>Votre besoin</legend>
+              <div class="choix">
+              <label><input type="radio" name="besoin" value="fuite" checked><span class="repere">A</span><span>Une fuite d’eau</span></label>
+              <label><input type="radio" name="besoin" value="panne"><span class="repere">B</span><span>Le chauffe-eau ne chauffe plus</span></label>
+              <label><input type="radio" name="besoin" value="installation"><span class="repere">C</span><span>Installer un appareil</span></label>
+              <label><input type="radio" name="besoin" value="renovation"><span class="repere">D</span><span>Rénover la salle de bains</span></label>
+              <label><input type="radio" name="besoin" value="autre"><span class="repere">E</span><span>Autre demande</span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>C’est pour quand ?</legend>
+              <div class="choix">
+              <label><input type="radio" name="delai" value="vite" checked><span class="repere">1</span><span>Dès que possible</span></label>
+              <label><input type="radio" name="delai" value="semaine"><span class="repere">2</span><span>Dans la semaine</span></label>
+              <label><input type="radio" name="delai" value="projet"><span class="repere">3</span><span>Je prépare un projet</span></label>
+              </div>
+            </fieldset>
+            <div class="ligne">
+              <div class="champ"><label for="nom">Votre nom *</label><input id="nom" name="nom" type="text" autocomplete="name" required placeholder="Claire Martin" aria-describedby="nom-erreur"><p class="erreur" id="nom-erreur" hidden></p></div>
+              <div class="champ"><label for="telephone">Téléphone <span class="facultatif">(facultatif)</span></label><input id="telephone" name="telephone" type="tel" autocomplete="tel" aria-describedby="telephone-aide telephone-erreur"><p class="aide" id="telephone-aide">Pour être rappelé plus vite.</p><p class="erreur" id="telephone-erreur" hidden></p></div>
             </div>
-            <div class="form-field">
-              <label for="email">Votre e-mail *</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="jean@exemple.fr" required>
+            <div class="ligne">
+              <div class="champ"><label for="email">Votre e-mail *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="claire.martin@exemple.fr" aria-describedby="email-erreur"><p class="erreur" id="email-erreur" hidden></p></div>
+              <div class="champ"><label for="commune">Commune <span class="facultatif">(facultatif)</span></label><input id="commune" name="commune" type="text" autocomplete="address-level2" aria-describedby="commune-aide commune-erreur"><p class="aide" id="commune-aide">Pour vérifier que vous êtes dans la zone d’intervention.</p><p class="erreur" id="commune-erreur" hidden></p></div>
+            </div>
+            <div class="champ"><label for="message">Ce qui se passe *</label><textarea id="message" name="message" rows="5" required placeholder="Ex. : le robinet de la cuisine fuit à la base depuis hier soir." aria-describedby="message-aide message-erreur"></textarea><p class="aide" id="message-aide">Où, depuis quand, ce que vous avez déjà essayé.</p><p class="erreur" id="message-erreur" hidden></p></div>
+            <div class="envoi">
+              <button class="bouton" type="submit">Envoyer la demande <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></button>
+              <p class="statut" role="status" tabindex="-1" hidden></p>
+              <p class="note-demo">Démonstration : ce bon n’envoie rien. Sur un vrai site, la demande arriverait directement chez l’artisan.</p>
             </div>
           </div>
-          <div class="form-field">
-            <label for="besoin">Votre besoin</label>
-            <select id="besoin" name="besoin">
-              <option value="">Choisissez une prestation</option>
-              <option>Dépannage et réparation</option>
-              <option>Installation sanitaire</option>
-              <option>Rénovation de salle de bains</option>
-              <option>Conseil ou autre demande</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">Votre message *</label>
-            <textarea id="message" name="message" rows="5" placeholder="Décrivez votre besoin en quelques lignes" required></textarea>
-          </div>
-          <button class="button button-primary" type="submit">Envoyer ma demande <span class="arrow" aria-hidden="true">↗</span></button>
-          <p class="form-status" role="status" tabindex="-1" hidden></p>
-          <p class="form-note">Démonstration : le formulaire affiche une confirmation, sans rien envoyer.</p>
         </form>
+
+        <aside class="suite" aria-labelledby="suite-titre">
+          <h2 id="suite-titre">Et ensuite ?</h2>
+          <ol>
+            <li><span class="cote">1</span><span><strong>On lit votre demande</strong>et on revient vers vous pour préciser ce qui est utile.</span></li>
+            <li><span class="cote">2</span><span><strong>On convient d’un passage</strong>au moment qui vous arrange.</span></li>
+            <li><span class="cote">3</span><span><strong>Vous recevez le devis</strong>avant toute intervention, même pour un dépannage.</span></li>
+          </ol>
+          <div class="coordonnees">
+            <p>Par e-mail : <a href="mailto:contact@example.fr">contact@example.fr</a></p>
+            <p class="note-demo">Adresse fictive, utilisée pour la démonstration.</p>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-top">
-      <a class="brand" href="demo-plomberie.html">
-          <span class="brand-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none">
-              <path d="M15 8V19C15 24 19 28 24 28H31C36 28 40 32 40 37" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <path d="M9 8H21M34 37H44" stroke="currentColor" stroke-linecap="round" stroke-width="4"/>
-              <circle cx="40" cy="39" r="3.5" fill="currentColor"/>
-            </svg>
-          </span>
-          <span class="brand-text"><strong>DUPONT</strong><span>PLOMBERIE</span></span>
-      </a>
-      <p class="footer-tagline">Le souci du détail, jusque dans les tuyaux.</p>
-      <ul class="footer-nav"><li><a href="demo-plomberie.html">Accueil</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="annee">2026</span> Dupont Plomberie, entreprise fictive.</span>
-      <span>Site de démonstration réalisé par <a href="index.html">Studio Web</a>.</span>
+  <footer class="pied">
+    <div class="wrap">
+      <dl class="cartouche">
+        <div>
+          <dt class="cote">Entreprise</dt>
+          <dd><a class="marque" href="demo-plomberie.html"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M7 1V19A15 15 0 0 0 22 34H39" stroke="#1658c4" stroke-width="4"/>
+            <path d="M15 1V19A7 7 0 0 0 22 26H39" stroke="#c4321e" stroke-width="4"/>
+            <path d="M3 9H19M31 30V38" stroke="#1b2127" stroke-width="2"/>
+          </svg><span class="marque-nom"><strong>Dupont</strong><span class="cote">Plomberie · Chauffe-eau</span></span></a></dd>
+        </div>
+        <div>
+          <dt class="cote">Document</dt>
+          <dd>Site de démonstration</dd>
+        </div>
+        <div>
+          <dt class="cote">Statut</dt>
+          <dd>Entreprise fictive, aucune intervention réelle</dd>
+        </div>
+        <div>
+          <dt class="cote">Réalisation</dt>
+          <dd><a href="index.html">Studio Web</a>, <span id="annee">2026</span></dd>
+        </div>
+      </dl>
+      <nav class="pied-nav" aria-label="Pied de page">
+        <a href="demo-plomberie.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Bon de demande</a>
+        <a href="index.html#realisations">Retour au portfolio</a>
+      </nav>
     </div>
   </footer>
 </body>
