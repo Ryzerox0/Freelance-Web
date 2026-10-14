@@ -25,10 +25,11 @@ _headers                En-têtes de sécurité et de cache (Cloudflare Pages)
 robots.txt, sitemap.xml Référencement
 images/                 Images du site et des démos
 
-demo-plomberie.html, services.html, contact.html, plomberie.css
-                        Démo fictive « Dupont Plomberie »
-demo-restaurant.html, restaurant.css
-                        Démo fictive « Maison Olive »
+demo-plomberie.html, services.html, contact.html, plomberie.css, plomberie.js
+                        Démo fictive « Dupont Plomberie » (menu mobile et
+                        formulaire de démonstration qui n'envoie rien)
+demo-restaurant.html, restaurant.css, restaurant.js
+                        Démo fictive « Maison Olive » (une seule page)
 
 PRODUCT.md              Ce que fait le site, pour qui, et ce qu'il ne doit
                         jamais affirmer
