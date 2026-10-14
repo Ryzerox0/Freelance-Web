@@ -367,13 +367,54 @@ input {
   display: inline-block;
 }
 
+.hero {
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+
+/* Sous le titre : la présentation à gauche, l'essentiel à droite. */
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  align-items: start;
+  gap: 40px clamp(40px, 6vw, 96px);
+  margin-top: clamp(32px, 4vw, 56px);
+}
+
 .hero-row {
   display: grid;
-  grid-template-columns: minmax(0, 38rem) auto;
-  align-items: end;
-  justify-content: space-between;
-  gap: 28px 56px;
-  margin-top: clamp(28px, 3.6vw, 44px);
+  gap: 32px;
+  max-width: 38rem;
+}
+
+.hero-facts {
+  padding-top: 6px;
+  border-top: 1px solid var(--filet-fort);
+}
+
+.hero-facts dl {
+  margin: 0 0 12px;
+}
+
+.hero-facts div {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 4px 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--filet);
+}
+
+.hero-facts dt {
+  color: var(--gris);
+  font-size: 0.95rem;
+}
+
+.hero-facts dd {
+  margin: 0;
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-weight: 600;
+  text-align: right;
 }
 
 .hero-lead {
@@ -386,129 +427,6 @@ input {
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 28px;
-}
-
-.hero-stage {
-  margin-top: clamp(64px, 7vw, 96px);
-}
-
-/* La feuille reste en retrait à droite : le titre de Studio Web domine, la démo l'illustre. */
-.hero-stage .hero-sheet,
-.hero-stage .hero-caption {
-  max-width: 840px;
-  margin-left: auto;
-}
-
-/* La feuille : le plan relevé sur la démo, puis la page réelle. */
-.hero-sheet,
-.compare {
-  --reveal: 100%;
-  position: relative;
-  margin: 0;
-  aspect-ratio: 1440 / 900;
-  border: 1px solid var(--filet-fort);
-  border-radius: 8px;
-  background: var(--ardoise);
-}
-
-.hero-real,
-.compare-real {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 7px;
-  object-fit: cover;
-  clip-path: inset(0 calc(100% - var(--reveal)) 0 0);
-}
-
-.hero-plan,
-.compare-plan {
-  position: absolute;
-  inset: 0;
-  clip-path: inset(-12% -12% -12% var(--reveal));
-  pointer-events: none;
-}
-
-/* Le cadre et les cotes restent tracés : la page se lit « du plan au réel » même immobile. */
-.hero-cotes,
-.compare-cotes {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* La viewBox du plan déborde de 56 unités pour loger les cotes. */
-.plan-drawing {
-  position: absolute;
-  top: -6.222%;
-  left: -3.889%;
-  width: 107.778%;
-  height: 112.444%;
-  overflow: visible;
-}
-
-.plan-stroke {
-  fill: none;
-  stroke: var(--bleu);
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-}
-
-.plan-frame {
-  stroke-opacity: 0.7;
-}
-
-.plan-block {
-  stroke-opacity: 0.85;
-}
-
-.plan-head {
-  fill: var(--bleu-voile);
-}
-
-.plan-image {
-  stroke-opacity: 0.6;
-}
-
-.plan-text {
-  stroke-width: 2;
-  stroke-opacity: 0.75;
-}
-
-.plan-cote text {
-  fill: var(--gris);
-  font-family: var(--police-cote);
-  font-size: 22px;
-}
-
-.plan-cote .plan-stroke {
-  stroke: var(--gris);
-  stroke-width: 1;
-}
-
-/* Le trait de séparation entre plan et réel. */
-.compare-split {
-  position: absolute;
-  top: -10px;
-  bottom: -10px;
-  left: var(--reveal);
-  width: 1px;
-  background: var(--bleu);
-  opacity: 0;
-  transition: opacity var(--duree) ease;
-}
-
-.is-comparing .compare-split {
-  opacity: 1;
-}
-
-.hero-caption {
-  margin-top: 60px;
-  color: var(--gris);
-  font-size: 0.95rem;
 }
 
 /* ---------- En-têtes de section ---------- */
@@ -583,67 +501,18 @@ input {
 
 .case-visual {
   min-width: 0;
-  padding: 36px 0 0 44px;
 }
 
-.compare-control {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 60px;
-  color: var(--gris);
-  font-family: var(--police-cote);
-  font-size: 0.9rem;
-}
-
-.compare-control[hidden] {
-  display: none;
-}
-
-.compare-control input {
-  flex: 1;
-  height: 44px;
+.case-shot {
   margin: 0;
-  background: transparent;
-  cursor: pointer;
-  appearance: none;
 }
 
-.compare-control input::-webkit-slider-runnable-track {
-  height: 1px;
-  background: var(--filet-fort);
-}
-
-.compare-control input::-moz-range-track {
-  height: 1px;
-  background: var(--filet-fort);
-}
-
-.compare-control input::-webkit-slider-thumb {
-  width: 20px;
-  height: 20px;
-  margin-top: -10px;
-  border: 2px solid var(--noir);
-  border-radius: 50%;
-  background: var(--bleu);
-  appearance: none;
-  transition: transform var(--duree) ease;
-}
-
-.compare-control input::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--noir);
-  border-radius: 50%;
-  background: var(--bleu);
-}
-
-.compare-control input:hover::-webkit-slider-thumb {
-  transform: scale(1.15);
-}
-
-.compare-control input:focus-visible {
-  outline-offset: 6px;
+.case-shot img {
+  width: 100%;
+  aspect-ratio: 1440 / 900;
+  border: 1px solid var(--filet-fort);
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .case-kind {
@@ -1431,7 +1300,7 @@ details[open] .faq-icon::after {
     font-size: clamp(2.15rem, 9.6vw, 3rem);
   }
 
-  .hero-row,
+  .hero-layout,
   .section-head,
   .service,
   .about-layout,
@@ -1442,28 +1311,6 @@ details[open] .faq-icon::after {
 
   .hero-actions .button {
     flex: 1 1 100%;
-  }
-
-  .hero-stage {
-    margin-top: 40px;
-  }
-
-  /* Sur téléphone, seule la cote de largeur reste, assez grande pour être lue. */
-  .plan-cote {
-    display: none;
-  }
-
-  .plan-rest .plan-cote:first-of-type {
-    display: block;
-  }
-
-  .plan-rest .plan-cote:first-of-type text {
-    font-size: 64px;
-  }
-
-  .hero-stage,
-  .case-visual {
-    padding-top: 30px;
   }
 
   .quote-columns {
@@ -1488,15 +1335,6 @@ details[open] .faq-icon::after {
 
   .quote-price {
     text-align: left;
-  }
-
-  .case-visual {
-    padding: 0;
-  }
-
-  .hero-caption,
-  .compare-control {
-    margin-top: 24px;
   }
 
   .quote-details summary {
@@ -1552,7 +1390,7 @@ details[open] .faq-icon::after {
   }
 }
 
-/* ---------- Mouvements réduits : tout est tracé, tout est visible ---------- */
+/* ---------- Mouvements réduits : tout est visible, rien ne bouge ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   html {
