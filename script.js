@@ -85,13 +85,9 @@
   function initializeFaq() {
     document.querySelectorAll(".faq-list details").forEach((item) => {
       const summary = item.querySelector("summary");
-      const indicator = summary?.querySelector("span");
-      if (!summary || !indicator) return;
+      if (!summary) return;
 
-      const update = () => {
-        indicator.textContent = item.open ? "−" : "+";
-        summary.setAttribute("aria-expanded", String(item.open));
-      };
+      const update = () => summary.setAttribute("aria-expanded", String(item.open));
       update();
       item.addEventListener("toggle", update);
     });
