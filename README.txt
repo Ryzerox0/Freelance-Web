@@ -7,9 +7,16 @@ index.html
 style.css
 script.js
 demo-plomberie.html
+services.html          (démo plomberie)
+contact.html           (démo plomberie)
+plomberie.css
 demo-restaurant.html
+restaurant.css
 mentions-legales.html
 confidentialite.html
+robots.txt
+sitemap.xml
+images/
 README.txt
 
 ÉTAPE 1 — INSTALLATION
