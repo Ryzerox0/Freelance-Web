@@ -521,8 +521,6 @@ p {
 .hero-lead {
   max-width: 34rem;
   margin-top: 32px;
-  padding-left: 20px;
-  border-left: 3px solid var(--orange);
   color: var(--texte-clair);
   font-size: 1.15rem;
 }
@@ -592,7 +590,7 @@ p {
   gap: 16px;
   margin: -44px 16px 0;
   padding: 18px 24px;
-  border-left: 6px solid var(--orange);
+  border-top: 2px solid var(--nuit-900);
   background: var(--papier);
   box-shadow: 8px 8px 0 var(--nuit-900);
   color: var(--texte);
@@ -1193,7 +1191,7 @@ p {
 }
 
 .form-field ::placeholder {
-  color: #6b7a85;
+  color: #56656f;
 }
 
 .contact-form .button {
@@ -1204,8 +1202,8 @@ p {
 
 .form-status {
   padding: 14px 16px;
-  border-left: 4px solid var(--orange);
-  background: var(--fond);
+  border: 2px solid var(--nuit-900);
+  background: #ffeadc;
   font-weight: 700;
 }
 
