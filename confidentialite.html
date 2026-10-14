@@ -5,18 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <title>Confidentialité — Studio Web</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=6">
+  <script src="script.js?v=5" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html"><span class="brand-mark">S<span>.</span></span><span class="brand-name">studio<span>web</span></span></a>
-    <a class="nav-cta" href="index.html">← Retour à l'accueil</a>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Studio Web, accueil">
+        <img class="brand-logo" src="images/logo-studio-web.webp" alt="Studio Web" width="632" height="148">
+      </a>
+      <a class="nav-cta button" href="index.html">Retour à l’accueil</a>
+    </div>
   </header>
 
-  <main class="section-wrap subpage-main">
+  <main class="wrap subpage-main">
     <section class="subpage-hero">
-      <p class="eyebrow">DONNÉES ET VIE PRIVÉE</p>
       <h1>Confidentialité</h1>
       <p>Cette notice explique comment les données personnelles peuvent être traitées lors de l'utilisation du portfolio Studio Web. Elle doit correspondre au fonctionnement réel du site et être mise à jour en cas de changement.</p>
     </section>
@@ -25,14 +31,14 @@
       <div class="placeholder-warning">Avant publication, vérifie que cette notice correspond au site réellement déployé, notamment à l'hébergement, aux polices externes, aux journaux techniques et à tout outil ajouté. Le code actuel ne suffit pas à confirmer à lui seul tous les traitements effectués par les prestataires.</div>
 
       <h2>1. Responsable du traitement</h2>
-      <p>Le responsable du traitement est l'éditeur du site, Baptiste Curie-Cadet, sous réserve de confirmer que cette identité correspond bien à l'exploitant réel du site. Pour toute question relative aux données personnelles, tu peux écrire à <a href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>. Les coordonnées légales de l'éditeur figurent dans les <a href="mentions-legales.html">mentions légales</a>.</p>
+      <p>Le responsable du traitement est l'éditeur du site, Baptiste Curie-Cadet, sous réserve de confirmer que cette identité correspond bien à l'exploitant réel du site. Pour toute question relative aux données personnelles, vous pouvez écrire à <a href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>. Les coordonnées légales de l'éditeur figurent dans les <a href="mentions-legales.html">mentions légales</a>.</p>
 
       <h2>2. Données transmises par e-mail</h2>
-      <p>Le lien de contact ouvre une application de messagerie : aucun message n'est envoyé automatiquement par le site. Si tu choisis d'écrire à l'éditeur, celui-ci reçoit les données présentes dans ton e-mail (par exemple, ton adresse e-mail et le contenu du message) pour répondre à ta demande et, si nécessaire, assurer le suivi de l'échange.</p>
-      <p>Le traitement repose sur les démarches précontractuelles demandées par la personne ou, selon le contexte, sur l'intérêt légitime de répondre aux demandes reçues. N'envoie pas de données sensibles ou d'informations qui ne sont pas nécessaires. Les messages sont conservés pendant la durée nécessaire au traitement de la demande, puis supprimés ou archivés lorsque leur conservation est requise par une obligation légale ou nécessaire à la défense de droits. Cette règle doit être appliquée effectivement dans la gestion de la boîte e-mail.</p>
+      <p>Le lien de contact ouvre une application de messagerie : aucun message n'est envoyé automatiquement par le site. Si vous choisissez d'écrire à l'éditeur, celui-ci reçoit les données présentes dans votre e-mail (par exemple, votre adresse e-mail et le contenu du message) pour répondre à votre demande et, si nécessaire, assurer le suivi de l'échange.</p>
+      <p>Le traitement repose sur les démarches précontractuelles demandées par la personne ou, selon le contexte, sur l'intérêt légitime de répondre aux demandes reçues. N'envoyez pas de données sensibles ou d'informations qui ne sont pas nécessaires. Les messages sont conservés pendant la durée nécessaire au traitement de la demande, puis supprimés ou archivés lorsque leur conservation est requise par une obligation légale ou nécessaire à la défense de droits. Cette règle doit être appliquée effectivement dans la gestion de la boîte e-mail.</p>
 
       <h2>3. Bouton de copie de l'adresse e-mail</h2>
-      <p>Le bouton « Copier l'adresse e-mail » utilise la fonction de presse-papiers du navigateur pour copier l'adresse affichée. Il n'envoie pas, à lui seul, de message ou de formulaire à l'éditeur. Le navigateur peut appliquer ses propres règles de sécurité à cette action.</p>
+      <p>Le bouton « Copier l’adresse » utilise la fonction de presse-papiers du navigateur pour copier l'adresse affichée. Il n'envoie pas, à lui seul, de message ou de formulaire à l'éditeur. Le navigateur peut appliquer ses propres règles de sécurité à cette action.</p>
 
       <h2>4. Cookies, traceurs et données techniques</h2>
       <p>Le code du site examiné ne semble pas intégrer d'outil de mesure d'audience ni de publicité ciblée. Cela ne permet toutefois pas d'affirmer qu'aucun cookie ou aucune donnée technique n'est traité : le navigateur, l'hébergeur, un éventuel réseau de diffusion ou tout service ajouté peut produire des journaux techniques (par exemple, adresse IP, date et heure de requête ou informations de navigateur) pour assurer la sécurité et le fonctionnement du service.</p>
@@ -42,9 +48,9 @@
       <p>Le site charge actuellement des polices via Google Fonts. Lorsqu'un navigateur demande ces ressources, certaines données techniques peuvent être transmises à Google. Pour limiter les échanges avec des tiers, les polices peuvent être hébergées localement ou remplacées par des polices système. Si cette modification est effectuée, mets à jour la présente notice en conséquence.</p>
       <p>L'hébergeur et les autres prestataires effectivement utilisés peuvent également traiter des données techniques dans le cadre de leurs services. Leurs rôles, lieux de traitement et conditions applicables doivent être vérifiés à partir de la configuration réelle du site.</p>
 
-      <h2>6. Tes droits</h2>
-      <p>Dans les conditions prévues par la réglementation applicable, tu peux demander l'accès aux données personnelles te concernant, leur rectification, leur effacement, la limitation du traitement ou t'opposer à certains traitements. Tu peux exercer ces droits en écrivant à <a href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a> et en précisant l'objet de ta demande. Une vérification raisonnable de ton identité pourra être demandée si elle est nécessaire pour protéger tes données.</p>
-      <p>Tu peux également introduire une réclamation auprès de la Commission nationale de l'informatique et des libertés (CNIL) si tu estimes que le traitement de tes données ne respecte pas la réglementation.</p>
+      <h2>6. Vos droits</h2>
+      <p>Dans les conditions prévues par la réglementation applicable, vous pouvez demander l'accès aux données personnelles vous concernant, leur rectification, leur effacement, la limitation du traitement ou vous opposer à certains traitements. Vous pouvez exercer ces droits en écrivant à <a href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a> et en précisant l'objet de votre demande. Une vérification raisonnable de votre identité pourra être demandée si elle est nécessaire pour protéger vos données.</p>
+      <p>Vous pouvez également introduire une réclamation auprès de la Commission nationale de l'informatique et des libertés (CNIL) si vous estimez que le traitement de vos données ne respecte pas la réglementation.</p>
 
       <h2>7. Mise à jour de la notice</h2>
       <p>Cette notice doit être mise à jour si le site ajoute un formulaire, des outils statistiques, des cookies ou traceurs, des comptes utilisateurs, des services tiers ou tout autre traitement de données personnelles. La description des traitements, des durées de conservation et des prestataires doit refléter la pratique réelle.</p>
@@ -54,8 +60,20 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-main"><a class="brand" href="index.html"><span class="brand-mark">S<span>.</span></span><span class="brand-name">studio<span>web</span></span></a><p>Studio Web · Portfolio indépendant</p><a class="back-top" href="index.html">Accueil ↑</a></div>
-    <div class="footer-bottom"><span>© <span id="year"></span> Studio Web</span><div><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Studio Web, accueil">
+          <img class="brand-logo" src="images/logo-studio-web.webp" alt="Studio Web" width="632" height="148" loading="lazy">
+        </a>
+        <p>Des sites internet pensés pour valoriser les artisans et commerces locaux, avec un interlocuteur unique et un accompagnement clair.</p>
+      </div>
+      <nav class="footer-links" aria-label="Liens du pied de page">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="index.html">Accueil</a>
+      </nav>
+      <p class="footer-copy">© <span id="year"></span> Studio Web, Baptiste Curie-Cadet</p>
+    </div>
   </footer>
 </body>
 </html>

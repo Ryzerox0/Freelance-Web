@@ -2,12 +2,11 @@
 
 /* =========================================================
    STUDIO WEB — SCRIPT PRINCIPAL
-   Navigation, accessibilité et animations : une seule initialisation.
+   Navigation et accessibilité : une seule initialisation.
    ========================================================= */
 
 (() => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 
   function updateFooterYear() {
     const year = document.querySelector("#year");
@@ -48,7 +47,7 @@
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 760) closeMenu();
+      if (window.innerWidth > 960) closeMenu();
     }, { passive: true });
   }
 
@@ -112,16 +111,11 @@
 
   function initializeScrollEffects() {
     const header = document.querySelector(".site-header");
-    const progress = document.querySelector(".animation-progress");
     let ticking = false;
 
     const update = () => {
       const scrollY = window.scrollY || 0;
       header?.classList.toggle("is-scrolled", scrollY > 18);
-      if (progress && !reduceMotion.matches) {
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        progress.style.transform = `scaleX(${maxScroll > 0 ? Math.min(1, scrollY / maxScroll) : 0})`;
-      }
       ticking = false;
     };
 
@@ -134,57 +128,18 @@
 
     update();
     window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate, { passive: true });
   }
 
-  function initializeScrollReveal() {
-    if (reduceMotion.matches) return;
+  // Sur mobile, les inclusions de chaque tarif sont repliées pour raccourcir la page.
+  // Sans JavaScript, elles restent toutes ouvertes.
+  function initializeQuoteDetails() {
+    const details = document.querySelectorAll(".quote-details");
+    if (!details.length) return;
 
-    const targets = document.querySelectorAll(
-      "main section, .service-card, .project-card, .offer-card, .offer-product-card, .process-card, .process-step, .faq-item, .contact-actions, .about-photo"
-    );
-    if (!targets.length) return;
-
-    document.documentElement.classList.add("js-animations");
-
-    if (!("IntersectionObserver" in window)) return;
-
-    const observer = new IntersectionObserver((entries, currentObserver) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        currentObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
-
-    targets.forEach((element, index) => {
-      if (element.matches(".service-card, .project-card, .offer-card, .offer-product-card, .process-card, .process-step")) {
-        element.style.setProperty("--reveal-delay", `${(index % 3) * 70}ms`);
-      }
-      element.classList.add("reveal-on-scroll");
-      observer.observe(element);
-    });
-  }
-
-  function initializeHeroTilt() {
-    const visual = document.querySelector(".hero-visual");
-    if (!visual || reduceMotion.matches || !finePointer.matches) return;
-
-    let frame = 0;
-    visual.addEventListener("pointermove", (event) => {
-      const rect = visual.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(() => {
-        visual.style.transform = `perspective(1000px) rotateY(${x * 2.5}deg) rotateX(${-y * 2.5}deg)`;
-      });
-    }, { passive: true });
-
-    visual.addEventListener("pointerleave", () => {
-      window.cancelAnimationFrame(frame);
-      visual.style.transform = "";
-    });
+    const mobile = window.matchMedia("(max-width: 760px)");
+    const sync = () => details.forEach((item) => { item.open = !mobile.matches; });
+    sync();
+    mobile.addEventListener("change", sync);
   }
 
   function initializeStudioWeb() {
@@ -194,8 +149,7 @@
     initializeFaq();
     initializeBackToTop();
     initializeScrollEffects();
-    initializeScrollReveal();
-    initializeHeroTilt();
+    initializeQuoteDetails();
   }
 
   if (document.readyState === "loading") {
