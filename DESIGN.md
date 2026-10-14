@@ -1,6 +1,6 @@
 ---
 name: Studio Web
-description: Portfolio de Baptiste Curie-Cadet, créateur de sites vitrines pour artisans et commerçants de Marseille. Fond papier clair, encre sombre, un seul bleu.
+description: Portfolio de Baptiste Curie-Cadet, créateur de sites vitrines pour artisans et commerçants. Fond papier clair, encre sombre, un seul bleu.
 colors:
   noir: "#f4f2ed"
   ardoise: "#ebe8e1"
@@ -292,7 +292,7 @@ Sobres et nets, hauteur généreuse pour le toucher.
 - Pages légales et 404 : seulement le logo et « Retour à l'accueil ».
 
 ### Ouverture
-- Pleine hauteur d'écran (820px au plus), contenu centré verticalement ; titre sur quatre lignes équilibrées, sur toute la largeur (jusqu'à 6rem).
+- Pleine hauteur d'écran (820px au plus), contenu centré verticalement ; titre sur trois lignes équilibrées, sur toute la largeur (jusqu'à 6rem).
 - Sous un filet fort : la présentation à gauche (sept colonnes), le bouton bleu « Écrire à Baptiste » et le lien vers les réalisations alignés à droite (cinq colonnes). Sous 760px, tout s'empile.
 
 ### À propos avec portrait

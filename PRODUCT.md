@@ -8,7 +8,7 @@ web
 
 ## Users
 
-Artisans et commerçants de Marseille et de ses alentours (plombiers, restaurateurs, commerces de proximité) qui n'ont pas de site ou dont le site a vieilli. Ils ne sont pas techniciens : ils veulent comprendre ce qu'ils achètent, combien cela coûte, et pouvoir écrire facilement à quelqu'un de confiance. Ils consultent souvent depuis un téléphone.
+Artisans et commerçants, où qu'ils soient (plombiers, restaurateurs, commerces de proximité) qui n'ont pas de site ou dont le site a vieilli. Ils ne sont pas techniciens : ils veulent comprendre ce qu'ils achètent, combien cela coûte, et pouvoir écrire facilement à quelqu'un de confiance. Ils consultent souvent depuis un téléphone.
 
 ## Product Purpose
 
