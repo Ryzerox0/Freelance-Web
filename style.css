@@ -351,74 +351,25 @@ input {
 .hero {
   display: flex;
   align-items: center;
-  min-height: min(calc(100svh - var(--hauteur-entete)), 920px);
-  padding-block: clamp(40px, 6vw, 88px);
+  min-height: min(calc(100svh - var(--hauteur-entete)), 820px);
+  padding-block: clamp(48px, 7vw, 104px);
 }
 
-/* Le texte à gauche, le portrait à droite : on voit tout de suite qui fait le travail. */
 .hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  align-items: center;
-  gap: 48px clamp(40px, 6vw, 96px);
+  width: 100%;
 }
 
+/* Le titre occupe toute la largeur ; la phrase et les boutons suivent sous un filet. */
 .hero-text {
   display: grid;
-  gap: clamp(24px, 3vw, 36px);
-  max-width: 44rem;
-}
-
-.hero-portrait {
-  position: relative;
-  isolation: isolate;
-  justify-self: end;
-  width: 100%;
-  max-width: 460px;
-  margin: 0;
-}
-
-.hero-portrait img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  border: 1px solid var(--filet-fort);
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-/* Un trait bleu d'un pixel, décalé : le seul accent autour du portrait. */
-.hero-portrait::before {
-  content: "";
-  position: absolute;
-  top: 24px;
-  right: -24px;
-  bottom: 72px;
-  left: 24px;
-  z-index: -1;
-  border: 1px solid var(--bleu);
-  border-radius: 8px;
-}
-
-.hero-portrait figcaption {
-  display: grid;
-  gap: 2px;
-  margin-top: 16px;
-  color: var(--gris);
-  font-size: 0.95rem;
-}
-
-.hero-portrait figcaption strong {
-  color: var(--texte);
-  font-family: var(--police-titre);
-  font-size: 1.05rem;
-  font-weight: 600;
+  gap: clamp(36px, 5vw, 64px);
 }
 
 .hero-title {
-  font-size: clamp(2.3rem, 4.3vw, 4rem);
+  font-size: clamp(2.5rem, 6.4vw, 6rem);
   font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
 .hero-title .line {
@@ -429,7 +380,17 @@ input {
   display: inline-block;
 }
 
+.hero-foot {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: end;
+  gap: 28px clamp(40px, 6vw, 96px);
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid var(--filet-fort);
+}
+
 .hero-lead {
+  max-width: 40rem;
   color: var(--texte-doux);
   font-size: clamp(1.0625rem, 1.3vw, 1.18rem);
 }
@@ -438,6 +399,7 @@ input {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px 28px;
 }
 
@@ -816,16 +778,77 @@ input {
   border-top: 1px solid var(--filet);
 }
 
+/* Le portrait à gauche, la présentation à droite : la photo répond au « Bonjour ». */
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  /* intro à gauche, texte et compétences à droite */
+  grid-template-areas:
+    "portrait intro"
+    "portrait copy";
+  grid-template-rows: auto 1fr;
   align-items: start;
-  gap: 48px clamp(48px, 7vw, 104px);
+  gap: 0 clamp(48px, 7vw, 112px);
+}
+
+.about-portrait {
+  position: relative;
+  isolation: isolate;
+  grid-area: portrait;
+  width: 100%;
+  max-width: 440px;
+  margin: 0;
+}
+
+.about-portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--filet-fort);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Un trait bleu d'un pixel, décalé : le seul accent autour du portrait. */
+.about-portrait::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: -24px;
+  bottom: 72px;
+  left: 24px;
+  z-index: -1;
+  border: 1px solid var(--bleu);
+  border-radius: 8px;
+}
+
+.about-portrait figcaption {
+  display: grid;
+  gap: 2px;
+  margin-top: 16px;
+  color: var(--gris);
+  font-size: 0.95rem;
+}
+
+.about-portrait figcaption strong {
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.about-intro {
+  grid-area: intro;
+  padding-top: clamp(8px, 2vw, 32px);
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--filet);
+  margin-bottom: 32px;
+}
+
+.about-copy {
+  grid-area: copy;
 }
 
 .about-intro h2 {
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 
 .about-copy p {
@@ -1297,7 +1320,7 @@ details[open] .faq-icon::after {
     font-size: clamp(2.15rem, 9.6vw, 3rem);
   }
 
-  .hero-grid,
+  .hero-foot,
   .section-head,
   .service,
   .about-layout,
@@ -1306,8 +1329,37 @@ details[open] .faq-icon::after {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
   .hero-actions .button {
     flex: 1 1 100%;
+  }
+
+  .about-layout {
+    grid-template-areas:
+      "intro"
+      "portrait"
+      "copy";
+    grid-template-rows: auto;
+  }
+
+  .about-intro {
+    padding-top: 0;
+    border-bottom: 0;
+    margin-bottom: 32px;
+    padding-bottom: 0;
+  }
+
+  .about-portrait {
+    max-width: 360px;
+    margin-bottom: 40px;
+  }
+
+  .about-portrait::before {
+    right: -12px;
+    left: 12px;
   }
 
   .quote-columns {
@@ -1380,16 +1432,6 @@ details[open] .faq-icon::after {
 
   .hero {
     min-height: auto;
-  }
-
-  .hero-portrait {
-    justify-self: start;
-    max-width: 360px;
-  }
-
-  .hero-portrait::before {
-    right: -12px;
-    left: 12px;
   }
 
   .contact-actions .button {

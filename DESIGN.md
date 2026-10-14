@@ -1,25 +1,24 @@
 ---
 name: Studio Web
-description: Portfolio de Baptiste Curie-Cadet, créateur de sites vitrines pour artisans et commerçants de Marseille. Noir bleuté, sobre, un seul bleu.
+description: Portfolio de Baptiste Curie-Cadet, créateur de sites vitrines pour artisans et commerçants de Marseille. Fond papier clair, encre sombre, un seul bleu.
 colors:
-  noir: "#090b0f"
-  ardoise: "#10141b"
-  ardoise-2: "#161c25"
-  texte: "#e6eaf0"
-  texte-doux: "#b4bfcd"
-  gris: "#8b97a8"
-  filet: "rgba(139, 151, 168, 0.18)"
-  filet-fort: "rgba(139, 151, 168, 0.34)"
-  bleu: "#4f8cff"
-  bleu-plein: "#2f6bea"
-  bleu-survol: "#2559c9"
-  bleu-voile: "rgba(79, 140, 255, 0.07)"
-  bleu-clair: "#a9c6ff"
+  noir: "#f4f2ed"
+  ardoise: "#ebe8e1"
+  ardoise-2: "#e1ddd3"
+  texte: "#14161b"
+  texte-doux: "#3a3f49"
+  gris: "#575e69"
+  filet: "rgba(20, 22, 27, 0.12)"
+  filet-fort: "rgba(20, 22, 27, 0.26)"
+  bleu: "#2149b8"
+  bleu-plein: "#2149b8"
+  bleu-survol: "#183a96"
+  bleu-voile: "rgba(33, 73, 184, 0.07)"
   blanc: "#ffffff"
 typography:
   display:
     fontFamily: "Schibsted Grotesk, Segoe UI, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 5.6vw, 5.1rem)"
+    fontSize: "clamp(2.5rem, 6.4vw, 6rem)"
     fontWeight: 500
     lineHeight: 1.02
     letterSpacing: "-0.035em"
@@ -172,18 +171,18 @@ components:
 
 **Creative North Star: « La précision sans effet »**
 
-Studio Web se présente comme un atelier sérieux et clair : on comprend en un écran qui est Baptiste et ce qu'il propose : son portrait, son titre, sa présentation et un bouton pour lui écrire, sans image de démonstration en ouverture. Le monde est un noir bleuté profond, des surfaces ardoise à peine plus claires, des filets d'un pixel et un seul bleu qui sert de lien, de repère et d'action. La précision remplace l'effet : tout est aligné, mesuré et lisible.
+Studio Web se présente comme un atelier sérieux et clair : on comprend en un écran qui est Baptiste et ce qu'il propose : un grand titre, sa présentation et un bouton pour lui écrire, sans image de démonstration en ouverture ; son portrait accompagne le « Bonjour, je suis Baptiste. » de la section À propos. Le monde est un fond papier clair (les noms de jetons `noir` et `ardoise`, hérités de la version sombre, désignent désormais ces fonds clairs), deux tons de surface à peine plus soutenus, une encre presque noire, des filets d'un pixel et un seul bleu qui sert de lien, de repère et d'action. La précision remplace l'effet : tout est aligné, mesuré et lisible.
 
 Décision de l'utilisateur (14/10/2026) : pas d'image de site fictif en haut de page, et pas d'effet d'apparition (tracé, révélation, comparateur) sur les captures des démos. Les démos s'affichent en captures fixes dans la section Réalisations.
 
-La densité est éditoriale et calme : de grandes respirations entre sections, des listes structurées par des filets plutôt que des cartes, des tableaux de devis qui se lisent comme une feuille d'atelier. La typographie porte l'élégance (grotesque serrée en titres, texte hyperlisible), le bleu porte la structure. La profondeur ne vient jamais d'une lueur ni d'un flou : uniquement de deux tons d'ardoise et de filets.
+La densité est éditoriale et calme : de grandes respirations entre sections, des listes structurées par des filets plutôt que des cartes, des tableaux de devis qui se lisent comme une feuille d'atelier. La typographie porte l'élégance (grotesque serrée en titres, texte hyperlisible), le bleu porte la structure. La profondeur ne vient jamais d'une lueur ni d'un flou : uniquement de deux tons de papier et de filets.
 
 Refus confirmés par l'utilisateur et le contrat : aucun effet lumineux, aucun halo, aucun flou, aucun dégradé décoratif, pas de portfolio noir générique à cartes.
 
 **Key Characteristics:**
-- Noir bleuté, deux ardoises, trois niveaux de texte gris bleuté, un seul bleu.
+- Fond papier, deux tons de surface, trois niveaux d'encre, un seul bleu.
 - Filets d'un pixel comme unique structure (listes, tableaux, en-têtes, pied de page).
-- Ouverture sur la personne : titre, présentation et bouton à gauche, portrait noir et blanc de Baptiste à droite.
+- Ouverture typographique : grand titre sur toute la largeur, puis sous un filet la présentation à gauche et les boutons à droite. Le portrait noir et blanc est dans À propos, à gauche du texte.
 - Démos en captures fixes, encadrées d'un filet, sans animation.
 - Mouvement limité au titre qui s'écrit et à la ligne de cote de la méthode.
 - Aucune ombre, aucune lueur, aucun flou.
@@ -193,22 +192,21 @@ Refus confirmés par l'utilisateur et le contrat : aucun effet lumineux, aucun h
 Une palette nocturne quasi monochrome, gris bleuté du fond au texte, traversée par un seul bleu franc.
 
 ### Primary
-- **Bleu de trait** (`bleu`) : le soulignement des liens, le trait qui se trace sous la navigation survolée, la ligne de cote de la méthode, les numéros d'étape, les puces en tiret des inclusions, l'icône plus/moins de la FAQ, l'anneau de focus (2px, décalage 3px) et la couleur du curseur de saisie. Contraste 6:1 sur le fond.
-- **Bleu plein** (`bleu-plein`) : le seul aplat bleu du site, réservé à l'action principale (« Écrire à Baptiste », « Aller à l'accueil », bouton « Me contacter » dans le menu mobile) et à la sélection de texte. Texte blanc dessus (4,8:1).
+- **Bleu de trait** (`bleu`) : le soulignement des liens, le trait qui se trace sous la navigation survolée, la ligne de cote de la méthode, les numéros d'étape, les puces en tiret des inclusions, l'icône plus/moins de la FAQ, l'anneau de focus (2px, décalage 3px), la couleur du curseur de saisie, l'étiquette « Plus complet », les liens du texte légal et l'état survolé des liens et des questions de FAQ. Contraste 6,9:1 sur le fond, 5,7:1 sur la ligne mise en avant.
+- **Bleu plein** (`bleu-plein`) : le seul aplat bleu du site, réservé à l'action principale (« Écrire à Baptiste », « Aller à l'accueil », bouton « Me contacter » dans le menu mobile) et à la sélection de texte. Texte blanc dessus (7,7:1).
 - **Bleu survol** (`bleu-survol`) : état survolé du bouton plein uniquement.
 - **Voile bleu** (`bleu-voile`) : remplissage à 7 % des boutons contour au survol.
-- **Bleu clair** (`bleu-clair`) : petit texte bleu qui doit rester lisible en gras à 0,875rem (étiquette « Plus complet », liens dans le texte légal, bouton « Ce qui est inclus » sur mobile). Valeur codée en dur dans la feuille, pas encore en propriété personnalisée.
 
 ### Neutral
-- **Noir bleuté** (`noir`) : fond de page, en-tête défilé (à 96 % d'opacité), menu mobile, pied de page.
-- **Ardoise** (`ardoise`) : fond des sections Tarifs et Contact.
-- **Ardoise claire** (`ardoise-2`) : la ligne de tarif mise en avant ; aucun autre usage en surface.
-- **Texte** (`texte`) : titres, texte fort, montants, adresse e-mail (16:1).
-- **Texte doux** (`texte-doux`) : paragraphes courants et liens de navigation au repos (10:1).
-- **Gris ardoise** (`gris`) : légendes, notes, problèmes des services, unités de prix, en-têtes de colonnes (6,6:1).
+- **Papier** (`noir`, nom hérité de la version sombre) : fond de page, en-tête défilé (à 96 % d'opacité), menu mobile, pied de page.
+- **Papier soutenu** (`ardoise`) : fond des sections Tarifs et Contact.
+- **Papier foncé** (`ardoise-2`) : la ligne de tarif mise en avant ; aucun autre usage en surface.
+- **Texte** (`texte`) : titres, texte fort, montants, adresse e-mail (16,2:1).
+- **Texte doux** (`texte-doux`) : paragraphes courants et liens de navigation au repos (9,4:1).
+- **Gris** (`gris`) : légendes, notes, problèmes des services, unités de prix, en-têtes de colonnes (5,8:1, 5,3:1 sur papier soutenu).
 - **Filet** (`filet`) : séparateurs entre lignes de listes et de tableaux, bordures de section.
 - **Filet fort** (`filet-fort`) : bord d'ouverture d'une liste ou d'un tableau, cadre des captures et du portrait, contour des boutons secondaires et des étiquettes de compétence, piste du curseur.
-- **Blanc** (`blanc`) : texte sur bleu plein, et état survolé des liens et des questions de FAQ (le texte passe de `texte` à blanc).
+- **Blanc** (`blanc`) : texte sur bleu plein et sélection de texte uniquement.
 
 ### Exception de marque
 Le logo existant (`images/logo-studio-web*.webp`) garde son dégradé violet vers turquoise : c'est un actif de marque antérieur, et la seule couleur hors palette admise. Il ne fournit aucune couleur au reste du système.
@@ -254,7 +252,7 @@ Conteneur unique de 1200px plus deux gouttières fluides (clamp(20px, 5vw, 64px)
 
 Les compositions sont des grilles asymétriques en fractions : en-tête de section 6/5 (titre à gauche, phrase alignée en bas à droite), services en trois colonnes 3/4/5 (titre, problème, réponse) alignées sur la ligne de base, réalisations 7/4 alternées (la seconde inversée), à propos 5/7, FAQ 4/8 avec la colonne de titre collante, devis en trois colonnes (intitulé, prix de 11rem, bouton de 12rem). La feuille d'accueil est en retrait à droite, 840px maximum, pour laisser le titre dominer.
 
-Sections alternées : fond noir, puis Tarifs et Contact sur ardoise, bornés par des filets.
+Sections alternées : fond papier, puis Tarifs et Contact sur papier soutenu, bornés par des filets.
 
 Points de rupture observés :
 - **1024px** : le devis resserre ses colonnes (9rem, puis bouton à largeur libre) ; services en deux colonnes avec titre au-dessus ; méthode en deux colonnes et la ligne de cote disparaît ; FAQ et réalisations en une colonne, la colonne de titre FAQ cesse d'être collante.
@@ -263,7 +261,7 @@ Points de rupture observés :
 
 ## Elevation & Depth
 
-Le système est entièrement plat. Aucune `box-shadow`, aucun `backdrop-filter`, aucun flou, aucune lueur. La profondeur vient de trois moyens seulement : le passage noir vers ardoise vers ardoise claire, les filets d'un pixel à deux intensités, et les filets qui bornent listes, tableaux et images. L'en-tête ne s'opacifie (noir à 96 %, filet bas) qu'après 18px de défilement.
+Le système est entièrement plat. Aucune `box-shadow`, aucun `backdrop-filter`, aucun flou, aucune lueur. La profondeur vient de trois moyens seulement : le passage du papier au papier soutenu puis au papier foncé, les filets d'un pixel à deux intensités, et les filets qui bornent listes, tableaux et images. L'en-tête ne s'opacifie (papier à 96 %, filet bas) qu'après 18px de défilement.
 
 ### Named Rules
 **La règle du filet.** Ce qui sépare est un filet d'un pixel ; ce qui ouvre une liste est un filet fort. Jamais une ombre, jamais une carte flottante.
@@ -290,14 +288,17 @@ Sobres et nets, hauteur généreuse pour le toucher.
 
 ### Navigation
 - Liens en Atkinson 700, texte doux, 44px de haut ; au survol le texte s'éclaircit et un trait bleu de 1px se trace de gauche à droite sous le lien (380ms, courbe de sortie). « Me contacter » en bouton contour.
-- Sous 960px : bouton à deux barres qui se croisent en X, liste déroulée sur fond noir, liens en Schibsted Grotesk 1.35rem, « Me contacter » en bleu plein.
+- Sous 960px : bouton à deux barres qui se croisent en X, liste déroulée sur fond papier, liens en Schibsted Grotesk 1.35rem, « Me contacter » en bleu plein.
 - Pages légales et 404 : seulement le logo et « Retour à l'accueil ».
 
-### Ouverture avec portrait
-- Pleine hauteur d'écran (920px au plus), contenu centré verticalement ; grille sept colonnes de texte, cinq pour le portrait.
-- Titre sur quatre lignes équilibrées, présentation, puis le bouton bleu « Écrire à Baptiste » et le lien vers les réalisations.
-- Portrait recadré en 4:5 (largeur maximale 460px), filet fort et angles de 8px ; un second cadre au trait bleu de 1px, décalé de 24px vers la droite et le bas, est le seul accent ; légende avec le nom en Schibsted Grotesk et l'activité en gris.
-- Aucune animation sur le portrait. Sous 760px, le portrait passe sous le bouton (360px au plus).
+### Ouverture
+- Pleine hauteur d'écran (820px au plus), contenu centré verticalement ; titre sur quatre lignes équilibrées, sur toute la largeur (jusqu'à 6rem).
+- Sous un filet fort : la présentation à gauche (sept colonnes), le bouton bleu « Écrire à Baptiste » et le lien vers les réalisations alignés à droite (cinq colonnes). Sous 760px, tout s'empile.
+
+### À propos avec portrait
+- Portrait à gauche (cinq colonnes, 440px au plus), sur toute la hauteur ; à droite le titre « Bonjour, je suis Baptiste. » et la phrase d'accroche, un filet, puis le texte, les outils et le lien.
+- Portrait recadré en 4:5, filet fort et angles de 8px ; un second cadre au trait bleu de 1px, décalé de 24px vers la droite et le bas, est le seul accent ; légende avec le nom en Schibsted Grotesk et l'activité en gris. Chargement différé.
+- Sous 760px : titre et accroche, puis le portrait (360px au plus), puis le texte. Aucune animation sur le portrait.
 
 ### Capture de démo
 - Capture fixe de la page d'accueil de la démo, format 1440/900, filet fort, angles de 8px, chargement différé.
@@ -305,7 +306,7 @@ Sobres et nets, hauteur généreuse pour le toucher.
 
 ### Feuille de devis
 - Tableau ouvert par un filet fort, en-têtes de colonnes en mono gris, groupes titrés au-dessus d'un filet fort, lignes séparées par des filets (24px de marge verticale).
-- La ligne mise en avant déborde de 20px de chaque côté sur fond ardoise claire, avec l'étiquette « Plus complet » en bleu clair.
+- La ligne mise en avant déborde de 20px de chaque côté sur fond papier foncé, avec l'étiquette « Plus complet » en bleu.
 - Inclusions en deux colonnes, chaque élément précédé d'un tiret bleu de 7px.
 - Prix alignés à droite (à gauche sous 760px), unité en gris en dessous.
 
@@ -329,12 +330,12 @@ Questions en Atkinson 700 1.08rem, 66px de haut minimum, séparées par des file
 - **Do** réserver le bleu plein au bouton d'action principale, et utiliser `bleu` en trait de 1px pour tout le reste.
 - **Do** écrire en Fragment Mono uniquement les mesures, numéros, colonnes et noms d'outils.
 - **Do** afficher les prix en Schibsted Grotesk à chiffres tabulaires, sans retour à la ligne.
-- **Do** ouvrir la page sur la personne (portrait, titre, présentation, bouton), sans image de démonstration ni encadré de chiffres.
+- **Do** ouvrir la page sur la promesse et la personne (titre, présentation signée, bouton), sans image de démonstration ni encadré de chiffres ; le portrait vit dans À propos.
 - **Do** réserver le mouvement au titre et à la ligne de la méthode, une seule fois, et livrer l'état final complet en mouvements réduits ou sans JavaScript.
 - **Do** tenir les cibles à 44px minimum et le texte à 0.95rem minimum.
 
 ### Don't:
-- **Don't** ajouter d'ombre, de lueur, de halo, de flou ou de `backdrop-filter` : la profondeur vient de l'ardoise et des filets.
+- **Don't** ajouter d'ombre, de lueur, de halo, de flou ou de `backdrop-filter` : la profondeur vient des tons de papier et des filets.
 - **Don't** introduire un deuxième accent ni un dégradé ; le dégradé violet vers turquoise du logo est un actif de marque et ne se propage pas.
 - **Don't** animer l'apparition des captures de démo ni les placer en haut de page.
 - **Don't** enfermer le contenu dans des cartes à fond et ombre ; listes et tableaux restent ouverts, bornés par des filets.
