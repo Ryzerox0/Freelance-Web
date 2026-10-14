@@ -4539,3 +4539,19 @@ font-size: 10px;
 .plumbing-site .footer-brand .brand-text strong {
   color: var(--pl-muted) !important;
 }
+
+
+/* Formulaire de démonstration : message affiché après « envoi » */
+.plumbing-site .form-status {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid #b9431b;
+  background: #fff4ee;
+  color: #0a2538;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.plumbing-site .form-status:focus {
+  outline: none;
+}
