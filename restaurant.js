@@ -187,6 +187,99 @@
     }).observe(finale);
   }
 
+  // ---------- Le lieu : les volets (d'après « Hover Expand Gallery », 21st.dev) ----------
+  // Un volet s'ouvre au survol de la souris, au toucher ou au clavier ; un seul à la fois.
+  const volets = Array.from(document.querySelectorAll("[data-volets] .volet"));
+  const ouvrirVolet = (volet) => {
+    volets.forEach((v) => {
+      const ouvert = v === volet;
+      v.classList.toggle("ouvert", ouvert);
+      v.querySelector(".volet-bouton").setAttribute("aria-expanded", String(ouvert));
+    });
+  };
+  volets.forEach((volet, i) => {
+    const bouton = volet.querySelector(".volet-bouton");
+    bouton.addEventListener("click", () => ouvrirVolet(volet));
+    bouton.addEventListener("focus", () => ouvrirVolet(volet));
+    volet.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse") ouvrirVolet(volet);
+    });
+    bouton.addEventListener("keydown", (event) => {
+      const pas = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
+      if (!pas) return;
+      event.preventDefault();
+      volets[(i + pas + volets.length) % volets.length].querySelector(".volet-bouton").focus();
+    });
+  });
+
+  // ---------- Bandeau (d'après « Scroll Velocity Text », 21st.dev) ----------
+  // Le motif défile lentement ; plus on fait défiler la page, plus il accélère, dans le sens
+  // du défilement. Immobile si l'on préfère moins d'animations, en pause hors de l'écran.
+  const bandeau = document.querySelector(".bandeau");
+  const pisteBandeau = bandeau && bandeau.querySelector(".bandeau-piste");
+  const motif = pisteBandeau && pisteBandeau.querySelector(".bandeau-motif");
+  if (bandeau && motif && "IntersectionObserver" in window) {
+    let largeur = 0;
+    let decalage = 0;
+    let sens = -1;
+    let vitesse = 0;
+    let dernierY = window.scrollY;
+    let dernierT = 0;
+    let visible = false;
+    let boucle = 0;
+
+    const mesurer = () => {
+      largeur = motif.offsetWidth;
+      const copies = largeur > 0 ? Math.max(2, Math.ceil(bandeau.offsetWidth / largeur) + 1) : 1;
+      while (pisteBandeau.children.length < copies) pisteBandeau.appendChild(motif.cloneNode(true));
+    };
+
+    const image = (t) => {
+      const dt = dernierT ? Math.min(0.05, (t - dernierT) / 1000) : 0;
+      dernierT = t;
+      const y = window.scrollY;
+      const instant = dt > 0 ? (y - dernierY) / dt : 0;
+      dernierY = y;
+      vitesse += (instant - vitesse) * 0.12;
+      const facteur = Math.min(5, (Math.abs(vitesse) / 1000) * 5);
+      if (facteur > 0.1) sens = vitesse > 0 ? -1 : 1;
+      if (largeur > 0) {
+        decalage += sens * largeur * 0.03 * (1 + facteur) * dt;
+        decalage = ((decalage % largeur) + largeur) % largeur - largeur;
+        pisteBandeau.style.transform = `translate3d(${decalage.toFixed(2)}px,0,0) skewX(${(-sens * facteur * 0.8).toFixed(2)}deg)`;
+      }
+      boucle = visible ? window.requestAnimationFrame(image) : 0;
+    };
+
+    const demarrer = () => {
+      if (boucle || !visible || reduit.matches || document.hidden) return;
+      dernierT = 0;
+      dernierY = window.scrollY;
+      boucle = window.requestAnimationFrame(image);
+    };
+    const arreter = () => {
+      window.cancelAnimationFrame(boucle);
+      boucle = 0;
+    };
+
+    mesurer();
+    window.addEventListener("resize", mesurer);
+    if (document.fonts) document.fonts.ready.then(mesurer);
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) demarrer(); else arreter();
+    }).observe(bandeau);
+    document.addEventListener("visibilitychange", () => (document.hidden ? arreter() : demarrer()));
+    reduit.addEventListener("change", () => {
+      if (reduit.matches) {
+        arreter();
+        pisteBandeau.style.transform = "";
+      } else {
+        demarrer();
+      }
+    });
+  }
+
   // ---------- Réservation de démonstration ----------
   const form = document.querySelector("[data-reservation]");
   if (form) {
@@ -320,11 +413,11 @@
         }
       },
       () => {
-        // 5. Le lieu : la photo se découvre comme un soleil levant, puis recule doucement.
-        const photo = document.querySelector(".lieu .tirage img");
+        // 5. Le lieu : les volets se découvrent comme un soleil levant.
+        const photo = document.querySelector(".lieu .volets");
         if (photo) {
-          gsap.fromTo(photo, { clipPath: "circle(0% at 50% 100%)", scale: 1.18 }, {
-            clipPath: "circle(145% at 50% 100%)", scale: 1, ease: "none",
+          gsap.fromTo(photo, { clipPath: "circle(0% at 50% 100%)" }, {
+            clipPath: "circle(145% at 50% 100%)", ease: "none",
             scrollTrigger: { trigger: ".lieu .tirage", start: "top 92%", end: "top 30%", scrub: 0.6 },
           });
         }

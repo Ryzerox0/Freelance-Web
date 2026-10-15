@@ -10,12 +10,12 @@
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preload" href="fonts/josefin-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="restaurant.css?v=43">
+  <link rel="stylesheet" href="restaurant.css?v=44">
   <script src="restaurant-intro.js?v=1"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
-  <script src="restaurant.js?v=44" defer></script>
+  <script src="restaurant.js?v=45" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -231,6 +231,12 @@
       </div>
     </section>
 
+    <div class="bandeau" aria-hidden="true">
+      <div class="bandeau-piste">
+        <p class="bandeau-motif"><span>Le marché du matin</span><i></i><span>La cuisine du jour</span><i></i><span>La terrasse à l’ombre</span><i></i><span>Les desserts maison</span><i></i></p>
+      </div>
+    </div>
+
     <section class="lieu" id="lieu" data-heure="apres-midi" aria-labelledby="lieu-titre">
       <div class="wrap">
         <div class="lieu-tete">
@@ -238,9 +244,33 @@
           <p>On y vient pour un déjeuner rapide comme pour un long dîner entre amis. Aux beaux jours, toutes les tables passent dehors.</p>
         </div>
         <figure class="tirage">
-          <div class="tirage-cadre"><img src="images/interieur-restaurant.webp" width="800" height="533" loading="lazy" decoding="async"
-            alt="Salle de restaurant lumineuse, grandes fenêtres en arche et tables en bois clair"></div>
-          <figcaption><strong>La salle</strong><span>Grandes baies, bois clair, lin. Photo d’illustration.</span></figcaption>
+          <ul class="volets" data-volets>
+            <li class="volet ouvert">
+              <button type="button" class="volet-bouton" aria-expanded="true">
+                <span class="volet-titre">La salle</span>
+                <span class="volet-detail">Grandes baies, bois clair, lin.</span>
+              </button>
+              <img src="images/interieur-restaurant.webp" width="800" height="533" loading="lazy" decoding="async"
+                alt="Salle de restaurant lumineuse, grandes fenêtres en arche et tables en bois clair">
+            </li>
+            <li class="volet">
+              <button type="button" class="volet-bouton" aria-expanded="false">
+                <span class="volet-titre">La terrasse</span>
+                <span class="volet-detail">Des tables à l’ombre aux beaux jours.</span>
+              </button>
+              <img src="images/table-dressee.webp" width="700" height="1050" loading="lazy" decoding="async"
+                alt="Table dressée en plein air, bouquet de fleurs et verres au soleil">
+            </li>
+            <li class="volet">
+              <button type="button" class="volet-bouton" aria-expanded="false">
+                <span class="volet-titre">À partager</span>
+                <span class="volet-detail">Des assiettes posées au milieu de la table.</span>
+              </button>
+              <img src="images/plats-a-partager.webp" width="615" height="523" loading="lazy" decoding="async"
+                alt="Sardines grillées, salade, poivrons marinés et pain posés au milieu d’une table">
+            </li>
+          </ul>
+          <figcaption><span>Photos d’illustration.</span></figcaption>
         </figure>
       </div>
     </section>
