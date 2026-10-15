@@ -84,9 +84,9 @@ PUBLIER
 
 À COMPLÉTER PAR L'ÉDITEUR
 -------------------------
-- Mentions légales : statut juridique, adresse, numéro SIREN ou SIRET
-  (champs « [À RENSEIGNER] »), puis retirer l'encadré d'avertissement.
-- Confidentialité : vérifier que la notice correspond aux services
-  réellement utilisés, puis retirer l'encadré d'avertissement.
+- Mentions légales : statut juridique, adresse et numéro SIRET
+  (les trois champs « [À RENSEIGNER] » de mentions-legales.html).
+- Confidentialité : mettre la notice à jour si un service est ajouté
+  (formulaire, mesure d'audience, cookies…), avec la date en bas de page.
 - Ces modèles ne remplacent pas un conseil juridique et ne réalisent
   aucune démarche administrative.
