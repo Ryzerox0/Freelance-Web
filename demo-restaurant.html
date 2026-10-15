@@ -10,9 +10,12 @@
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preload" href="fonts/josefin-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="restaurant.css?v=24">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="restaurant.js?v=20" defer></script>
+  <link rel="stylesheet" href="restaurant.css?v=32">
+  <script src="restaurant-intro.js?v=1"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
+  <script src="restaurant.js?v=31" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -35,6 +38,14 @@
         </svg>
         <span>Maison Olive</span>
       </a>
+      <div class="course" aria-hidden="true">
+        <svg viewBox="0 0 120 36">
+          <path class="course-horizon" d="M2 33H118"/>
+          <path class="course-arc" d="M8 33A52 28 0 0 1 112 33"/>
+          <circle class="course-astre" cx="8" cy="33" r="6"/>
+        </svg>
+        <span class="course-heure">Matin</span>
+      </div>
       <nav class="nav" aria-label="Navigation principale">
         <a href="#carte">La carte</a>
         <a href="#lieu">Le lieu</a>
@@ -45,7 +56,7 @@
   </header>
 
   <main id="contenu">
-    <section class="affiche" aria-labelledby="titre">
+    <section class="affiche" data-heure="matin" aria-labelledby="titre">
       <div class="wrap">
         <h1 id="titre">Maison <span>Olive</span></h1>
       </div>
@@ -106,7 +117,7 @@
       </div>
     </section>
 
-    <section class="carte" id="carte" data-moment="dejeuner" aria-labelledby="carte-titre">
+    <section class="carte" id="carte" data-heure="midi" data-moment="dejeuner" aria-labelledby="carte-titre">
       <div class="wrap">
         <div class="carte-tete">
           <h2 id="carte-titre">La carte</h2>
@@ -125,8 +136,8 @@
             <p class="formule"><strong>Formule du midi</strong> · entrée et plat, ou plat et dessert · 19 €</p>
             <ul class="plats">
               <li><div class="plat-ligne"><h3>Houmous maison</h3><span class="prix">8 €</span></div><p>Pois chiches, citron, huile d’olive, pain grillé au feu de bois.</p></li>
-              <li><div class="plat-ligne"><h3>Carpaccio de bœuf</h3><span class="prix">14 €</span></div><p>Olives taggiasche, copeaux de parmesan, jeunes pousses.</p></li>
-              <li><div class="plat-ligne"><h3>Gnocchis à la sauge</h3><span class="prix">17 €</span></div><p>Beurre noisette, copeaux de pecorino.</p></li>
+              <li data-photo="images/carpaccio-480.webp"><div class="plat-ligne"><h3>Carpaccio de bœuf</h3><span class="prix">14 €</span></div><p>Olives taggiasche, copeaux de parmesan, jeunes pousses.</p></li>
+              <li data-photo="images/gnocchis-sauge.webp"><div class="plat-ligne"><h3>Gnocchis à la sauge</h3><span class="prix">17 €</span></div><p>Beurre noisette, copeaux de pecorino.</p></li>
               <li><div class="plat-ligne"><h3>Légumes rôtis du marché</h3><span class="prix">16 €</span></div><p>Semoule aux herbes, sauce au yaourt et citron.</p></li>
             </ul>
           </div>
@@ -140,10 +151,10 @@
 
         <div class="panneau" id="panneau-diner" role="tabpanel" aria-labelledby="onglet-diner" tabindex="0" hidden>
           <ul class="plats">
-            <li><div class="plat-ligne"><h3>Tartine de tomates rôties</h3><span class="prix">9 €</span></div><p>Pain de campagne, ail confit, origan.</p></li>
+            <li data-photo="images/plat-mediterraneen-600.webp"><div class="plat-ligne"><h3>Tartine de tomates rôties</h3><span class="prix">9 €</span></div><p>Pain de campagne, ail confit, origan.</p></li>
             <li><div class="plat-ligne"><h3>Poisson du jour</h3><span class="prix">22 €</span></div><p>Selon la pêche, fenouil braisé et citron.</p></li>
             <li><div class="plat-ligne"><h3>Épaule d’agneau confite</h3><span class="prix">24 €</span></div><p>Sept heures au four, pois chiches et jus aux herbes.</p></li>
-            <li><div class="plat-ligne"><h3>Gnocchis à la sauge</h3><span class="prix">17 €</span></div><p>Beurre noisette, copeaux de pecorino.</p></li>
+            <li data-photo="images/gnocchis-sauge.webp"><div class="plat-ligne"><h3>Gnocchis à la sauge</h3><span class="prix">17 €</span></div><p>Beurre noisette, copeaux de pecorino.</p></li>
           </ul>
           <figure class="carte-visuel">
             <img src="images/table-dressee.webp" width="700" height="1050" loading="lazy" decoding="async"
@@ -166,21 +177,21 @@
       </div>
     </section>
 
-    <section class="lieu" id="lieu" aria-labelledby="lieu-titre">
+    <section class="lieu" id="lieu" data-heure="apres-midi" aria-labelledby="lieu-titre">
       <div class="wrap">
         <div class="lieu-tete">
           <h2 id="lieu-titre">Une salle claire, <span>une terrasse à l’ombre.</span></h2>
           <p>On y vient pour un déjeuner rapide comme pour un long dîner entre amis. Aux beaux jours, toutes les tables passent dehors.</p>
         </div>
         <figure class="tirage">
-          <img src="images/interieur-restaurant.webp" width="800" height="533" loading="lazy" decoding="async"
-            alt="Salle de restaurant lumineuse, grandes fenêtres en arche et tables en bois clair">
+          <div class="tirage-cadre"><img src="images/interieur-restaurant.webp" width="800" height="533" loading="lazy" decoding="async"
+            alt="Salle de restaurant lumineuse, grandes fenêtres en arche et tables en bois clair"></div>
           <figcaption><strong>La salle</strong><span>Grandes baies, bois clair, lin. Photo d’illustration.</span></figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="infos" id="infos" aria-labelledby="infos-titre">
+    <section class="infos" id="infos" data-heure="soir" aria-labelledby="infos-titre">
       <div class="store" aria-hidden="true"></div>
       <div class="wrap infos-grille">
         <div>
@@ -238,7 +249,7 @@
       </div>
     </section>
 
-    <section class="pitch" aria-labelledby="pitch-titre">
+    <section class="pitch" data-heure="nuit" aria-labelledby="pitch-titre">
       <div class="wrap">
         <div>
           <h2 id="pitch-titre">Chaque métier <span>mérite son site.</span></h2>
@@ -258,6 +269,8 @@
       <a href="index.html#realisations">Retour au portfolio</a>
     </div>
   </footer>
+
+  <div class="apercu" aria-hidden="true"><img src="images/carpaccio-480.webp" alt="" width="480" height="600" loading="lazy" decoding="async"></div>
 
   <div class="barre-reserver">
     <a class="bouton" href="#reserver">Réserver une table</a>

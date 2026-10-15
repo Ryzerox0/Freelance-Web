@@ -711,6 +711,10 @@ ol {
   color: var(--nuit);
 }
 
+.tirage-cadre {
+  overflow: hidden;
+}
+
 .tirage img {
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -1078,6 +1082,278 @@ ol {
   }
 }
 
+/* =========================================================
+   UNE JOURNÉE À MAISON OLIVE
+   Le défilement fait traverser le ciel au soleil : l'en-tête
+   prend la couleur de l'heure, de l'aube jusqu'à la nuit.
+   ========================================================= */
+
+/* En-tête : la couleur suit le moment de la journée */
+.entete {
+  transition: background-color 600ms var(--sortie), color 600ms var(--sortie);
+}
+
+.entete .nav .bouton {
+  transition: background-color 600ms var(--sortie), color 600ms var(--sortie);
+}
+
+.entete[data-heure="midi"] {
+  background: var(--soleil);
+  color: var(--nuit);
+}
+
+.entete[data-heure="midi"] .nav .bouton {
+  background: var(--nuit);
+  color: var(--chaux);
+}
+
+.entete[data-heure="midi"] .nav a:not(.bouton):hover {
+  border-color: var(--nuit);
+  color: var(--nuit);
+}
+
+.entete[data-heure="apres-midi"] {
+  background: var(--pin-fonce);
+}
+
+.entete[data-heure="soir"] {
+  background: var(--brique);
+}
+
+.entete[data-heure="soir"] .nav a:not(.bouton):hover {
+  border-color: var(--chaux);
+  color: var(--chaux);
+}
+
+.entete[data-heure="nuit"] {
+  background: var(--nuit);
+}
+
+/* Lien de la section en cours */
+.nav a.actif:not(.bouton) {
+  border-color: currentColor;
+}
+
+/* La course du soleil */
+.course {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.course svg {
+  width: 84px;
+  height: 26px;
+  overflow: visible;
+}
+
+.course-horizon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  opacity: 0.55;
+}
+
+.course-arc {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 2 4;
+  opacity: 0.55;
+}
+
+.course-astre {
+  fill: var(--soleil);
+  stroke: var(--outremer);
+  stroke-width: 2;
+  transition: fill 600ms var(--sortie), stroke 600ms var(--sortie);
+}
+
+.entete[data-heure="midi"] .course-astre {
+  fill: var(--chaux);
+  stroke: var(--nuit);
+}
+
+.entete[data-heure="apres-midi"] .course-astre {
+  stroke: var(--pin-fonce);
+}
+
+.entete[data-heure="soir"] .course-astre {
+  fill: var(--soleil);
+  stroke: var(--brique);
+}
+
+/* La nuit, le soleil devient lune */
+.entete[data-heure="nuit"] .course-astre {
+  fill: var(--chaux);
+  stroke: var(--nuit);
+}
+
+.course-heure {
+  min-width: 6.5em;
+  font-family: var(--affiche);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Plats photographiés : petit soleil après le nom, aperçu en arche qui suit la souris */
+@media (hover: hover) and (pointer: fine) {
+  .plats li[data-photo] .plat-ligne h3::after {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background: currentColor;
+    vertical-align: 0.15em;
+    opacity: 0.6;
+  }
+
+  .plats li[data-photo] {
+    cursor: zoom-in;
+  }
+}
+
+.apercu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  width: 230px;
+  margin: 0;
+  border: 8px solid var(--chaux);
+  border-bottom-width: 26px;
+  border-radius: 999px 999px 0 0;
+  background: var(--chaux);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-9999px, 0, 0);
+}
+
+.apercu img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 999px 999px 0 0;
+  object-fit: cover;
+}
+
+/* Changement de moment : la carte se recompose */
+@keyframes conduite {
+  from {
+    transform: translateY(-4px) scaleX(0);
+  }
+}
+
+.panneau.recompose .plat-ligne::after {
+  transform-origin: left;
+  animation: conduite 700ms var(--sortie) both;
+}
+
+/* Le ticket de réservation */
+.reserver-statut {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  max-width: 560px;
+  padding: 18px 24px 20px;
+  background: var(--soleil);
+  -webkit-mask: radial-gradient(7px at 7px 50%, transparent 98%, #000) -7px 0 / 100% 18px repeat-y,
+    radial-gradient(7px at calc(100% - 7px) 50%, transparent 98%, #000) 7px 0 / 100% 18px repeat-y;
+  -webkit-mask-composite: source-in;
+  mask: radial-gradient(7px at 7px 50%, transparent 98%, #000) -7px 0 / 100% 18px repeat-y intersect,
+    radial-gradient(7px at calc(100% - 7px) 50%, transparent 98%, #000) 7px 0 / 100% 18px repeat-y;
+}
+
+.reserver-statut strong {
+  font-family: var(--affiche);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.reserver-statut span {
+  font-weight: 400;
+}
+
+/* Boutons : une pression franche */
+.bouton:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Introduction : rien ne clignote avant que l'affiche ne s'imprime ; secours si le script manque */
+@keyframes secours-intro {
+  to {
+    visibility: visible;
+  }
+}
+
+.intro-attente .affiche h1,
+.intro-attente .soleil,
+.intro-attente .vignette,
+.intro-attente .mer,
+.intro-attente .affiche-texte > *,
+.intro-attente .bande-reserver form > * {
+  visibility: hidden;
+  animation: secours-intro 0s linear 3.5s forwards;
+}
+
+/* Les lignes des titres révélés gardent la place des accents et des jambages */
+.affiche h1 > div,
+.carte h2 > div,
+.lieu h2 > div,
+.infos h2 > div,
+.pitch h2 > div {
+  margin-block: -0.16em;
+  padding-block: 0.16em;
+}
+
+.reserver-statut[hidden] {
+  display: none;
+}
+
+/* La carte donne l'heure : déjeuner à midi, goûter, dîner */
+.entete[data-heure="gouter"] {
+  background: var(--brique);
+}
+
+.entete[data-heure="gouter"] .course-astre {
+  stroke: var(--brique);
+}
+
+.entete[data-heure="diner"] {
+  background: var(--pin);
+}
+
+.entete[data-heure="diner"] .course-astre {
+  stroke: var(--pin);
+}
+
+@media (max-width: 860px) {
+  .course-heure {
+    display: none;
+  }
+
+  .course {
+    margin-right: 4px;
+  }
+}
+
+@media (max-width: 560px) {
+  .course {
+    display: none;
+  }
+}
+
+.marque svg {
+  flex: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1087,5 +1363,6 @@ ol {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
