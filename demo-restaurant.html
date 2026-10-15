@@ -10,12 +10,12 @@
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preload" href="fonts/josefin-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="restaurant.css?v=32">
+  <link rel="stylesheet" href="restaurant.css?v=43">
   <script src="restaurant-intro.js?v=1"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
-  <script src="restaurant.js?v=31" defer></script>
+  <script src="restaurant.js?v=44" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -47,10 +47,12 @@
         <span class="course-heure">Matin</span>
       </div>
       <nav class="nav" aria-label="Navigation principale">
+        <a href="#journee">La journée</a>
         <a href="#carte">La carte</a>
         <a href="#lieu">Le lieu</a>
         <a href="#infos">Infos</a>
         <a class="bouton" href="#reserver">Réserver</a>
+        <span class="nav-astre" aria-hidden="true"></span>
       </nav>
     </div>
   </header>
@@ -114,6 +116,58 @@
         </form>
         <p class="reserver-statut" role="status" tabindex="-1" hidden></p>
         <p class="reserver-note">Démonstration : la réservation n’est pas envoyée. Au-delà de huit personnes, voir les questions plus bas.</p>
+      </div>
+    </section>
+
+    <section class="journee" id="journee" aria-labelledby="journee-titre">
+      <div class="journee-scene">
+        <div class="wrap journee-tete">
+          <h2 id="journee-titre">Une journée en cuisine</h2>
+          <p>Du marché du matin à la terrasse du soir, la carte se prépare à la main, au fil des heures.</p>
+        </div>
+        <span class="journee-soleil" aria-hidden="true"></span>
+        <ol class="journee-piste">
+          <li class="affichette affichette-marche" data-heure="matin">
+            <p class="affichette-heure" aria-label="6 heures"><span>6</span>h</p>
+            <div class="affichette-texte">
+              <h3>Le marché</h3>
+              <p>Les légumes arrivent encore frais de la nuit. On compose la carte avec ce qu’il y a de plus beau.</p>
+            </div>
+            <figure class="affichette-visuel affichette-dessin">
+              <img src="images/affiche-marche.svg" width="400" height="480" loading="lazy" decoding="async" alt="Cagette de tomates et de citrons du marché, dessinée à plat">
+            </figure>
+          </li>
+          <li class="affichette affichette-cuisine" data-heure="matin">
+            <p class="affichette-heure" aria-label="10 heures"><span>10</span>h</p>
+            <div class="affichette-texte">
+              <h3>En cuisine</h3>
+              <p>Les fonds mijotent, les gnocchis sont roulés un par un, la sauge sèche près de la fenêtre.</p>
+            </div>
+            <figure class="affichette-visuel">
+              <img src="images/gnocchis-sauge.webp" width="400" height="198" loading="lazy" decoding="async" alt="Assiette de gnocchis dorés à la sauge">
+            </figure>
+          </li>
+          <li class="affichette affichette-service" data-heure="midi">
+            <p class="affichette-heure" aria-label="12 heures 30"><span>12</span>h30</p>
+            <div class="affichette-texte">
+              <h3>Le service</h3>
+              <p>La salle se remplit, les assiettes partent au centre des tables, la formule du midi file.</p>
+            </div>
+            <figure class="affichette-visuel">
+              <img src="images/carpaccio-480.webp" width="480" height="600" loading="lazy" decoding="async" alt="Carpaccio de bœuf garni d’olives et de parmesan">
+            </figure>
+          </li>
+          <li class="affichette affichette-terrasse" data-heure="soir">
+            <p class="affichette-heure" aria-label="20 heures"><span>20</span>h</p>
+            <div class="affichette-texte">
+              <h3>La terrasse</h3>
+              <p>Le soleil descend sur les pins. La cuisine sert jusqu’à 22 h 30, 23 h le samedi.</p>
+            </div>
+            <figure class="affichette-visuel">
+              <img src="images/table-dressee.webp" width="700" height="1050" loading="lazy" decoding="async" alt="Bouquet de fleurs et verres sur une table dressée pour le soir">
+            </figure>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -246,6 +300,19 @@
             </details>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="finale" id="finale" data-heure="nuit" aria-labelledby="finale-titre">
+      <div class="ciel" aria-hidden="true">
+        <span class="etoiles etoiles-a"></span>
+        <span class="etoiles etoiles-b"></span>
+        <span class="lune"></span>
+      </div>
+      <div class="wrap finale-contenu">
+        <h2 id="finale-titre">À ce soir ?</h2>
+        <p>La carte du soir, la terrasse sous les pins et une table qui vous attend.</p>
+        <a class="bouton bouton-lune" href="#reserver">Réserver une table</a>
       </div>
     </section>
 

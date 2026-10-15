@@ -1308,7 +1308,8 @@ ol {
 .carte h2 > div,
 .lieu h2 > div,
 .infos h2 > div,
-.pitch h2 > div {
+.pitch h2 > div,
+.finale h2 > div {
   margin-block: -0.16em;
   padding-block: 0.16em;
 }
@@ -1332,6 +1333,386 @@ ol {
 
 .entete[data-heure="diner"] .course-astre {
   stroke: var(--pin);
+}
+
+/* =========================================================
+   UNE JOURNÉE EN CUISINE — suite de quatre affichettes
+   Sans animation : une grille d'affiches. Avec animation (écran large) :
+   la scène s'épingle, les affiches défilent sous un soleil unique.
+   ========================================================= */
+
+.journee {
+  position: relative;
+  padding-block: var(--section);
+  background: var(--chaux);
+}
+
+.journee-tete {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  align-items: end;
+  gap: 16px clamp(32px, 5vw, 72px);
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.journee-tete h2 {
+  color: var(--outremer);
+}
+
+.journee-tete p {
+  max-width: 30rem;
+  color: var(--nuit-doux);
+  font-size: 1.1rem;
+}
+
+.journee-piste {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: min(100% - 2 * var(--gouttiere), var(--largeur));
+  margin-inline: auto;
+}
+
+.affichette {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-rows: auto 1fr;
+  gap: 16px 28px;
+  min-height: 460px;
+  padding: clamp(24px, 3vw, 44px);
+  color: var(--chaux);
+}
+
+/* Le sol de chaque affiche, une bande plus sombre sous l'horizon */
+.affichette::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  height: 22%;
+  background: rgba(16, 32, 61, 0.22);
+}
+
+/* Le soleil de chaque affiche, à la hauteur de son heure */
+.affichette::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 120px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--soleil);
+}
+
+.affichette-marche {
+  background: var(--mer);
+}
+
+.affichette-marche::before {
+  right: 6%;
+  bottom: 26%;
+  background: #f7c86a;
+}
+
+.affichette-cuisine {
+  background: var(--pin);
+}
+
+.affichette-cuisine::before {
+  right: 30%;
+  top: 22%;
+}
+
+.affichette-service {
+  background: var(--soleil);
+  color: var(--nuit);
+}
+
+.affichette-service::before {
+  right: 36%;
+  top: 6%;
+  background: var(--chaux);
+}
+
+.affichette-terrasse {
+  background: var(--brique);
+}
+
+.affichette-terrasse::before {
+  right: 6%;
+  bottom: 28%;
+  background: #f29a4a;
+}
+
+.affichette-heure {
+  grid-column: 1;
+  font-family: var(--affiche);
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 0.82;
+  font-variant-numeric: lining-nums;
+}
+
+.affichette-heure span {
+  display: inline-block;
+  margin-right: 0.06em;
+  font-size: 3.4em;
+  letter-spacing: -0.03em;
+  vertical-align: -0.08em;
+}
+
+.affichette-texte {
+  grid-column: 1;
+  align-self: end;
+}
+
+.affichette h3 {
+  color: inherit;
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  letter-spacing: 0.06em;
+}
+
+.affichette-texte p {
+  max-width: 24rem;
+  margin-top: 12px;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.affichette-visuel {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: end;
+  margin: 0;
+}
+
+.affichette-visuel img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 8px solid var(--chaux);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  object-fit: cover;
+}
+
+.affichette-dessin img {
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.journee-soleil {
+  display: none;
+}
+
+/* Scène épinglée (écran large, animations acceptées) */
+.journee.epinglee {
+  padding-block: 0;
+}
+
+.journee.epinglee .journee-scene {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100vh - 76px);
+  overflow: hidden;
+  padding-block: clamp(24px, 4vh, 48px);
+}
+
+.journee.epinglee .journee-tete {
+  margin-bottom: clamp(20px, 3vh, 36px);
+}
+
+.journee.epinglee .journee-piste {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  margin: 0;
+  padding-left: calc((100vw - min(100vw - 2 * var(--gouttiere), var(--largeur))) / 2);
+  padding-right: 18vw;
+  will-change: transform;
+}
+
+.journee.epinglee .affichette {
+  flex: none;
+  width: min(62vw, 860px);
+  height: min(62vh, 600px);
+  min-height: 0;
+}
+
+.journee.epinglee .affichette::before {
+  display: none;
+}
+
+.journee.epinglee .journee-soleil {
+  position: absolute;
+  top: 0;
+  left: 58%;
+  z-index: 3;
+  display: block;
+  width: clamp(90px, 9vw, 140px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--soleil);
+  pointer-events: none;
+}
+
+/* =========================================================
+   FINALE — la nuit tombe, la lune se lève
+   ========================================================= */
+
+.finale {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(120px, 16vw, 220px);
+  background: var(--nuit);
+  color: var(--chaux);
+}
+
+.ciel {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.etoiles {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 24px 36px, #fffdf7 60%, transparent 62%),
+    radial-gradient(1.2px 1.2px at 130px 90px, #fffdf7 60%, transparent 62%),
+    radial-gradient(2px 2px at 190px 20px, #f7d98a 60%, transparent 62%),
+    radial-gradient(1.2px 1.2px at 70px 150px, #fffdf7 60%, transparent 62%);
+  background-size: 240px 180px;
+  opacity: 0.75;
+}
+
+.etoiles-b {
+  background-size: 330px 260px;
+  background-position: 60px 40px;
+  opacity: 0.5;
+}
+
+@keyframes scintille {
+  to {
+    opacity: 0.15;
+  }
+}
+
+.finale.visible .etoiles-b {
+  animation: scintille 3.2s ease-in-out infinite alternate;
+}
+
+.lune {
+  position: absolute;
+  top: 18%;
+  right: 12%;
+  width: clamp(110px, 13vw, 190px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 64% 38%, #fffdf7 0 58%, #e9e1cc 59% 100%);
+}
+
+.finale-contenu {
+  position: relative;
+  z-index: 1;
+}
+
+.finale h2 {
+  max-width: 10ch;
+  color: var(--chaux);
+  font-size: clamp(3.6rem, 11vw, 9.5rem);
+  line-height: 0.88;
+}
+
+.finale p {
+  max-width: 30rem;
+  margin-block: 28px 36px;
+  color: #cfd6e6;
+  font-size: 1.2rem;
+}
+
+.bouton-lune {
+  background: var(--soleil);
+  color: var(--nuit);
+}
+
+.bouton-lune:hover {
+  background: var(--soleil-clair);
+}
+
+.pitch {
+  border-top: 1px solid rgba(207, 214, 230, 0.16);
+}
+
+/* La navigation : un petit soleil se pose sous la section en cours */
+.nav {
+  position: relative;
+}
+
+.nav a.actif:not(.bouton) {
+  border-color: transparent;
+}
+
+.nav-astre {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0;
+  transform: translateX(var(--x, 0));
+  transition: transform 520ms var(--sortie), opacity 240ms ease;
+  pointer-events: none;
+}
+
+.nav-astre.visible {
+  opacity: 1;
+}
+
+@media (max-width: 860px) {
+  .journee-tete,
+  .journee-piste {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .affichette {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  }
+
+  .affichette::before {
+    top: 6%;
+    right: 7%;
+    bottom: auto;
+    width: 64px;
+  }
+}
+
+@media (max-width: 560px) {
+  .affichette {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .affichette-visuel {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 260px;
+  }
+
+  .lune {
+    top: 8%;
+    right: 6%;
+  }
 }
 
 @media (max-width: 860px) {

@@ -27,13 +27,26 @@
   const heureLabel = document.querySelector(".course-heure");
   const NOMS = { matin: "Matin", midi: "Midi", gouter: "Goûter", diner: "Dîner", "apres-midi": "Après-midi", soir: "Soir", nuit: "Nuit" };
   let courante = null;
-  const afficherHeure = (section) => {
+  const navAstre = document.querySelector(".nav-astre");
+  const placerAstre = () => {
+    if (!navAstre) return;
+    const actif = liens.find((lien) => lien.classList.contains("actif"));
+    if (!actif || actif.offsetParent === null) {
+      navAstre.classList.remove("visible");
+      return;
+    }
+    navAstre.style.setProperty("--x", `${actif.offsetLeft + actif.offsetWidth / 2 - 4}px`);
+    navAstre.classList.add("visible");
+  };
+  const afficherHeure = (section, ancre = section) => {
     courante = section;
     const heure = section.dataset.heure;
     entete.dataset.heure = heure;
     if (heureLabel) heureLabel.textContent = NOMS[heure] || "";
-    liens.forEach((lien) => lien.classList.toggle("actif", lien.getAttribute("href") === `#${section.id}`));
+    liens.forEach((lien) => lien.classList.toggle("actif", lien.getAttribute("href") === `#${ancre.id}`));
+    placerAstre();
   };
+  window.addEventListener("resize", placerAstre);
 
   if (astre) {
     let enAttente = false;
@@ -60,7 +73,11 @@
   if (entete && moments.length && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) afficherHeure(entry.target);
+        if (!entry.isIntersecting) return;
+        // Pendant la scène épinglée, c'est le défilement horizontal qui donne l'heure.
+        if (entry.target.closest(".journee.epinglee")) return;
+        const journee = entry.target.closest(".journee");
+        afficherHeure(entry.target, journee || entry.target);
       });
     }, { rootMargin: "-84px 0px -80% 0px" });
     moments.forEach((section) => observer.observe(section));
@@ -89,7 +106,12 @@
         void panneau.offsetWidth;
         panneau.classList.add("recompose");
         if (anime()) {
-          gsap.fromTo(panneau.querySelectorAll(".plats li, .carte-visuel, .formule"),
+          const photo = panneau.querySelector(".carte-visuel img");
+          if (photo) {
+            gsap.fromTo(photo, { clipPath: "inset(100% 0% 0% 0%)", scale: 1.12 },
+              { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.9, ease: "expo.out", overwrite: true });
+          }
+          gsap.fromTo(panneau.querySelectorAll(".plats li, .formule"),
             { y: 18, autoAlpha: 0 },
             { y: 0, autoAlpha: 1, duration: 0.55, ease: "expo.out", stagger: 0.045, overwrite: true });
         }
@@ -155,6 +177,14 @@
         apercu.style.opacity = "0";
       }
     }, { passive: true });
+  }
+
+  // ---------- Finale : le ciel ne scintille qu'à l'écran ----------
+  const finale = document.querySelector(".finale");
+  if (finale && "IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => finale.classList.toggle("visible", entry.isIntersecting));
+    }).observe(finale);
   }
 
   // ---------- Réservation de démonstration ----------
@@ -225,7 +255,7 @@
   if (ST) gsap.registerPlugin(ST);
   if (Split) gsap.registerPlugin(Split);
 
-  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", (contexte) => {
     const decoupes = [];
 
     // 1. L'affiche s'imprime : la mer se pose, le soleil se lève, le lettrage arrive plaque par plaque
@@ -255,56 +285,192 @@
       if (intro.progress() < 1) intro.progress(1);
     }, 3200);
 
-    if (ST) {
-      // 2. En descendant, le soleil se couche derrière la mer et la vignette prend de la profondeur.
-      const coucher = { trigger: ".affiche", start: "top top", end: "bottom top", scrub: true };
-      gsap.to(".soleil", { y: () => window.innerHeight * 0.32, ease: "none", scrollTrigger: coucher });
-      gsap.to(".vignette", { yPercent: -14, ease: "none", scrollTrigger: { ...coucher } });
-      gsap.to(".affiche h1", { y: -60, ease: "none", scrollTrigger: { ...coucher } });
-
-      // 3. Chaque aplat s'ouvre sur l'horizon : une fenêtre qui s'élargit en entrant.
-      gsap.utils.toArray(".carte, .lieu, .pitch").forEach((section) => {
-        gsap.fromTo(section, { clipPath: "inset(9% 5% 0% 5%)" }, {
-          clipPath: "inset(0% 0% 0% 0%)",
-          ease: "none",
-          scrollTrigger: { trigger: section, start: "top bottom", end: "top 35%", scrub: true },
-        });
-      });
-
-      // 4. Les grands titres se révèlent ligne par ligne, une seule fois.
-      if (Split) {
-        gsap.utils.toArray(".carte h2, .lieu h2, .infos h2, .pitch h2").forEach((h2) => {
-          const split = Split.create(h2, { type: "lines", mask: "lines" });
-          decoupes.push(split);
-          gsap.from(split.lines, {
-            yPercent: 105, duration: 1, ease: "expo.out", stagger: 0.1,
-            scrollTrigger: { trigger: h2, start: "top 86%", once: true },
+    // Les animations au défilement sont préparées quand le navigateur est disponible :
+    // l'introduction démarre tout de suite, sans attendre leur mise en place.
+    // Les animations au défilement sont préparées par petites étapes, pendant les temps morts du
+    // navigateur : l'introduction démarre tout de suite et la page reste réactive.
+    const etapes = ST ? [
+      () => {
+        // 2. En descendant, le soleil se couche derrière la mer et la vignette prend de la profondeur.
+        const coucher = { trigger: ".affiche", start: "top top", end: "bottom top", scrub: true };
+        gsap.to(".soleil", { y: () => window.innerHeight * 0.32, ease: "none", scrollTrigger: coucher });
+        gsap.to(".vignette", { yPercent: -14, ease: "none", scrollTrigger: { ...coucher } });
+      },
+      () => {
+        // 3. Chaque aplat s'ouvre sur l'horizon : une fenêtre qui s'élargit en entrant.
+        gsap.utils.toArray(".carte, .lieu, .pitch").forEach((section) => {
+          gsap.fromTo(section, { clipPath: "inset(9% 5% 0% 5%)" }, {
+            clipPath: "inset(0% 0% 0% 0%)",
+            ease: "none",
+            scrollTrigger: { trigger: section, start: "top bottom", end: "top 35%", scrub: true },
           });
         });
-      }
-
-      // 5. Le lieu : la photo se découvre comme un soleil levant, puis recule doucement.
-      const photo = document.querySelector(".lieu .tirage img");
-      if (photo) {
-        gsap.fromTo(photo, { clipPath: "circle(0% at 50% 100%)", scale: 1.18 }, {
-          clipPath: "circle(145% at 50% 100%)", scale: 1, ease: "none",
-          scrollTrigger: { trigger: ".lieu .tirage", start: "top 92%", end: "top 30%", scrub: 0.6 },
+      },
+      () => {
+        // 4. Les grands titres se révèlent ligne par ligne, une seule fois.
+        if (Split) {
+          gsap.utils.toArray(".carte h2, .lieu h2, .infos h2, .pitch h2").forEach((h2) => {
+            const split = Split.create(h2, { type: "lines", mask: "lines" });
+            decoupes.push(split);
+            gsap.from(split.lines, {
+              yPercent: 105, duration: 1, ease: "expo.out", stagger: 0.1,
+              scrollTrigger: { trigger: h2, start: "top 86%", once: true },
+            });
+          });
+        }
+      },
+      () => {
+        // 5. Le lieu : la photo se découvre comme un soleil levant, puis recule doucement.
+        const photo = document.querySelector(".lieu .tirage img");
+        if (photo) {
+          gsap.fromTo(photo, { clipPath: "circle(0% at 50% 100%)", scale: 1.18 }, {
+            clipPath: "circle(145% at 50% 100%)", scale: 1, ease: "none",
+            scrollTrigger: { trigger: ".lieu .tirage", start: "top 92%", end: "top 30%", scrub: 0.6 },
+          });
+        }
+      },
+      () => {
+        // 6. Le store de la terrasse se déroule.
+        gsap.from(".store", {
+          scaleY: 0, transformOrigin: "50% 0%", duration: 0.9, ease: "expo.out",
+          scrollTrigger: { trigger: ".store", start: "top 92%", once: true },
         });
-      }
-
-      // 6. Le store de la terrasse se déroule.
-      gsap.from(".store", {
-        scaleY: 0, transformOrigin: "50% 0%", duration: 0.9, ease: "expo.out",
-        scrollTrigger: { trigger: ".store", start: "top 92%", once: true },
-      });
-
-      // Les images chargées changent la hauteur des sections : on recalcule ensuite.
-      window.addEventListener("load", () => ST.refresh(), { once: true });
-    }
+      },
+      () => {
+        // 7. La finale : la lune se lève, le titre s'écrit lettre à lettre, les étoiles dérivent à peine.
+        gsap.fromTo(".lune", { yPercent: 140 }, {
+          yPercent: 0, ease: "none",
+          scrollTrigger: { trigger: ".finale", start: "top bottom", end: "center center", scrub: true },
+        });
+        gsap.to(".etoiles-a", {
+          yPercent: -8, ease: "none",
+          scrollTrigger: { trigger: ".finale", start: "top bottom", end: "bottom top", scrub: true },
+        });
+        if (Split) {
+          const titreFinale = document.querySelector(".finale h2");
+          if (titreFinale) {
+            const split = Split.create(titreFinale, { type: "lines,chars", mask: "lines" });
+            decoupes.push(split);
+            gsap.from(split.chars, {
+              yPercent: 110, rotation: 6, duration: 1, ease: "expo.out", stagger: 0.04,
+              scrollTrigger: { trigger: ".finale", start: "top 65%", once: true },
+            });
+          }
+        }
+      },
+      () => window.addEventListener("load", () => ST.refresh(), { once: true }),
+    ] : [];
+    let tache = 0;
+    const suivante = () => {
+      const etape = etapes.shift();
+      if (!etape) return;
+      contexte.add(etape);
+      tache = "requestIdleCallback" in window
+        ? window.requestIdleCallback(suivante, { timeout: 800 })
+        : window.setTimeout(suivante, 60);
+    };
+    tache = "requestIdleCallback" in window
+      ? window.requestIdleCallback(suivante, { timeout: 1200 })
+      : window.setTimeout(suivante, 200);
 
     return () => {
       window.clearTimeout(safety);
+      if ("cancelIdleCallback" in window) window.cancelIdleCallback(tache);
+      window.clearTimeout(tache);
       decoupes.forEach((split) => split.revert());
     };
+  });
+
+  // ---------- Une journée en cuisine : la scène épinglée ----------
+  // Sur grand écran : les quatre affiches défilent à l'horizontale sous un soleil unique
+  // qui se lève, culmine au service de midi et se couche sur la terrasse.
+  gsap.matchMedia().add("(min-width: 1025px) and (prefers-reduced-motion: no-preference)", () => {
+    const section = document.querySelector(".journee");
+    const piste = section && section.querySelector(".journee-piste");
+    const soleil = section && section.querySelector(".journee-soleil");
+    if (!section || !piste || !ST) return undefined;
+    section.classList.add("epinglee");
+    const affiches = Array.from(piste.querySelectorAll(".affichette"));
+    const distance = () => Math.max(0, piste.scrollWidth - window.innerWidth);
+    let indexCourant = -1;
+
+    const defile = gsap.to(piste, {
+      x: () => -distance(),
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 76px",
+        end: () => "+=" + Math.max(1, distance() * 1.3),
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        anticipatePin: 1,
+        refreshPriority: 1,
+        onUpdate: (self) => {
+          const i = Math.min(affiches.length - 1, Math.floor(self.progress * affiches.length * 0.999));
+          if (i !== indexCourant) {
+            indexCourant = i;
+            afficherHeure(affiches[i], section);
+          }
+        },
+      },
+    });
+
+    // Le soleil : bas à l'aube, au zénith à midi, bas au couchant ; sa couleur suit l'heure.
+    if (soleil) {
+      const h = () => section.querySelector(".journee-scene").offsetHeight;
+      const course = gsap.timeline({
+        defaults: { ease: "sine.inOut" },
+        scrollTrigger: {
+          trigger: section,
+          start: "top 76px",
+          end: () => "+=" + Math.max(1, distance() * 1.3),
+          scrub: 1,
+          invalidateOnRefresh: true,
+          refreshPriority: 1,
+        },
+      });
+      course
+        .fromTo(soleil, { y: () => h() * 0.8, backgroundColor: "#f7c86a" }, { y: () => h() * 0.52, backgroundColor: "#f4b41a", duration: 1 })
+        .to(soleil, { y: () => h() * 0.34, backgroundColor: "#fffdf7", duration: 1 })
+        .to(soleil, { y: () => h() * 0.82, backgroundColor: "#f29a4a", duration: 1.2 });
+    }
+
+    // Profondeur : les heures et les photos glissent à leur propre vitesse dans chaque affiche.
+    affiches.forEach((affiche) => {
+      const declencheur = { trigger: affiche, containerAnimation: defile, start: "left right", end: "right left", scrub: true };
+      gsap.fromTo(affiche.querySelector(".affichette-heure"), { x: 90 }, { x: -90, ease: "none", scrollTrigger: declencheur });
+      const img = affiche.querySelector(".affichette-visuel img");
+      if (img) gsap.fromTo(img, { x: -40, scale: 1.06 }, { x: 40, scale: 1, ease: "none", scrollTrigger: { ...declencheur } });
+    });
+
+    ST.refresh();
+    return () => {
+      section.classList.remove("epinglee");
+      gsap.set(piste, { clearProps: "transform" });
+    };
+  });
+
+  // ---------- Boutons aimantés (souris uniquement) ----------
+  gsap.matchMedia().add("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
+    const boutons = Array.from(document.querySelectorAll(".bande-reserver .bouton, .bouton-lune"));
+    const nettoyages = boutons.map((bouton) => {
+      const x = gsap.quickTo(bouton, "x", { duration: 0.5, ease: "power3.out" });
+      const y = gsap.quickTo(bouton, "y", { duration: 0.5, ease: "power3.out" });
+      const bouge = (event) => {
+        const r = bouton.getBoundingClientRect();
+        x((event.clientX - (r.left + r.width / 2)) * 0.28);
+        y((event.clientY - (r.top + r.height / 2)) * 0.36);
+      };
+      const quitte = () => { x(0); y(0); };
+      bouton.addEventListener("pointermove", bouge);
+      bouton.addEventListener("pointerleave", quitte);
+      return () => {
+        bouton.removeEventListener("pointermove", bouge);
+        bouton.removeEventListener("pointerleave", quitte);
+        gsap.set(bouton, { clearProps: "transform" });
+      };
+    });
+    return () => nettoyages.forEach((n) => n());
   });
 })();
