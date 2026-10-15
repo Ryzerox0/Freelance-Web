@@ -5,6 +5,23 @@
    un lettrage géométrique en capitales, la lecture en Karla.
    ========================================================= */
 
+/* Polices hébergées sur le site (licences SIL OFL dans fonts/) */
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("fonts/josefin-sans-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Karla";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/karla-latin.woff2") format("woff2");
+}
+
 :root {
   --outremer: #1d3c8f;
   --outremer-fonce: #142c6c;

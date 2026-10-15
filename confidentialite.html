@@ -9,10 +9,9 @@
   <meta name="color-scheme" content="light">
   <link rel="icon" type="image/png" href="images/Logo.png">
   <title>Confidentialité — Studio Web</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&amp;family=Fragment+Mono&amp;family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=31">
+  <link rel="preload" href="fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/atkinson-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=32">
   <script src="script.js?v=10" defer></script>
 </head>
 <body>
@@ -25,42 +24,35 @@
     </div>
   </header>
 
-  <main class="wrap subpage-main">
+  <main class="wrap subpage-main" id="contenu">
     <section class="subpage-hero">
       <h1>Confidentialité</h1>
-      <p>Cette notice explique comment les données personnelles peuvent être traitées lors de l'utilisation du portfolio Studio Web. Elle doit correspondre au fonctionnement réel du site et être mise à jour en cas de changement.</p>
+      <p>Ce que deviennent vos données quand vous visitez ce site ou écrivez à Studio Web.</p>
     </section>
 
     <section class="legal-content">
-      <div class="placeholder-warning">Avant publication, vérifie que cette notice correspond au site réellement déployé, notamment à l'hébergement, aux polices externes, aux journaux techniques et à tout outil ajouté. Le code actuel ne suffit pas à confirmer à lui seul tous les traitements effectués par les prestataires.</div>
+      <h2>En bref</h2>
+      <p>Ce site ne dépose aucun cookie, n’utilise aucun outil de mesure d’audience et n’affiche aucune publicité. Il ne contient aucun formulaire qui envoie vos données : le contact se fait par e-mail, depuis votre propre messagerie.</p>
 
-      <h2>1. Responsable du traitement</h2>
-      <p>Le responsable du traitement est l'éditeur du site, Baptiste Curie-Cadet, sous réserve de confirmer que cette identité correspond bien à l'exploitant réel du site. Pour toute question relative aux données personnelles, vous pouvez écrire à <a href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>. Les coordonnées légales de l'éditeur figurent dans les <a href="mentions-legales.html">mentions légales</a>.</p>
+      <h2>Responsable du traitement</h2>
+      <p>Baptiste Curie-Cadet (Studio Web), joignable à <a href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>. Ses coordonnées complètes figurent dans les <a href="mentions-legales.html">mentions légales</a>.</p>
 
-      <h2>2. Données transmises par e-mail</h2>
-      <p>Le lien de contact ouvre une application de messagerie : aucun message n'est envoyé automatiquement par le site. Si vous choisissez d'écrire à l'éditeur, celui-ci reçoit les données présentes dans votre e-mail (par exemple, votre adresse e-mail et le contenu du message) pour répondre à votre demande et, si nécessaire, assurer le suivi de l'échange.</p>
-      <p>Le traitement repose sur les démarches précontractuelles demandées par la personne ou, selon le contexte, sur l'intérêt légitime de répondre aux demandes reçues. N'envoyez pas de données sensibles ou d'informations qui ne sont pas nécessaires. Les messages sont conservés pendant la durée nécessaire au traitement de la demande, puis supprimés ou archivés lorsque leur conservation est requise par une obligation légale ou nécessaire à la défense de droits. Cette règle doit être appliquée effectivement dans la gestion de la boîte e-mail.</p>
+      <h2>Quand vous écrivez</h2>
+      <p>Les liens « Écrire à Baptiste » et « Demander un devis » ouvrent votre messagerie avec un message pré-rempli. Si vous l’envoyez, Studio Web reçoit votre adresse e-mail et le contenu de votre message, uniquement pour vous répondre et préparer un éventuel devis.</p>
+      <p>Ces messages sont conservés le temps de l’échange et de son suivi, puis supprimés, sauf s’ils doivent être gardés pour une obligation légale (par exemple une facture). Ils ne sont jamais revendus ni transmis à des fins commerciales.</p>
+      <p>Le bouton « Copier l’adresse » copie simplement l’adresse dans votre presse-papiers : rien n’est envoyé.</p>
 
-      <h2>3. Bouton de copie de l'adresse e-mail</h2>
-      <p>Le bouton « Copier l’adresse » utilise la fonction de presse-papiers du navigateur pour copier l'adresse affichée. Il n'envoie pas, à lui seul, de message ou de formulaire à l'éditeur. Le navigateur peut appliquer ses propres règles de sécurité à cette action.</p>
+      <h2>Sites de démonstration</h2>
+      <p>Les formulaires de « Dupont Plomberie » et de « Maison Olive » sont des démonstrations : ce que vous y saisissez reste dans votre navigateur et n’est envoyé à personne.</p>
 
-      <h2>4. Cookies, traceurs et données techniques</h2>
-      <p>Le code du site examiné ne semble pas intégrer d'outil de mesure d'audience ni de publicité ciblée. Cela ne permet toutefois pas d'affirmer qu'aucun cookie ou aucune donnée technique n'est traité : le navigateur, l'hébergeur, un éventuel réseau de diffusion ou tout service ajouté peut produire des journaux techniques (par exemple, adresse IP, date et heure de requête ou informations de navigateur) pour assurer la sécurité et le fonctionnement du service.</p>
-      <p>Avant la mise en ligne, vérifie les cookies et traceurs réellement utilisés. Si des traceurs soumis au consentement sont ajoutés, recueille le consentement préalable requis et propose un moyen de le retirer.</p>
+      <h2>Données techniques</h2>
+      <p>Comme pour tout site, l’hébergeur Cloudflare traite des données techniques nécessaires à l’affichage des pages et à leur sécurité (adresse IP, date de la visite, type de navigateur). La bibliothèque d’animation GSAP est chargée depuis cdnjs, un service également fourni par Cloudflare. Les polices sont hébergées sur le site : aucune requête n’est envoyée à Google.</p>
 
-      <h2>5. Services externes</h2>
-      <p>Le site charge actuellement des polices via Google Fonts. Lorsqu'un navigateur demande ces ressources, certaines données techniques peuvent être transmises à Google. Pour limiter les échanges avec des tiers, les polices peuvent être hébergées localement ou remplacées par des polices système. Si cette modification est effectuée, mets à jour la présente notice en conséquence.</p>
-      <p>La page d'accueil charge également la bibliothèque d'animation GSAP depuis cdnjs, un service de Cloudflare. Comme pour les polices, le navigateur transmet à ce service les données techniques nécessaires à la livraison du fichier, notamment l'adresse IP.</p>
-      <p>L'hébergeur et les autres prestataires effectivement utilisés peuvent également traiter des données techniques dans le cadre de leurs services. Leurs rôles, lieux de traitement et conditions applicables doivent être vérifiés à partir de la configuration réelle du site.</p>
+      <h2>Vos droits</h2>
+      <p>Vous pouvez demander l’accès à vos données, leur rectification ou leur effacement, ou vous opposer à leur traitement, en écrivant à <a href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a>. Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir la CNIL (<a href="https://www.cnil.fr/" target="_blank" rel="noopener noreferrer">cnil.fr</a>).</p>
 
-      <h2>6. Vos droits</h2>
-      <p>Dans les conditions prévues par la réglementation applicable, vous pouvez demander l'accès aux données personnelles vous concernant, leur rectification, leur effacement, la limitation du traitement ou vous opposer à certains traitements. Vous pouvez exercer ces droits en écrivant à <a href="mailto:bcuriecadet@gmail.com">bcuriecadet@gmail.com</a> et en précisant l'objet de votre demande. Une vérification raisonnable de votre identité pourra être demandée si elle est nécessaire pour protéger vos données.</p>
-      <p>Vous pouvez également introduire une réclamation auprès de la Commission nationale de l'informatique et des libertés (CNIL) si vous estimez que le traitement de vos données ne respecte pas la réglementation.</p>
-
-      <h2>7. Mise à jour de la notice</h2>
-      <p>Cette notice doit être mise à jour si le site ajoute un formulaire, des outils statistiques, des cookies ou traceurs, des comptes utilisateurs, des services tiers ou tout autre traitement de données personnelles. La description des traitements, des durées de conservation et des prestataires doit refléter la pratique réelle.</p>
-
-      <p><a class="text-link" href="index.html">Revenir à l'accueil</a></p>
+      <p class="legal-maj">Dernière mise à jour : 15 octobre 2026.</p>
+      <p><a class="text-link" href="index.html">Revenir à l’accueil</a></p>
     </section>
   </main>
 

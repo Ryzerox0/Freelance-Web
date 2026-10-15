@@ -5,6 +5,47 @@
    Aucune lueur : la profondeur vient des filets et des plans.
    ========================================================= */
 
+/* Polices hébergées sur le site (licences SIL OFL dans fonts/) */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("fonts/schibsted-grotesk-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/atkinson-400-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/atkinson-700-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/atkinson-400-italique-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Fragment Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/fragment-mono-latin.woff2") format("woff2");
+}
+
 :root {
   /* Couleurs */
   --noir: #f4f2ed;            /* fond */
@@ -1151,12 +1192,10 @@ details[open] .faq-icon::after {
   overflow-wrap: anywhere;
 }
 
-.placeholder-warning {
-  margin-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--filet);
-  color: var(--texte);
-  font-weight: 700;
+.legal-maj {
+  margin-top: 32px;
+  color: var(--gris);
+  font-size: 0.95rem;
 }
 
 .notfound-actions {
@@ -1302,6 +1341,7 @@ details[open] .faq-icon::after {
 
   .navigation .nav-cta:hover {
     background: var(--bleu-survol);
+    color: #ffffff;
   }
 }
 
