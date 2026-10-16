@@ -30,8 +30,13 @@ fonts/                  Toutes les polices du site, hébergées localement (aucu
 demo-plomberie.html, services.html, contact.html, plomberie.css, plomberie.js
                         Démo fictive « Dupont Plomberie » (menu mobile et
                         formulaire de démonstration qui n'envoie rien)
-demo-restaurant.html, restaurant.css, restaurant.js
-                        Démo fictive « Maison Olive » (une seule page)
+demo-restaurant.html, restaurant.css, restaurant.js, restaurant-intro.js
+                        Démo fictive « Maison Olive » (une seule page) :
+                        menu du marché, carte midi / soir et réservation de
+                        démonstration qui n'envoie rien. Photos Unsplash
+                        (licence Unsplash) étalonnées, images/olive-*.webp ;
+                        ombre de canisse et grain de chaux générés
+                        (images/canisse.png, images/chaux.webp)
 
 PRODUCT.md              Ce que fait le site, pour qui, et ce qu'il ne doit
                         jamais affirmer

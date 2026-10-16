@@ -1,194 +1,450 @@
 "use strict";
 
-/* Maison Olive (démo fictive) — « Une journée à Maison Olive »
-   - la course du soleil : l'astre traverse l'arc de l'en-tête au fil du défilement,
-     l'en-tête prend la couleur de l'heure (matin, midi, après-midi, soir, nuit) ;
-   - la carte par moment (onglets accessibles au clavier), ouverte sur le moment de l'heure réelle ;
-   - aperçu en arche des plats photographiés, qui suit la souris ;
-   - réservation de démonstration confirmée par un ticket, barre « Réserver » sur téléphone ;
-   - mouvement (GSAP, ScrollTrigger, SplitText, seulement si les animations sont acceptées) :
-     l'affiche s'imprime à l'arrivée, le soleil se couche derrière la mer, les sections s'ouvrent
-     sur l'horizon, les titres se révèlent. Sans JavaScript ou en mouvements réduits, tout est visible. */
-
+/* Maison Olive — démo fictive de Studio Web.
+   La lumière bouge, le contenu reste immobile : seule l'ombre de la canisse, les photos
+   et les fenêtres en arc se déplacent ; le texte se lit toujours à l'arrêt. */
 (() => {
   const reduit = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const sourisFine = window.matchMedia("(hover: hover) and (pointer: fine)");
   const gsap = window.gsap;
   const anime = () => typeof gsap !== "undefined" && !reduit.matches;
   const leverAttente = () => document.documentElement.classList.remove("intro-attente");
-  if (!anime()) leverAttente();
 
-  const year = document.getElementById("annee");
-  if (year) year.textContent = String(new Date().getFullYear());
+  const annee = document.getElementById("annee");
+  if (annee) annee.textContent = String(new Date().getFullYear());
 
-  // ---------- La course du soleil ----------
-  const entete = document.querySelector(".entete");
-  const liens = Array.from(document.querySelectorAll(".nav a[href^='#']:not(.bouton)"));
-  const astre = document.querySelector(".course-astre");
-  const heureLabel = document.querySelector(".course-heure");
-  const NOMS = { matin: "Matin", midi: "Midi", gouter: "Goûter", diner: "Dîner", "apres-midi": "Après-midi", soir: "Soir", nuit: "Nuit" };
-  let courante = null;
-  const navAstre = document.querySelector(".nav-astre");
-  const placerAstre = () => {
-    if (!navAstre) return;
-    const actif = liens.find((lien) => lien.classList.contains("actif"));
-    if (!actif || actif.offsetParent === null) {
-      navAstre.classList.remove("visible");
-      return;
+  // ---------- En-tête : transparent sur la photo, plein ensuite ----------
+  const entete = document.querySelector("[data-entete]");
+  const accueil = document.querySelector(".accueil");
+  const nav = document.getElementById("navigation");
+  const navBouton = document.querySelector(".nav-bouton");
+  let surAccueil = true;
+  const nuits = new Set();
+
+  const majEntete = () => {
+    const ouverte = nav && nav.classList.contains("ouverte");
+    if (!entete) return;
+    if (ouverte) entete.dataset.etat = "plein";
+    else if (surAccueil) entete.dataset.etat = "transparent";
+    else entete.dataset.etat = nuits.size ? "nuit" : "plein";
+  };
+
+  // La nuit tombe : sur le soir et le pied de page, l'en-tête passe au bleu de nuit.
+  if (entete && "IntersectionObserver" in window) {
+    const veille = new IntersectionObserver((entrees) => {
+      entrees.forEach((entree) => {
+        if (entree.isIntersecting) nuits.add(entree.target);
+        else nuits.delete(entree.target);
+      });
+      majEntete();
+    }, { rootMargin: "0px 0px -94% 0px" });
+    document.querySelectorAll(".soir, .pied").forEach((el) => veille.observe(el));
+  }
+
+  // L'en-tête reste transparent tant que la page est en haut, puis devient plein au premier défilement.
+  let attenteEntete = 0;
+  const lireDefilement = () => {
+    attenteEntete = 0;
+    const haut = window.scrollY < 24;
+    if (haut !== surAccueil) {
+      surAccueil = haut;
+      majEntete();
     }
-    navAstre.style.setProperty("--x", `${actif.offsetLeft + actif.offsetWidth / 2 - 4}px`);
-    navAstre.classList.add("visible");
   };
-  const afficherHeure = (section, ancre = section) => {
-    courante = section;
-    const heure = section.dataset.heure;
-    entete.dataset.heure = heure;
-    if (heureLabel) heureLabel.textContent = NOMS[heure] || "";
-    liens.forEach((lien) => lien.classList.toggle("actif", lien.getAttribute("href") === `#${ancre.id}`));
-    placerAstre();
-  };
-  window.addEventListener("resize", placerAstre);
+  if (!accueil) surAccueil = false;
+  else window.addEventListener("scroll", () => {
+    if (!attenteEntete) attenteEntete = requestAnimationFrame(lireDefilement);
+  }, { passive: true });
+  if (accueil) lireDefilement();
+  majEntete();
 
-  if (astre) {
-    let enAttente = false;
-    const placer = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-      const a = Math.PI * p;
-      astre.setAttribute("cx", (60 - 52 * Math.cos(a)).toFixed(1));
-      astre.setAttribute("cy", (33 - 28 * Math.sin(a)).toFixed(1));
-      enAttente = false;
-    };
-    window.addEventListener("scroll", () => {
-      if (!enAttente) {
-        enAttente = true;
-        window.requestAnimationFrame(placer);
+  // Navigation mobile
+  const fermerNav = (rendreFocus) => {
+    if (!nav || !navBouton) return;
+    nav.classList.remove("ouverte");
+    navBouton.setAttribute("aria-expanded", "false");
+    majEntete();
+    if (rendreFocus) navBouton.focus();
+  };
+  if (nav && navBouton) {
+    navBouton.addEventListener("click", () => {
+      const ouvrir = navBouton.getAttribute("aria-expanded") !== "true";
+      // Le panneau se place juste sous l'en-tête, bandeau de démonstration compris.
+      if (ouvrir && entete) nav.style.top = `${Math.round(entete.getBoundingClientRect().bottom)}px`;
+      nav.classList.toggle("ouverte", ouvrir);
+      navBouton.setAttribute("aria-expanded", String(ouvrir));
+      majEntete();
+      if (ouvrir) {
+        const premier = nav.querySelector("a");
+        if (premier) premier.focus();
       }
-    }, { passive: true });
-    window.addEventListener("resize", placer);
-    placer();
+    });
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) fermerNav(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && nav.classList.contains("ouverte")) fermerNav(true);
+    });
   }
 
-  // L'heure de la section qui passe sous l'en-tête, et le lien de navigation correspondant
-  const moments = Array.from(document.querySelectorAll("[data-heure]"));
-  if (entete && moments.length && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        // Pendant la scène épinglée, c'est le défilement horizontal qui donne l'heure.
-        if (entry.target.closest(".journee.epinglee")) return;
-        const journee = entry.target.closest(".journee");
-        afficherHeure(entry.target, journee || entry.target);
+  // Lien actif selon la section lue
+  const liens = Array.from(document.querySelectorAll(".nav a[href^='#']"));
+  const sections = liens.map((lien) => document.querySelector(lien.getAttribute("href"))).filter(Boolean);
+  if (sections.length && "IntersectionObserver" in window) {
+    const observateur = new IntersectionObserver((entrees) => {
+      entrees.forEach((entree) => {
+        if (!entree.isIntersecting) return;
+        liens.forEach((lien) => {
+          if (lien.getAttribute("href") === `#${entree.target.id}`) lien.setAttribute("aria-current", "true");
+          else lien.removeAttribute("aria-current");
+        });
       });
-    }, { rootMargin: "-84px 0px -80% 0px" });
-    moments.forEach((section) => observer.observe(section));
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach((section) => observateur.observe(section));
+    // De retour sur l'accueil, aucun lien n'est actif.
+    if (accueil) observateur.observe(accueil);
   }
 
-  // ---------- La carte par moment ----------
-  const carte = document.querySelector(".carte");
-  const tabs = Array.from(document.querySelectorAll(".onglets [role='tab']"));
-  if (carte && tabs.length) {
-    const select = (tab, focus, recompose) => {
-      let panneau = null;
-      tabs.forEach((other) => {
-        const on = other === tab;
-        other.setAttribute("aria-selected", String(on));
-        other.tabIndex = on ? 0 : -1;
-        const p = document.getElementById(other.getAttribute("aria-controls"));
-        p.hidden = !on;
-        if (on) panneau = p;
+  // ---------- Réservation de démonstration ----------
+  // Horaires d'exemple : lundi fermé ; dimanche, déjeuner seulement.
+  const HORAIRES = {
+    midi: { 0: [12, 0, 14, 15], 2: [12, 0, 13, 45], 3: [12, 0, 13, 45], 4: [12, 0, 13, 45], 5: [12, 0, 13, 45], 6: [12, 0, 14, 15] },
+    soir: { 2: [19, 30, 21, 45], 3: [19, 30, 21, 45], 4: [19, 30, 21, 45], 5: [19, 30, 21, 45], 6: [19, 30, 22, 15] },
+  };
+  const JOURS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+  const MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  const heureTexte = (h, m) => `${h} h${m ? ` ${String(m).padStart(2, "0")}` : ""}`;
+  const dateTexte = (d) => `${JOURS[d.getDay()]} ${d.getDate()} ${MOIS[d.getMonth()]}`;
+  const isoLocal = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const depuisIso = (iso) => {
+    const [a, m, j] = iso.split("-").map(Number);
+    return new Date(a, m - 1, j);
+  };
+
+  const form = document.querySelector("[data-reservation]");
+  if (form) {
+    const jour = form.querySelector("#jour");
+    const couverts = form.querySelector("#couverts");
+    const services = Array.from(form.querySelectorAll("input[name='service']"));
+    const etapes = {
+      choix: form.querySelector("[data-etape='choix']"),
+      heure: form.querySelector("[data-etape='heure']"),
+      ticket: form.querySelector("[data-etape='ticket']"),
+    };
+    const creneaux = form.querySelector("[data-creneaux]");
+    const resume = form.querySelector("[data-resume]");
+    const ticket = form.querySelector("[data-ticket]");
+    const erreur = form.querySelector("[data-erreur]");
+    const moins = form.querySelector("[data-pas='-1']");
+    const noteDemo = document.querySelector(".plaque-note");
+    const plus = form.querySelector("[data-pas='1']");
+    let etapeCourante = "choix";
+
+    // Quatorze jours à partir d'aujourd'hui ; les jours fermés restent visibles mais inactifs.
+    const aujourdhui = new Date();
+    aujourdhui.setHours(0, 0, 0, 0);
+    for (let i = 0; i < 14; i += 1) {
+      const d = new Date(aujourdhui);
+      d.setDate(d.getDate() + i);
+      const ouvert = HORAIRES.midi[d.getDay()] || HORAIRES.soir[d.getDay()];
+      const option = document.createElement("option");
+      option.value = isoLocal(d);
+      const nom = i === 0 ? "Aujourd’hui" : i === 1 ? "Demain" : dateTexte(d);
+      option.textContent = ouvert ? nom : `${nom} · fermé`;
+      option.disabled = !ouvert;
+      jour.appendChild(option);
+    }
+    const premierOuvert = Array.from(jour.options).find((o) => o.value && !o.disabled);
+    if (premierOuvert) jour.value = premierOuvert.value;
+
+    const serviceChoisi = () => (services.find((s) => s.checked) || services[1]).value;
+
+    const afficherErreur = (message) => {
+      erreur.textContent = message;
+      erreur.hidden = !message;
+    };
+
+    // Un service sans horaire ce jour-là est désactivé ; on bascule sur l'autre.
+    const majServices = () => {
+      if (!jour.value) return;
+      const j = depuisIso(jour.value).getDay();
+      services.forEach((s) => {
+        s.disabled = !HORAIRES[s.value][j];
       });
-      carte.dataset.moment = tab.dataset.moment;
-      carte.dataset.heure = { dejeuner: "midi", douceurs: "gouter", diner: "diner" }[tab.dataset.moment];
-      if (courante === carte) afficherHeure(carte);
-      if (focus) tab.focus();
-      if (recompose && panneau) {
-        panneau.classList.remove("recompose");
-        void panneau.offsetWidth;
-        panneau.classList.add("recompose");
-        if (anime()) {
-          const photo = panneau.querySelector(".carte-visuel img");
-          if (photo) {
-            gsap.fromTo(photo, { clipPath: "inset(100% 0% 0% 0%)", scale: 1.12 },
-              { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.9, ease: "expo.out", overwrite: true });
-          }
-          gsap.fromTo(panneau.querySelectorAll(".plats li, .formule"),
-            { y: 18, autoAlpha: 0 },
-            { y: 0, autoAlpha: 1, duration: 0.55, ease: "expo.out", stagger: 0.045, overwrite: true });
+      if (serviceChoisi() && HORAIRES[serviceChoisi()][j] === undefined) {
+        const autre = services.find((s) => !s.disabled);
+        if (autre) autre.checked = true;
+      }
+    };
+
+    const bornerCouverts = () => {
+      const n = Math.round(Number(couverts.value));
+      const valeur = Number.isFinite(n) ? Math.min(8, Math.max(1, n)) : 2;
+      moins.disabled = valeur <= 1;
+      plus.disabled = valeur >= 8;
+      return { valeur, horsLimite: n > 8 };
+    };
+
+    const montrer = (nom, focus) => {
+      etapeCourante = nom;
+      Object.entries(etapes).forEach(([cle, el]) => {
+        el.hidden = cle !== nom;
+      });
+      // Le ticket dit déjà que rien n'est envoyé : la note permanente s'efface alors.
+      if (noteDemo) noteDemo.hidden = nom === "ticket";
+      if (focus) focus.focus({ preventScroll: true });
+      // Opacité seulement : un élément masqué ne pourrait pas recevoir le focus.
+      if (anime()) gsap.fromTo(etapes[nom], { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" });
+    };
+
+    // Une table « complète » est tirée de façon stable à partir de la date et de l'heure.
+    const estComplet = (iso, h, m) => {
+      let graine = 0;
+      for (const c of `${iso}${h}${m}`) graine = (graine * 31 + c.charCodeAt(0)) % 9973;
+      return graine % 4 === 0;
+    };
+
+    const construireCreneaux = () => {
+      const d = depuisIso(jour.value);
+      const service = serviceChoisi();
+      const plage = HORAIRES[service][d.getDay()];
+      creneaux.textContent = "";
+      if (!plage) return 0;
+      const [h0, m0, h1, m1] = plage;
+      const maintenant = new Date();
+      let libres = 0;
+      for (let t = h0 * 60 + m0; t <= h1 * 60 + m1; t += 15) {
+        const h = Math.floor(t / 60);
+        const m = t % 60;
+        const quand = new Date(d);
+        quand.setHours(h, m, 0, 0);
+        const passe = quand.getTime() < maintenant.getTime() + 60 * 60 * 1000;
+        const complet = !passe && estComplet(jour.value, h, m);
+        const id = `creneau-${h}-${m}`;
+        const bloc = document.createElement("div");
+        bloc.className = "creneau";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "heure";
+        input.id = id;
+        input.value = `${h}:${m}`;
+        input.disabled = passe || complet;
+        const label = document.createElement("label");
+        label.htmlFor = id;
+        label.textContent = heureTexte(h, m);
+        if (passe || complet) {
+          const raison = document.createElement("span");
+          raison.className = "visuellement-cache";
+          raison.textContent = passe ? " (passé)" : " (complet)";
+          label.appendChild(raison);
+        } else {
+          libres += 1;
         }
+        bloc.append(input, label);
+        creneaux.appendChild(bloc);
       }
+      if (!libres) {
+        creneaux.textContent = "";
+        const vide = document.createElement("p");
+        vide.className = "creneaux-vide";
+        vide.textContent = "Plus de table libre à ce service. Essayez un autre jour ou l’autre service.";
+        creneaux.appendChild(vide);
+      }
+      return libres;
     };
-    tabs.forEach((tab, index) => {
-      tab.addEventListener("click", () => select(tab, false, true));
-      tab.addEventListener("keydown", (event) => {
-        const keys = { ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: tabs.length - 1 };
-        if (!(event.key in keys)) return;
-        event.preventDefault();
-        select(tabs[(keys[event.key] + tabs.length) % tabs.length], true, true);
+
+    jour.addEventListener("change", () => {
+      majServices();
+      afficherErreur("");
+    });
+    services.forEach((s) => s.addEventListener("change", () => afficherErreur("")));
+    [moins, plus].forEach((bouton) => {
+      bouton.addEventListener("click", () => {
+        couverts.value = String(bornerCouverts().valeur + Number(bouton.dataset.pas));
+        bornerCouverts();
+        afficherErreur("");
       });
     });
-    // La carte s'ouvre sur le moment de l'heure réelle : déjeuner, goûter ou dîner.
-    const h = new Date().getHours();
-    const moment = h >= 18 || h < 5 ? "diner" : h >= 15 ? "douceurs" : "dejeuner";
-    const initial = tabs.find((tab) => tab.dataset.moment === moment);
-    if (initial) select(initial, false, false);
+    couverts.addEventListener("change", () => {
+      const { valeur, horsLimite } = bornerCouverts();
+      couverts.value = String(valeur);
+      afficherErreur(horsLimite ? "En ligne, jusqu’à huit couverts. Pour un groupe, voyez « Peut-on venir à plus de huit ? » dans les infos pratiques." : "");
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      afficherErreur("");
+      if (etapeCourante === "choix") {
+        if (!jour.value) {
+          afficherErreur("Choisissez un jour d’ouverture.");
+          jour.focus();
+          return;
+        }
+        const { valeur } = bornerCouverts();
+        couverts.value = String(valeur);
+        const d = depuisIso(jour.value);
+        const service = serviceChoisi() === "midi" ? "déjeuner" : "dîner";
+        resume.textContent = `Heure du ${service} · ${dateTexte(d)} · ${valeur} couvert${valeur > 1 ? "s" : ""}`;
+        const libres = construireCreneaux();
+        montrer("heure", libres ? creneaux.querySelector("input:not(:disabled)") : form.querySelector("[data-retour]"));
+        return;
+      }
+      if (etapeCourante === "heure") {
+        const choisi = creneaux.querySelector("input:checked");
+        if (!choisi) {
+          afficherErreur("Choisissez une heure parmi les tables libres.");
+          const premier = creneaux.querySelector("input:not(:disabled)");
+          if (premier) premier.focus();
+          return;
+        }
+        const [h, m] = choisi.value.split(":").map(Number);
+        const n = Number(couverts.value);
+        ticket.textContent = "";
+        const ligne = document.createElement("strong");
+        ligne.textContent = `Table pour ${n} · ${dateTexte(depuisIso(jour.value))} · ${heureTexte(h, m)}`;
+        const note = document.createElement("span");
+        note.textContent = "Démonstration : rien n’a été envoyé. Sur le site d’un vrai restaurant, cette étape transmet la demande à son outil de réservation et une confirmation part par e-mail.";
+        ticket.append(ligne, note);
+        montrer("ticket", etapes.ticket);
+      }
+    });
+
+    form.querySelector("[data-retour]").addEventListener("click", () => {
+      afficherErreur("");
+      montrer("choix", jour);
+    });
+    form.querySelector("[data-recommencer]").addEventListener("click", () => {
+      afficherErreur("");
+      montrer("choix", jour);
+    });
+
+    majServices();
+    bornerCouverts();
+
+    // Les appels « Réserver » ailleurs dans la page ramènent au module et donnent le focus au jour.
+    document.querySelectorAll("[data-vers-reservation], .entete-reserver").forEach((lien) => {
+      lien.addEventListener("click", (event) => {
+        event.preventDefault();
+        const plaque = document.getElementById("reserver");
+        plaque.scrollIntoView({ behavior: reduit.matches ? "auto" : "smooth", block: "center" });
+        window.setTimeout(() => {
+          if (etapeCourante === "ticket") montrer("choix", jour);
+          else jour.focus({ preventScroll: true });
+        }, reduit.matches ? 0 : 700);
+      });
+    });
   }
 
-  // ---------- Aperçu des plats photographiés ----------
+  // ---------- Barre « Réserver » en bas d'écran (mobile) ----------
+  const barre = document.querySelector("[data-barre]");
+  const plaque = document.getElementById("reserver");
+  const soir = document.querySelector(".soir");
+  if (barre && plaque && "IntersectionObserver" in window) {
+    const visibles = new Set();
+    let depasse = false;
+    const maj = () => barre.classList.toggle("visible", depasse && visibles.size === 0);
+    new IntersectionObserver(([entree]) => {
+      if (entree.isIntersecting) visibles.add("plaque");
+      else visibles.delete("plaque");
+      depasse = entree.boundingClientRect.top < 0 || depasse;
+      if (entree.boundingClientRect.top > 0 && !entree.isIntersecting) depasse = false;
+      maj();
+    }).observe(plaque);
+    if (soir) {
+      new IntersectionObserver(([entree]) => {
+        if (entree.isIntersecting) visibles.add("soir");
+        else visibles.delete("soir");
+        maj();
+      }, { threshold: 0.3 }).observe(soir);
+    }
+  }
+
+  // ---------- La carte : Midi / Soir ----------
+  // Grand écran : les deux moitiés côte à côte. Plus étroit : deux onglets.
+  const carte = document.querySelector(".carte");
+  const onglets = Array.from(document.querySelectorAll(".onglets [role='tab']"));
+  const panneaux = onglets.map((o) => document.getElementById(o.getAttribute("aria-controls")));
+  const large = window.matchMedia("(min-width: 1025px)");
+  const choisirOnglet = (onglet, focus) => {
+    onglets.forEach((o) => {
+      const actif = o === onglet;
+      o.setAttribute("aria-selected", String(actif));
+      o.tabIndex = actif ? 0 : -1;
+      const panneau = document.getElementById(o.getAttribute("aria-controls"));
+      panneau.hidden = !actif;
+      if (actif && anime()) {
+        gsap.fromTo(panneau.querySelectorAll(".formule, .plats li"), { autoAlpha: 0, y: 14 },
+          { autoAlpha: 1, y: 0, duration: 0.6, ease: "expo.out", stagger: 0.03, overwrite: true });
+      }
+    });
+    if (focus) onglet.focus();
+  };
+  onglets.forEach((onglet, i) => {
+    onglet.addEventListener("click", () => choisirOnglet(onglet, false));
+    onglet.addEventListener("keydown", (event) => {
+      const cible = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: onglets.length - 1 }[event.key];
+      if (cible === undefined) return;
+      event.preventDefault();
+      choisirOnglet(onglets[(cible + onglets.length) % onglets.length], true);
+    });
+  });
+  const modeCarte = () => {
+    if (!carte || !onglets.length) return;
+    const cote = large.matches;
+    carte.classList.toggle("cote-a-cote", cote);
+    panneaux.forEach((panneau, i) => {
+      if (cote) {
+        panneau.hidden = false;
+        panneau.removeAttribute("role");
+        panneau.removeAttribute("aria-labelledby");
+        panneau.removeAttribute("tabindex");
+      } else {
+        panneau.setAttribute("role", "tabpanel");
+        panneau.setAttribute("aria-labelledby", onglets[i].id);
+        panneau.tabIndex = 0;
+        panneau.hidden = onglets[i].getAttribute("aria-selected") !== "true";
+      }
+    });
+  };
+  // Le soir venu, la carte s'ouvre sur le dîner (en onglets).
+  if (onglets.length === 2 && new Date().getHours() >= 16) choisirOnglet(onglets[1], false);
+  modeCarte();
+  large.addEventListener("change", modeCarte);
+
+  // ---------- Aperçu de l'assiette au survol (souris uniquement) ----------
   const apercu = document.querySelector(".apercu");
-  const fin = window.matchMedia("(hover: hover) and (pointer: fine)");
-  if (apercu && fin.matches) {
-    const img = apercu.querySelector("img");
-    let cible = { x: 0, y: 0 };
-    let pos = { x: 0, y: 0 };
-    let visible = false;
-    let boucle = null;
-
+  const apercuImg = apercu && apercu.querySelector("img");
+  if (apercu && apercuImg) {
+    let cx = 0;
+    let cy = 0;
+    let x = 0;
+    let y = 0;
+    let boucle = 0;
     const suivre = () => {
-      const k = reduit.matches ? 1 : 0.18;
-      const dx = cible.x - pos.x;
-      pos.x += dx * k;
-      pos.y += (cible.y - pos.y) * k;
-      const rotation = reduit.matches ? 0 : Math.max(-8, Math.min(8, dx * 0.06));
-      apercu.style.transform = `translate3d(${pos.x.toFixed(1)}px, ${pos.y.toFixed(1)}px, 0) rotate(${rotation.toFixed(2)}deg)`;
-      boucle = visible || Math.abs(dx) > 0.5 ? window.requestAnimationFrame(suivre) : null;
+      x += (cx - x) * 0.18;
+      y += (cy - y) * 0.18;
+      apercu.style.transform = `translate3d(${x + 24}px, ${y - 120}px, 0)`;
+      boucle = Math.abs(cx - x) + Math.abs(cy - y) > 0.5 ? requestAnimationFrame(suivre) : 0;
     };
-
     document.querySelectorAll(".plats li[data-photo]").forEach((li) => {
       li.addEventListener("pointerenter", (event) => {
-        if (img.getAttribute("src") !== li.dataset.photo) img.src = li.dataset.photo;
-        cible = { x: event.clientX + 28, y: event.clientY - 150 };
-        if (!visible) pos = { ...cible };
-        visible = true;
-        apercu.style.transition = "opacity 220ms ease";
-        apercu.style.opacity = "1";
-        if (!boucle) boucle = window.requestAnimationFrame(suivre);
+        if (event.pointerType !== "mouse" || !sourisFine.matches) return;
+        apercuImg.src = li.dataset.photo;
+        cx = x = event.clientX;
+        cy = y = event.clientY;
+        apercu.style.transform = `translate3d(${x + 24}px, ${y - 120}px, 0)`;
+        apercu.classList.add("visible");
       });
       li.addEventListener("pointermove", (event) => {
-        cible = { x: event.clientX + 28, y: event.clientY - 150 };
+        cx = event.clientX;
+        cy = event.clientY;
+        if (!boucle) boucle = requestAnimationFrame(suivre);
       });
-      li.addEventListener("pointerleave", () => {
-        visible = false;
-        apercu.style.opacity = "0";
-      });
+      li.addEventListener("pointerleave", () => apercu.classList.remove("visible"));
     });
-    window.addEventListener("scroll", () => {
-      if (visible) {
-        visible = false;
-        apercu.style.opacity = "0";
-      }
-    }, { passive: true });
-  }
-
-  // ---------- Finale : le ciel ne scintille qu'à l'écran ----------
-  const finale = document.querySelector(".finale");
-  if (finale && "IntersectionObserver" in window) {
-    new IntersectionObserver((entries) => {
-      entries.forEach((entry) => finale.classList.toggle("visible", entry.isIntersecting));
-    }).observe(finale);
   }
 
   // ---------- Le lieu : les volets (d'après « Hover Expand Gallery », 21st.dev) ----------
-  // Un volet s'ouvre au survol de la souris, au toucher ou au clavier ; un seul à la fois.
   const volets = Array.from(document.querySelectorAll("[data-volets] .volet"));
   const ouvrirVolet = (volet) => {
     volets.forEach((v) => {
@@ -212,358 +468,236 @@
     });
   });
 
-  // ---------- Bandeau (d'après « Scroll Velocity Text », 21st.dev) ----------
-  // Le motif défile lentement ; plus on fait défiler la page, plus il accélère, dans le sens
-  // du défilement. Immobile si l'on préfère moins d'animations, en pause hors de l'écran.
-  const bandeau = document.querySelector(".bandeau");
-  const pisteBandeau = bandeau && bandeau.querySelector(".bandeau-piste");
-  const motif = pisteBandeau && pisteBandeau.querySelector(".bandeau-motif");
-  if (bandeau && motif && "IntersectionObserver" in window) {
-    let largeur = 0;
-    let decalage = 0;
-    let sens = -1;
-    let vitesse = 0;
-    let dernierY = window.scrollY;
-    let dernierT = 0;
-    let visible = false;
-    let boucle = 0;
-
-    const mesurer = () => {
-      largeur = motif.offsetWidth;
-      const copies = largeur > 0 ? Math.max(2, Math.ceil(bandeau.offsetWidth / largeur) + 1) : 1;
-      while (pisteBandeau.children.length < copies) pisteBandeau.appendChild(motif.cloneNode(true));
-    };
-
-    const image = (t) => {
-      const dt = dernierT ? Math.min(0.05, (t - dernierT) / 1000) : 0;
-      dernierT = t;
-      const y = window.scrollY;
-      const instant = dt > 0 ? (y - dernierY) / dt : 0;
-      dernierY = y;
-      vitesse += (instant - vitesse) * 0.12;
-      const facteur = Math.min(5, (Math.abs(vitesse) / 1000) * 5);
-      if (facteur > 0.1) sens = vitesse > 0 ? -1 : 1;
-      if (largeur > 0) {
-        decalage += sens * largeur * 0.03 * (1 + facteur) * dt;
-        decalage = ((decalage % largeur) + largeur) % largeur - largeur;
-        pisteBandeau.style.transform = `translate3d(${decalage.toFixed(2)}px,0,0) skewX(${(-sens * facteur * 0.8).toFixed(2)}deg)`;
-      }
-      boucle = visible ? window.requestAnimationFrame(image) : 0;
-    };
-
-    const demarrer = () => {
-      if (boucle || !visible || reduit.matches || document.hidden) return;
-      dernierT = 0;
-      dernierY = window.scrollY;
-      boucle = window.requestAnimationFrame(image);
-    };
-    const arreter = () => {
-      window.cancelAnimationFrame(boucle);
-      boucle = 0;
-    };
-
-    mesurer();
-    window.addEventListener("resize", mesurer);
-    if (document.fonts) document.fonts.ready.then(mesurer);
-    new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      if (visible) demarrer(); else arreter();
-    }).observe(bandeau);
-    document.addEventListener("visibilitychange", () => (document.hidden ? arreter() : demarrer()));
-    reduit.addEventListener("change", () => {
-      if (reduit.matches) {
-        arreter();
-        pisteBandeau.style.transform = "";
-      } else {
-        demarrer();
-      }
+  // ---------- Le menu : choisir un temps à la souris quand rien n'est épinglé ----------
+  const tempsItems = Array.from(document.querySelectorAll(".temps-item"));
+  const fenetres = Array.from(document.querySelectorAll(".menu-cadre img"));
+  const menuSection = document.querySelector(".menu");
+  let menuEpingle = false;
+  const montrerTemps = (index) => {
+    tempsItems.forEach((li, i) => li.classList.toggle("actif", i === index));
+    if (menuEpingle) return;
+    fenetres.forEach((img, i) => {
+      if (i > 0) img.style.clipPath = i <= index ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)";
     });
-  }
-
-  // ---------- Réservation de démonstration ----------
-  const form = document.querySelector("[data-reservation]");
-  if (form) {
-    const jour = form.querySelector("#jour");
-    const heure = form.querySelector("#heure");
-    const status = document.querySelector(".reserver-statut");
-    const ouvert = [2, 3, 4, 5, 6]; // du mardi au samedi, comme dans les horaires d'exemple
-    const midi = ["12:00", "12:30", "13:00", "13:30"];
-    const soir = ["19:00", "19:30", "20:00", "20:30", "21:00", "21:30"];
-    const format = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" });
-
-    jour.innerHTML = "";
-    const today = new Date();
-    for (let i = 0, added = 0; added < 8 && i < 14; i += 1) {
-      const d = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i);
-      if (!ouvert.includes(d.getDay())) continue;
-      const label = i === 0 ? "Aujourd’hui" : i === 1 ? "Demain" : format.format(d);
-      jour.add(new Option(label.charAt(0).toUpperCase() + label.slice(1), [d.getFullYear(), String(d.getMonth() + 1).padStart(2, "0"), String(d.getDate()).padStart(2, "0")].join("-")));
-      added += 1;
-    }
-
-    heure.innerHTML = "";
-    [["Déjeuner", midi], ["Dîner", soir]].forEach(([name, slots]) => {
-      const group = document.createElement("optgroup");
-      group.label = name;
-      slots.forEach((slot) => group.appendChild(new Option(slot.replace(":00", " h").replace(":", " h "), slot)));
-      heure.appendChild(group);
+  };
+  tempsItems.forEach((li, i) => {
+    li.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && !menuEpingle) montrerTemps(i);
     });
-    heure.value = "20:00";
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const couverts = form.querySelector("#couverts").value;
-      const dayText = jour.options[jour.selectedIndex].text.toLowerCase();
-      const timeText = heure.options[heure.selectedIndex].text;
-      const titre = document.createElement("strong");
-      titre.textContent = `Table pour ${couverts} ${couverts === "1" ? "personne" : "personnes"}, ${dayText} à ${timeText}`;
-      const note = document.createElement("span");
-      note.textContent = "C’est une démonstration : aucune réservation n’a été envoyée.";
-      status.replaceChildren(titre, note);
-      status.hidden = false;
-      status.focus();
-      if (anime()) {
-        gsap.fromTo(status, { yPercent: 40, rotation: -1.5, autoAlpha: 0 },
-          { yPercent: 0, rotation: 0, autoAlpha: 1, duration: 0.6, ease: "expo.out" });
-      }
-    });
-
-    // Barre collante sur téléphone : inutile quand le module est déjà visible.
-    const bar = document.querySelector(".barre-reserver");
-    if (bar && "IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => bar.classList.toggle("cachee", entry.isIntersecting));
-      }, { threshold: 0.2 });
-      observer.observe(form);
-    }
-  }
+  });
 
   // ---------- Mouvement ----------
   if (typeof gsap === "undefined") {
     leverAttente();
     return;
   }
-  const ST = window.ScrollTrigger;
-  const Split = window.SplitText;
-  if (ST) gsap.registerPlugin(ST);
-  if (Split) gsap.registerPlugin(Split);
+  // On découpe les titres une fois les polices prêtes (sinon les lignes seraient fausses),
+  // sans jamais attendre plus de 700 ms.
+  const polices = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  Promise.race([polices, new Promise((r) => window.setTimeout(r, 700))]).then(demarrerMouvement);
 
-  gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", (contexte) => {
-    const decoupes = [];
+  function demarrerMouvement() {
+    const ST = window.ScrollTrigger;
+    const Split = window.SplitText;
+    if (ST) gsap.registerPlugin(ST);
+    if (Split) gsap.registerPlugin(Split);
 
-    // 1. L'affiche s'imprime : la mer se pose, le soleil se lève, le lettrage arrive plaque par plaque
-    //    (jaune décalé à droite, bleu à gauche) puis se cale, comme une chromolithographie.
-    const titre = document.querySelector(".affiche h1");
-    let lettres = [];
-    if (Split && titre) {
-      const split = Split.create(titre, { type: "lines,chars", mask: "lines", linesClass: "ligne-titre" });
-      decoupes.push(split);
-      lettres = split.chars;
-    }
-    const intro = gsap.timeline({ defaults: { ease: "expo.out" } });
-    // Les états de départ sont posés par GSAP au même instant : on peut lever le drapeau sans flash.
-    window.requestAnimationFrame(leverAttente);
-    intro
-      .from(".mer", { scaleY: 0, transformOrigin: "50% 100%", duration: 0.9 }, 0)
-      .from(".soleil", { yPercent: 75, duration: 1.8 }, 0.1)
-      .from(lettres.length ? lettres : titre, { yPercent: 110, duration: 0.95, stagger: 0.035 }, 0.15)
-      .fromTo(titre, { textShadow: "9px 0 0 rgba(244, 180, 26, 0.85), -7px 0 0 rgba(42, 82, 176, 0.9)" },
-        { textShadow: "0px 0 0 rgba(244, 180, 26, 0), 0px 0 0 rgba(42, 82, 176, 0)", duration: 1.1, ease: "power3.out" }, 0.55)
-      .from(".vignette", { y: 70, rotation: -2.5, duration: 1.3 }, 0.45)
-      .from(".affiche-texte > *", { y: 22, autoAlpha: 0, duration: 0.8, stagger: 0.09 }, 0.75)
-      .from(".bande-reserver form > *", { y: 18, autoAlpha: 0, duration: 0.7, stagger: 0.05 }, 0.9);
+    const mm = gsap.matchMedia();
 
-    // Garde-fou : si le navigateur suspend l'animation, l'affiche s'affiche d'office.
-    const safety = window.setTimeout(() => {
-      if (intro.progress() < 1) intro.progress(1);
-    }, 3200);
+    mm.add("(prefers-reduced-motion: no-preference)", (contexte) => {
+      const decoupes = [];
+      const canisse = document.querySelector(".canisse-accueil");
+      const photo = document.querySelector(".accueil-photo img");
+      const mobile = window.matchMedia("(max-width: 700px)").matches;
 
-    // Les animations au défilement sont préparées quand le navigateur est disponible :
-    // l'introduction démarre tout de suite, sans attendre leur mise en place.
-    // Les animations au défilement sont préparées par petites étapes, pendant les temps morts du
-    // navigateur : l'introduction démarre tout de suite et la page reste réactive.
-    const etapes = ST ? [
-      () => {
-        // 2. En descendant, le soleil se couche derrière la mer et la vignette prend de la profondeur.
-        const coucher = { trigger: ".affiche", start: "top top", end: "bottom top", scrub: true };
-        gsap.to(".soleil", { y: () => window.innerHeight * 0.32, ease: "none", scrollTrigger: coucher });
-        gsap.to(".vignette", { yPercent: -14, ease: "none", scrollTrigger: { ...coucher } });
-      },
-      () => {
-        // 3. Chaque aplat s'ouvre sur l'horizon : une fenêtre qui s'élargit en entrant.
-        gsap.utils.toArray(".carte, .lieu, .pitch").forEach((section) => {
-          gsap.fromTo(section, { clipPath: "inset(9% 5% 0% 5%)" }, {
-            clipPath: "inset(0% 0% 0% 0%)",
-            ease: "none",
-            scrollTrigger: { trigger: section, start: "top bottom", end: "top 35%", scrub: true },
-          });
-        });
-      },
-      () => {
-        // 4. Les grands titres se révèlent ligne par ligne, une seule fois.
-        if (Split) {
-          gsap.utils.toArray(".carte h2, .lieu h2, .infos h2, .pitch h2").forEach((h2) => {
-            const split = Split.create(h2, { type: "lines", mask: "lines" });
+      // 1. Entrée : l'ombre couvre la table, puis glisse et découvre la lumière ; le nom se pose.
+      const intro = gsap.timeline({ defaults: { ease: "expo.out" }, onStart: leverAttente });
+      if (canisse) {
+        intro.fromTo(canisse, mobile ? { "--decalage-y": "-38vh" } : { "--decalage": "38vw" },
+          { ...(mobile ? { "--decalage-y": "0px" } : { "--decalage": "0px" }), duration: 1.9, ease: "power3.inOut" }, 0);
+      }
+      if (photo) intro.fromTo(photo, { scale: 1.08 }, { scale: 1, duration: 2.4, ease: "power2.out" }, 0);
+      const titre = document.querySelector(".accueil h1");
+      if (titre && Split) {
+        const split = Split.create(titre, { type: "lines,chars", mask: "lines" });
+        decoupes.push(split);
+        intro.from(split.chars, { yPercent: 115, duration: 1.2, stagger: 0.035 }, 0.55);
+      }
+      intro.from(".accueil-titre p", { autoAlpha: 0, y: 16, duration: 1 }, 0.95);
+      intro.from(".plaque", { autoAlpha: 0, y: 28, duration: 1.1 }, 1.05);
+      const secours = window.setTimeout(() => {
+        leverAttente();
+        intro.progress(1);
+      }, 3200);
+
+      if (!ST) return () => window.clearTimeout(secours);
+
+      // Préparation en petites étapes, pendant les temps morts : l'entrée démarre tout de suite.
+      const etapes = [
+        () => {
+          // 2. L'après-midi avance : l'ombre gagne la table pendant qu'on quitte l'accueil.
+          if (canisse && !mobile) {
+            gsap.to(canisse, {
+              "--decalage": "26vw", ease: "none", immediateRender: false,
+              scrollTrigger: { trigger: ".accueil", start: "top top", end: "bottom top", scrub: true },
+            });
+          }
+          if (photo) {
+            gsap.to(photo, {
+              yPercent: 10, ease: "none", immediateRender: false,
+              scrollTrigger: { trigger: ".accueil", start: "top top", end: "bottom top", scrub: true },
+            });
+          }
+        },
+        () => {
+          // 3. La maison : la phrase s'éclaire mot à mot, comme un mur que le soleil atteint.
+          const phrase = document.querySelector(".maison-phrase");
+          if (phrase && Split) {
+            const split = Split.create(phrase, { type: "words" });
             decoupes.push(split);
-            gsap.from(split.lines, {
-              yPercent: 105, duration: 1, ease: "expo.out", stagger: 0.1,
-              scrollTrigger: { trigger: h2, start: "top 86%", once: true },
+            gsap.fromTo(split.words, { color: "rgba(28, 33, 64, 0.2)" }, {
+              color: "#1c2140", ease: "none", stagger: 0.12,
+              scrollTrigger: { trigger: phrase, start: "top 78%", end: "bottom 42%", scrub: 0.6 },
+            });
+          }
+          const arche = document.querySelector(".maison-photo");
+          if (arche) {
+            gsap.fromTo(arche, { clipPath: "inset(18% 0% 0% 0%)" }, {
+              clipPath: "inset(0% 0% 0% 0%)", ease: "none",
+              scrollTrigger: { trigger: arche, start: "top 95%", end: "top 45%", scrub: 0.6 },
+            });
+            gsap.fromTo(arche.querySelector("img"), { scale: 1.14 }, {
+              scale: 1, ease: "none",
+              scrollTrigger: { trigger: arche, start: "top bottom", end: "bottom top", scrub: true },
+            });
+          }
+        },
+        () => {
+          // 3 bis. La bande d'ombre glisse sur les murs de chaux pendant qu'on les longe.
+          gsap.utils.toArray(".canisse-mur").forEach((mur) => {
+            gsap.fromTo(mur, { "--decalage": "-22vw" }, {
+              "--decalage": "22vw", ease: "none",
+              scrollTrigger: { trigger: mur.parentElement, start: "top bottom", end: "bottom top", scrub: true },
             });
           });
-        }
-      },
-      () => {
-        // 5. Le lieu : les volets se découvrent comme un soleil levant.
-        const photo = document.querySelector(".lieu .volets");
-        if (photo) {
-          gsap.fromTo(photo, { clipPath: "circle(0% at 50% 100%)" }, {
-            clipPath: "circle(145% at 50% 100%)", ease: "none",
-            scrollTrigger: { trigger: ".lieu .tirage", start: "top 92%", end: "top 30%", scrub: 0.6 },
+        },
+        () => {
+          // 4. Les grands aplats d'ombre entrent par une seule ligne en diagonale.
+          gsap.utils.toArray(".menu, .soir").forEach((section) => {
+            gsap.fromTo(section, { clipPath: "polygon(0% 9%, 100% 0%, 100% 100%, 0% 100%)" }, {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", ease: "none",
+              scrollTrigger: { trigger: section, start: "top bottom", end: "top 30%", scrub: true },
+            });
           });
-        }
-      },
-      () => {
-        // 6. Le store de la terrasse se déroule.
-        gsap.from(".store", {
-          scaleY: 0, transformOrigin: "50% 0%", duration: 0.9, ease: "expo.out",
-          scrollTrigger: { trigger: ".store", start: "top 92%", once: true },
-        });
-      },
-      () => {
-        // 7. La finale : la lune se lève, le titre s'écrit lettre à lettre, les étoiles dérivent à peine.
-        gsap.fromTo(".lune", { yPercent: 140 }, {
-          yPercent: 0, ease: "none",
-          scrollTrigger: { trigger: ".finale", start: "top bottom", end: "center center", scrub: true },
-        });
-        gsap.to(".etoiles-a", {
-          yPercent: -8, ease: "none",
-          scrollTrigger: { trigger: ".finale", start: "top bottom", end: "bottom top", scrub: true },
-        });
-        if (Split) {
-          const titreFinale = document.querySelector(".finale h2");
-          if (titreFinale) {
-            const split = Split.create(titreFinale, { type: "lines,chars", mask: "lines" });
+        },
+        () => {
+          // 5. Petit écran : chaque assiette s'ouvre dans sa fenêtre en arc.
+          if (window.matchMedia("(min-width: 1025px)").matches) return;
+          gsap.utils.toArray(".temps-photo").forEach((arche) => {
+            gsap.fromTo(arche, { clipPath: "inset(30% 0% 0% 0%)" }, {
+              clipPath: "inset(0% 0% 0% 0%)", ease: "none",
+              scrollTrigger: { trigger: arche, start: "top 96%", end: "top 55%", scrub: 0.5 },
+            });
+          });
+        },
+        () => {
+          // 6. Le lieu : les volets sont clos, le premier s'ouvre quand on arrive.
+          const lieu = document.querySelector(".volets");
+          if (lieu && volets.length) {
+            ouvrirVolet(null);
+            ST.create({ trigger: lieu, start: "top 70%", once: true, onEnter: () => ouvrirVolet(volets[0]) });
+          }
+        },
+        () => {
+          // 7. Le soir : la photo se pose, le titre s'écrit lettre à lettre.
+          gsap.fromTo(".soir-photo img", { scale: 1.12 }, {
+            scale: 1, ease: "none",
+            scrollTrigger: { trigger: ".soir", start: "top bottom", end: "bottom bottom", scrub: true },
+          });
+          const titreSoir = document.querySelector(".soir h2");
+          if (titreSoir && Split) {
+            const split = Split.create(titreSoir, { type: "lines,chars", mask: "lines" });
             decoupes.push(split);
             gsap.from(split.chars, {
-              yPercent: 110, rotation: 6, duration: 1, ease: "expo.out", stagger: 0.04,
-              scrollTrigger: { trigger: ".finale", start: "top 65%", once: true },
+              yPercent: 110, duration: 1.1, ease: "expo.out", stagger: 0.04,
+              scrollTrigger: { trigger: ".soir", start: "top 55%", once: true },
             });
           }
-        }
-      },
-      () => window.addEventListener("load", () => ST.refresh(), { once: true }),
-    ] : [];
-    let tache = 0;
-    const suivante = () => {
-      const etape = etapes.shift();
-      if (!etape) return;
-      contexte.add(etape);
-      tache = "requestIdleCallback" in window
-        ? window.requestIdleCallback(suivante, { timeout: 800 })
-        : window.setTimeout(suivante, 60);
-    };
-    tache = "requestIdleCallback" in window
-      ? window.requestIdleCallback(suivante, { timeout: 1200 })
-      : window.setTimeout(suivante, 200);
-
-    return () => {
-      window.clearTimeout(safety);
-      if ("cancelIdleCallback" in window) window.cancelIdleCallback(tache);
-      window.clearTimeout(tache);
-      decoupes.forEach((split) => split.revert());
-    };
-  });
-
-  // ---------- Une journée en cuisine : la scène épinglée ----------
-  // Sur grand écran : les quatre affiches défilent à l'horizontale sous un soleil unique
-  // qui se lève, culmine au service de midi et se couche sur la terrasse.
-  gsap.matchMedia().add("(min-width: 1025px) and (prefers-reduced-motion: no-preference)", () => {
-    const section = document.querySelector(".journee");
-    const piste = section && section.querySelector(".journee-piste");
-    const soleil = section && section.querySelector(".journee-soleil");
-    if (!section || !piste || !ST) return undefined;
-    section.classList.add("epinglee");
-    const affiches = Array.from(piste.querySelectorAll(".affichette"));
-    const distance = () => Math.max(0, piste.scrollWidth - window.innerWidth);
-    let indexCourant = -1;
-
-    const defile = gsap.to(piste, {
-      x: () => -distance(),
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        start: "top 76px",
-        end: () => "+=" + Math.max(1, distance() * 1.3),
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-        anticipatePin: 1,
-        refreshPriority: 1,
-        onUpdate: (self) => {
-          const i = Math.min(affiches.length - 1, Math.floor(self.progress * affiches.length * 0.999));
-          if (i !== indexCourant) {
-            indexCourant = i;
-            afficherHeure(affiches[i], section);
-          }
         },
-      },
+        () => window.addEventListener("load", () => ST.refresh(), { once: true }),
+      ];
+      let tache = 0;
+      const suivante = () => {
+        const etape = etapes.shift();
+        if (!etape) return;
+        contexte.add(etape);
+        tache = "requestIdleCallback" in window
+          ? window.requestIdleCallback(suivante, { timeout: 600 })
+          : window.setTimeout(suivante, 50);
+      };
+      tache = "requestIdleCallback" in window
+        ? window.requestIdleCallback(suivante, { timeout: 900 })
+        : window.setTimeout(suivante, 150);
+
+      return () => {
+        window.clearTimeout(secours);
+        if ("cancelIdleCallback" in window) window.cancelIdleCallback(tache);
+        window.clearTimeout(tache);
+        decoupes.forEach((split) => split.revert());
+        if (volets.length && !volets.some((v) => v.classList.contains("ouvert"))) ouvrirVolet(volets[0]);
+      };
     });
 
-    // Le soleil : bas à l'aube, au zénith à midi, bas au couchant ; sa couleur suit l'heure.
-    if (soleil) {
-      const h = () => section.querySelector(".journee-scene").offsetHeight;
-      const course = gsap.timeline({
-        defaults: { ease: "sine.inOut" },
+    // Le menu du marché, épinglé sur grand écran : les cinq temps défilent dans une fenêtre en arc.
+    mm.add("(min-width: 1025px) and (prefers-reduced-motion: no-preference)", () => {
+      const scene = document.querySelector(".menu-scene");
+      const fenetreCanisse = document.querySelector(".canisse-fenetre");
+      if (!scene || !window.ScrollTrigger || fenetres.length < 2) return undefined;
+      menuEpingle = true;
+      menuSection.classList.add("anime");
+      fenetres.forEach((img) => { img.loading = "eager"; });
+      const n = fenetres.length;
+      let indexCourant = -1;
+      montrerTemps(0);
+
+      const tl = gsap.timeline({
+        defaults: { ease: "none" },
         scrollTrigger: {
-          trigger: section,
-          start: "top 76px",
-          end: () => "+=" + Math.max(1, distance() * 1.3),
-          scrub: 1,
+          trigger: scene,
+          start: () => `top ${entete ? entete.offsetHeight : 0}px`,
+          end: () => "+=" + window.innerHeight * 0.75 * (n - 1),
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
           invalidateOnRefresh: true,
-          refreshPriority: 1,
+          onUpdate: (self) => {
+            const i = Math.min(n - 1, Math.round(self.progress * (n - 1)));
+            if (i !== indexCourant) {
+              indexCourant = i;
+              montrerTemps(i);
+            }
+          },
         },
       });
-      course
-        .fromTo(soleil, { y: () => h() * 0.8, backgroundColor: "#f7c86a" }, { y: () => h() * 0.52, backgroundColor: "#f4b41a", duration: 1 })
-        .to(soleil, { y: () => h() * 0.34, backgroundColor: "#fffdf7", duration: 1 })
-        .to(soleil, { y: () => h() * 0.82, backgroundColor: "#f29a4a", duration: 1.2 });
-    }
+      for (let i = 1; i < n; i += 1) {
+        tl.fromTo(fenetres[i], { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "power2.inOut" }, i - 1)
+          .fromTo(fenetres[i], { scale: 1.12 }, { scale: 1, duration: 1.2 }, i - 1)
+          .to(fenetres[i - 1], { scale: 1.06, duration: 1 }, i - 1);
+      }
+      if (fenetreCanisse) tl.fromTo(fenetreCanisse, { "--decalage": "-18%" }, { "--decalage": "22%", duration: n - 1 }, 0);
 
-    // Profondeur : les heures et les photos glissent à leur propre vitesse dans chaque affiche.
-    affiches.forEach((affiche) => {
-      const declencheur = { trigger: affiche, containerAnimation: defile, start: "left right", end: "right left", scrub: true };
-      gsap.fromTo(affiche.querySelector(".affichette-heure"), { x: 90 }, { x: -90, ease: "none", scrollTrigger: declencheur });
-      const img = affiche.querySelector(".affichette-visuel img");
-      if (img) gsap.fromTo(img, { x: -40, scale: 1.06 }, { x: 40, scale: 1, ease: "none", scrollTrigger: { ...declencheur } });
-    });
-
-    ST.refresh();
-    return () => {
-      section.classList.remove("epinglee");
-      gsap.set(piste, { clearProps: "transform" });
-    };
-  });
-
-  // ---------- Boutons aimantés (souris uniquement) ----------
-  gsap.matchMedia().add("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
-    const boutons = Array.from(document.querySelectorAll(".bande-reserver .bouton, .bouton-lune"));
-    const nettoyages = boutons.map((bouton) => {
-      const x = gsap.quickTo(bouton, "x", { duration: 0.5, ease: "power3.out" });
-      const y = gsap.quickTo(bouton, "y", { duration: 0.5, ease: "power3.out" });
-      const bouge = (event) => {
-        const r = bouton.getBoundingClientRect();
-        x((event.clientX - (r.left + r.width / 2)) * 0.28);
-        y((event.clientY - (r.top + r.height / 2)) * 0.36);
-      };
-      const quitte = () => { x(0); y(0); };
-      bouton.addEventListener("pointermove", bouge);
-      bouton.addEventListener("pointerleave", quitte);
       return () => {
-        bouton.removeEventListener("pointermove", bouge);
-        bouton.removeEventListener("pointerleave", quitte);
-        gsap.set(bouton, { clearProps: "transform" });
+        menuEpingle = false;
+        menuSection.classList.remove("anime");
+        gsap.set(fenetres, { clearProps: "clipPath,transform" });
+        tempsItems.forEach((li) => li.classList.remove("actif"));
       };
     });
-    return () => nettoyages.forEach((n) => n());
-  });
+
+    // Sans mouvement : la fenêtre du menu suit simplement le temps survolé, sans transition.
+    if (reduit.matches) {
+      leverAttente();
+      montrerTemps(0);
+    }
+  }
 })();
