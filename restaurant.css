@@ -1,32 +1,62 @@
 /* =========================================================
    MAISON OLIVE — démo fictive de Studio Web
-   Une affiche de voyage de la Riviera : des aplats francs qui
-   possèdent chaque écran (outremer, soleil, pin, brique),
-   un lettrage géométrique en capitales, la lecture en Karla.
+   Un mur de chaux sous une canisse : la lumière bouge,
+   le contenu reste immobile. Chaux minérale, bleu d'ombre,
+   ocre citron pour l'action, vert volet pour les persiennes.
    ========================================================= */
 
+/* Polices hébergées sur le site (licences SIL OFL dans fonts/) */
+@font-face {
+  font-family: "Marcellus";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/marcellus-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("fonts/hanken-grotesk-latin.woff2") format("woff2");
+}
+
+/* Repli métrique : limite le saut de mise en page avant le chargement */
+@font-face {
+  font-family: "Marcellus repli";
+  src: local("Georgia");
+  size-adjust: 96%;
+}
+
 :root {
-  --outremer: #1d3c8f;
-  --outremer-fonce: #142c6c;
-  --mer: #2a52b0;
-  --soleil: #f4b41a;
-  --soleil-clair: #fbd36a;
-  --pin: #1f5a3f;
-  --pin-fonce: #17452f;
-  --brique: #b8432a;
-  --brique-fonce: #93331f;
-  --chaux: #ffffff;
-  --sable: #f3e6c9;
-  --nuit: #10203d;
-  --nuit-doux: #3c4a63;
+  --chaux: #f1f0eb;
+  --chaux-ombre: #e5e5e1;
+  --ombre: #27315f;
+  --ombre-fonce: #181e3e;
+  --ombre-clair: #39447a;
+  --encre: #1c2140;
+  --encre-douce: #3d4462;
+  --sur-ombre: #f1f0eb;
+  --sur-ombre-doux: #bcc1dc;
+  --ocre: #e9b949;
+  --ocre-vif: #f2c862;
+  --volet: #3f6b55;
+  --volet-fonce: #2f5543;
+  --volet-clair: #4f7d66;
+  --filet: rgba(28, 33, 64, 0.16);
+  --filet-fort: rgba(28, 33, 64, 0.34);
+  --filet-ombre: rgba(241, 240, 235, 0.2);
 
-  --affiche: "Josefin Sans", "Futura", "Century Gothic", sans-serif;
-  --texte: "Karla", "Segoe UI", Arial, sans-serif;
+  --titre: "Marcellus", "Marcellus repli", Georgia, serif;
+  --texte: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
 
-  --largeur: 1200px;
-  --gouttiere: clamp(20px, 4vw, 48px);
-  --section: clamp(80px, 10vw, 140px);
+  --enveloppe: 1280px;
+  --gouttiere: clamp(20px, 5vw, 72px);
+  --section: clamp(96px, 12vw, 176px);
+  --entete: 76px;
   --sortie: cubic-bezier(0.16, 1, 0.3, 1);
+  --volet-courbe: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 *,
@@ -37,86 +67,88 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: calc(var(--entete) + 12px);
+  scrollbar-color: var(--ombre) var(--chaux-ombre);
   -webkit-text-size-adjust: 100%;
-  scrollbar-color: var(--outremer) var(--chaux);
 }
 
 body {
   margin: 0;
-  background: var(--chaux);
-  color: var(--nuit);
+  background: var(--chaux) url("images/chaux.webp");
+  color: var(--encre);
   font-family: var(--texte);
   font-size: 1.0625rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
+  caret-color: var(--ombre);
 }
 
-img,
-svg {
-  display: block;
-  max-width: 100%;
+::selection {
+  background: var(--ocre);
+  color: var(--encre);
 }
 
 img {
+  display: block;
+  max-width: 100%;
   height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2 {
+  font-family: var(--titre);
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(2.3rem, 4.6vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: 0.005em;
 }
 
 a {
   color: inherit;
 }
 
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--affiche);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 0.95;
-  text-transform: uppercase;
-  text-wrap: balance;
-}
-
-h2 {
-  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
-}
-
-h3 {
-  font-size: 1.25rem;
-  letter-spacing: 0.06em;
-  line-height: 1.1;
-}
-
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-::selection {
-  background: var(--soleil);
-  color: var(--nuit);
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
 }
 
 :focus-visible {
-  outline: 3px solid var(--soleil);
+  outline: 2px solid var(--ocre);
   outline-offset: 3px;
 }
 
-.wrap {
-  width: min(100% - 2 * var(--gouttiere), var(--largeur));
+.enveloppe {
+  width: min(100% - 2 * var(--gouttiere), var(--enveloppe));
   margin-inline: auto;
 }
 
-.sr-only {
+.visuellement-cache {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -125,98 +157,198 @@ ol {
   white-space: nowrap;
 }
 
-.skip-link {
+.evitement {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: -100px;
+  left: 16px;
   z-index: 100;
-  padding: 10px 16px;
-  background: var(--soleil);
-  color: var(--nuit);
-  font-weight: 700;
-  transform: translateY(-160%);
+  padding: 12px 18px;
+  background: var(--encre);
+  color: var(--chaux);
 }
 
-.skip-link:focus {
-  transform: none;
+.evitement:focus {
+  top: 12px;
 }
 
-/* ---------- Boutons ---------- */
+/* ---------- Boutons et liens ---------- */
 
 .bouton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  min-height: 54px;
+  min-height: 52px;
   padding: 0 28px;
   border: 0;
-  border-radius: 0;
-  background: var(--brique);
-  color: var(--chaux);
-  font-family: var(--affiche);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-decoration: none;
+  font-family: var(--titre);
+  font-size: 0.98rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
-  transition: background-color 220ms var(--sortie), transform 220ms var(--sortie);
-}
-
-.bouton:hover {
-  background: var(--brique-fonce);
+  transition: background-color 260ms var(--sortie), color 260ms var(--sortie), box-shadow 260ms var(--sortie);
 }
 
 .bouton:active {
   transform: translateY(1px);
 }
 
-.bouton-clair {
-  border: 2px solid currentColor;
-  background: transparent;
-  color: var(--chaux);
+.bouton-ocre {
+  background: var(--ocre);
+  color: var(--encre);
 }
 
-.bouton-clair:hover {
-  background: var(--chaux);
-  color: var(--nuit);
+.bouton-ocre:hover {
+  background: var(--ocre-vif);
+  box-shadow: 0 10px 24px -14px rgba(24, 30, 62, 0.7);
+}
+
+.bouton-ombre {
+  background: var(--ombre);
+  color: var(--sur-ombre);
+}
+
+.bouton-ombre:hover {
+  background: var(--ombre-clair);
+}
+
+.lien,
+.lien-fleche {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  cursor: pointer;
+  transition: text-underline-offset 260ms var(--sortie), color 260ms var(--sortie);
+}
+
+.lien:hover,
+.lien-fleche:hover {
+  text-underline-offset: 9px;
+}
+
+.lien-fleche::after {
+  content: "";
+  width: 22px;
+  height: 10px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 10'%3E%3Cpath d='M0 5h20M16 1l4 4-4 4' fill='none' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 10'%3E%3Cpath d='M0 5h20M16 1l4 4-4 4' fill='none' stroke='black' stroke-width='1.4'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 260ms var(--sortie);
+}
+
+.lien-fleche:hover::after {
+  transform: translateX(4px);
+}
+
+.etiquette {
+  display: inline-block;
+  padding: 2px 9px;
+  border: 1px solid var(--filet-fort);
+  font-family: var(--texte);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+/* Fenêtre en arc : le cadre des photos, comme les baies de la salle */
+.arche {
+  overflow: hidden;
+  border-radius: 999px 999px 0 0;
+}
+
+.arche img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- La canisse : l'ombre des roseaux ---------- */
+
+/* Une plaque d'ombre photographique (roseaux irréguliers, fils de liage, pénombre),
+   posée en multiplication : le blanc laisse passer la lumière, le bleu d'ombre l'assombrit. */
+.canisse {
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.canisse > span {
+  position: absolute;
+  inset: 0;
+  background: url("images/canisse-ombre.webp") 50% 50% / cover no-repeat;
+}
+
+@media (max-width: 700px) {
+  .canisse > span {
+    background-image: url("images/canisse-ombre-1200.webp");
+  }
+}
+
+/* L'ombre traverse aussi les murs de chaux, en une bande diagonale qui glisse au défilement */
+.maison,
+.carte {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.canisse-mur {
+  z-index: 2;
+  inset: -30% -40%;
+  opacity: 0.26;
+  transform: rotate(-30deg) translateX(var(--decalage, 0px));
+}
+
+.canisse-mur > span {
+  -webkit-mask-image: linear-gradient(90deg, transparent 22%, #000 36% 54%, transparent 68%);
+  mask-image: linear-gradient(90deg, transparent 22%, #000 36% 54%, transparent 68%);
+}
+
+.carte .canisse-mur {
+  bottom: auto;
+  height: 900px;
 }
 
 /* ---------- Bandeau de démonstration ---------- */
 
 .demo-bar {
-  background: var(--nuit);
-  color: #cfd6e6;
-  font-size: 0.875rem;
-}
-
-.demo-bar .wrap {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
-  gap: 4px 20px;
-  min-height: 40px;
-  padding-block: 6px;
+  gap: 4px 24px;
+  padding: 9px var(--gouttiere);
+  background: var(--ombre-fonce);
+  color: var(--sur-ombre-doux);
+  font-size: 0.875rem;
 }
 
 .demo-bar a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--chaux);
-  font-weight: 700;
+  color: var(--sur-ombre);
   text-decoration: none;
 }
 
-.demo-bar .retour {
-  width: 16px;
-  height: 16px;
+.demo-bar a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.demo-bar a:hover {
-  color: var(--soleil);
+.demo-bar svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* ---------- En-tête ---------- */
@@ -224,566 +356,1220 @@ ol {
 .entete {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: var(--outremer);
-  color: var(--chaux);
+  z-index: 40;
+  height: var(--entete);
+  color: var(--sur-ombre);
+  transition: background-color 360ms var(--sortie), color 360ms var(--sortie), box-shadow 360ms var(--sortie);
 }
 
-.entete .wrap {
+.entete[data-etat="nuit"] {
+  background: var(--ombre-fonce);
+  color: var(--sur-ombre);
+  box-shadow: 0 1px 0 var(--filet-ombre);
+}
+
+.entete[data-etat="plein"] {
+  background: var(--chaux);
+  color: var(--encre);
+  box-shadow: 0 1px 0 var(--filet);
+}
+
+.entete-ligne {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  min-height: 76px;
+  gap: 28px;
+  height: 100%;
+  padding-inline: var(--gouttiere);
 }
 
 .marque {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  min-height: 48px;
+  margin-right: auto;
+  font-family: var(--titre);
+  font-size: 1.3rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .marque svg {
-  width: 42px;
-  height: 42px;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  color: var(--ocre);
+  --fond-marque: var(--ombre);
 }
 
-.marque span {
-  white-space: nowrap;
-  font-family: var(--affiche);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+.entete[data-etat="plein"] .marque svg {
+  color: var(--volet);
+  --fond-marque: var(--chaux);
 }
 
-.nav {
+.nav ul {
   display: flex;
+  gap: clamp(18px, 2.4vw, 34px);
+}
+
+.nav a {
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap: 8px 30px;
-}
-
-.nav a:not(.bouton) {
-  padding-block: 10px;
-  border-bottom: 2px solid transparent;
-  font-family: var(--affiche);
+  min-height: 44px;
   font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  text-transform: uppercase;
-  transition: border-color 220ms var(--sortie), color 220ms var(--sortie);
 }
 
-.nav a:not(.bouton):hover {
-  border-color: var(--soleil);
-  color: var(--soleil);
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 1px;
+  background: var(--ocre);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 380ms var(--sortie);
 }
 
-.nav .bouton {
+.nav a:hover::after,
+.nav a[aria-current="true"]::after {
+  transform: scaleX(1);
+}
+
+.entete[data-etat="plein"] .nav a::after {
+  background: var(--ombre);
+}
+
+.entete-reserver {
   min-height: 46px;
-  padding-inline: 22px;
-  background: var(--soleil);
-  color: var(--nuit);
+  padding: 0 22px;
 }
 
-.nav .bouton:hover {
-  background: var(--soleil-clair);
+.nav-bouton {
+  display: none;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid currentColor;
+  background: none;
+  cursor: pointer;
 }
 
-/* ---------- L'affiche (ouverture) ---------- */
+.nav-bouton-traits,
+.nav-bouton-traits::before {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  margin: 0 auto;
+  background: currentColor;
+  transition: transform 320ms var(--sortie);
+}
 
-.affiche {
+.nav-bouton-traits {
+  transform: translateY(-4px);
+}
+
+.nav-bouton-traits::before {
+  content: "";
+  transform: translateY(8px);
+}
+
+.nav-bouton[aria-expanded="true"] .nav-bouton-traits {
+  transform: rotate(45deg);
+}
+
+.nav-bouton[aria-expanded="true"] .nav-bouton-traits::before {
+  transform: rotate(-90deg);
+}
+
+/* ---------- Accueil : la table sous la canisse ---------- */
+
+.accueil {
   position: relative;
+  min-height: max(660px, calc(100svh - 38px));
+  margin-top: calc(-1 * var(--entete));
   overflow: hidden;
-  background: var(--outremer);
-  color: var(--chaux);
+  background: var(--ombre-fonce);
+  color: var(--sur-ombre);
+  isolation: isolate;
 }
 
-/* Le nom occupe toute la largeur de l'affiche, le soleil se lève derrière */
-.affiche h1 {
-  position: relative;
-  z-index: 2;
-  padding-top: clamp(32px, 5vw, 64px);
-  font-size: clamp(3.4rem, 10.2vw, 9.2rem);
-  letter-spacing: 0.01em;
-  line-height: 0.84;
-  white-space: nowrap;
-}
-
-.affiche h1 span {
-  color: var(--soleil);
-}
-
-.affiche-grille {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
-  align-items: start;
-  gap: 32px clamp(32px, 5vw, 72px);
-}
-
-.affiche-texte {
-  position: relative;
-  z-index: 2;
-  padding-top: clamp(28px, 3.5vw, 48px);
-}
-
-.affiche-sous-titre {
-  font-family: var(--affiche);
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.affiche-chapeau {
-  max-width: 30rem;
-  margin-top: 18px;
-  color: #dbe3f5;
-  font-size: 1.15rem;
-}
-
-.affiche-scene {
-  position: relative;
-  z-index: 1;
-  height: clamp(380px, 38vw, 520px);
-  margin-top: clamp(20px, 2.5vw, 36px);
-}
-
-.soleil {
+.accueil-photo {
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: min(86%, 500px);
-  aspect-ratio: 1;
-  margin-left: max(-43%, -250px);
-  border-radius: 50%;
-  background: var(--soleil);
+  inset: 0;
+  z-index: -2;
 }
 
-.vignette {
+/* Voile en haut de photo : l'en-tête reste lisible sur la nappe blanche */
+.accueil-photo::after {
+  content: "";
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  z-index: 1;
-  width: min(54%, 320px);
-  margin: 0 0 0 max(-27%, -160px);
+  inset: 0 0 auto;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(22, 28, 62, 0.62), rgba(22, 28, 62, 0));
 }
 
-.vignette img {
+.accueil-photo img {
   width: 100%;
-  aspect-ratio: 4 / 4.6;
-  border: 10px solid var(--chaux);
-  border-bottom: 0;
-  border-radius: 999px 999px 0 0;
+  height: 100%;
   object-fit: cover;
+  object-position: 62% 50%;
 }
 
-.vignette figcaption {
-  padding: 10px 14px;
-  background: var(--chaux);
-  color: var(--nuit);
-  font-family: var(--affiche);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-align: center;
+/* Le fond d'ombre du terrain, sous la canisse : là où se pose le texte, l'ombre est pleine */
+.accueil::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(24deg, rgba(31, 39, 82, 0.82) 0%, rgba(31, 39, 82, 0.6) 30%, rgba(31, 39, 82, 0) 56%);
+  pointer-events: none;
+}
+
+/* L'ombre : un grand pan incliné, plein de roseaux, qui couvre le bas et la gauche */
+.canisse-accueil {
+  z-index: -1;
+  top: -30%;
+  bottom: -30%;
+  left: -40%;
+  width: 120%;
+  transform: rotate(-30deg) translateX(var(--decalage, 0px));
+  transform-origin: 50% 50%;
+}
+
+.canisse-accueil > span {
+  -webkit-mask-image: linear-gradient(90deg, #000 0 60%, transparent 70%);
+  mask-image: linear-gradient(90deg, #000 0 60%, transparent 70%);
+}
+
+.accueil-contenu {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  align-items: end;
+  gap: 40px clamp(32px, 6vw, 96px);
+  min-height: inherit;
+  padding: calc(var(--entete) + 64px) var(--gouttiere) clamp(32px, 5vw, 64px);
+}
+
+.accueil-titre {
+  max-width: 40rem;
+  padding-bottom: 8px;
+}
+
+.accueil h1 {
+  font-size: clamp(3.6rem, 9vw, 6rem);
+  line-height: 0.96;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-/* La mer, bandes gravées, jusqu'à l'horizon franc de la bande blanche */
-.mer {
-  position: relative;
-  z-index: 2;
-  height: clamp(56px, 6vw, 84px);
-  background:
-    repeating-linear-gradient(180deg, transparent 0 12px, rgba(255, 255, 255, 0.18) 12px 14px),
-    var(--mer);
+.accueil h1 span {
+  display: block;
 }
 
-/* ---------- Bande de réservation, posée sur l'horizon ---------- */
-
-.bande-reserver {
-  padding-block: 26px 30px;
-  border-bottom: 6px solid var(--outremer);
-  background: var(--chaux);
-  color: var(--nuit);
+.accueil h1,
+.accueil-titre p {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
-.bande-reserver form {
-  display: grid;
-  grid-template-columns: auto repeat(3, minmax(0, 1fr)) auto;
-  align-items: end;
-  gap: 16px 24px;
+.accueil-titre p {
+  max-width: 30rem;
+  margin-top: 26px;
+  font-size: clamp(1.125rem, 1.5vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--sur-ombre);
 }
 
-.reserver-titre {
-  align-self: center;
-  max-width: 9ch;
-  font-size: 1.3rem;
-  letter-spacing: 0.1em;
+/* La plaque de réservation */
+.plaque {
+  padding: clamp(24px, 2.6vw, 34px);
+  background: var(--ombre);
+  color: var(--sur-ombre);
+  box-shadow: 0 30px 60px -30px rgba(10, 13, 30, 0.75);
+}
+
+.plaque h2 {
+  font-size: 1.7rem;
   line-height: 1.1;
 }
 
-.champ {
-  display: grid;
-  gap: 6px;
+.reservation {
+  margin-top: 20px;
 }
 
-.champ label {
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+.etape {
+  display: grid;
+  gap: 18px;
+}
+
+.etape[hidden] {
+  display: none;
+}
+
+.champ label,
+.service legend,
+.creneaux-groupe legend {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--sur-ombre-doux);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.service,
+.creneaux-groupe {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
 }
 
 .champ select {
   width: 100%;
-  min-height: 52px;
-  padding: 0 14px;
-  border: 2px solid var(--nuit);
+  min-height: 48px;
+  padding: 0 36px 0 0;
+  border: 0;
+  border-bottom: 1px solid var(--filet-ombre);
   border-radius: 0;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23e9b949' stroke-width='1.4'/%3E%3C/svg%3E") right 4px center / 14px 8px no-repeat;
+  font-size: 1.0625rem;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 220ms var(--sortie);
+}
+
+.champ select:hover,
+.champ select:focus-visible {
+  border-color: var(--ocre);
+}
+
+.champ select option {
   background: var(--chaux);
-  color: var(--nuit);
-  font: inherit;
+  color: var(--encre);
 }
 
-.champ select:focus {
-  border-color: var(--outremer);
-  outline: 3px solid var(--soleil);
-  outline-offset: 1px;
+.bascule {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--filet-ombre);
 }
 
-.bande-reserver .bouton {
-  min-height: 52px;
+.bascule input {
+  position: absolute;
+  opacity: 0;
 }
 
-.reserver-statut {
-  margin-top: 16px;
-  padding: 14px 20px;
-  background: var(--soleil);
-  color: var(--nuit);
-  font-weight: 700;
+.bascule label {
+  display: grid;
+  place-items: center;
+  min-height: 46px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 220ms var(--sortie), color 220ms var(--sortie);
 }
 
-.reserver-statut:focus {
-  outline: 3px solid var(--nuit);
+.bascule label:hover {
+  background: rgba(241, 240, 235, 0.08);
+}
+
+.bascule input:checked + label {
+  background: var(--sur-ombre);
+  color: var(--encre);
+}
+
+.bascule input:focus-visible + label {
+  outline: 2px solid var(--ocre);
   outline-offset: 2px;
 }
 
-.reserver-note {
-  margin-top: 12px;
-  color: var(--nuit-doux);
-  font-size: 0.9375rem;
+.pas {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  border: 1px solid var(--filet-ombre);
+}
+
+.pas button {
+  display: grid;
+  place-items: center;
+  min-height: 46px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: background-color 220ms var(--sortie);
+}
+
+.pas button:hover {
+  background: rgba(241, 240, 235, 0.08);
+}
+
+.pas button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pas svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pas input {
+  width: 100%;
+  border: 0;
+  border-inline: 1px solid var(--filet-ombre);
+  background: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.pas input::-webkit-inner-spin-button,
+.pas input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.reservation-envoi {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.creneaux {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.creneau input {
+  position: absolute;
+  opacity: 0;
+}
+
+.creneau label {
+  display: grid;
+  place-items: center;
+  min-height: 46px;
+  border: 1px solid var(--filet-ombre);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: background-color 200ms var(--sortie), color 200ms var(--sortie), border-color 200ms var(--sortie);
+}
+
+.creneau label:hover {
+  border-color: var(--ocre);
+}
+
+.creneau input:checked + label {
+  border-color: var(--ocre);
+  background: var(--ocre);
+  color: var(--encre);
+}
+
+.creneau input:focus-visible + label {
+  outline: 2px solid var(--ocre);
+  outline-offset: 2px;
+}
+
+.creneau input:disabled + label {
+  color: rgba(188, 193, 220, 0.55);
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.creneau input:disabled + label:hover {
+  border-color: var(--filet-ombre);
+}
+
+.creneaux-vide {
+  grid-column: 1 / -1;
+  color: var(--sur-ombre-doux);
+}
+
+.etape-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ticket {
+  gap: 10px;
+}
+
+.ticket-titre {
+  font-family: var(--titre);
+  font-size: 1.5rem;
+  line-height: 1.15;
+  color: var(--ocre);
+}
+
+.ticket-detail {
+  font-size: 1.0625rem;
+}
+
+.ticket-detail strong {
+  display: block;
+  font-weight: 600;
+}
+
+.ticket:focus {
+  outline: none;
+}
+
+.reservation-erreur {
+  margin-top: 14px;
+  padding-left: 14px;
+  border-left: 1px solid var(--ocre);
+  color: var(--sur-ombre);
+  font-size: 0.95rem;
+}
+
+.reservation-erreur[hidden] {
+  display: none;
+}
+
+.plaque-note[hidden] {
+  display: none;
+}
+
+.plaque-note {
+  margin-top: 18px;
+  color: var(--sur-ombre-doux);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* ---------- La maison ---------- */
+
+.maison {
+  padding-block: var(--section);
+}
+
+.maison-grille {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 48px clamp(20px, 2.4vw, 32px);
+  align-items: start;
+}
+
+.maison-phrase {
+  grid-column: 1 / 8;
+  font-size: clamp(2.2rem, 4.4vw, 3.9rem);
+  line-height: 1.08;
+}
+
+.maison-photo {
+  grid-column: 9 / 13;
+  grid-row: 1 / 3;
+  aspect-ratio: 4 / 5;
+  margin-top: clamp(0px, 6vw, 96px);
+}
+
+.maison-texte {
+  grid-column: 2 / 7;
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+  max-width: 34rem;
+  color: var(--encre-douce);
+  font-size: 1.125rem;
+}
+
+/* ---------- Le menu du marché ---------- */
+
+.menu {
+  position: relative;
+  background: var(--ombre);
+  color: var(--sur-ombre);
+}
+
+.menu-scene {
+  padding-block: var(--section);
+}
+
+.menu-grille {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: 56px clamp(40px, 6vw, 112px);
+  align-items: start;
+}
+
+.menu-tete {
+  grid-column: 1;
+}
+
+.menu-tete > p:not(.menu-prix) {
+  max-width: 30rem;
+  margin-top: 22px;
+  color: var(--sur-ombre-doux);
+  font-size: 1.125rem;
+}
+
+.menu-prix {
+  margin-top: 26px;
+  color: var(--sur-ombre-doux);
+}
+
+.menu-prix span {
+  margin-right: 6px;
+  color: var(--ocre);
+  font-family: var(--titre);
+  font-size: 2rem;
+  vertical-align: -2px;
+}
+
+.temps {
+  grid-column: 1;
+  counter-reset: temps;
+  border-top: 1px solid var(--filet-ombre);
+}
+
+.temps-item {
+  counter-increment: temps;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 4px 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--filet-ombre);
+  transition: opacity 400ms var(--sortie);
+}
+
+.temps-item::before {
+  content: counter(temps);
+  grid-row: 1 / 3;
+  font-family: var(--titre);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--ocre);
+}
+
+.temps-texte h3 {
+  font-family: var(--titre);
+  font-size: clamp(1.45rem, 2vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.temps-texte p {
+  margin-top: 6px;
+  color: var(--sur-ombre-doux);
+}
+
+.temps-photo {
+  grid-column: 2;
+  margin-top: 18px;
+  aspect-ratio: 4 / 5;
+  max-width: 340px;
+}
+
+.menu-fenetre {
+  display: none;
+}
+
+/* Grand écran : une seule fenêtre en arc, les plats s'y succèdent */
+@media (min-width: 1025px) {
+  .menu-grille {
+    grid-template-rows: auto 1fr;
+  }
+
+  .temps-photo {
+    display: none;
+  }
+
+  .menu-fenetre {
+    position: relative;
+    display: block;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+
+  .menu-cadre {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    max-height: calc(100svh - var(--entete) - 112px);
+    margin-left: auto;
+    background: var(--ombre-fonce);
+  }
+
+  .menu-cadre img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .menu-cadre img + img {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  .menu.anime .menu-scene {
+    padding-block: 48px;
+  }
+
+  .menu.anime .menu-grille {
+    min-height: calc(100svh - var(--entete) - 96px);
+    align-content: center;
+  }
+
+  .menu.anime .menu-tete > p:not(.menu-prix) {
+    margin-top: 14px;
+  }
+
+  .menu.anime .menu-prix {
+    margin-top: 14px;
+  }
+
+  .menu.anime .temps-item {
+    padding: 16px 0;
+  }
+
+  .menu.anime .temps-item:not(.actif) {
+    opacity: 0.52;
+  }
+
+  /* Seul le temps servi garde sa description : la scène tient dans l'écran */
+  .menu.anime .temps-texte {
+    display: grid;
+    grid-template-rows: auto 0fr;
+    transition: grid-template-rows 500ms var(--sortie);
+  }
+
+  .menu.anime .temps-texte p {
+    overflow: hidden;
+  }
+
+  .menu.anime .temps-item.actif .temps-texte {
+    grid-template-rows: auto 1fr;
+  }
+
+  .canisse-fenetre {
+    z-index: 1;
+    inset: -10% -60%;
+    transform: rotate(-30deg) translateX(var(--decalage, 0px));
+    /* Sur les assiettes, l'ombre reste légère : le plat se lit toujours */
+    opacity: 0.42;
+    -webkit-mask-image: linear-gradient(90deg, transparent 22%, #000 32% 50%, transparent 60%);
+    mask-image: linear-gradient(90deg, transparent 22%, #000 32% 50%, transparent 60%);
+  }
+}
+
+/* Écrans peu hauts : la scène épinglée se resserre pour tenir en entier */
+@media (min-width: 1025px) and (max-height: 820px) {
+  .menu.anime .menu-tete > p:not(.menu-prix) {
+    display: none;
+  }
+
+  .menu.anime h2 {
+    font-size: 2.7rem;
+  }
+
+  .menu.anime .temps-item {
+    padding: 10px 0;
+  }
+
+  .menu.anime .temps-item::before {
+    font-size: 2rem;
+  }
+
+  .menu.anime .temps-texte h3 {
+    font-size: 1.35rem;
+  }
 }
 
 /* ---------- La carte ---------- */
 
 .carte {
   padding-block: var(--section);
-  background: var(--soleil);
-  transition: background-color 450ms var(--sortie), color 450ms var(--sortie);
-}
-
-.carte[data-moment="diner"] {
-  background: var(--pin);
-  color: var(--chaux);
-}
-
-.carte[data-moment="douceurs"] {
-  background: var(--brique);
-  color: var(--chaux);
 }
 
 .carte-tete {
-  display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  display: flex;
+  flex-wrap: wrap;
   align-items: end;
-  gap: 24px clamp(32px, 5vw, 72px);
-  margin-bottom: clamp(36px, 5vw, 56px);
-}
-
-.carte-tete p {
-  max-width: 30rem;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+  justify-content: space-between;
+  gap: 24px 48px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--filet-fort);
 }
 
 .onglets {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 6px;
-  border-radius: 0;
-  background: rgba(16, 32, 61, 0.12);
-}
-
-.carte[data-moment="diner"] .onglets,
-.carte[data-moment="douceurs"] .onglets {
-  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  gap: clamp(24px, 4vw, 56px);
 }
 
 .onglets button {
-  min-height: 46px;
-  padding: 0 22px;
+  position: relative;
+  min-height: 56px;
+  padding: 0;
   border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: inherit;
-  font-family: var(--affiche);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  background: none;
+  color: rgba(28, 33, 64, 0.48);
+  font-family: var(--titre);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
   cursor: pointer;
-  transition: background-color 220ms var(--sortie), color 220ms var(--sortie);
+  transition: color 300ms var(--sortie);
+}
+
+.onglets button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -29px;
+  height: 3px;
+  background: var(--ocre);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 420ms var(--sortie);
+}
+
+.onglets button:hover {
+  color: var(--encre-douce);
 }
 
 .onglets button[aria-selected="true"] {
-  background: var(--nuit);
-  color: var(--chaux);
+  color: var(--encre);
 }
 
-.carte[data-moment="diner"] .onglets button[aria-selected="true"],
-.carte[data-moment="douceurs"] .onglets button[aria-selected="true"] {
-  background: var(--chaux);
-  color: var(--nuit);
-}
-
-.onglets button:focus-visible {
-  outline: 3px solid var(--nuit);
-  outline-offset: 2px;
-}
-
-.carte[data-moment="diner"] .onglets button:focus-visible,
-.carte[data-moment="douceurs"] .onglets button:focus-visible {
-  outline-color: var(--chaux);
+.onglets button[aria-selected="true"]::after {
+  transform: scaleX(1);
 }
 
 .panneau {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
-  align-items: start;
-  gap: 32px clamp(32px, 6vw, 96px);
+  padding-top: 32px;
 }
 
-.panneau[hidden] {
-  display: none;
+.panneau:focus-visible {
+  outline-offset: 8px;
+}
+
+.formule {
+  color: var(--encre-douce);
+}
+
+.formule strong {
+  color: var(--encre);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.groupes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px clamp(28px, 4vw, 64px);
+  margin-top: 40px;
+}
+
+.groupe h4 {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--filet-fort);
+  font-family: var(--titre);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .plats li {
-  padding-block: 18px;
-  border-bottom: 2px solid currentColor;
-}
-
-.plats li:first-child {
-  border-top: 2px solid currentColor;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--filet);
 }
 
 .plat-ligne {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.plat-ligne h3 {
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+.plat-ligne h5 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
-/* Points de conduite entre le plat et son prix */
-.plat-ligne::after {
-  content: "";
-  order: 1;
-  flex: 1;
-  min-width: 24px;
-  border-bottom: 2px dotted currentColor;
-  transform: translateY(-4px);
-}
-
-.plat-ligne .prix {
-  order: 2;
-  font-family: var(--affiche);
-  font-size: 1.3rem;
-  font-weight: 700;
+.prix {
+  flex: none;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
 .plats p {
-  max-width: 36rem;
-  margin-top: 6px;
+  margin-top: 4px;
+  color: var(--encre-douce);
+  font-size: 0.98rem;
+  line-height: 1.55;
 }
 
-.formule {
-  margin-bottom: 20px;
-  padding: 16px 22px;
-  border-radius: 0;
-  background: var(--nuit);
-  color: var(--chaux);
-}
-
-.formule strong {
-  font-family: var(--affiche);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.carte-visuel {
-  margin: 0;
-}
-
-.carte-visuel img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-position: center 70%;
-  border: 10px solid var(--chaux);
-  border-radius: 999px 999px 0 0;
-  object-fit: cover;
-}
-
-.carte-visuel figcaption {
-  margin-top: 12px;
-  font-family: var(--affiche);
-  font-size: 0.875rem;
+.vegetal {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 4px;
+  color: var(--volet);
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.vegetal::before {
+  content: "";
+  width: 9px;
+  height: 12px;
+  background: currentColor;
+  border-radius: 0 100% 0 100%;
+  transform: rotate(10deg);
+}
+
+.plats li[data-photo] h5 {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  transition: text-decoration-color 220ms var(--sortie);
+}
+
+.plats li[data-photo]:hover h5 {
+  text-decoration-color: var(--ocre);
+}
+
+.moitie-titre {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Grand écran : Midi et Soir côte à côte, deux moitiés franches séparées d'un filet */
+@media (min-width: 1025px) {
+  .carte.cote-a-cote .onglets {
+    display: none;
+  }
+
+  .carte.cote-a-cote .moities {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .carte.cote-a-cote .panneau {
+    padding-top: 40px;
+  }
+
+  .carte.cote-a-cote .panneau + .panneau {
+    padding-left: clamp(40px, 5vw, 80px);
+    border-left: 1px solid var(--filet-fort);
+  }
+
+  .carte.cote-a-cote .panneau:first-child {
+    padding-right: clamp(40px, 5vw, 80px);
+  }
+
+  .carte.cote-a-cote .moitie-titre {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    margin-bottom: 14px;
+    font-family: var(--titre);
+    font-size: clamp(2.2rem, 3.2vw, 2.9rem);
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .carte.cote-a-cote .formule {
+    min-height: 3.3em;
+  }
+
+  .carte.cote-a-cote .groupes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    margin-top: 28px;
+  }
 }
 
 .carte-note {
-  margin-top: 32px;
-  font-size: 0.9375rem;
+  margin-top: 36px;
+  color: var(--encre-douce);
+  font-size: 0.95rem;
 }
 
-/* ---------- Le lieu ---------- */
-
-.lieu {
-  padding-block: var(--section);
-  background: var(--pin-fonce);
-  color: var(--chaux);
+/* Aperçu de l'assiette qui suit la souris */
+.apercu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 200px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 999px 999px 0 0;
+  box-shadow: 0 24px 48px -20px rgba(24, 30, 62, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-9999px, 0, 0);
+  transition: opacity 240ms var(--sortie);
 }
 
-.lieu .wrap {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  align-items: end;
-  gap: 40px clamp(32px, 5vw, 72px);
+.apercu.visible {
+  opacity: 1;
 }
 
-.lieu-tete p {
-  margin-top: 28px;
-}
-
-.lieu-tete p {
-  max-width: 30rem;
-  color: #d6e6dc;
-  font-size: 1.1rem;
-}
-
-.lieu h2 span {
-  color: var(--soleil);
-}
-
-.tirage {
-  margin: 0;
-  padding: 14px 14px 18px;
-  background: var(--chaux);
-  color: var(--nuit);
-}
-
-.tirage img {
+.apercu img {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  height: 100%;
   object-fit: cover;
 }
 
-.tirage figcaption {
+/* ---------- Le lieu : les volets ---------- */
+
+.lieu {
+  padding-block: var(--section);
+  background: var(--chaux-ombre);
+}
+
+.lieu-grille {
+  display: grid;
+  gap: 48px;
+}
+
+.lieu-tete {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: end;
+  gap: 24px 48px;
+}
+
+.lieu-tete p {
+  max-width: 32rem;
+  color: var(--encre-douce);
+  font-size: 1.125rem;
+}
+
+/* D'après « Hover Expand Gallery » (21st.dev), porté en CSS/JS natif :
+   chaque espace est un volet à persiennes ; on l'ouvre et la photo apparaît. */
+.volets {
+  --rail: 76px;
+  --n: 4;
+  container-type: inline-size;
   display: flex;
-  flex-wrap: wrap;
+  height: clamp(420px, 42vw, 600px);
+  gap: 6px;
+}
+
+.volet {
+  position: relative;
+  flex: 0 0 var(--rail);
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(180deg, var(--volet) 0 11px, var(--volet-fonce) 11px 12px, var(--volet-clair) 12px 14px);
+  transition: flex-basis 720ms var(--volet-courbe);
+}
+
+.volet.ouvert {
+  flex-basis: calc(100% - (var(--n) - 1) * (var(--rail) + 6px));
+}
+
+.volet-bouton {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 1;
+  display: flex;
   justify-content: space-between;
-  gap: 4px 16px;
-  padding-top: 14px;
+  align-items: center;
+  gap: 24px;
+  width: var(--rail);
+  padding: 24px 0;
+  border: 0;
+  background: none;
+  color: var(--sur-ombre);
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  cursor: pointer;
 }
 
-.tirage strong {
-  font-family: var(--affiche);
-  letter-spacing: 0.1em;
+.volet-bouton:focus-visible {
+  outline: 2px solid var(--ocre);
+  outline-offset: -6px;
+}
+
+.volet-titre {
+  font-family: var(--titre);
+  font-size: 1.2rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.tirage figcaption span {
-  color: var(--nuit-doux);
+.volet-detail {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 300ms var(--sortie);
+}
+
+.volet.ouvert .volet-detail {
+  opacity: 1;
+}
+
+/* Grand écran : la précision s'écrit à l'horizontale, sur la photo ouverte */
+@media (min-width: 701px) {
+  .volet-detail {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+}
+
+.volet-legende {
+  position: absolute;
+  left: calc(var(--rail) + 20px);
+  bottom: 20px;
+  z-index: 1;
+  padding: 8px 14px;
+  background: var(--chaux);
+  color: var(--encre);
+  font-size: 0.95rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms var(--sortie), transform 300ms var(--sortie);
+}
+
+.volet.ouvert .volet-legende {
+  opacity: 1;
+  transform: none;
+  transition-delay: 380ms;
+}
+
+.volet.ouvert .volet-titre {
+  color: var(--ocre);
+}
+
+.volet img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--rail);
+  width: calc(100cqw - var(--n) * var(--rail) - (var(--n) - 1) * 6px);
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .volets {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .volet {
+    flex: none;
+    transition: none;
+  }
+
+  .volet-bouton {
+    position: static;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 12px;
+    width: 100%;
+    min-height: 60px;
+    padding: 18px 18px;
+    writing-mode: horizontal-tb;
+    transform: none;
+    text-align: left;
+  }
+
+  .volet-detail {
+    display: none;
+  }
+
+  .volet.ouvert .volet-detail {
+    display: block;
+  }
+
+  .volet-legende {
+    display: none;
+  }
+
+  .volet img {
+    position: static;
+    width: 100%;
+    height: 0;
+    transition: height 560ms var(--volet-courbe);
+  }
+
+  .volet.ouvert img {
+    height: 300px;
+  }
 }
 
 /* ---------- Infos pratiques ---------- */
 
 .infos {
-  padding-bottom: var(--section);
-  background: var(--chaux);
-}
-
-/* Le store de la terrasse, festonné */
-.store {
-  height: 56px;
-  background: repeating-linear-gradient(90deg, var(--brique) 0 44px, var(--chaux) 44px 88px);
-  -webkit-mask: radial-gradient(22px at 22px 100%, transparent 98%, #000) 0 0 / 44px 100%;
-  mask: radial-gradient(22px at 22px 100%, transparent 98%, #000) 0 0 / 44px 100%;
+  padding-block: var(--section);
 }
 
 .infos-grille {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  align-items: start;
-  gap: 48px clamp(32px, 6vw, 96px);
-  padding-top: clamp(56px, 7vw, 96px);
+  gap: 56px clamp(40px, 6vw, 112px);
 }
 
-.infos h2 {
-  color: var(--brique);
+.infos address {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  margin-top: 32px;
+  font-size: 1.25rem;
+  font-style: normal;
 }
 
-.adresse {
-  margin-top: 28px;
-  font-size: 1.15rem;
+.infos address strong {
+  font-family: var(--titre);
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
-.adresse strong {
-  display: block;
-  font-family: var(--affiche);
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.etiquette {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 4px 12px;
-  border-radius: 0;
-  background: var(--sable);
-  font-size: 0.875rem;
-  font-weight: 700;
+.infos address .etiquette {
+  margin-top: 8px;
 }
 
 .pratique {
   display: grid;
-  gap: 16px;
-  margin-top: 28px;
+  gap: 14px;
+  margin-top: 36px;
+  color: var(--encre-douce);
 }
 
 .pratique li {
   display: grid;
-  grid-template-columns: 28px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
 }
 
 .pratique svg {
-  width: 28px;
-  height: 28px;
-  color: var(--brique);
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  color: var(--ombre);
 }
 
 .horaires {
@@ -794,63 +1580,75 @@ ol {
 
 .horaires caption {
   margin-bottom: 14px;
-  font-family: var(--affiche);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-family: var(--titre);
+  font-size: 1.5rem;
   text-align: left;
-  text-transform: uppercase;
+}
+
+.horaires caption .etiquette {
+  margin-left: 10px;
+  font-family: var(--texte);
 }
 
 .horaires th,
 .horaires td {
-  padding: 14px 12px;
-  border-bottom: 1px solid #d9cfb8;
+  padding: 14px 12px 14px 0;
+  border-bottom: 1px solid var(--filet);
   text-align: left;
+  font-weight: 400;
 }
 
 .horaires thead th {
-  border-bottom: 2px solid var(--nuit);
-  font-size: 0.875rem;
-  letter-spacing: 0.08em;
+  border-bottom-color: var(--filet-fort);
+  color: var(--encre-douce);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
+.horaires tbody th {
+  font-weight: 600;
+}
+
 .horaires .ferme {
-  color: var(--nuit-doux);
+  color: var(--encre-douce);
 }
 
 .questions {
-  margin-top: 40px;
-  border-top: 2px solid var(--nuit);
+  margin-top: 48px;
+  border-top: 1px solid var(--filet-fort);
 }
 
 .questions details {
-  border-bottom: 1px solid #d9cfb8;
+  border-bottom: 1px solid var(--filet);
 }
 
 .questions summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
   min-height: 64px;
-  padding-block: 12px;
-  font-weight: 700;
-  cursor: pointer;
+  font-weight: 600;
   list-style: none;
+  cursor: pointer;
 }
 
 .questions summary::-webkit-details-marker {
   display: none;
 }
 
+.questions summary:hover {
+  color: var(--ombre-clair);
+}
+
 .questions summary svg {
   flex: none;
-  width: 22px;
-  height: 22px;
-  color: var(--brique);
-  transition: transform 320ms var(--sortie);
+  width: 20px;
+  height: 20px;
+  color: var(--ombre);
+  transition: transform 380ms var(--sortie);
 }
 
 .questions details[open] summary svg {
@@ -858,206 +1656,362 @@ ol {
 }
 
 .questions details p {
-  padding-bottom: 20px;
-  color: var(--nuit-doux);
+  max-width: 40rem;
+  padding-bottom: 22px;
+  color: var(--encre-douce);
 }
 
-/* ---------- Mot de Studio Web ---------- */
+/* ---------- À ce soir ---------- */
+
+.soir {
+  position: relative;
+  display: grid;
+  min-height: min(100svh, 1000px);
+  overflow: hidden;
+  background: var(--ombre-fonce);
+  color: var(--sur-ombre);
+  isolation: isolate;
+}
+
+.soir-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.soir-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 62%;
+}
+
+.soir-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24, 30, 62, 0.82) 0%, rgba(24, 30, 62, 0.45) 46%, rgba(24, 30, 62, 0.2) 100%);
+}
+
+.soir-contenu {
+  align-self: start;
+  padding-top: clamp(96px, 14vw, 180px);
+  padding-bottom: 96px;
+}
+
+.soir h2 {
+  font-size: clamp(3.4rem, 9vw, 6rem);
+  line-height: 1;
+}
+
+.soir p {
+  max-width: 30rem;
+  margin: 22px 0 32px;
+  font-size: 1.1875rem;
+}
+
+/* ---------- Message Studio Web ---------- */
 
 .pitch {
-  padding-block: clamp(64px, 8vw, 104px);
-  background: var(--nuit);
-  color: #cfd6e6;
+  padding-block: clamp(80px, 9vw, 128px);
 }
 
-.pitch .wrap {
+.pitch-grille {
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
   align-items: end;
-  gap: 32px clamp(32px, 5vw, 72px);
+  gap: 32px 64px;
 }
 
 .pitch h2 {
-  color: var(--chaux);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-}
-
-.pitch h2 span {
-  color: var(--soleil);
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
 }
 
 .pitch p {
-  max-width: 36rem;
+  max-width: 40rem;
   margin-top: 20px;
+  color: var(--encre-douce);
 }
 
 .pitch-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  justify-items: start;
   gap: 12px;
 }
 
 /* ---------- Pied de page ---------- */
 
 .pied {
-  padding-block: 36px;
-  border-top: 1px solid rgba(207, 214, 230, 0.2);
-  background: var(--nuit);
-  color: #cfd6e6;
+  padding: 32px 0 calc(32px + env(safe-area-inset-bottom));
+  background: var(--ombre-fonce);
+  color: var(--sur-ombre-doux);
   font-size: 0.9375rem;
 }
 
-.pied .wrap {
+.pied-ligne {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
-  gap: 16px 32px;
+  gap: 10px 32px;
 }
 
 .pied a {
-  color: var(--chaux);
-  font-weight: 700;
+  color: var(--sur-ombre);
+  text-underline-offset: 4px;
 }
 
-.pied a:hover {
-  color: var(--soleil);
-}
+/* ---------- Barre de réservation (mobile) ---------- */
 
-/* Barre de réservation collante, sur téléphone */
 .barre-reserver {
   display: none;
 }
 
-/* ---------- Tablette ---------- */
+/* ---------- Introduction : l'ombre glisse et découvre la table ---------- */
 
-@media (max-width: 1024px) {
-  .bande-reserver form {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+html.intro-attente .accueil h1,
+html.intro-attente .accueil-titre p,
+html.intro-attente .plaque {
+  visibility: hidden;
+  animation: secours-intro 0s 3.5s forwards;
+}
 
-  .reserver-titre,
-  .bande-reserver .bouton {
-    grid-column: 1 / -1;
-  }
-
-  .reserver-titre {
-    max-width: none;
-  }
-
-  .bande-reserver .bouton {
-    width: 100%;
-  }
-
-  .panneau,
-  .infos-grille,
-  .pitch .wrap {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .carte-visuel {
-    max-width: 360px;
+@keyframes secours-intro {
+  to {
+    visibility: visible;
   }
 }
 
-/* ---------- Mobile ---------- */
+.accueil h1 > div {
+  padding-block: 0.06em;
+  margin-block: -0.06em;
+}
 
-@media (max-width: 860px) {
-  .nav a:not(.bouton) {
-    display: none;
+.maison-phrase > div,
+.soir h2 > div {
+  padding-block: 0.08em;
+  margin-block: -0.08em;
+}
+
+/* ---------- Adaptations ---------- */
+
+@media (max-width: 1100px) {
+  .nav ul {
+    gap: 18px;
   }
 
-  .affiche-grille,
-  .carte-tete,
-  .lieu .wrap {
+  .nav a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-grille {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .affiche h1 {
-    white-space: normal;
+  .temps-item {
+    grid-template-columns: 52px minmax(0, 1fr);
   }
 
-  .affiche-sous-titre {
-    margin-top: 22px;
+  .temps-photo {
+    max-width: 420px;
   }
 
-  .affiche-texte {
-    padding-bottom: 0;
+  .groupes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-bouton {
+    display: block;
   }
 
-  .affiche-scene {
-    height: clamp(340px, 86vw, 440px);
-    margin-top: 12px;
+  .nav {
+    position: fixed;
+    inset: var(--entete) 0 auto;
+    padding: 12px var(--gouttiere) 28px;
+    background: var(--chaux);
+    color: var(--encre);
+    box-shadow: 0 1px 0 var(--filet), 0 24px 40px -24px rgba(24, 30, 62, 0.4);
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 260ms var(--sortie), transform 260ms var(--sortie), visibility 0s 260ms;
   }
 
+  .nav.ouverte {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 260ms var(--sortie), transform 260ms var(--sortie);
+  }
+
+  .nav ul {
+    display: grid;
+    gap: 0;
+  }
+
+  .nav li + li {
+    border-top: 1px solid var(--filet);
+  }
+
+  .nav a {
+    width: 100%;
+    min-height: 60px;
+    font-family: var(--titre);
+    font-size: 1.45rem;
+    font-weight: 400;
+  }
+
+  .nav a::after {
+    bottom: 12px;
+    right: auto;
+    width: 40px;
+    background: var(--ocre);
+  }
+
+  .entete-ligne {
+    gap: 12px;
+  }
+
+  .accueil-contenu {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: calc(var(--entete) + 30svh);
+  }
+
+  .plaque {
+    max-width: 520px;
+  }
+
+  .maison-phrase {
+    grid-column: 1 / -1;
+  }
+
+  .maison-photo {
+    grid-column: 1 / 8;
+    grid-row: auto;
+    margin-top: 0;
+  }
+
+  .maison-texte {
+    grid-column: 1 / -1;
+  }
+
+  .lieu-tete,
+  .infos-grille,
+  .pitch-grille {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --entete: 64px;
+  }
+
+  .entete-reserver {
+    display: none;
+  }
+
+  .marque {
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
+  }
+
+  .marque svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .accueil {
+    min-height: 0;
+  }
+
+  .accueil-photo {
+    bottom: auto;
+    height: 82svh;
+    min-height: 520px;
+  }
+
+  .canisse-accueil {
+    top: -10%;
+    bottom: auto;
+    left: -50%;
+    width: 200%;
+    height: calc(82svh + 40%);
+    min-height: 720px;
+    transform: rotate(-24deg) translateY(var(--decalage-y, 0px));
+  }
+
+  .accueil::before {
+    bottom: auto;
+    height: 82svh;
+    min-height: 520px;
+    background: linear-gradient(180deg, rgba(31, 39, 82, 0) 30%, rgba(31, 39, 82, 0.62) 58%, rgba(31, 39, 82, 0.86) 100%);
+  }
+
+  .canisse-accueil > span {
+    -webkit-mask-image: linear-gradient(180deg, transparent 34%, #000 50%);
+    mask-image: linear-gradient(180deg, transparent 34%, #000 50%);
+  }
+
+  .accueil-contenu {
+    padding: calc(var(--entete) + 36svh) 0 0;
+    gap: 36px;
+  }
+
+  .accueil-titre {
+    padding-inline: var(--gouttiere);
+  }
+
+  .plaque {
+    max-width: none;
+    padding: 28px var(--gouttiere) 32px;
+    box-shadow: none;
+  }
+
+  .maison-photo {
+    grid-column: 1 / 11;
+  }
+
+  .groupes {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .creneaux {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .soir-contenu {
+    padding-top: 88px;
+  }
 
   .barre-reserver {
     position: fixed;
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
-    z-index: 60;
-    display: flex;
-    transition: transform 300ms var(--sortie), opacity 300ms var(--sortie);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 35;
+    display: block;
+    padding: 10px var(--gouttiere) calc(10px + env(safe-area-inset-bottom));
+    background: rgba(241, 240, 235, 0.96);
+    box-shadow: 0 -1px 0 var(--filet);
+    transform: translateY(110%);
+    transition: transform 320ms var(--sortie);
+  }
+
+  .barre-reserver.visible {
+    transform: none;
   }
 
   .barre-reserver .bouton {
     width: 100%;
-    outline: 3px solid var(--chaux);
-  }
-
-  .barre-reserver.cachee {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(140%);
   }
 
   .pied {
-    padding-bottom: 96px;
-  }
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 1rem;
-  }
-
-  .entete .wrap {
-    min-height: 68px;
-  }
-
-  .marque span {
-    font-size: 1.05rem;
-  }
-
-  .nav .bouton {
-    padding-inline: 16px;
-    font-size: 0.875rem;
-  }
-
-  .bande-reserver form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .bande-reserver form .champ:first-of-type {
-    grid-column: 1 / -1;
-  }
-
-  .onglets {
-    display: flex;
-    width: 100%;
-  }
-
-  .onglets button {
-    flex: 1;
-    padding-inline: 8px;
-    font-size: 0.875rem;
-  }
-
-  .horaires th,
-  .horaires td {
-    padding-inline: 6px;
-    font-size: 0.95rem;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
   }
 }
 
@@ -1070,5 +2024,6 @@ ol {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

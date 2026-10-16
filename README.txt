@@ -24,14 +24,19 @@ confidentialite.html    Politique de confidentialité
 _headers                En-têtes de sécurité et de cache (Cloudflare Pages)
 robots.txt, sitemap.xml Référencement
 images/                 Images du site et des démos (dont les schémas SVG de la plomberie)
-fonts/                  Police Archivo de la démo plomberie, hébergée sur le site
-                        (licence SIL OFL : fonts/OFL-Archivo.txt)
+fonts/                  Toutes les polices du site, hébergées localement (aucun appel
+                        à Google Fonts) ; licences SIL OFL dans fonts/OFL-*.txt
 
 demo-plomberie.html, services.html, contact.html, plomberie.css, plomberie.js
                         Démo fictive « Dupont Plomberie » (menu mobile et
                         formulaire de démonstration qui n'envoie rien)
-demo-restaurant.html, restaurant.css, restaurant.js
-                        Démo fictive « Maison Olive » (une seule page)
+demo-restaurant.html, restaurant.css, restaurant.js, restaurant-intro.js
+                        Démo fictive « Maison Olive » (une seule page) :
+                        menu du marché, carte midi / soir et réservation de
+                        démonstration qui n'envoie rien. Photos Unsplash
+                        (licence Unsplash) étalonnées, images/olive-*.webp ;
+                        ombre de canisse et grain de chaux générés
+                        (images/canisse.png, images/chaux.webp)
 
 PRODUCT.md              Ce que fait le site, pour qui, et ce qu'il ne doit
                         jamais affirmer
@@ -84,9 +89,9 @@ PUBLIER
 
 À COMPLÉTER PAR L'ÉDITEUR
 -------------------------
-- Mentions légales : statut juridique, adresse, numéro SIREN ou SIRET
-  (champs « [À RENSEIGNER] »), puis retirer l'encadré d'avertissement.
-- Confidentialité : vérifier que la notice correspond aux services
-  réellement utilisés, puis retirer l'encadré d'avertissement.
+- Mentions légales : statut juridique, adresse et numéro SIRET
+  (les trois champs « [À RENSEIGNER] » de mentions-legales.html).
+- Confidentialité : mettre la notice à jour si un service est ajouté
+  (formulaire, mesure d'audience, cookies…), avec la date en bas de page.
 - Ces modèles ne remplacent pas un conseil juridique et ne réalisent
   aucune démarche administrative.
