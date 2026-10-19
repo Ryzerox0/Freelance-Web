@@ -1358,7 +1358,8 @@ select {
   font-size: 1.125rem;
 }
 
-/* D'après « Hover Expand Gallery » (21st.dev), porté en CSS/JS natif :
+/* D'après « Hover Expand Gallery » de Kedhareswer Naidu (21st.dev, licence MIT),
+   https://21st.dev/@kedhareswer/components/hover-expand-gallery — porté en CSS/JS natif :
    chaque espace est un volet à persiennes ; on l'ouvre et la photo apparaît. */
 .volets {
   --rail: 76px;

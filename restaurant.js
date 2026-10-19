@@ -444,7 +444,9 @@
     });
   }
 
-  // ---------- Le lieu : les volets (d'après « Hover Expand Gallery », 21st.dev) ----------
+  // ---------- Le lieu : les volets ----------
+  // D'après « Hover Expand Gallery » de Kedhareswer Naidu (21st.dev, licence MIT) :
+  // https://21st.dev/@kedhareswer/components/hover-expand-gallery
   const volets = Array.from(document.querySelectorAll("[data-volets] .volet"));
   const ouvrirVolet = (volet) => {
     volets.forEach((v) => {
