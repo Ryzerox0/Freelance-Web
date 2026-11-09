@@ -42,6 +42,7 @@ Un interlocuteur unique, du premier échange à la mise en ligne, qui explique s
 ## Evidence on Hand
 
 - Deux projets de démonstration fictifs, présentés explicitement comme tels : Dupont Plomberie et Maison Olive (visuels `images/plomberie.webp`, `images/restaurant.webp`).
+- Mosaïk, projet personnel réel et gratuit (galerie photo partagée par QR code), présenté en premier dans Réalisations par une capture fixe (`images/realisation-mosaik*.webp`), sans lien tant qu'il n'est pas en ligne avec ses textes légaux (décision D8 de l'espace juridique, 09/11/2026). Aucun client : ne pas le présenter comme une référence commerciale.
 - Portrait de Baptiste (`images/portrait.webp`).
 - Grille de tarifs indicatifs et FAQ dans `index.html`.
 - Compétences techniques confirmées par l'utilisateur (14/10/2026) : HTML, CSS, JavaScript, Git et GitHub. Rien d'autre ne doit être affiché.
